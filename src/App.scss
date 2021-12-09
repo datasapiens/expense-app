@@ -1,0 +1,106 @@
+@import url("https://fonts.googleapis.com/css2?family=Rubik:wght@300;700&display=swap");
+
+* {
+  font-family: "Rubik", sans-serif;
+}
+
+.page {
+  padding: 10px;
+}
+
+.title {
+  font-size: 28px;
+  font-weight: bold;
+  color: #fff;
+  margin-bottom: 30px;
+}
+
+.side-bar {
+  background: rgb(0, 132, 255);
+  width: 20%;
+  height: 90vh;
+  border-radius: 10px;
+  padding: 10px;
+}
+
+.section {
+  font-size: 20px;
+  font-weight: bold;
+  margin-block: 10px;
+  transition: all 0.3s ease-in-out;
+  border-radius: 5px;
+  padding: 5px;
+  cursor: pointer;
+}
+
+.section:hover {
+  background: rgb(0, 195, 255);
+  color: #fff;
+}
+
+.section-active {
+  background: rgb(0, 195, 255);
+  color: #fff;
+}
+
+.App {
+  display: flex;
+}
+
+.pages {
+  flex: 1;
+}
+
+.no-data {
+  color: red;
+  text-align: center;
+  font-weight: bold;
+  margin: 20px;
+}
+
+input,
+select {
+  padding: 10px 10px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+
+button {
+  background-color: black;
+  color: white;
+  padding: 10px 10px;
+  margin: 8px 0;
+  transition: all 0.3s ease-in-out;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: rgb(39, 39, 39);
+}
+
+form {
+  border-radius: 5px;
+  background-color: #f2f2f2;
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+}
+
+.flex {
+  display: flex;
+  justify-content: space-evenly;
+}
+
+.transactions {
+  flex: 2;
+  padding-inline: 10px;
+}
+
+.add {
+  flex: 1;
+}

@@ -1,0 +1,27 @@
+.table {
+  border-collapse: collapse;
+  width: 100%;
+}
+
+.tableHeight {
+  height: 300px;
+  overflow: auto;
+  overflow-x: hidden;
+}
+
+.td,
+.th {
+  border: 1px solid #dddddd;
+  text-align: left;
+  padding: 8px;
+}
+
+.tr:nth-child(even) {
+  background-color: #dddddd;
+}
+
+.data {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+}
