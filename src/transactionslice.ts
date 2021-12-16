@@ -3,8 +3,8 @@ import { createSlice, PayloadAction } from "@reduxjs/toolkit"
 interface TransactionState {
   id: number,
   label: string,
-  date: Date,
-  amount: number,
+  date: string,
+  amount: string,
   category: number
 }
 
