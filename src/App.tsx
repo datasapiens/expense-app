@@ -1,12 +1,13 @@
 import React, { useState } from 'react';
-import { useLocalStorage } from './useLocalStorage';
-import { RootState, store } from './store'
-import { Provider, useDispatch, useSelector } from 'react-redux'
+import { RootState } from './store'
+import { useDispatch, useSelector } from 'react-redux'
 import { Input, Form, Button, DatePicker, Select } from 'antd';
+import TransactionsTable from './table';
 import { addCategory } from './categoryslice';
 import { addTransaction } from './transactionslice';
+import { TransactionsChart } from './chart';
 const { Option } = Select;
-const dateFormat = 'YYYY/MM/DD';
+
 
 const App: React.FC = () => {
 
@@ -15,6 +16,8 @@ const App: React.FC = () => {
 
   const categories = useSelector((state: RootState) => state.category.category);
 
+  const transactions = useSelector((state: RootState) => state.transactions.transaction);
+
   const dispatch = useDispatch()
 
   const onFinish = (values: any) => {
@@ -22,8 +25,8 @@ const App: React.FC = () => {
   };
   const onFinishTransaction = (values: any) => {
     values['date'] = dat;
-    console.log(values)
-    // dispatch(addTransaction(values))
+    //console.log(values)
+    dispatch(addTransaction(values))
   };
   const onFinishFailed = (errorInfo: any) => {
     console.log('Failed:', errorInfo);
@@ -40,13 +43,23 @@ const App: React.FC = () => {
   return (
     <div className="App">
       <header className="App-header">
-        {categories.map((item, index) =>
+        {categories.map((item: any, index: number) =>
 
-          <p key={index}>
-            {item.label}
-          </p>
+          <p>{item.label}</p>
+          // <Row gutter={4}>
+          //   <Col className="gutter-row" span={6}>
+          //     <CategoryCard category={item} />
+          //   </Col>
+          // </Row>
         )}
       </header>
+
+      <div>
+        <TransactionsChart />
+      </div>
+      <div>
+        <TransactionsTable transactions={transactions} />
+      </div>
 
       <div>
         {/* Category Form */}
@@ -91,7 +104,7 @@ const App: React.FC = () => {
             name='date'
             rules={[{ required: true, message: 'Please input a date!' }]}
           >
-            <DatePicker onChange={(date, datestring)=> setFieldValue(datestring)} />
+            <DatePicker onChange={(date, datestring) => setFieldValue(datestring)} />
           </Form.Item>
           <Form.Item
             name='amount'
@@ -106,7 +119,7 @@ const App: React.FC = () => {
             <Select
               placeholder="Please select The Category"
             >
-              {categories.map((item) => {
+              {categories.map((item: any) => {
                 return <Option key={item.id} value={item.id}>
                   {item.label}
                 </Option>

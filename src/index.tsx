@@ -3,7 +3,15 @@ import ReactDOM from 'react-dom';
 import { Provider } from 'react-redux';
 import App from './App';
 import './App.css';
+import { debounce } from "debounce";
+import { saveState } from './localState';
 import { store } from './store';
+
+store.subscribe(
+  debounce(()=> {
+    saveState(store.getState());
+  })
+)
 
 ReactDOM.render(
   <Provider store={store}>
