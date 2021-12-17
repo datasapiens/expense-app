@@ -1,11 +1,12 @@
 import React, { useState } from 'react';
 import { RootState } from './store'
 import { useDispatch, useSelector } from 'react-redux'
-import { Input, Form, Button, DatePicker, Select } from 'antd';
+import { Input, Form, Button, DatePicker, Select, Row, Col } from 'antd';
 import TransactionsTable from './table';
 import { addCategory } from './categoryslice';
 import { addTransaction } from './transactionslice';
 import { TransactionsChart } from './chart';
+import CategoryCard from './card';
 const { Option } = Select;
 
 
@@ -43,15 +44,17 @@ const App: React.FC = () => {
   return (
     <div className="App">
       <header className="App-header">
-        {categories.map((item: any, index: number) =>
+        <Row gutter={4}>
+          {categories.map((item: any, index: number) =>
 
-          <p>{item.label}</p>
-          // <Row gutter={4}>
-          //   <Col className="gutter-row" span={6}>
-          //     <CategoryCard category={item} />
-          //   </Col>
-          // </Row>
-        )}
+            //  <p>{item.label}</p>
+
+            <Col className="gutter-row" span={6}>
+              <CategoryCard category={item} />
+            </Col>
+
+          )}
+        </Row>
       </header>
 
       <div>
