@@ -34,7 +34,7 @@ export const categorySlice = createSlice({
   name: "category",
   initialState,
   reducers: {
-    addCategory: (state, action: PayloadAction<string>)=>{
+    addCategory: (state, action: PayloadAction<string>) => {
       state.category = [
         ...state.category,
         {
@@ -42,10 +42,14 @@ export const categorySlice = createSlice({
           label: action.payload,
         }
       ]
+    },
+
+    removeCategory: (state, action: PayloadAction<number>) => {
+      state.category = state.category.filter(({ id }) => id !== action.payload);
     }
   }
 });
 
-export const {addCategory} = categorySlice.actions;
+export const { addCategory, removeCategory} = categorySlice.actions;
 
 export default categorySlice.reducer

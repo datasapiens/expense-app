@@ -14,6 +14,6 @@ export async function saveState(state: any) {
     const serializedState = JSON.stringify(state);
     localStorage.setItem(KEY, serializedState);
   } catch (e) {
-    // Ignore
+    console.log(e);
   }
 }
