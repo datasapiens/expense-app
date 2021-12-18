@@ -5,49 +5,40 @@ import TransactionsTable from './table';
 import { addCategory } from './categoryslice';
 import { addTransaction } from './transactionslice';
 import CategoryCard from './card';
-import {
-  BrowserRouter as Router,
-  Route,
-  Link,
-  Routes,
-  NavLink
-} from "react-router-dom";
-import Visualize from './visualize';
+
 import { useState } from 'react';
+import { Link } from 'react-router-dom';
 const { Option } = Select;
 
-const [dat, setDat] = useState('');
-// const [state, setState] = useLocalStorage('test', 1000);
+const Home: React.FC = () => {
+  const [dat, setDat] = useState('');
+  // const [state, setState] = useLocalStorage('test', 1000);
+  const categories = useSelector((state: RootState) => state.category.category);
+  const transactions = useSelector((state: RootState) => state.transactions.transaction);
 
-const categories = useSelector((state: RootState) => state.category.category);
+  const dispatch = useDispatch()
 
-const transactions = useSelector((state: RootState) => state.transactions.transaction);
+  const onFinish = (values: any) => {
+    dispatch(addCategory(values.label))
+  };
+  const onFinishTransaction = (values: any) => {
+    values['date'] = dat;
+    //console.log(values)
+    dispatch(addTransaction(values))
+  };
+  const onFinishFailed = (errorInfo: any) => {
+    console.log('Failed:', errorInfo);
+  };
 
-const dispatch = useDispatch()
+  const onFinishTransactionFailed = (errorInfo: any) => {
+    console.log('Failed:', errorInfo);
+  };
 
-const onFinish = (values: any) => {
-  dispatch(addCategory(values.label))
-};
-const onFinishTransaction = (values: any) => {
-  values['date'] = dat;
-  //console.log(values)
-  dispatch(addTransaction(values))
-};
-const onFinishFailed = (errorInfo: any) => {
-  console.log('Failed:', errorInfo);
-};
+  function setFieldValue(dateString: string): void {
+    setDat(dateString);
+  }
 
-const onFinishTransactionFailed = (errorInfo: any) => {
-  console.log('Failed:', errorInfo);
-};
-
-function setFieldValue(dateString: string): void {
-  setDat(dateString);
-}
-
-
-const Home: React.FC=()=> {
-  return(
+  return (
     <div className="App">
       <header className="App-header">
         <Row gutter={4}>
@@ -60,14 +51,11 @@ const Home: React.FC=()=> {
         </Row>
       </header>
       <div>
-        <NavLink
-          end
-          to='/visualize'
-        >
+        <Link to='/visualize'>
           <Button type="primary" htmlType="submit">
             Visualize
           </Button>
-        </NavLink>
+        </Link>
         <TransactionsTable transactions={transactions} />
       </div>
 
