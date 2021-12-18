@@ -14,7 +14,6 @@ import NewCategory from './components/categories/createCategory';
 
 const Home: React.FC = () => {
 
-  // const [state, setState] = useLocalStorage('test', 1000);
   const categories = useSelector((state: RootState) => state.category.category);
   const transactions = useSelector((state: RootState) => state.transactions.transaction);
 
