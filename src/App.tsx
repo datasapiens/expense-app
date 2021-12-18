@@ -6,11 +6,14 @@ import {
 } from "react-router-dom";
 import Home from './Home';
 import Visualize from './visualize';
+import '../src/styles/styles.css';
+import NavBar from './components/navBar';
 
 const App: React.FC = () => {
 
   return (
-    <div>
+    <div className='nav'>
+      <NavBar />
       <Router>
         <Routes>
           <Route path="/" element={<Home />} />

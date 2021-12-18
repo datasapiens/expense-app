@@ -1,0 +1,63 @@
+.App {
+  padding: 50px;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.title {
+  padding-left: 50px;
+  -ms-grid-column-align: center;
+      justify-self: center;
+}
+
+.legend {
+  padding: 20px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+.legend h3 {
+  margin-left: -60px;
+}
+
+.data-entry {
+  padding-top: 20px;
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: space-evenly;
+      -ms-flex-pack: space-evenly;
+          justify-content: space-evenly;
+}
+
+.data-entry h2 {
+  margin-left: 175px;
+}
+
+.category {
+  width: 100%;
+}
+
+.transaction {
+  width: 100%;
+}
+
+.chart {
+  padding: 50px;
+}
+
+.chart-area {
+  width: 75%;
+  margin-left: 250px;
+}
+
+.chart-button {
+  margin-left: 250px;
+}
+/*# sourceMappingURL=styles.css.map */
