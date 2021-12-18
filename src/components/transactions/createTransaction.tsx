@@ -2,7 +2,7 @@ import { Button, Col, DatePicker, Form, Input, Select } from "antd";
 import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { RootState } from "../../store";
-import { addTransaction } from "../../transactionslice";
+import { addTransaction } from "../../slices/transactionslice";
 const { Option } = Select;
 
 const NewTransaction: React.FC = () => {

@@ -1,6 +1,6 @@
 import { Button } from "antd";
 import { Link } from "react-router-dom";
-import { TransactionsChart } from "./components/chart";
+import { TransactionsChart } from "./components/chart/chart";
 
 const Visualize: React.FC<any> = (props): JSX.Element => {
   return (

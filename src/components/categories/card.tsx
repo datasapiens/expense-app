@@ -1,7 +1,7 @@
 import { Card } from "antd";
 import { CloseOutlined } from '@ant-design/icons';
 import { useDispatch } from "react-redux";
-import { removeCategory } from "../categoryslice";
+import { removeCategory } from "../../slices/categoryslice";
 
 const { Meta } = Card;
 

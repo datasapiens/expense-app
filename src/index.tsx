@@ -4,7 +4,7 @@ import { Provider } from 'react-redux';
 import App from './App';
 import './App.css';
 import { debounce } from "debounce";
-import { saveState } from './localState';
+import { saveState } from './storage/localState';
 import { store } from './store';
 
 store.subscribe(

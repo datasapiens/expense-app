@@ -1,6 +1,6 @@
 import { Button, Form, Input } from "antd"
 import { useDispatch, useSelector } from "react-redux";
-import { addCategory } from "../../categoryslice";
+import { addCategory } from "../../slices/categoryslice";
 
 const NewCategory: React.FC = () => {
 

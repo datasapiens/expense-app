@@ -2,9 +2,9 @@ import { RootState } from './store'
 import { useDispatch, useSelector } from 'react-redux'
 import { Input, Form, Button, DatePicker, Select, Row, Col } from 'antd';
 import TransactionsTable from './components/transactions/table';
-import { addCategory } from './categoryslice';
-import { addTransaction } from './transactionslice';
-import CategoryCard from './components/card';
+import { addCategory } from './slices/categoryslice';
+import { addTransaction } from './slices/transactionslice';
+import CategoryCard from './components/categories/card';
 
 import { useState } from 'react';
 import { Link } from 'react-router-dom';

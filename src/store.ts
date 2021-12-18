@@ -1,7 +1,7 @@
 import { configureStore } from '@reduxjs/toolkit'
-import categoryslice from './categoryslice'
-import transactionSlice from './transactionslice'
-import { loadState } from './localState';
+import categoryslice from './slices/categoryslice'
+import transactionSlice from './slices/transactionslice'
+import { loadState } from './storage/localState';
 
 export const store = configureStore({
   devTools: true,
