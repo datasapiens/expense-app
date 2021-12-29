@@ -1,0 +1,11 @@
+.container {
+    display: flex;
+    justify-content: space-around;
+
+    .chart {
+        width: 400px;
+        h2 {
+            padding-left: 155px;
+        }
+    }
+}
