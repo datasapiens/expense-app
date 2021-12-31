@@ -1,0 +1,20 @@
+html {
+  touch-action: manipulation;
+  -ms-touch-action: manipulation;
+}
+
+html, body, #root {
+  height: 100%;
+  min-height: 100%;
+  position: relative;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+main > * {
+  $mainInnerOffset: 15px;
+  padding-top: calc(#{$mainInnerOffset} + 60px);
+  @include media-breakpoint-down(lg) {
+    padding-top: calc(#{$mainInnerOffset} + 65px);
+  }
+}

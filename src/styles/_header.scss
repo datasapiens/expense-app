@@ -1,0 +1,17 @@
+.header-logo {
+  height: 32px;
+  width: 32px;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .header-logo {
+    animation: header-logo-bounce infinite 2s;
+  }
+}
+
+@keyframes header-logo-bounce {
+  0%, 20%, 50%, 80%, 100% {transform: translateY(0);}
+  40% {transform: translateY(-4px);}
+  60% {transform: translateY(-2px);}
+}
+
