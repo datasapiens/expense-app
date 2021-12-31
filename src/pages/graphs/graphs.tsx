@@ -1,7 +1,6 @@
 // outsource dependencies
 import React, { memo } from 'react';
 import { Card, CardBody, Col, Container, Row } from 'reactstrap';
-import { useControllerData, useControllerActions } from 'redux-saga-controller';
 
 // local dependencies
 import { GraphMostCommonExpensesChart } from './charts/graph-most-common-expenses-chart';
@@ -24,10 +23,18 @@ export const Graphs = memo(function Graphs () {
         </Card>
       </Col>
       <Col sm="12" md="4">
-        <GraphExpensesLineChart />
+        <Card>
+          <CardBody>
+            <GraphExpensesBarChart />
+          </CardBody>
+        </Card>
       </Col>
       <Col sm="12" md="4">
-        <GraphExpensesBarChart />
+        <Card>
+          <CardBody>
+            <GraphExpensesLineChart />
+          </CardBody>
+        </Card>
       </Col>
     </Row>
   </Container>);

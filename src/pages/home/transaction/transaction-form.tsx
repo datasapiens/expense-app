@@ -2,7 +2,7 @@
 import _ from 'lodash';
 import cn from 'classnames';
 import { Field } from 'redux-form';
-import React, { memo, useCallback, useMemo, useState } from 'react';
+import React, { memo, useCallback, useState } from 'react';
 import {
   Card,
   Button,

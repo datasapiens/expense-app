@@ -36,7 +36,7 @@ export const options: ChartOptions = {
     },
     title: {
       display: true,
-      text: 'Chart.js Line Chart',
+      text: 'Income/Outcome Chart',
     },
   },
 };
@@ -56,22 +56,8 @@ export const GraphExpensesLineChart = memo(function GraphExpensesChart () {
   const chartData = {
     labels: categoryLabels,
     datasets: [
-      /*
       {
-        label: 'Dataset 1',
-        data: labels.map(() => faker.datatype.number({ min: -1000, max: 1000 })),
-        borderColor: 'rgb(255, 99, 132)',
-        backgroundColor: 'rgba(255, 99, 132, 0.5)',
-      },
-      {
-        label: 'Dataset 2',
-        data: labels.map(() => faker.datatype.number({ min: -1000, max: 1000 })),
-        borderColor: 'rgb(53, 162, 235)',
-        backgroundColor: 'rgba(53, 162, 235, 0.5)',
-      },
-       */
-      {
-        label: '----',
+        label: 'Amount',
         data: dataSet,
         backgroundColor: 'rgba(179, 18, 104, 0.5)',
         borderColor: 'rgba(179, 18, 104, 1)'
