@@ -203,7 +203,7 @@ function* addCategorySaga({ type, payload }: ActionController<IAddCategoryPayloa
   if (isIdAlreadyExist) {
     newCategory = {
       ...newCategory,
-      id: payload.id || categories.length + 1
+      id: payload.id || categories.length + Date.now()
     }
   }
 

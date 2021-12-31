@@ -89,7 +89,8 @@ export const TransactionForm = memo(function TransactionForm () {
           ? formValues.amount / -1
           : Math.abs(formValues.amount) / -1
         : Math.abs(formValues.amount),
-      category: formValues.category.id
+      category: formValues.category.id,
+      date: Date.now(),
     }
 
     _.isFunction(addTransaction) && addTransaction(values)
