@@ -46,9 +46,10 @@ interface ActionController<Payload> extends Action {
 interface IExpenseInitialState {
   initialized: boolean;
   disabled: boolean;
-  categories: ICategory[],
-  transactions: ITransaction[],
-  archivedTransactions: IArchiveTransaction[]
+  categories: ICategory[];
+  catFormDisabled: boolean;
+  transactions: ITransaction[];
+  archivedTransactions: IArchiveTransaction[];
 }
 
 // You should add interface for actions its only one way to define payload annotation
@@ -86,6 +87,7 @@ export const controller: Controller<IExpenseControllerActions, IExpenseInitialSt
     categories: [],
     transactions: [],
     initialized: false,
+    catFormDisabled: false,
     archivedTransactions: []
   },
   subscriber: function* () {
@@ -187,15 +189,15 @@ function* getTransactionsSaga({ type, payload }: ActionController<IGetTransactio
     console.log(e)
     // error
   }
+  yield delay(1e3);
   // NOTE update any property of entire controller reducer
   yield put(controller.action.updateCtrl({ disabled: false }));
 }
 
 function* addCategorySaga({ type, payload }: ActionController<IAddCategoryPayload>) {
-  yield put(controller.action.updateCtrl({ disabled: true }));
+  yield put(controller.action.updateCtrl({ catFormDisabled: true }));
   const { categories }: IExpenseInitialState = yield select(controller.select);
 
-  // const remapped = CATEGORIES.map((item, index) => ({ ...item, id: index + 1}))
   const isIdAlreadyExist = _.some(categories, (category: ICategory) => _.isEqual(category.id, payload.id));
   let newCategory = {
     ...payload
@@ -206,17 +208,17 @@ function* addCategorySaga({ type, payload }: ActionController<IAddCategoryPayloa
       id: payload.id || categories.length + Date.now()
     }
   }
-
+  yield delay(1e3);
   yield call(ApiCategoriesStorage.set, [...categories, ...[newCategory]])
   yield put(controller.action.updateCtrl({
-    disabled: false,
+    catFormDisabled: false,
     categories: [...categories, ...[newCategory]]
   }))
   yield put(reset(EXPENSES_FORM_NAME.CREATE_CATEGORY));
 }
 
 function* removeCategorySaga({ type, payload }: ActionController<IRemoveCategoryPayload>) {
-  yield put(controller.action.updateCtrl({ disabled: true }));
+  yield put(controller.action.updateCtrl({ catFormDisabled: true }));
 
   const { categories, transactions, archivedTransactions }: IExpenseInitialState = yield select(controller.select);
 
@@ -232,13 +234,13 @@ function* removeCategorySaga({ type, payload }: ActionController<IRemoveCategory
       category: { ...deletedCategory } as ICategory
     }
   })
-
+  yield delay(1e3);
   yield call(ApiCategoriesStorage.set, [...newCategories])
   yield call(ApiTransactionsStorage.set, [...newTransactions])
   yield call(ApiArchivedTransactionsStorage.set, [...archivedTransactions, ...deprecatedTransactions])
 
   yield put(controller.action.updateCtrl({
-    disabled: false,
+    catFormDisabled: false,
     categories: [...newCategories],
     transactions: [...newTransactions],
     archivedTransactions: [...archivedTransactions, ...deprecatedTransactions]
@@ -253,7 +255,7 @@ function* addTransactionSaga({ type, payload }: ActionController<IAddTransaction
     ...transactions,
     ...[payload]
   ]
-
+  yield delay(1e3);
   yield call(ApiTransactionsStorage.set, [...newTransactions]);
 
   yield put(controller.action.updateCtrl({

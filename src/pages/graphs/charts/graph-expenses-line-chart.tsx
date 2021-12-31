@@ -41,7 +41,7 @@ export const options: ChartOptions = {
   },
 };
 
-export const GraphExpensesChart = memo(function GraphExpensesChart () {
+export const GraphExpensesLineChart = memo(function GraphExpensesChart () {
   const { categories, transactions } = useControllerData(controller);
 
   const categoryLabels = _.map(categories, (category: ICategory) => category.label);

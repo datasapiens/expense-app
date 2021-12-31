@@ -52,7 +52,7 @@ const renderField = ({
 </>)
 
 export const CategoryForm = memo(function CategoryForm () {
-  const { disabled, categories } = useControllerData(controller);
+  const { catFormDisabled, categories } = useControllerData(controller);
   const { addCategory } = useControllerActions(controller);
 
   const handleFormSubmit = useCallback((formValues) => {
@@ -77,17 +77,17 @@ export const CategoryForm = memo(function CategoryForm () {
         name="label"
         className="border-0 rounded-0"
         component={renderField}
-        disabled={disabled}
+        disabled={catFormDisabled}
         placeholder="Specify a new category name"
       />
       <Button
         type="submit"
         color="primary"
         className="rounded-0"
-        disabled={disabled}
+        disabled={catFormDisabled}
       >
         <span className="text-capitalize"> Add </span>
-        { disabled && <Spinner size="sm" /> }
+        { catFormDisabled && <Spinner size="sm" /> }
       </Button>
     </InputGroup>
   </ReduxForm>);
