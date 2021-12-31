@@ -75,11 +75,6 @@ export const TransactionForm = memo(function TransactionForm () {
 
   const [activeType, setActiveType] = useState(TRANSACTION_TYPE.INCOME)
 
-  const categoriesOptions = useMemo(
-    () => _.map(categories, cat => ({ id: cat.id, label: cat.label })),
-    [categories]
-  )
-
   const handleFormSubmit = useCallback((formValues) => {
     const values = {
       ...formValues,
@@ -163,7 +158,7 @@ export const TransactionForm = memo(function TransactionForm () {
               classNameFormGroup={'mb-0'}
               component={ReduxSelectInput}
               placeholder="Choose category"
-              optionsList={categoriesOptions}
+              optionsList={categories}
               format={(data: ICategory) => data && data.id ? data.id : ''}
               normalize={(id: number | string) => id ? _.find(categories || [], { id: Number(id) }) : undefined}
             />
