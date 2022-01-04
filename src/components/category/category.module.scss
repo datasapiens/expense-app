@@ -1,0 +1,10 @@
+.categoriesContainer, input {
+  max-width: 500px;
+}
+
+.categoriesContainer {
+  td:last-child, th:last-child {
+    display: flex;
+    justify-content: flex-end;
+  }
+}
