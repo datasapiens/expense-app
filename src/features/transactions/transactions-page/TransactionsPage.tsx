@@ -30,7 +30,7 @@ const TransactionsPage: FC = () => {
       fetchTransactions(dispatch);
       fetchCategoriesService(dispatch);
     }
-  });
+  }, []);
 
   return (
     <>

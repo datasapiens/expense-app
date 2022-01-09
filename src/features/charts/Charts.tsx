@@ -29,7 +29,7 @@ const Charts: FC = () => {
       fetchTransactions(dispatch);
       fetchCategoriesService(dispatch);
     }
-  });
+  }, []);
 
   return (
     <Container component="main" maxWidth="xl" sx={{ py: 2 }}>
