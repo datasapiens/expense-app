@@ -1,7 +1,6 @@
-import { AppDispatch } from '../../../app/store';
+import { AppDispatch } from '../../../../app/store';
 import { transactionsSlice } from '../transactionSlice';
-import { getLocalStorage } from '../../../app/utils/localStorage';
-import { CATEGORIES_KEY } from '../../categories/API/categories.service';
+import { getLocalStorage } from '../../../../app/utils/localStorage';
 
 export const TRANSACTIONS_KEY = 'transactions';
 

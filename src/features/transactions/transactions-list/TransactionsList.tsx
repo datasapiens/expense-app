@@ -1,13 +1,13 @@
 import React, { FC } from 'react';
-import { TransactionModel } from '../../app/models/transaction.model';
-import { CategoryModel } from '../../app/models/category.model';
+import { TransactionModel } from '../../../app/models/transaction.model';
+import { CategoryModel } from '../../../app/models/category.model';
 import { Paper, Table, TableBody, TableCell, TableContainer, TableHead, TableRow } from '@mui/material';
 
 const TransactionsList: FC<{
   transactions: TransactionModel[];
   categories: CategoryModel[];
 }> = ({ transactions, categories }) => {
-  const getCategory = (categoryId: number): CategoryModel | undefined => categories?.find(el => el.id === categoryId);
+  const getCategoryById = (categoryId: number): CategoryModel | undefined => categories?.find(el => el.id === categoryId);
 
   return (
     <TableContainer component={Paper}>
@@ -28,7 +28,7 @@ const TransactionsList: FC<{
               </TableCell>
               <TableCell align="right">{transaction.amount}</TableCell>
               <TableCell align="right">{transaction.date}</TableCell>
-              <TableCell align="right">{getCategory(transaction.categoryId)?.label}</TableCell>
+              <TableCell align="right">{getCategoryById(transaction.categoryId)?.label}</TableCell>
             </TableRow>
           ))}
         </TableBody>

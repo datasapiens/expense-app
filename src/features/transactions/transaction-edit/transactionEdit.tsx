@@ -1,7 +1,7 @@
 import React, { Dispatch, FC, FormEvent, SetStateAction, useState } from 'react';
-import { CategoryModel } from '../../app/models/category.model';
-import { TransactionModel } from '../../app/models/transaction.model';
-import { useAppDispatch } from '../../app/hooks/redux';
+import { CategoryModel } from '../../../app/models/category.model';
+import { TransactionModel } from '../../../app/models/transaction.model';
+import { useAppDispatch } from '../../../app/hooks/redux';
 import { addTransaction } from '../transactions-page/transactionSlice';
 import { Box, Button, FormControl, InputLabel, MenuItem, Select, TextField, Typography } from '@mui/material';
 

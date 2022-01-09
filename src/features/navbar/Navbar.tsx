@@ -1,34 +1,33 @@
-import React, { FC } from "react";
-import { NavLink } from "react-router-dom";
-import { AppBar, CssBaseline, Stack, Toolbar, Typography } from "@mui/material";
+import React, { FC } from 'react';
+import { NavLink } from 'react-router-dom';
+import { AppBar, Button, Stack, Toolbar, Typography } from '@mui/material';
+import classes from './Navbar.module.scss';
 
 const Navbar: FC = () => {
   return (
-    <>
-      <CssBaseline />
-      <AppBar position="relative">
-        <Toolbar>
-          <Typography variant="h6" color="inherit" noWrap sx={{ flexGrow: 1 }}>
-            Income/expence
-          </Typography>
-          <Stack direction="row" spacing={2}>
+    <AppBar position="relative">
+      <Toolbar>
+        <Typography variant="h6" color="inherit" noWrap sx={{ flexGrow: 1 }}>
+          Income/expense app
+        </Typography>
+        <Stack direction="row" spacing={2}>
+          <Button color="inherit" variant="contained" className={classes.button}>
             <NavLink to="/">Home</NavLink>
-            <NavLink
-              to="/transactions"
-              className={({ isActive }) => (isActive ? "active" : "inactive")}
-            >
+          </Button>
+
+          <Button color="inherit" variant="contained" className={classes.button}>
+            <NavLink to="/transactions" className={({ isActive }) => (isActive ? classes.active : 'inactive')}>
               Transactions
             </NavLink>
-            <NavLink
-              to="/charts"
-              className={({ isActive }) => (isActive ? "active" : "inactive")}
-            >
+          </Button>
+          <Button color="inherit" variant="contained" className={classes.button}>
+            <NavLink to="/charts" className={({ isActive }) => (isActive ? classes.active : 'inactive')}>
               Charts
             </NavLink>
-          </Stack>
-        </Toolbar>
-      </AppBar>
-    </>
+          </Button>
+        </Stack>
+      </Toolbar>
+    </AppBar>
   );
 };
 

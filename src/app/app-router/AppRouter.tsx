@@ -1,9 +1,10 @@
 import React, { FC } from 'react';
 import { Navigate, useRoutes } from 'react-router-dom';
-import { RouteNames } from '../../app/routes';
+import { RouteNames } from '../routes';
 import { RouteObject } from 'react-router';
-import TransactionsPage from '../transactions-page/TransactionsPage';
-import Charts from '../charts/Charts';
+
+const Charts = React.lazy(() => import('../../features/charts/Charts'));
+const TransactionsPage = React.lazy(() => import('../../features/transactions/transactions-page/TransactionsPage'));
 
 const AppRouter: FC = () => {
   const publicRoutes: RouteObject = {
@@ -15,11 +16,19 @@ const AppRouter: FC = () => {
       },
       {
         path: RouteNames.TRANSACTIONS,
-        element: <TransactionsPage />,
+        element: (
+          <React.Suspense fallback={<>...</>}>
+            <TransactionsPage />
+          </React.Suspense>
+        ),
       },
       {
         path: RouteNames.CHARTS,
-        element: <Charts />,
+        element: (
+          <React.Suspense fallback={<>...</>}>
+            <Charts />
+          </React.Suspense>
+        ),
       },
     ],
   };
