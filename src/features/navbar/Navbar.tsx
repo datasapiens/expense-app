@@ -5,7 +5,7 @@ import classes from './Navbar.module.scss';
 
 const Navbar: FC = () => {
   return (
-    <AppBar position="relative">
+    <AppBar position="sticky">
       <Toolbar>
         <Typography variant="h6" color="inherit" noWrap sx={{ flexGrow: 1 }}>
           Income/expense app

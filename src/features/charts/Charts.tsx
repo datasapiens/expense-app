@@ -6,7 +6,7 @@ import { selectCategories, selectCategoriesLoading } from '../categories/categor
 import { fetchTransactions } from '../transactions/transactions-page/API/transactions.service';
 import { fetchCategoriesService } from '../categories/API/categories.service';
 import { maxSumByCategory } from './chart.utils';
-import { CircularProgress, Stack } from '@mui/material';
+import { CircularProgress, Container, CssBaseline, Stack } from '@mui/material';
 
 const Charts: FC = () => {
   const transactions = useAppSelector(selectTransactions);
@@ -32,7 +32,7 @@ const Charts: FC = () => {
   });
 
   return (
-    <div>
+    <Container component="main" maxWidth="xl" sx={{ py: 2 }}>
       {transactionsLoading || categoriesLoading ? (
         <Stack alignItems="center">
           <CircularProgress />
@@ -40,7 +40,7 @@ const Charts: FC = () => {
       ) : (
         <Chart chartType="ColumnChart" data={chartData} width="100%" height="400px" legendToggle />
       )}
-    </div>
+    </Container>
   );
 };
 
