@@ -9,7 +9,7 @@ const TransactionEdit: FC<{ categories: CategoryModel[] }> = ({ categories }) =>
   const [transaction, setTransaction]: [TransactionModel, Dispatch<SetStateAction<TransactionModel>>] = useState({
     label: '',
     amount: '',
-    categoryId: 0,
+    categoryId: '',
   } as TransactionModel);
   const dispatch = useAppDispatch();
   const submit = async (e: FormEvent<unknown>) => {
@@ -18,7 +18,7 @@ const TransactionEdit: FC<{ categories: CategoryModel[] }> = ({ categories }) =>
     setTransaction({
       label: '',
       amount: '',
-      categoryId: 0,
+      categoryId: '',
     } as TransactionModel);
   };
 

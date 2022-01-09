@@ -28,7 +28,7 @@ const TransactionsList: FC<{
               </TableCell>
               <TableCell align="right">{transaction.amount}</TableCell>
               <TableCell align="right">{transaction.date}</TableCell>
-              <TableCell align="right">{getCategoryById(transaction.categoryId)?.label}</TableCell>
+              <TableCell align="right">{getCategoryById(+transaction.categoryId)?.label}</TableCell>
             </TableRow>
           ))}
         </TableBody>

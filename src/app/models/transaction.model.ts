@@ -3,5 +3,5 @@ export interface TransactionModel {
   label: string;
   date: string;
   amount: number | string;
-  categoryId: number;
+  categoryId: number | string;
 }
