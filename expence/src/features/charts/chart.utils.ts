@@ -40,6 +40,5 @@ export const maxSumByCategory = (transactions: TransactionModel[], categories: C
     result.push([key, dataObj[key].income, dataObj[key].expence]);
   });
 
-  console.log(result);
   return result;
 };

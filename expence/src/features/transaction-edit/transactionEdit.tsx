@@ -12,7 +12,7 @@ const TransactionEdit: FC<{ categories: CategoryModel[] }> = ({ categories }) =>
     categoryId: 0,
   } as TransactionModel);
   const dispatch = useAppDispatch();
-  const submit = async (e: FormEvent<any>) => {
+  const submit = async (e: FormEvent<unknown>) => {
     e.preventDefault();
     await dispatch(addTransaction(transaction));
     setTransaction({
@@ -41,7 +41,7 @@ const TransactionEdit: FC<{ categories: CategoryModel[] }> = ({ categories }) =>
             label="Label"
             name="label"
             value={transaction.label}
-            onChange={(e: any) => setTransaction({ ...transaction, label: e.target.value })}
+            onChange={e => setTransaction({ ...transaction, label: e.target.value })}
           />
         </FormControl>
         <FormControl fullWidth sx={{ mt: 2 }}>
@@ -53,7 +53,7 @@ const TransactionEdit: FC<{ categories: CategoryModel[] }> = ({ categories }) =>
             label="Amount"
             type="amount"
             value={transaction.amount}
-            onChange={(e: any) => setTransaction({ ...transaction, amount: e.target.value })}
+            onChange={e => setTransaction({ ...transaction, amount: e.target.value })}
           />
         </FormControl>
         <FormControl fullWidth sx={{ mt: 2 }} margin="normal">

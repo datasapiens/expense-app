@@ -1,4 +1,4 @@
-import React, { useEffect, useMemo, useState } from 'react';
+import React, { FC, useEffect, useMemo, useState } from 'react';
 import { Chart } from 'react-google-charts';
 import { useAppDispatch, useAppSelector } from '../../app/hooks/redux';
 import { selectTransactions } from '../transactions-page/transactionSlice';
@@ -7,7 +7,7 @@ import { fetchTransactions } from '../transactions-page/API/transactions.service
 import { fetchCategoriesService } from '../categories/API/categories.service';
 import { maxSumByCategory } from './chart.utils';
 
-const Charts = () => {
+const Charts: FC = () => {
   const transactions = useAppSelector(selectTransactions);
   const categories = useAppSelector(selectCategories);
   const dispatch = useAppDispatch();

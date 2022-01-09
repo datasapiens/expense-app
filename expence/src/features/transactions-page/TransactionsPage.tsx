@@ -1,20 +1,21 @@
 import React, { FC, useEffect } from 'react';
 import { useAppDispatch, useAppSelector } from '../../app/hooks/redux';
 
-import { selectTransactions } from './transactionSlice';
+import { selectTransactions, selectTransactionsLoading } from './transactionSlice';
 import TransactionEdit from '../transaction-edit/transactionEdit';
 import Categories from '../categories/Categories';
-import { selectCategories } from '../categories/categoriesSlice';
+import { selectCategories, selectCategoriesLoading } from '../categories/categoriesSlice';
 import TransactionsList from '../transactions-list/TransactionsList';
 import { fetchTransactions } from './API/transactions.service';
-import { Container, CssBaseline, Grid, Paper, styled } from '@mui/material';
+import { CircularProgress, Container, CssBaseline, Grid, Paper, Stack, styled } from '@mui/material';
 import { fetchCategoriesService } from '../categories/API/categories.service';
 
 const TransactionsPage: FC = () => {
   const transactions = useAppSelector(selectTransactions);
+  const transactionsLoading = useAppSelector(selectTransactionsLoading);
   const categories = useAppSelector(selectCategories);
+  const categoriesLoading = useAppSelector(selectCategoriesLoading);
   const dispatch = useAppDispatch();
-  console.log(categories);
 
   const Item = styled(Paper)(({ theme }) => ({
     ...theme.typography.body2,
@@ -24,8 +25,10 @@ const TransactionsPage: FC = () => {
   }));
 
   useEffect(() => {
-    fetchTransactions(dispatch);
-    fetchCategoriesService(dispatch);
+    if (!categories.length || !transactions.length) {
+      fetchTransactions(dispatch);
+      fetchCategoriesService(dispatch);
+    }
   }, []);
 
   return (
@@ -38,12 +41,18 @@ const TransactionsPage: FC = () => {
               <Item>{<TransactionEdit categories={categories} />}</Item>
             </Grid>
             <Grid item xs={6}>
-              <Item>{<Categories />}</Item>
+              <Item>{categoriesLoading ? <CircularProgress /> : <Categories />}</Item>
             </Grid>
           </Grid>
         </Container>
       </Container>
-      {<TransactionsList transactions={transactions} categories={categories} />}
+      {transactionsLoading ? (
+        <Stack alignItems="center">
+          <CircularProgress />
+        </Stack>
+      ) : (
+        <TransactionsList transactions={transactions} categories={categories} />
+      )}
     </>
   );
 };

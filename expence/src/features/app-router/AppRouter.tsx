@@ -1,16 +1,16 @@
-import React from "react";
-import { Navigate, useRoutes } from "react-router-dom";
-import { RouteNames } from "../../app/routes";
-import { RouteObject } from "react-router";
-import TransactionsPage from "../transactions-page/TransactionsPage";
-import Charts from "../charts/Charts";
+import React, { FC } from 'react';
+import { Navigate, useRoutes } from 'react-router-dom';
+import { RouteNames } from '../../app/routes';
+import { RouteObject } from 'react-router';
+import TransactionsPage from '../transactions-page/TransactionsPage';
+import Charts from '../charts/Charts';
 
-const AppRouter = () => {
+const AppRouter: FC = () => {
   const publicRoutes: RouteObject = {
-    path: "/",
+    path: '/',
     children: [
       {
-        path: "",
+        path: '',
         element: <Navigate to={RouteNames.TRANSACTIONS} />,
       },
       {

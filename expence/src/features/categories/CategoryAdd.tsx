@@ -1,20 +1,19 @@
-import React, { FormEvent, useState } from "react";
-import { Box, Button, TextField } from "@mui/material";
-import { Simulate } from "react-dom/test-utils";
-import { CategoryModel } from "../../app/models/category.model";
-import { useAppDispatch } from "../../app/hooks/redux";
-import { addCategory } from "./categoriesSlice";
+import React, { ChangeEvent, FC, FormEvent, useState } from 'react';
+import { Box, Button, TextField } from '@mui/material';
+import { CategoryModel } from '../../app/models/category.model';
+import { useAppDispatch } from '../../app/hooks/redux';
+import { addCategory } from './categoriesSlice';
 
-const CategoryAdd = () => {
+const CategoryAdd: FC = () => {
   const [category, setCategory] = useState({
-    label: "",
+    label: '',
   } as CategoryModel);
   const dispatch = useAppDispatch();
-  const submit = async (e: FormEvent<any>) => {
+  const submit = async (e: FormEvent<unknown>) => {
     e.preventDefault();
     await dispatch(addCategory(category));
     setCategory({
-      label: "",
+      label: '',
     } as CategoryModel);
   };
 
@@ -28,17 +27,14 @@ const CategoryAdd = () => {
         label="Label"
         name="label"
         value={category.label}
-        onChange={(e: any) =>
-          setCategory({ ...category, label: e.target.value })
+        onChange={(e: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) =>
+          setCategory({
+            ...category,
+            label: e.target.value,
+          })
         }
       />
-      <Button
-        type="submit"
-        fullWidth
-        variant="contained"
-        disabled={!category.label}
-        sx={{ mt: 3, mb: 2 }}
-      >
+      <Button type="submit" fullWidth variant="contained" disabled={!category.label} sx={{ mt: 3, mb: 2 }}>
         Add category
       </Button>
     </Box>

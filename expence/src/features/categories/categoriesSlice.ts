@@ -43,6 +43,7 @@ export const categoriesSlice = createSlice({
 });
 
 export const selectCategories = (state: RootState) => state.categories.categoriesList;
+export const selectCategoriesLoading = (state: RootState) => state.categories.loading;
 
 export const { addCategory, removeCategory, categoriesFetching, categoriesFetchingError, categoriesFetchingSuccess } =
   categoriesSlice.actions;

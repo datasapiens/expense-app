@@ -18,6 +18,7 @@ export const transactionsSlice = createSlice({
   initialState,
   reducers: {
     transactionsFetching: state => {
+      console.log('loading');
       state.loading = true;
     },
     transactionsFetchingSuccess: (state, action: PayloadAction<TransactionModel[]>) => {
