@@ -51,7 +51,7 @@ const TransactionsPage: FC = () => {
                   <CircularProgress />
                 ) : (
                   <React.Suspense fallback={<>...</>}>
-                    <Categories />
+                    <Categories categories={categories} />
                   </React.Suspense>
                 )}
               </Item>

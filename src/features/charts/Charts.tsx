@@ -26,8 +26,8 @@ const Charts: FC = () => {
 
   useEffect(() => {
     if (!categories.length || !transactions.length) {
-      dispatch(fetchTransactions);
-      dispatch(fetchCategories);
+      dispatch(fetchTransactions());
+      dispatch(fetchCategories());
     }
   }, []);
 

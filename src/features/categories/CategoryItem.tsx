@@ -7,7 +7,7 @@ import { removeCategory } from './categoriesSlice';
 const CategoryItem: FC<{ category: CategoryModel }> = ({ category }) => {
   const dispatch = useAppDispatch();
   return (
-    <ListItem disablePadding>
+    <ListItem>
       <ListItemText primary={category.label} />
       <Button onClick={() => dispatch(removeCategory(category))}>Delete</Button>
     </ListItem>

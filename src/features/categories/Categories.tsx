@@ -1,13 +1,10 @@
-import React from 'react';
-import { useAppSelector } from '../../app/hooks/redux';
-import { selectCategories } from './categoriesSlice';
+import React, { FC } from 'react';
 import CategoryItem from './CategoryItem';
 import CategoryAdd from './CategoryAdd';
 import { List, Typography } from '@mui/material';
+import { CategoryModel } from '../../app/models/category.model';
 
-const Categories = () => {
-  const categories = useAppSelector(selectCategories);
-
+const Categories: FC<{ categories: CategoryModel[] }> = ({ categories }) => {
   return (
     <div>
       <Typography component="h1" variant="h5">
