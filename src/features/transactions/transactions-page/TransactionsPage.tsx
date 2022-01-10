@@ -5,7 +5,7 @@ import { selectTransactions, selectTransactionsLoading } from './transactionSlic
 import { selectCategories, selectCategoriesLoading } from '../../categories/categoriesSlice';
 import { fetchTransactions } from './API/transactions.service';
 import { CircularProgress, Container, CssBaseline, Grid, Paper, Stack, styled } from '@mui/material';
-import { fetchCategoriesService } from '../../categories/API/categories.service';
+import { fetchCategories } from '../../categories/API/categories.service';
 
 const TransactionEdit = React.lazy(() => import('../transaction-edit/transactionEdit'));
 const Categories = React.lazy(() => import('../../categories/Categories'));
@@ -27,8 +27,8 @@ const TransactionsPage: FC = () => {
 
   useEffect(() => {
     if (!categories.length || !transactions.length) {
-      fetchTransactions(dispatch);
-      fetchCategoriesService(dispatch);
+      dispatch(fetchTransactions());
+      dispatch(fetchCategories());
     }
   }, []);
 

@@ -4,9 +4,9 @@ import { useAppDispatch, useAppSelector } from '../../app/hooks/redux';
 import { selectTransactions, selectTransactionsLoading } from '../transactions/transactions-page/transactionSlice';
 import { selectCategories, selectCategoriesLoading } from '../categories/categoriesSlice';
 import { fetchTransactions } from '../transactions/transactions-page/API/transactions.service';
-import { fetchCategoriesService } from '../categories/API/categories.service';
+import { fetchCategories } from '../categories/API/categories.service';
 import { maxSumByCategory } from './chart.utils';
-import { CircularProgress, Container, CssBaseline, Stack } from '@mui/material';
+import { CircularProgress, Container, Stack } from '@mui/material';
 
 const Charts: FC = () => {
   const transactions = useAppSelector(selectTransactions);
@@ -26,8 +26,8 @@ const Charts: FC = () => {
 
   useEffect(() => {
     if (!categories.length || !transactions.length) {
-      fetchTransactions(dispatch);
-      fetchCategoriesService(dispatch);
+      dispatch(fetchTransactions);
+      dispatch(fetchCategories);
     }
   }, []);
 

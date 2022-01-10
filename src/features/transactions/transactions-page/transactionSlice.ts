@@ -1,7 +1,7 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 import { RootState } from '../../../app/store';
 import { TransactionModel } from '../../../app/models/transaction.model';
-import { TRANSACTIONS_KEY } from './API/transactions.service';
+import { fetchTransactions, TRANSACTIONS_KEY } from './API/transactions.service';
 
 export interface TransactionState {
   transactionsList: TransactionModel[];
@@ -17,17 +17,6 @@ export const transactionsSlice = createSlice({
   name: 'transactions',
   initialState,
   reducers: {
-    transactionsFetching: state => {
-      state.loading = true;
-    },
-    transactionsFetchingSuccess: (state, action: PayloadAction<TransactionModel[]>) => {
-      state.loading = false;
-      state.transactionsList = action.payload;
-    },
-    transactionsFetchingError: (state, action: PayloadAction<TransactionModel[]>) => {
-      state.loading = false;
-      console.warn(action.payload);
-    },
     addTransaction: (state, action: PayloadAction<TransactionModel>) => {
       const date = new Date();
       const newTransaction: TransactionModel = {
@@ -41,11 +30,25 @@ export const transactionsSlice = createSlice({
       window.localStorage.setItem(TRANSACTIONS_KEY, JSON.stringify(state.transactionsList));
     },
   },
+  extraReducers: builder => {
+    builder
+      .addCase(fetchTransactions.pending, state => {
+        state.loading = true;
+      })
+      .addCase(fetchTransactions.rejected, (state, action: PayloadAction<unknown>) => {
+        state.loading = false;
+        console.warn(action.payload);
+      })
+      .addCase(fetchTransactions.fulfilled, (state, action: PayloadAction<TransactionModel[]>) => {
+        state.loading = false;
+        state.transactionsList = action.payload;
+      });
+  },
 });
 
 export const selectTransactions = (state: RootState) => state.transactions.transactionsList;
 export const selectTransactionsLoading = (state: RootState) => state.transactions.loading;
 
-export const { addTransaction, transactionsFetching, transactionsFetchingSuccess, transactionsFetchingError } = transactionsSlice.actions;
+export const { addTransaction } = transactionsSlice.actions;
 
 export default transactionsSlice.reducer;
