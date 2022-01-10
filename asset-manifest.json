@@ -1,0 +1,27 @@
+{
+  "files": {
+    "main.css": "/expence-app/static/css/main.7a4169b4.css",
+    "main.js": "/expence-app/static/js/main.1c636d52.js",
+    "static/js/976.3f726ed5.chunk.js": "/expence-app/static/js/976.3f726ed5.chunk.js",
+    "static/js/358.465d99ac.chunk.js": "/expence-app/static/js/358.465d99ac.chunk.js",
+    "static/js/421.9f902455.chunk.js": "/expence-app/static/js/421.9f902455.chunk.js",
+    "static/js/336.722c356e.chunk.js": "/expence-app/static/js/336.722c356e.chunk.js",
+    "static/js/108.873cbbaf.chunk.js": "/expence-app/static/js/108.873cbbaf.chunk.js",
+    "static/js/466.511db634.chunk.js": "/expence-app/static/js/466.511db634.chunk.js",
+    "static/js/5.00571102.chunk.js": "/expence-app/static/js/5.00571102.chunk.js",
+    "index.html": "/expence-app/index.html",
+    "main.7a4169b4.css.map": "/expence-app/static/css/main.7a4169b4.css.map",
+    "main.1c636d52.js.map": "/expence-app/static/js/main.1c636d52.js.map",
+    "976.3f726ed5.chunk.js.map": "/expence-app/static/js/976.3f726ed5.chunk.js.map",
+    "358.465d99ac.chunk.js.map": "/expence-app/static/js/358.465d99ac.chunk.js.map",
+    "421.9f902455.chunk.js.map": "/expence-app/static/js/421.9f902455.chunk.js.map",
+    "336.722c356e.chunk.js.map": "/expence-app/static/js/336.722c356e.chunk.js.map",
+    "108.873cbbaf.chunk.js.map": "/expence-app/static/js/108.873cbbaf.chunk.js.map",
+    "466.511db634.chunk.js.map": "/expence-app/static/js/466.511db634.chunk.js.map",
+    "5.00571102.chunk.js.map": "/expence-app/static/js/5.00571102.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.7a4169b4.css",
+    "static/js/main.1c636d52.js"
+  ]
+}
