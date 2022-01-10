@@ -74,7 +74,6 @@ const TransactionEdit: FC<{ categories: CategoryModel[] }> = ({ categories }) =>
           >
             {categories.map(category => (
               <MenuItem value={category.id} key={category.id}>
-                {' '}
                 {category.label}
               </MenuItem>
             ))}

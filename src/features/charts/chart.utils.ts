@@ -24,21 +24,17 @@ export const maxSumByCategory = (transactions: TransactionModel[], categories: C
         acc[categoryName].income += Number(val.amount);
       }
       if (+val.amount < 0) {
-        acc[categoryName].expence += Math.abs(Number(val.amount));
+        acc[categoryName].expense += Math.abs(Number(val.amount));
       }
     }
     if (!acc[categoryName]) {
       acc[categoryName] = {
         income: +val.amount >= 0 ? Number(val.amount) : 0,
-        expence: +val.amount < 0 ? Math.abs(Number(val.amount)) : 0,
+        expense: +val.amount < 0 ? Math.abs(Number(val.amount)) : 0,
       };
     }
     return acc;
   }, {});
 
-  Object.keys(dataObj).forEach(key => {
-    result.push([key, dataObj[key].income, dataObj[key].expence]);
-  });
-
-  return result;
+  return Object.keys(dataObj).reduce((acc: any[], key) => [...acc, [key, dataObj[key].income, dataObj[key].expense]], result);
 };
