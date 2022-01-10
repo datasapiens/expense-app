@@ -6,7 +6,7 @@ import { selectCategories, selectCategoriesLoading } from '../categories/categor
 import { fetchTransactions } from '../transactions/transactions-page/API/transactions.service';
 import { fetchCategories } from '../categories/API/categories.service';
 import { maxSumByCategory } from './chart.utils';
-import { CircularProgress, Container, Stack } from '@mui/material';
+import { CircularProgress, Container, Stack, Typography } from '@mui/material';
 
 const Charts: FC = () => {
   const transactions = useAppSelector(selectTransactions);
@@ -37,8 +37,12 @@ const Charts: FC = () => {
         <Stack alignItems="center">
           <CircularProgress />
         </Stack>
-      ) : (
+      ) : transactions.length ? (
         <Chart chartType="ColumnChart" data={chartData} width="100%" height="400px" legendToggle />
+      ) : (
+        <Typography component="h1" variant="h5">
+          No data for chart, please add transaction to see chart
+        </Typography>
       )}
     </Container>
   );
