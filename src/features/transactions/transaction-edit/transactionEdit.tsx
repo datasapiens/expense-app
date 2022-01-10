@@ -12,6 +12,7 @@ const TransactionEdit: FC<{ categories: CategoryModel[] }> = ({ categories }) =>
     categoryId: '',
   } as TransactionModel);
   const dispatch = useAppDispatch();
+
   const submit = async (e: FormEvent<unknown>) => {
     e.preventDefault();
     await dispatch(addTransaction(transaction));

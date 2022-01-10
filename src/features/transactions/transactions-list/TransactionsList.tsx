@@ -22,7 +22,7 @@ const TransactionsList: FC<{
         </TableHead>
         <TableBody>
           {transactions.map(transaction => (
-            <TableRow key={transaction.label} sx={{ '&:last-child td, &:last-child th': { border: 0 } }}>
+            <TableRow key={transaction.id} sx={{ '&:last-child td, &:last-child th': { border: 0 } }}>
               <TableCell component="th" scope="row">
                 {transaction.label}
               </TableCell>
