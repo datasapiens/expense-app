@@ -4,7 +4,7 @@ import { useAppDispatch, useAppSelector } from '../../../app/hooks/redux';
 import { selectTransactions, selectTransactionsLoading } from './transactionSlice';
 import { selectCategories, selectCategoriesLoading } from '../../categories/categoriesSlice';
 import { fetchTransactions } from './API/transactions.service';
-import { CircularProgress, Container, CssBaseline, Grid, Paper, Stack, styled } from '@mui/material';
+import { CircularProgress, Container, CssBaseline, Grid, Paper, Stack, styled, Typography } from '@mui/material';
 import { fetchCategories } from '../../categories/API/categories.service';
 
 const TransactionEdit = React.lazy(() => import('../transaction-edit/transactionEdit'));
@@ -63,10 +63,14 @@ const TransactionsPage: FC = () => {
         <Stack alignItems="center">
           <CircularProgress />
         </Stack>
-      ) : (
+      ) : transactions.length ? (
         <React.Suspense fallback={<>...</>}>
           <TransactionsList transactions={transactions} categories={categories} />
         </React.Suspense>
+      ) : (
+        <Typography component="h1" variant="h5" align="center">
+          No transactions yet
+        </Typography>
       )}
     </>
   );
