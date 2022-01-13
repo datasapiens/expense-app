@@ -56,11 +56,15 @@ const preCategories = [
 export const Expense = () => {
   const { register, handleSubmit, control, reset, resetField } =
     useForm<iFormValues>();
+
   const [transactions, setTransactions] = useState<iFormValues>(
-    JSON.parse(storageService.getItem("transactions") as string) || []
+    JSON.parse((storageService.getItem("transactions") || "[]") as string)
   );
   const [categories, setCategories] = useState<iCategories>(
-    JSON.parse(storageService.getItem("categories") as string) || preCategories
+    JSON.parse(
+      (storageService.getItem("categories") ||
+        JSON.stringify(preCategories)) as string
+    )
   );
 
   const onSubmit: SubmitHandler<iFormValues> = (data) => {

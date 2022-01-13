@@ -24,8 +24,10 @@ export const Category = (props: any) => {
   const { register, handleSubmit, reset } = useForm<iFormValues>();
 
   const deleteCat = (id: number) => {
-    let getItem = storageService.getItem("categories") || "[]";
-    let getItemArray = JSON.parse(getItem);
+    let getItemArray = JSON.parse(
+      (storageService.getItem("categories") ||
+        JSON.stringify(categories)) as string
+    );
     let itemIndex = getItemArray?.findIndex((x: { id: number }) => x.id === id);
     getItemArray.splice(itemIndex, 1);
     updateCategories(getItemArray);
