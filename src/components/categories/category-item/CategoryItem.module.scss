@@ -1,0 +1,25 @@
+.item {
+  padding: 0.5rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  border-bottom: 1px solid steelblue;
+  border-top: 1px solid steelblue;
+
+  button {
+    padding: 0.25rem;
+    font: inherit;
+    cursor: pointer;
+    color: slategrey;
+    border: 1px solid crimson;
+    border-radius: 4px;
+    font-weight: bold;
+
+    &:hover,
+    &:active {
+      color: white;
+      background-color: crimson;
+    }
+  }
+}

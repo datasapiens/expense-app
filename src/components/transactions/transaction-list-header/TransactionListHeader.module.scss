@@ -1,0 +1,20 @@
+.transactionListHeader {
+  padding: 0.5rem;
+  margin-top: 0.5rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: #3d50a7;
+  font-family: "Ubuntu";
+  font-weight: 500;
+
+  span {
+    flex: 1;
+    &:first-of-type {
+      flex: 1.5;
+    }
+    &:not(:first-of-type) {
+      text-align: center;
+    }
+  }
+}

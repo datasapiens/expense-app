@@ -1,0 +1,14 @@
+.categoryListHeader {
+  margin-top: 1rem;
+  padding: 0.5rem;
+  display: flex;
+  justify-content: space-between;
+  color: #3d50a7;
+  font-family: "Ubuntu";
+  font-weight: 500;
+  span {
+    &:last-of-type {
+      padding-right: 0.5rem;
+    }
+  }
+}
