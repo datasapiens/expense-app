@@ -8,6 +8,6 @@ export interface ITransaction {
 }
 
 export enum ExpenseType {
-  EXPENSE = "expense",
-  INCOME = "income",
+  EXPENSE = "Expense",
+  INCOME = "Income",
 }

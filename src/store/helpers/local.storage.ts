@@ -1,4 +1,4 @@
-import { ICategory } from "../../interfaces";
+import { ICategory, ITransaction } from "../../interfaces";
 import { storeConstants } from "./store.constants";
 import { initialCategories } from "./categories.mock.data";
 
@@ -9,6 +9,14 @@ export const getInitialLocalCategories = (): Array<ICategory> | [] => {
 
 export const storeCurrentCategoriesToLocalStorage = (categories: Array<ICategory>): void => {
   window.localStorage.setItem(storeConstants.CATEGORIES, JSON.stringify(categories));
+};
+
+export const getInitialLocalTransactions = (): Array<ICategory> | [] => {
+  return JSON.parse(window.localStorage.getItem(storeConstants.TRANSACTIONS) as string) || [];
+};
+
+export const storeTransactionsToLocalStorage = (transactions: Array<ITransaction>): void => {
+  window.localStorage.setItem(storeConstants.TRANSACTIONS, JSON.stringify(transactions));
 };
 
 const storeInitialCategories = (): void => {

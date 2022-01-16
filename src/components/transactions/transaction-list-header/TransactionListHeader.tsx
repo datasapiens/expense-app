@@ -1,7 +1,7 @@
 import React from "react";
 import styles from "./TransactionListHeader.module.scss";
 
-const transactionHeaderList: Array<string> = ["Transaction Name", "Date", "Category", "Amount"];
+const transactionHeaderList: Array<string> = ["Transaction Name", "Date", "Category", "Type", "Amount"];
 
 const TransactionListHeader: React.FC = () => {
   return (
