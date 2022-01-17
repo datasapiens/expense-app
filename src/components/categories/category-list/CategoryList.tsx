@@ -4,13 +4,10 @@ import NoContent from "../../no-content/NoContent";
 import CategoryItem from "../category-item/CategoryItem";
 import CategoryListHeader from "../category-list-header/CategoryListHeader";
 import styles from "./CategoryList.module.scss";
+import { useSelector } from "react-redux";
+import { getCategories } from "../../../store/reducers/categories/category.reducer";
 
-const categories: ICategory[] = [
-  { id: "1", label: "Test" },
-  { id: "2", label: "Food" },
-];
-
-const displayContent = () => {
+const displayContent = (categories: Array<ICategory>) => {
   let content;
   if (categories.length === 0) {
     content = <NoContent title="categories" />;
@@ -31,7 +28,8 @@ const displayContent = () => {
 };
 
 const CategoryList: React.FC = () => {
-  return <div>{displayContent()}</div>;
+  const categories = useSelector(getCategories);
+  return <div>{displayContent(categories)}</div>;
 };
 
 export default CategoryList;

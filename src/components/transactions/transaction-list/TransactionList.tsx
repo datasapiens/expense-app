@@ -4,14 +4,17 @@ import NoContent from "../../no-content/NoContent";
 import TransactionItem from "../transaction-item/TransactionItem";
 import TransactionListHeader from "../transaction-list-header/TransactionListHeader";
 import styles from "./TransactionList.module.scss";
-const transactions: ITransaction[] = [
-  { id: "1", label: "Get some potatoes", amount: -200, category: "Food", date: "10/23/2021" },
-  { id: "2", label: "Get some potatoes", amount: -200, category: "Test", date: "10/23/2021" },
-  { id: "3", label: "Get some potatoes", amount: -200, category: "Hardware", date: "10/23/2021" },
-  { id: "3", label: "Get some potatoes", amount: -200, category: "Hardware", date: "10/23/2021" },
-];
+import { useSelector } from "react-redux";
+import { getTransactions } from "../../../store";
 
-const displayContent = () => {
+// const transactions: Array<ITransaction> = [
+//   { id: "1", label: "Get some potatoes", amount: -200, category: "Food", date: new Date() },
+//   { id: "2", label: "Get some potatoes", amount: -200, category: "Test", date: new Date() },
+//   { id: "3", label: "Get some potatoes", amount: -200, category: "Hardware", date: new Date() },
+//   { id: "4", label: "Get some potatoes", amount: -200, category: "Hardware", date: new Date() },
+// ];
+
+const displayContent = (transactions: Array<ITransaction>) => {
   let content;
   if (transactions.length === 0) {
     content = <NoContent title="transactions" />;
@@ -33,7 +36,8 @@ const displayContent = () => {
 };
 
 const TransactionList: React.FC = () => {
-  return <div>{displayContent()}</div>;
+  const transactions = useSelector(getTransactions);
+  return <div>{displayContent(transactions)}</div>;
 };
 
 export default TransactionList;
