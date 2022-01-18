@@ -1,5 +1,5 @@
-import React, { FormEvent, useEffect, useState } from "react";
-import { ExpenseType, ICategory, ITransaction } from "../../../interfaces";
+import React, { FormEvent, useState } from "react";
+import { ExpenseType, ICategory } from "../../../interfaces";
 import formStyles from "../../styles/Form.module.scss";
 import { useSelector, useDispatch } from "react-redux";
 import { getCategories } from "../../../store/reducers/categories/category.reducer";
