@@ -21,11 +21,3 @@ function App() {
 }
 
 export default App;
-
-{
-  /* <ProtectedRoute path="/" exact component={Home} />
-          <ProtectedRoute path="/login" exact component={Login} />
-          <ProtectedRoute path="/not-found" exact component={NotFound} />
-          <ProtectedRoute path="/profile" exact component={UserProfile} />
-          <Redirect to="/not-found" from="*" component={NotFound} /> */
-}
