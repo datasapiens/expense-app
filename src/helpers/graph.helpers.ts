@@ -39,7 +39,7 @@ export const getCategoryChartData = (categories: Array<ICategory>, transactions:
     labels.push("Unknown");
     data.push(unknownCategoryTransaction.length);
   }
-  categories.map((category: ICategory) => {
+  categories.forEach((category: ICategory) => {
     const transactionsFound: number = transactions.filter(
       (transaction: ITransaction) => transaction.category === category.id
     ).length;
@@ -58,7 +58,7 @@ export const getCategoryChartData = (categories: Array<ICategory>, transactions:
 export const getTransactionChartData = (transactions: Array<ITransaction>): IChartInfo => {
   const labels: Array<string> = [];
   const data: Array<number> = [];
-  transactions.map((transaction: ITransaction) => {
+  transactions.forEach((transaction: ITransaction) => {
     labels.push(transaction.label!);
     data.push(Math.abs(transaction.amount!));
   });
@@ -73,7 +73,7 @@ export const getTransactionChartData = (transactions: Array<ITransaction>): ICha
 export const getExpenseTypeChartData = (transactions: Array<ITransaction>): IChartInfo => {
   const labels: Array<string> = [...Object.values(ExpenseType)];
   const data: Array<number> = [];
-  labels.map((label: string) => {
+  labels.forEach((label: string) => {
     const expenseTypeCount = transactions.filter((transaction: ITransaction) => transaction.type === label).length;
     data.push(expenseTypeCount);
   });

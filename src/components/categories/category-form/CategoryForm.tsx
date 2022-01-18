@@ -1,16 +1,14 @@
-import React, { FormEvent, useEffect, useState } from "react";
+import React, { FormEvent, useState } from "react";
 import { ICategory } from "../../../interfaces";
 import { addCategory } from "../../../store/reducers/categories/category.action-creators";
 import formStyles from "../../styles/Form.module.scss";
 import { useDispatch } from "react-redux";
 import { v4 as uuidv4 } from "uuid";
-import { setTimeout } from "timers/promises";
 
 const initialInputState: ICategory = { label: "" };
 
 const CategoryForm: React.FC = () => {
   const dispatch = useDispatch();
-  const [errorMessage, setErrorMessage] = useState<string>("");
 
   const [input, setInput] = useState<ICategory>(initialInputState);
 
