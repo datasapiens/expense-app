@@ -1,7 +1,7 @@
 import React from "react";
 import styles from "./Card.module.scss";
 interface IProps {
-  children?: JSX.Element;
+  children?: JSX.Element | Array<JSX.Element>;
 }
 
 const Card: React.FC<IProps> = ({ children }) => {

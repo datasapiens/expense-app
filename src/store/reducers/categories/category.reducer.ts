@@ -1,5 +1,9 @@
-import { ICategory } from "../../../interfaces";
-import { storeCurrentCategoriesToLocalStorage } from "../../helpers";
+import { ICategory, ITransaction } from "../../../interfaces";
+import {
+  getTransactionsFromLocalStorage,
+  storeCurrentCategoriesToLocalStorage,
+  storeTransactionsToLocalStorage,
+} from "../../helpers";
 import { storeConstants } from "../../helpers/store.constants";
 import { ICategoryActionType } from "./category.action-types";
 import { IState } from "../types/state.types";
@@ -14,6 +18,21 @@ const categoryReducer = (state: IState[storeConstants.CATEGORIES] = [], action: 
     }
     case CategoryActionTypeConstants.DELETE_CATEGORY: {
       const newCategories = state.filter((item: ICategory) => item.id !== action.payload.id);
+
+      const transactions: Array<ITransaction> = getTransactionsFromLocalStorage();
+      const catTransaction: ITransaction | undefined = transactions.find(
+        (transaction) => transaction.category === action.payload.id
+      );
+
+      if (catTransaction) {
+        const newTransactions: Array<ITransaction> = transactions.map((transaction: ITransaction) => {
+          if (transaction.id === catTransaction.id) {
+            transaction.category = undefined;
+          }
+          return transaction;
+        });
+        storeTransactionsToLocalStorage(newTransactions);
+      }
       storeCurrentCategoriesToLocalStorage(newCategories);
       return newCategories;
     }

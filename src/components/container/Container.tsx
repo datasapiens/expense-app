@@ -2,7 +2,7 @@ import React from "react";
 import styles from "./Container.module.scss";
 
 interface IProps {
-  children: JSX.Element;
+  children: JSX.Element | Array<JSX.Element>;
 }
 
 const Container: React.FC<IProps> = ({ children }) => {
