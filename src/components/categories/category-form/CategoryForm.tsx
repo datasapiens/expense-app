@@ -13,6 +13,7 @@ const CategoryForm: React.FC = () => {
   const [errorMessage, setErrorMessage] = useState<string>("");
 
   const [input, setInput] = useState<ICategory>(initialInputState);
+
   const handleInputChange = (event: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>) => {
     const { name, value } = event.currentTarget;
     setInput((prevInput) => {
@@ -33,6 +34,7 @@ const CategoryForm: React.FC = () => {
       id: uuidv4(),
       label: input.label,
     };
+    setInput(initialInputState);
     dispatch(addCategory(newCategory));
   };
 
@@ -43,7 +45,14 @@ const CategoryForm: React.FC = () => {
         <label htmlFor="label">
           Category Name<span className="asterisk">*</span>
         </label>
-        <input type="text" placeholder="Category name" name="label" id="label" onChange={handleInputChange} />
+        <input
+          type="text"
+          placeholder="Category name"
+          value={input.label}
+          name="label"
+          id="label"
+          onChange={handleInputChange}
+        />
       </div>
       <div className={formStyles.actions}>
         <button>Add Category</button>

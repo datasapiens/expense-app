@@ -3,5 +3,5 @@ import { TransactionActionTypeConstants } from "./transaction.constants";
 
 export interface ITransactionActionType {
   type: TransactionActionTypeConstants;
-  payload: ITransaction;
+  payload: ITransaction | string;
 }

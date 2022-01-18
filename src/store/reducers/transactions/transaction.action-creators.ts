@@ -11,3 +11,12 @@ export const addTransaction = (transaction: ITransaction) => {
     });
   };
 };
+
+export const updateTransaction = (id: string) => {
+  return (dispatch: Dispatch<ITransactionActionType>) => {
+    dispatch({
+      type: TransactionActionTypeConstants.UPDATE_TRANSACTION,
+      payload: id,
+    });
+  };
+};

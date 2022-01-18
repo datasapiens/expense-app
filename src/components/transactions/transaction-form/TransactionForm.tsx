@@ -1,4 +1,4 @@
-import React, { FormEvent, useState } from "react";
+import React, { FormEvent, useEffect, useState } from "react";
 import { ExpenseType, ICategory, ITransaction } from "../../../interfaces";
 import formStyles from "../../styles/Form.module.scss";
 import { useSelector, useDispatch } from "react-redux";
@@ -43,6 +43,11 @@ const TransactionForm: React.FC = () => {
     input.id = uuidv4();
     input.type = amount! > 0 ? ExpenseType.INCOME : ExpenseType.EXPENSE;
     dispatch(addTransaction(input));
+    refreshPage();
+  };
+
+  const refreshPage = () => {
+    window.location.reload();
   };
 
   return (
@@ -110,4 +115,4 @@ const TransactionForm: React.FC = () => {
   );
 };
 
-export default TransactionForm;
+export default React.memo(TransactionForm);
