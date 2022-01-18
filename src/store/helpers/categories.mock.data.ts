@@ -1,5 +1,4 @@
 import { ICategory } from "../../interfaces";
-import { v4 as uuidv4 } from "uuid";
 
 export const initialCategories: Array<ICategory> = [
   { id: "959adac5-0f75-4556-b6eb-16b262407f01", label: "Groceries" },
