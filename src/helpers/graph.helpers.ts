@@ -31,7 +31,8 @@ const generateRGBACOlors = (): string => {
 export const getCategoryChartData = (categories: Array<ICategory>, transactions: Array<ITransaction>): IChartInfo => {
   const labels: Array<string> = [];
   const data: Array<number> = [];
-
+  console.log(transactions);
+  console.log(categories);
   if (transactions.length === 0) return { labels: [], data: [], colors: [] };
 
   const unknownCategoryTransaction = transactions.filter((transaction) => !transaction.category);
@@ -43,7 +44,6 @@ export const getCategoryChartData = (categories: Array<ICategory>, transactions:
     const transactionsFound: number = transactions.filter(
       (transaction: ITransaction) => transaction.category === category.id
     ).length;
-
     labels.push(category.label!);
     data.push(transactionsFound);
   });

@@ -14,7 +14,6 @@ const categoryReducer = (state: IState[storeConstants.CATEGORIES] = [], action: 
     }
     case CategoryActionTypeConstants.DELETE_CATEGORY: {
       const newCategories = state.filter((item: ICategory) => item.id !== action.payload.id);
-
       storeCurrentCategoriesToLocalStorage(newCategories);
       return newCategories;
     }

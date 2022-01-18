@@ -1,4 +1,4 @@
-import React, { FormEvent, useState } from "react";
+import React, { FormEvent, useState, useRef } from "react";
 import { ICategory } from "../../../interfaces";
 import { addCategory } from "../../../store/reducers/categories/category.action-creators";
 import formStyles from "../../styles/Form.module.scss";
@@ -9,6 +9,7 @@ const initialInputState: ICategory = { label: "" };
 
 const CategoryForm: React.FC = () => {
   const dispatch = useDispatch();
+  const formRef = useRef<HTMLFormElement>(null);
 
   const [input, setInput] = useState<ICategory>(initialInputState);
 
@@ -32,12 +33,20 @@ const CategoryForm: React.FC = () => {
       id: uuidv4(),
       label: input.label,
     };
-    setInput(initialInputState);
+    // setInput(initialInputState);
     dispatch(addCategory(newCategory));
+    event.currentTarget.reset();
+    clearForm();
+  };
+
+  const clearForm = () => {
+    if (null !== formRef.current) {
+      formRef.current?.reset();
+    }
   };
 
   return (
-    <form className={formStyles.form} onSubmit={handleSubmit}>
+    <form className={formStyles.form} onSubmit={handleSubmit} ref={formRef} id="form">
       <h1 className={formStyles.title}>Add Category</h1>
       <div className={formStyles.control}>
         <label htmlFor="label">

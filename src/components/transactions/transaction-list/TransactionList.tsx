@@ -7,13 +7,6 @@ import styles from "./TransactionList.module.scss";
 import { useSelector } from "react-redux";
 import { getTransactions } from "../../../store";
 
-// const transactions: Array<ITransaction> = [
-//   { id: "1", label: "Get some potatoes", amount: -200, category: "Food", date: new Date() },
-//   { id: "2", label: "Get some potatoes", amount: -200, category: "Test", date: new Date() },
-//   { id: "3", label: "Get some potatoes", amount: -200, category: "Hardware", date: new Date() },
-//   { id: "4", label: "Get some potatoes", amount: -200, category: "Hardware", date: new Date() },
-// ];
-
 const displayContent = (transactions: Array<ITransaction>) => {
   let content;
   if (transactions.length === 0) {

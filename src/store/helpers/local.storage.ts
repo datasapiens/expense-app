@@ -24,5 +24,9 @@ export const getTransactionsFromLocalStorage = (): Array<ITransaction> => {
 };
 
 const storeInitialCategories = (): void => {
-  window.localStorage.setItem(storeConstants.CATEGORIES, JSON.stringify(initialCategories));
+  const localCategories: Array<ICategory> =
+    JSON.parse(window.localStorage.getItem(storeConstants.CATEGORIES) as string) || [];
+  if (localCategories.length === 0) {
+    window.localStorage.setItem(storeConstants.CATEGORIES, JSON.stringify(initialCategories));
+  }
 };
