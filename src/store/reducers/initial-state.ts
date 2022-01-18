@@ -1,4 +1,4 @@
-import { ExpenseType, ICategory, ITransaction } from "../../interfaces";
+import { ICategory, ITransaction } from "../../interfaces";
 import { getInitialLocalCategories, getInitialLocalTransactions } from "../helpers";
 import { IState } from "./types/state.types";
 

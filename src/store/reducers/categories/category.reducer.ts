@@ -1,9 +1,5 @@
-import { ICategory, ITransaction } from "../../../interfaces";
-import {
-  getTransactionsFromLocalStorage,
-  storeCurrentCategoriesToLocalStorage,
-  storeTransactionsToLocalStorage,
-} from "../../helpers";
+import { ICategory } from "../../../interfaces";
+import { storeCurrentCategoriesToLocalStorage } from "../../helpers";
 import { storeConstants } from "../../helpers/store.constants";
 import { ICategoryActionType } from "./category.action-types";
 import { IState } from "../types/state.types";
