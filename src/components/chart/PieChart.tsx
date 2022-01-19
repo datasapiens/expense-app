@@ -4,6 +4,7 @@ import { Pie } from "react-chartjs-2";
 import Card from "../card/Card";
 import { IChartInfo, IPieChartData } from "../../helpers/graph.helpers";
 import styles from "./PieChart.module.scss";
+import NoContent from "../no-content/NoContent";
 
 ChartJS.register(ArcElement, Tooltip, Legend);
 
@@ -28,7 +29,7 @@ const BarChart: React.FC<IProps> = ({ chartData, title }) => {
   return (
     <Card>
       <h1 className={styles.chartHeader}>{title}</h1>
-      <Pie data={data} />
+      {chartData?.data.length !== 0 ? <Pie data={data} /> : <NoContent title="Data" />}
     </Card>
   );
 };

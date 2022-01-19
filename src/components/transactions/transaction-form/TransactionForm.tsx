@@ -18,7 +18,7 @@ const TransactionForm: React.FC = () => {
 
   const handleSubmit = (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
-    if (!amount) {
+    if (!amount || Number(amount) === 0) {
       alert("Transaction amount cannot be 0 or empty");
       return;
     }

@@ -25,21 +25,17 @@ const Graph: React.FC = () => {
     <Container>
       <h1 className={styles.graphsHeader}>Graphs</h1>
       <div className={styles.graphList}>
-        {categoryChartData.data.length !== 0 && (
-          <div className={styles.graphItem}>
-            <BarChart title="Transaction Categories" chartData={categoryChartData} />
-          </div>
-        )}
-        {transactionChartData.data.length !== 0 && (
-          <div className={styles.graphItem}>
-            <BarChart title="Transactions" chartData={transactionChartData} />
-          </div>
-        )}
-        {transactionChartData.data.length !== 0 && (
-          <div className={styles.graphItem}>
-            <BarChart title="Expense Types" chartData={expenseTypeChartData} />
-          </div>
-        )}
+        <div className={styles.graphItem}>
+          <BarChart title="Transaction Categories" chartData={categoryChartData} />
+        </div>
+
+        <div className={styles.graphItem}>
+          <BarChart title="Transactions" chartData={transactionChartData} />
+        </div>
+
+        <div className={styles.graphItem}>
+          <BarChart title="Expense  Transaction Types" chartData={expenseTypeChartData} />
+        </div>
       </div>
     </Container>
   );
