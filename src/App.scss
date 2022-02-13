@@ -1,14 +1,18 @@
-#root {
-  display: flex;
-  flex-direction: column;
-  min-height: 100vh;
-}
-
-main {
-  flex: 1;
-}
-
-a {
-  text-decoration: none;
+.btn {
+  width: 150px;
+  text-align: center;
+  outline: none;
+  border: 1px solid teal;
+  border-radius: 5px;
+  background-color: teal;
   color: #fff;
+  cursor: pointer;
+  font-family: "Poppins", sans-serif;
+  letter-spacing: 1px;
+  transition: all 0.2s ease-in-out;
+}
+
+.icon {
+  width: 25px;
+  height: 25px;
 }

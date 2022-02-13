@@ -47,10 +47,66 @@
   transition: all 0.2s ease-in-out;
 }
 
-.btnAdd:hover {
+.addBtn:hover {
   background-color: rgb(4, 75, 75);
 }
 
 .addExpenses .btn {
   padding: 15px 12px;
+}
+
+.content {
+  padding: 1rem;
+}
+
+.modalHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.icon {
+  width: 25px;
+  height: 25px;
+}
+.closeIcon {
+  cursor: pointer;
+}
+.modalBody {
+  padding: 12px 0;
+}
+
+.modalFooter {
+  display: flex;
+  justify-content: flex-end;
+  grid-gap: 25px;
+  margin-top: 12px;
+}
+@media screen and (max-width: 760px) {
+  .modal {
+    width: 70vw;
+    height: auto;
+    min-height: 433px;
+    min-width: 300px;
+  }
+
+  .searchExpenses {
+    width: 100%;
+  }
+
+  .actions {
+    margin-top: 12px;
+  }
+
+  .subheader {
+    flex-direction: column;
+  }
+  .addExpenses .btn {
+    width: 100%;
+  }
+}
+
+@media screen and (max-width: 560px) {
+  .container {
+    width: 92%;
+  }
 }

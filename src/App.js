@@ -1,7 +1,6 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-
+import { Footer, Graph, Header, Home } from "./components";
 import "./App.scss";
-import { Footer, Header, Home } from "./components";
 
 const App = () => {
   return (
@@ -10,6 +9,7 @@ const App = () => {
       <main>
         <Routes>
           <Route path="/" element={<Home />} />
+          <Route path="/graph" element={<Graph />} />
         </Routes>
       </main>
       <Footer />

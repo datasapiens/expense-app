@@ -1,0 +1,34 @@
+.formGroup input,
+.formGroup select {
+  padding: 10px 12px;
+  outline: none;
+  border: 1px solid teal;
+  border-radius: 5px;
+  width: 100%;
+  font-family: "Poppins";
+  box-sizing: border-box;
+  margin: 7px 0;
+}
+
+.btn {
+  width: 150px;
+  text-align: center;
+  outline: none;
+  border: 1px solid teal;
+  border-radius: 5px;
+  background-color: teal;
+  color: #fff;
+  cursor: pointer;
+  font-family: "Poppins", sans-serif;
+  letter-spacing: 1px;
+  transition: all 0.2s ease-in-out;
+}
+.categoryForm button {
+  padding: 10px 12px;
+  margin: 10px 0 0;
+  float: right;
+}
+
+.error {
+  color: crimson;
+}

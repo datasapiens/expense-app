@@ -24,7 +24,7 @@ const Header = () => {
                   <ChartBarIcon
                     className={`${styles.icon} ${styles.barIcon}`}
                   />
-                  <span>Chart</span>
+                  <span>Graph</span>
                 </Link>
               </li>
             </ul>

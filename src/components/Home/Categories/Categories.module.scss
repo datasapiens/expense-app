@@ -1,0 +1,99 @@
+.container {
+  width: 80%;
+  margin: 0 auto;
+  height: 100%;
+}
+.categoryCard {
+  box-shadow: 0 4px 20px 3px RGB(0 0 0 / 10%);
+  border-radius: 10px;
+  background-color: #fff;
+  padding: 15px 10px;
+  margin-bottom: 20px;
+  transition: background-color 0.2s ease-in-out;
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.categoryBody {
+  display: flex;
+  padding: 2px 10px;
+  border-radius: 3px;
+  color: white;
+  background-color: teal;
+  cursor: pointer;
+  align-items: center;
+  height: max-content;
+  margin: 5px;
+}
+
+.btn {
+  width: 150px;
+  text-align: center;
+  outline: none;
+  border: 1px solid teal;
+  border-radius: 5px;
+  background-color: teal;
+  color: #fff;
+  cursor: pointer;
+  font-family: "Poppins", sans-serif;
+  letter-spacing: 1px;
+  transition: all 0.2s ease-in-out;
+}
+.btnDelete {
+  background-color: crimson;
+  border: 1px solid crimson;
+  padding: 7px 0;
+}
+
+.removeIcon {
+  height: 15px;
+  width: 15px;
+  margin-left: 10px;
+}
+.content {
+  padding: 1rem;
+}
+
+.modalHeader {
+  color: black;
+}
+
+.categoryBody > div {
+  background-color: transparent;
+}
+
+.categoryBody .modal {
+  padding-bottom: 0;
+}
+
+.categoryDelTxt {
+  color: black;
+}
+.modalHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.icon {
+  width: 25px;
+  height: 25px;
+}
+.closeIcon {
+  cursor: pointer;
+}
+.modalBody {
+  padding: 12px 0;
+}
+
+.modalFooter {
+  display: flex;
+  justify-content: flex-end;
+  grid-gap: 25px;
+  margin-top: 12px;
+}
+@media screen and (max-width: 560px) {
+  .container {
+    width: 92%;
+  }
+}
