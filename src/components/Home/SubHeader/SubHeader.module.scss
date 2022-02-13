@@ -1,0 +1,112 @@
+.subheader {
+  display: flex;
+  justify-content: space-between;
+  margin: 1rem 0;
+}
+.container {
+  width: 80%;
+  margin: 0 auto;
+  height: 100%;
+}
+
+.searchExpenses {
+  width: 50%;
+}
+
+.searchExpenses input {
+  padding: 15px 12px;
+  outline: none;
+  border: 1px solid teal;
+  border-radius: 5px;
+  width: 100%;
+  font-family: "Poppins";
+}
+
+.searchExpenses input::placeholder {
+  font-family: "Poppins", sans-serif;
+  letter-spacing: 1px;
+  color: gray;
+}
+
+.actions {
+  display: flex;
+  grid-gap: 25px;
+}
+
+.btn {
+  width: 150px;
+  text-align: center;
+  outline: none;
+  border: 1px solid teal;
+  border-radius: 5px;
+  background-color: teal;
+  color: #fff;
+  cursor: pointer;
+  font-family: "Poppins", sans-serif;
+  letter-spacing: 1px;
+  transition: all 0.2s ease-in-out;
+}
+
+.addBtn:hover {
+  background-color: rgb(4, 75, 75);
+}
+
+.addExpenses .btn {
+  padding: 15px 12px;
+}
+
+.content {
+  padding: 1rem;
+}
+
+.modalHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.icon {
+  width: 25px;
+  height: 25px;
+}
+.closeIcon {
+  cursor: pointer;
+}
+.modalBody {
+  padding: 12px 0;
+}
+
+.modalFooter {
+  display: flex;
+  justify-content: flex-end;
+  grid-gap: 25px;
+  margin-top: 12px;
+}
+@media screen and (max-width: 760px) {
+  .modal {
+    width: 70vw;
+    height: auto;
+    min-height: 433px;
+    min-width: 300px;
+  }
+
+  .searchExpenses {
+    width: 100%;
+  }
+
+  .actions {
+    margin-top: 12px;
+  }
+
+  .subheader {
+    flex-direction: column;
+  }
+  .addExpenses .btn {
+    width: 100%;
+  }
+}
+
+@media screen and (max-width: 560px) {
+  .container {
+    width: 92%;
+  }
+}

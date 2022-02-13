@@ -1,0 +1,110 @@
+.container {
+  width: 80%;
+  margin: 0 auto;
+  height: 100%;
+}
+.expenseActions {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.expenseActions select {
+  width: max-content;
+  height: 40px;
+  padding: 5px 12px;
+  outline: none;
+  border: 1px solid teal;
+  border-radius: 5px;
+  font-family: "Poppins";
+}
+
+.red {
+  border-left: 4px solid crimson;
+}
+
+.green {
+  border-left: 4px solid green;
+}
+
+table {
+  width: 100%;
+  padding-bottom: 30px;
+  border-collapse: collapse;
+}
+
+table th {
+  text-align: start;
+  padding: 10px 0;
+  min-width: 150px;
+}
+
+table td {
+  padding: 10px 0;
+}
+
+tr {
+  border-bottom: 1px solid #dfdfdf;
+}
+
+tbody tr {
+  border-bottom: 0.5px solid #dfdfdf;
+}
+.card {
+  box-shadow: 0 4px 20px 3px RGB(0 0 0 / 10%);
+  border-radius: 10px;
+  background-color: #fff;
+  padding: 10px 10px;
+  margin-bottom: 20px;
+  transition: background-color 0.2s ease-in-out;
+}
+
+.card:hover {
+  transform: scale(1.005);
+  cursor: pointer;
+}
+
+.expense {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.expenseRight {
+  display: flex;
+  align-items: center;
+  grid-gap: 25px;
+}
+
+.expenseCategory {
+  padding: 5px 10px;
+  border-radius: 3px;
+  color: white;
+  background-color: teal;
+}
+
+.expenseAmount {
+  padding: 5px 10px;
+  border-radius: 3px;
+  color: white;
+  background-color: teal;
+}
+
+@media screen and (max-width: 760px) {
+  .expenseTable {
+    width: 100%;
+    overflow-y: auto;
+    overflow-x: auto;
+    margin-bottom: 1rem;
+  }
+  .title {
+    font-size: 17px;
+  }
+}
+
+@media screen and (max-width: 560px) {
+  .container {
+    width: 92%;
+  }
+}
