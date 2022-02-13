@@ -8,6 +8,7 @@
     "@testing-library/react": "^12.1.2",
     "@testing-library/user-event": "^13.5.0",
     "chart.js": "^3.7.1",
+    "gh-pages": "^3.2.3",
     "node-sass": "^7.0.1",
     "react": "^17.0.2",
     "react-chartjs-2": "^4.0.1",
