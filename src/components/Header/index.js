@@ -20,7 +20,7 @@ const Header = () => {
                 </Link>
               </li>
               <li>
-                <Link to="/graph">
+                <Link to="expense-app/graph/">
                   <ChartBarIcon
                     className={`${styles.icon} ${styles.barIcon}`}
                   />
