@@ -1,0 +1,45 @@
+#header {
+  background-color: teal;
+  height: 10vh;
+}
+
+.container {
+  width: 80%;
+  margin: 0 auto;
+  height: 100%;
+}
+
+.headerContainer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 100%;
+}
+
+.logo {
+  color: #fff;
+  font-weight: bold;
+  font-size: 1.25rem;
+}
+
+.navlinks > ul {
+  list-style: none;
+  display: flex;
+}
+
+.navlinks > ul li:not(:last-child) {
+  margin-right: 55px;
+}
+
+.navlinks > ul li a {
+  display: flex;
+  align-items: center;
+}
+.icon {
+  width: 25px;
+  height: 25px;
+}
+.homeIcon,
+.barIcon {
+  margin-right: 5px;
+}
