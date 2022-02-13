@@ -1,7 +1,7 @@
 # Expense App
 
 🔆✅🔴**Live [expenseapp](https://frdayvz85.github.io/expense-app/)** -> Github
-🔆✅🔴**Live [expenseapp](https://frdayvz85.github.io/expense-app/)** -> Netlify
+🔆✅🔴**Live [expenseapp](https://expense-appp.netlify.app/)** -> Netlify
 
 ##### Clone project : `https://github.com/frdayvz85/expense-app.git`
 
