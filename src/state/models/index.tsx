@@ -1,4 +1,4 @@
-import { Category } from "../../models";
+import { Category, Transaction } from "../../models";
 
 export interface IAction {
     type: string,
@@ -7,4 +7,8 @@ export interface IAction {
 
 export interface ICategoriesState {
     categories: Category[],
+}
+
+export interface ITransactionsState {
+    transactions: Transaction[],
 }

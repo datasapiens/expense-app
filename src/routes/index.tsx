@@ -1,6 +1,6 @@
 import { useRoutes } from "react-router-dom";
-import Graphs from "../components/Graphs";
-import Main from "../components/Main";
+import Graphs from "../containers/Graphs";
+import Main from "../containers/Main";
 
 const Routes = () => {
   let routes = useRoutes([

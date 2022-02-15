@@ -1,32 +1,34 @@
 import React, { useLayoutEffect, useState } from "react";
-import { useSelector } from "react-redux";
 import "./styles.scss";
 
-const Main = () => {
-  const categories = useSelector((state: any) => state.categories.categories);
+const AddTransactionsForm = (props: any) => {
+  const categories = props.categories;
+  const onSubmit = props.onSubmit;
   useLayoutEffect(() => {
-    if(categories.length) {
-      setTransactionCategory(categories[0].id.toString())
+    if (categories.length) {
+      setTransactionCategory(categories[0].id.toString());
     }
   }, [categories]);
-
   const [transactionLabel, setTransactionLabel] = useState("");
   const [transactionAmount, setTransactionAmount] = useState("");
   const [transactionCategory, setTransactionCategory] = useState("");
   const submitValue = () => {
-    const frmdetails = {
+    const formValues = {
       "Transaction Label": transactionLabel,
       "Transaction Amount": transactionAmount,
-      "Transaction Category": transactionCategory
+      "Transaction Category": transactionCategory,
     };
     setTransactionLabel("");
     setTransactionAmount("");
-    console.log(frmdetails);
+    if (categories.length) {
+      setTransactionCategory(categories[0].id.toString());
+    }
+    onSubmit(formValues);
   };
 
   return (
-    <div className="mainContainer">
-      <p>Main</p>
+    <>
+      <p>Add Transactions</p>
       <input
         type="text"
         placeholder="Transaction Label"
@@ -51,8 +53,8 @@ const Main = () => {
         ))}
       </select>
       <button onClick={submitValue}>Submit</button>
-    </div>
+    </>
   );
 };
 
-export default Main;
+export default AddTransactionsForm;

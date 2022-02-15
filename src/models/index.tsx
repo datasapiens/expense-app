@@ -14,3 +14,7 @@ export interface Transaction {
   amount: number;
   category: number;
 }
+
+export interface Transactions {
+  data: Transaction[];
+}
