@@ -43,3 +43,31 @@ export const addTransactionSuccess = (transactions: Transactions) => {
     payload: transactions.data,
   };
 };
+
+export const requestAddCategory = (data: any) => {
+  return (dispatch: any) => {
+    const categories: Categories = storageService.addCategory(data);
+    return dispatch(addCategorySuccess(categories));
+  };
+};
+
+export const addCategorySuccess = (categories: Categories) => {
+  return {
+    type: types.ADD_CATEGORY_SUCCESS,
+    payload: categories.data,
+  };
+};
+
+export const requestDeleteCategory = (data: any) => {
+  return (dispatch: any) => {
+    const categories: Categories = storageService.deleteCategory(data);
+    return dispatch(deleteCategorySuccess(categories));
+  };
+};
+
+export const deleteCategorySuccess = (categories: Categories) => {
+  return {
+    type: types.DELETE_CATEGORY_SUCCESS,
+    payload: categories.data,
+  };
+};

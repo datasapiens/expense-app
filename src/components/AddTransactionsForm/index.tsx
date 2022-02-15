@@ -1,7 +1,11 @@
 import React, { useLayoutEffect, useState } from "react";
+import { Category } from "../../models";
 import "./styles.scss";
 
-const AddTransactionsForm = (props: any) => {
+const AddTransactionsForm = (props: {
+  categories: Category[];
+  onSubmit: Function;
+}) => {
   const categories = props.categories;
   const onSubmit = props.onSubmit;
   useLayoutEffect(() => {
@@ -14,9 +18,9 @@ const AddTransactionsForm = (props: any) => {
   const [transactionCategory, setTransactionCategory] = useState("");
   const submitValue = () => {
     const formValues = {
-      "Transaction Label": transactionLabel,
-      "Transaction Amount": transactionAmount,
-      "Transaction Category": transactionCategory,
+      label: transactionLabel,
+      amount: transactionAmount,
+      category: parseInt(transactionCategory),
     };
     setTransactionLabel("");
     setTransactionAmount("");
