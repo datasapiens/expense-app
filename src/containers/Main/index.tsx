@@ -14,7 +14,9 @@ import "./styles.scss";
 
 const Main = () => {
   const dispatch = useDispatch();
-  const allCategories = useSelector((state: any) => state.categories.categories);
+  const allCategories = useSelector(
+    (state: any) => state.categories.categories
+  );
   const activeCategories = useSelector((state: any) =>
     state.categories.categories.filter(
       (category: Category) => !category.deleteDate
@@ -46,7 +48,10 @@ const Main = () => {
         categories={activeCategories}
         onSubmit={submitTransactionsForm}
       />
-      <TransactionsTable categories={allCategories} transactions={transactions} />
+      <TransactionsTable
+        categories={allCategories}
+        transactions={transactions}
+      />
     </div>
   );
 };
