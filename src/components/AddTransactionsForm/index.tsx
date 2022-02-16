@@ -1,4 +1,5 @@
 import React, { useLayoutEffect } from "react";
+import { Button, Form, FormControl } from "react-bootstrap";
 import { useForm } from "react-hook-form";
 import { Category } from "../../models";
 import "./styles.scss";
@@ -29,26 +30,26 @@ const AddTransactionsForm = (props: {
   return (
     <>
       <p>Add Transactions</p>
-      <form onSubmit={handleSubmit((data) => submitValues(data))}>
-        <input
+      <Form onSubmit={handleSubmit((data) => submitValues(data))}>
+        <FormControl
           {...register("label", { required: true })}
           type="text"
           placeholder="Transaction Label"
         />
-        <input
+        <FormControl
           {...register("amount", { required: true })}
           type="number"
           placeholder="Transaction Amount"
         />
-        <select {...register("category", { required: true })}>
+        <Form.Select {...register("category", { required: true })}>
           {categories.map((category: any) => (
             <option key={category.id} value={category.id}>
               {category.label}
             </option>
           ))}
-        </select>
-        <button type="submit">Submit</button>
-      </form>
+        </Form.Select>
+        <Button type="submit">Submit</Button>
+      </Form>
     </>
   );
 };

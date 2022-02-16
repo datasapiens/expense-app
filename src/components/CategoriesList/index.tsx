@@ -1,4 +1,5 @@
 import React from "react";
+import { Button } from "react-bootstrap";
 import { Category } from "../../models";
 import "./styles.scss";
 
@@ -15,7 +16,7 @@ const CategoriesList = (props: {
           return (
             <li key={category.id}>
               {category.label}{" "}
-              <button onClick={() => onDelete(category)}>delete</button>{" "}
+              <Button onClick={() => onDelete(category)}>delete</Button>{" "}
             </li>
           );
         })}

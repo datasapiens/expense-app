@@ -1,4 +1,5 @@
 import React from "react";
+import { Table } from "react-bootstrap";
 import { Category, Transaction } from "../../models";
 import "./styles.scss";
 
@@ -20,7 +21,7 @@ const TransactionsTable = (props: {
   return (
     <>
       <p>TransactionsTable</p>
-      <table>
+      <Table striped bordered hover responsive>
         <thead>
           <tr>
             <th>Id</th>
@@ -41,7 +42,7 @@ const TransactionsTable = (props: {
             </tr>
           ))}
         </tbody>
-      </table>
+      </Table>
     </>
   );
 };

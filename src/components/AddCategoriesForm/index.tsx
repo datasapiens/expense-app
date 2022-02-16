@@ -1,4 +1,5 @@
 import React from "react";
+import { Button, Form, FormControl } from "react-bootstrap";
 import { useForm } from "react-hook-form";
 import "./styles.scss";
 
@@ -14,14 +15,14 @@ const AddCategoriesForm = (props: { onSubmit: Function }) => {
   return (
     <>
       <p>Add Categories</p>
-      <form onSubmit={handleSubmit((data) => submitValues(data))}>
-        <input
-          {...register("label", { required: true })}
+      <Form onSubmit={handleSubmit((data) => submitValues(data))}>
+        <FormControl
           type="text"
+          {...register("label", { required: true })}
           placeholder="Category Label"
         />
-        <button type="submit">Submit</button>
-      </form>
+        <Button type="submit">Submit</Button>
+      </Form>
     </>
   );
 };
