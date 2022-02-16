@@ -42,16 +42,32 @@ const Main = () => {
 
   return (
     <div className="mainContainer">
-      <AddCategoriesForm onSubmit={submitCategoriesForm} />
-      <CategoriesList categories={activeCategories} onDelete={deleteCategory} />
-      <AddTransactionsForm
-        categories={activeCategories}
-        onSubmit={submitTransactionsForm}
-      />
-      <TransactionsTable
-        categories={allCategories}
-        transactions={transactions}
-      />
+      <div className="mainContainerForms">
+        <div className="categoriesFormWrapper formContainer">
+          <AddCategoriesForm onSubmit={submitCategoriesForm} />
+        </div>
+        <div className="transactionsFormWrapper formContainer">
+          <AddTransactionsForm
+            categories={activeCategories}
+            onSubmit={submitTransactionsForm}
+          />
+        </div>
+      </div>
+
+      <div className="mainContainerLists">
+        <div className="categoriesListWrapper">
+          <CategoriesList
+            categories={activeCategories}
+            onDelete={deleteCategory}
+          />
+        </div>
+        <div className="transactionsListWrapper">
+          <TransactionsTable
+            categories={allCategories}
+            transactions={transactions}
+          />
+        </div>
+      </div>
     </div>
   );
 };

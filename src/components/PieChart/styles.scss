@@ -9,20 +9,38 @@
     }
 }
 
-@media only screen and (max-width: 1200px) {
+@media only screen and (max-width: 1260px) {
     .chartContainer {
         height: 450px;
     }
 }
 
-@media only screen and (max-width: 1080px) {
+@media only screen and (max-width: 1140px) {
     .chartContainer {
         height: 400px;
     }
 }
 
-@media only screen and (max-width: 375px) {
+@media only screen and (max-width: 550px) {
+    .chartContainer {
+        height: 350px;
+    }
+}
+
+@media only screen and (max-width: 480px) {
     .chartContainer {
         height: 300px;
+    }
+}
+
+@media only screen and (max-width: 420px) {
+    .chartContainer {
+        height: 250px;
+    }
+}
+
+@media only screen and (max-width: 360px) {
+    .chartContainer {
+        height: 200px;
     }
 }

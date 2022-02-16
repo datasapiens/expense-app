@@ -9,19 +9,19 @@ const CategoriesList = (props: {
 }) => {
   const onDelete = props.onDelete;
   return (
-    <>
-      <p>CategoriesList</p>
-      <ul>
+    <div className="categoriesListContainer">
+      <p className="categoriesListTitle">CategoriesList</p>
+      <ul className="categoriesList">
         {props.categories.map((category: Category) => {
           return (
             <li key={category.id}>
               {category.label}{" "}
-              <Button onClick={() => onDelete(category)}>delete</Button>{" "}
+              <Button variant="danger" onClick={() => onDelete(category)}>Delete</Button>{" "}
             </li>
           );
         })}
       </ul>
-    </>
+    </div>
   );
 };
 export default CategoriesList;

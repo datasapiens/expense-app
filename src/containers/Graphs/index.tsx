@@ -12,27 +12,24 @@ const Graphs = () => {
   );
 
   return (
-    <>
-      <p>Graphs</p>
-      <div className="graphsContainer">
-        <div className="graphContainer">
-          <p>Incomes</p>
-          <PieChart
-            transactions={transactions}
-            categories={allCategories}
-            type="incomes"
-          />
-        </div>
-        <div className="graphContainer">
-          <p>Expenses</p>
-          <PieChart
-            transactions={transactions}
-            categories={allCategories}
-            type="expenses"
-          />
-        </div>
+    <div className="graphsContainer">
+      <div className="graphContainer">
+        <p className="graphTitle">Incomes</p>
+        <PieChart
+          transactions={transactions}
+          categories={allCategories}
+          type="incomes"
+        />
       </div>
-    </>
+      <div className="graphContainer">
+        <p className="graphTitle">Expenses</p>
+        <PieChart
+          transactions={transactions}
+          categories={allCategories}
+          type="expenses"
+        />
+      </div>
+    </div>
   );
 };
 

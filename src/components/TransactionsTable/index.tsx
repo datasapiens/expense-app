@@ -19,9 +19,9 @@ const TransactionsTable = (props: {
   };
 
   return (
-    <>
-      <p>TransactionsTable</p>
-      <Table striped bordered hover responsive>
+    <div className="transactionsTableContainer">
+      <p className="transactionsTableTitle">TransactionsTable</p>
+      <Table className="transactionsTable" striped bordered hover responsive>
         <thead>
           <tr>
             <th>Id</th>
@@ -43,7 +43,7 @@ const TransactionsTable = (props: {
           ))}
         </tbody>
       </Table>
-    </>
+    </div>
   );
 };
 

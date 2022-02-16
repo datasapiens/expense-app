@@ -13,17 +13,21 @@ const AddCategoriesForm = (props: { onSubmit: Function }) => {
   };
 
   return (
-    <>
-      <p>Add Categories</p>
+    <div className="addCategoriesForm">
+      <p className="addCategoriesTitle">Add Categories</p>
       <Form onSubmit={handleSubmit((data) => submitValues(data))}>
-        <FormControl
-          type="text"
-          {...register("label", { required: true })}
-          placeholder="Category Label"
-        />
-        <Button type="submit">Submit</Button>
+        <div className="formControls">
+          <Form.Label className="label">Label</Form.Label>
+          <FormControl
+            className="control"
+            type="text"
+            {...register("label", { required: true })}
+            placeholder="Category Label"
+          />
+          <Button type="submit" variant="success">Add Category</Button>
+        </div>
       </Form>
-    </>
+    </div>
   );
 };
 
