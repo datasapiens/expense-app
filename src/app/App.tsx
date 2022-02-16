@@ -1,7 +1,7 @@
 import React, { useEffect, useLayoutEffect } from "react";
 import "./App.scss";
-import Header from "../containers/Header";
-import Footer from "../containers/Footer";
+import Header from "../components/Header";
+import Footer from "../components/Footer";
 import Routes from "../routes";
 import { BrowserRouter as Router } from "react-router-dom";
 import { useDispatch } from "react-redux";

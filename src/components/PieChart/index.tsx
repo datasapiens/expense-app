@@ -1,41 +1,52 @@
 import { ResponsivePie } from "@nivo/pie";
+import { useLayoutEffect, useState } from "react";
+import { Category, Transaction } from "../../models";
+import "./styles.scss";
 
-export const MyResponsivePie = (props: any) => {
-  const data = [
-    {
-      id: "rust",
-      label: "rust",
-      value: 267,
-      color: "hsl(13, 70%, 50%)",
-    },
-    {
-      id: "scala",
-      label: "scala",
-      value: 240,
-      color: "hsl(171, 70%, 50%)",
-    },
-    {
-      id: "python",
-      label: "python",
-      value: 284,
-      color: "hsl(69, 70%, 50%)",
-    },
-    {
-      id: "erlang",
-      label: "erlang",
-      value: 37,
-      color: "hsl(166, 70%, 50%)",
-    },
-    {
-      id: "stylus",
-      label: "stylus",
-      value: 29,
-      color: "hsl(265, 70%, 50%)",
-    },
-  ];
+export const PieChart = (props: {
+  transactions: Transaction[];
+  categories: Category[];
+  type: string;
+}) => {
+  const initialArray: Array<any> = [];
+  const [data, setData] = useState(initialArray);
+
+  useLayoutEffect(() => {
+    if (props.transactions.length) {
+      const map: any = {};
+      const computedData: any = [];
+      props.transactions.forEach((transaction) => {
+        if (
+          isNaN(+transaction.amount) ||
+          (props.type === "incomes" && +transaction.amount < 0) ||
+          (props.type === "expenses" && +transaction.amount > 0)
+        ) {
+          return;
+        }
+        if (map[transaction.category]) {
+          map[transaction.category].value =
+            +map[transaction.category].value + +transaction.amount;
+        } else {
+          const label = props.categories.find(
+            (category) => category.id === transaction.category
+          )?.label;
+          map[transaction.category] = {
+            id: label,
+            label: label,
+            value: transaction.amount,
+          };
+        }
+      });
+      Object.keys(map).forEach((key) => {
+        map[key].value = Math.abs(map[key].value);
+        computedData.push(map[key]);
+      });
+      setData(computedData);
+    }
+  }, [props]);
 
   return (
-    <div style={{ height: 500 }}>
+    <div className="chartContainer">
       <ResponsivePie
         data={data}
         margin={{ top: 40, right: 80, bottom: 80, left: 80 }}
@@ -106,3 +117,5 @@ export const MyResponsivePie = (props: any) => {
     </div>
   );
 };
+
+export default PieChart;

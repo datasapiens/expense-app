@@ -1,0 +1,28 @@
+.chartContainer {
+    width: 100%;
+    height: 550px;
+}
+
+@media only screen and (max-width: 1440px) {
+    .chartContainer {
+        height: 500px;
+    }
+}
+
+@media only screen and (max-width: 1200px) {
+    .chartContainer {
+        height: 450px;
+    }
+}
+
+@media only screen and (max-width: 1080px) {
+    .chartContainer {
+        height: 400px;
+    }
+}
+
+@media only screen and (max-width: 375px) {
+    .chartContainer {
+        height: 300px;
+    }
+}

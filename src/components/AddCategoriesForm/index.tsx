@@ -1,27 +1,27 @@
-import React, { useState } from "react";
+import React from "react";
+import { useForm } from "react-hook-form";
 import "./styles.scss";
 
 const AddCategoriesForm = (props: { onSubmit: Function }) => {
   const onSubmit = props.onSubmit;
-  const [categoryLabel, setCategoryLabel] = useState("");
-  const submitValue = () => {
-    const formValues = {
-      label: categoryLabel,
-    };
-    setCategoryLabel("");
-    onSubmit(formValues);
+  const { register, handleSubmit, setValue } = useForm();
+
+  const submitValues = (data: any) => {
+    setValue("label", "");
+    onSubmit(data);
   };
 
   return (
     <>
       <p>Add Categories</p>
-      <input
-        type="text"
-        placeholder="Category Label"
-        onChange={(e) => setCategoryLabel(e.target.value)}
-        value={categoryLabel}
-      />
-      <button onClick={submitValue}>Submit</button>
+      <form onSubmit={handleSubmit((data) => submitValues(data))}>
+        <input
+          {...register("label", { required: true })}
+          type="text"
+          placeholder="Category Label"
+        />
+        <button type="submit">Submit</button>
+      </form>
     </>
   );
 };

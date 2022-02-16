@@ -76,8 +76,12 @@ export const addTransaction = (transaction: any) => {
   const newTransaction: Transaction = {
     id: +transactionsObj.finalId + 1,
     ...transaction,
+    amount: +transaction.amount,
+    category: +transaction.category,
     date: Date.now(),
   };
+
+  console.log(transaction, newTransaction)
   transactionsObj.finalId++;
   transactionsObj.data.push(newTransaction);
   localStorage.setItem(

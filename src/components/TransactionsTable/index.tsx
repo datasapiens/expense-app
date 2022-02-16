@@ -7,12 +7,10 @@ const TransactionsTable = (props: {
   transactions: Transaction[];
 }) => {
   const formatDate = (date: number) => {
-    console.log('formatDate')
     return new Date(date).toLocaleString();
   };
 
   const getCategory = (categoryId: number) => {
-    console.log('getCategory');
     const categorylabel = props.categories.find((category) => {
       return category.id === categoryId;
     })?.label;

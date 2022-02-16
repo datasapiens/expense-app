@@ -1,3 +1,21 @@
 .graphsContainer {
+  display: flex;
+  position: relative;
+  width: 100%;
+  box-sizing: border-box;
   padding: 10px;
+
+  .graphContainer {
+    width: 50%;
+  }
+}
+
+@media only screen and (max-width: 1024px) {
+  .graphsContainer {
+    flex-direction: column;
+  
+    .graphContainer {
+      width: 100%;
+    }
+  }
 }
