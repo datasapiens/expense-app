@@ -1,5 +1,5 @@
 import React, { useLayoutEffect } from "react";
-import { Button, Form, FormControl } from "react-bootstrap";
+import { Button, Form, FormControl, InputGroup } from "react-bootstrap";
 import { useForm } from "react-hook-form";
 import { Category } from "../../models";
 import styles from "./AddTransactionsForm.module.scss";
@@ -47,12 +47,16 @@ const AddTransactionsForm = (props: {
           <Form.Label className={styles.label}>
             Amount (negative amount means expense)
           </Form.Label>
-          <FormControl
-            className={styles.control}
-            {...register("amount", { required: true })}
-            type="number"
-            placeholder="Transaction amount"
-          />
+          <InputGroup className={styles.control}>
+            <FormControl
+              {...register("amount", { required: true })}
+              type="number"
+              placeholder="Transaction amount"
+              aria-describedby="basic-addon2"
+            />
+            <InputGroup.Text id="basic-addon2">$</InputGroup.Text>
+          </InputGroup>
+
           <Form.Label className={styles.label}>Category</Form.Label>
           <Form.Select
             className={styles.control}

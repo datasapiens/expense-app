@@ -23,6 +23,16 @@
             border: 1px solid $light-grey;
             padding: 5px 5px 5px 15px;
             border-radius: 5px;
+
+            .title {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+
+                img {
+                    margin-right: 8px;
+                }
+            }
         }
     }
 

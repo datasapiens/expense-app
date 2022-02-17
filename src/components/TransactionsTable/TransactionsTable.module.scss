@@ -18,11 +18,18 @@
     }
 
     .transactionsTable {
-        li {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            margin: 12px 0;
+        tbody {
+            font-size: 14px;
+            color: $black;
+            font-weight: bold;
+
+            .negative {
+                color: $red;
+            }
+
+            .positive {
+                color: $green;
+            }
         }
     }
 }

@@ -40,9 +40,9 @@ const TransactionsTable = (props: {
         <tbody>
           {props.transactions.map((transaction: Transaction) => (
             <tr key={transaction.id}>
-              <td>{transaction.id}</td>
+              <td>#{transaction.id}</td>
               <td>{transaction.label}</td>
-              <td>{transaction.amount}</td>
+              <td className={transaction.amount < 0 ? styles.negative : styles.positive}>{transaction.amount}$</td>
               <td>{getCategory(transaction.category)}</td>
               <td>{formatDate(transaction.date)}</td>
             </tr>
