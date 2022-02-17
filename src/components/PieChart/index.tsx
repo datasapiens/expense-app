@@ -59,6 +59,7 @@ export const PieChart = (props: {
           from: "color",
           modifiers: [["darker", 0.2]],
         }}
+        colors={{ scheme: "accent" }}
         arcLinkLabelsSkipAngle={10}
         arcLinkLabelsTextColor="#333333"
         arcLinkLabelsThickness={2}
