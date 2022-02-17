@@ -68,6 +68,17 @@ export const requestDeleteCategory = (data: any) => {
 export const deleteCategorySuccess = (categories: Categories) => {
   return {
     type: types.DELETE_CATEGORY_SUCCESS,
-    payload: categories.data,
+  };
+};
+
+export const resetCategoryAddAlert = () => {
+  return {
+    type: types.RESET_CATEGORY_ADD_ALERT,
+  };
+};
+
+export const resetTransactionAddAlert = () => {
+  return {
+    type: types.RESET_TRANSACTION_ADD_ALERT,
   };
 };

@@ -10,10 +10,12 @@ import {
   requestAddTransaction,
   requestDeleteCategory,
 } from "../../state/actions";
+import Alerts from "../Alerts";
 import styles from "./Main.module.scss";
 
 const Main = () => {
   const dispatch = useDispatch();
+
   const allCategories = useSelector(
     (state: any) => state.categories.categories
   );
@@ -27,12 +29,10 @@ const Main = () => {
   );
 
   const submitTransactionsForm = (formValues: any) => {
-    console.log(formValues);
     dispatch(requestAddTransaction(formValues));
   };
 
   const submitCategoriesForm = (formValues: any) => {
-    console.log(formValues);
     dispatch(requestAddCategory(formValues));
   };
 
@@ -42,6 +42,7 @@ const Main = () => {
 
   return (
     <div className={styles.mainContainer}>
+      <Alerts />
       <div className={styles.mainContainerForms}>
         <div className={styles.categoriesFormWrapper}>
           <AddCategoriesForm onSubmit={submitCategoriesForm} />

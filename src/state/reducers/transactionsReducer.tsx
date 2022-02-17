@@ -2,6 +2,7 @@ import { IAction, ITransactionsState } from "../models";
 
 const INITIAL_STATE: ITransactionsState = {
   transactions: [],
+  showTransactionAddedSuccessAlert: false,
 };
 
 const transactionsReducer = (
@@ -17,7 +18,13 @@ const transactionsReducer = (
     case "ADD_TRANSACTION_SUCCESS":
       return {
         ...state,
+        showTransactionAddedSuccessAlert: true,
         transactions: action.payload,
+      };
+    case "RESET_TRANSACTION_ADD_ALERT":
+      return {
+        ...state,
+        showTransactionAddedSuccessAlert: false,
       };
     default:
       return state;
