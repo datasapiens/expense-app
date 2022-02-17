@@ -10,7 +10,7 @@ const AddTransactionsForm = (props: {
 }) => {
   const onSubmit = props.onSubmit;
   const categories = props.categories;
-  const { register, handleSubmit, setValue } = useForm();
+  const { register, handleSubmit, setValue, setFocus } = useForm();
 
   useLayoutEffect(() => {
     if (categories.length) {
@@ -19,6 +19,11 @@ const AddTransactionsForm = (props: {
   }, [categories, setValue]);
 
   const submitValues = (data: any) => {
+    if (categories.length === 0) {
+      setFocus("category", { shouldSelect: true });
+      console.log("setFocus");
+      return;
+    }
     setValue("label", "");
     setValue("amount", "");
     if (categories.length) {
@@ -59,7 +64,11 @@ const AddTransactionsForm = (props: {
               </option>
             ))}
           </Form.Select>
-          <Button type="submit" variant="success">
+          <Button
+            disabled={categories.length === 0}
+            type="submit"
+            variant="success"
+          >
             Add Transaction
           </Button>
         </div>
