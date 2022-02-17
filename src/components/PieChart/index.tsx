@@ -45,7 +45,7 @@ export const PieChart = (props: {
     }
   }, [props]);
 
-  return (
+  return data.length ? (
     <div className={styles.chartContainer}>
       <ResponsivePie
         data={data}
@@ -114,6 +114,10 @@ export const PieChart = (props: {
           },
         ]}
       />
+    </div>
+  ) : (
+    <div className={styles.noDataContainer}>
+      <p className={styles.noDataTitle}>No data to visualize</p>
     </div>
   );
 };
