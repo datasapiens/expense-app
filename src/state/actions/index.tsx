@@ -68,6 +68,7 @@ export const requestDeleteCategory = (data: any) => {
 export const deleteCategorySuccess = (categories: Categories) => {
   return {
     type: types.DELETE_CATEGORY_SUCCESS,
+    payload: categories.data,
   };
 };
 

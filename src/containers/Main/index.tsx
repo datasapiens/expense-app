@@ -19,10 +19,11 @@ const Main = () => {
   const allCategories = useSelector(
     (state: any) => state.categories.categories
   );
-  const activeCategories = useSelector((state: any) =>
-    state.categories.categories.filter(
+  const activeCategories = useSelector((state: any) =>{
+    return  state.categories.categories.filter(
       (category: Category) => !category.deleteDate
     )
+  }
   );
   const transactions = useSelector(
     (state: any) => state.transactions.transactions
