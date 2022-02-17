@@ -1,7 +1,7 @@
 import React from "react";
 import { Button, Form, FormControl } from "react-bootstrap";
 import { useForm } from "react-hook-form";
-import "./styles.scss";
+import styles from "./AddCategoriesForm.module.scss";
 
 const AddCategoriesForm = (props: { onSubmit: Function }) => {
   const onSubmit = props.onSubmit;
@@ -13,18 +13,20 @@ const AddCategoriesForm = (props: { onSubmit: Function }) => {
   };
 
   return (
-    <div className="addCategoriesForm">
-      <p className="addCategoriesTitle">Add Categories</p>
+    <div className={styles.addCategoriesForm}>
+      <p className={styles.addCategoriesTitle}>Add Categories</p>
       <Form onSubmit={handleSubmit((data) => submitValues(data))}>
-        <div className="formControls">
-          <Form.Label className="label">Label</Form.Label>
+        <div className={styles.formControls}>
+          <Form.Label className={styles.label}>Label</Form.Label>
           <FormControl
-            className="control"
+            className={styles.control}
             type="text"
             {...register("label", { required: true })}
             placeholder="Category Label"
           />
-          <Button type="submit" variant="success">Add Category</Button>
+          <Button type="submit" variant="success">
+            Add Category
+          </Button>
         </div>
       </Form>
     </div>

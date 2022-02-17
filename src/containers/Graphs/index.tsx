@@ -1,7 +1,7 @@
 import React from "react";
 import { useSelector } from "react-redux";
 import { PieChart } from "../../components/PieChart";
-import "./styles.scss";
+import styles from "./Graphs.module.scss";
 
 const Graphs = () => {
   const transactions = useSelector(
@@ -12,17 +12,17 @@ const Graphs = () => {
   );
 
   return (
-    <div className="graphsContainer">
-      <div className="graphContainer">
-        <p className="graphTitle">Incomes</p>
+    <div className={styles.graphsContainer}>
+      <div className={styles.graphContainer}>
+        <p className={styles.graphTitle}>Incomes</p>
         <PieChart
           transactions={transactions}
           categories={allCategories}
           type="incomes"
         />
       </div>
-      <div className="graphContainer">
-        <p className="graphTitle">Expenses</p>
+      <div className={styles.graphContainer}>
+        <p className={styles.graphTitle}>Expenses</p>
         <PieChart
           transactions={transactions}
           categories={allCategories}

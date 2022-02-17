@@ -1,7 +1,7 @@
 import React from "react";
 import { Table } from "react-bootstrap";
 import { Category, Transaction } from "../../models";
-import "./styles.scss";
+import styles from "./TransactionsTable.module.scss";
 
 const TransactionsTable = (props: {
   categories: Category[];
@@ -19,9 +19,15 @@ const TransactionsTable = (props: {
   };
 
   return (
-    <div className="transactionsTableContainer">
-      <p className="transactionsTableTitle">TransactionsTable</p>
-      <Table className="transactionsTable" striped bordered hover responsive>
+    <div className={styles.transactionsTableContainer}>
+      <p className={styles.transactionsTableTitle}>TransactionsTable</p>
+      <Table
+        className={styles.transactionsTable}
+        striped
+        bordered
+        hover
+        responsive
+      >
         <thead>
           <tr>
             <th>Id</th>

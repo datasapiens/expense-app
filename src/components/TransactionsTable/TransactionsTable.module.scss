@@ -1,0 +1,25 @@
+@import "../../styles/abstracts/variables";
+
+.transactionsTableContainer {
+
+    table {
+        width: 100%;
+    }
+
+    .transactionsTableTitle {
+        text-align: center;
+        margin-bottom: 20px;
+        font-size: 18px;
+        font-weight: bold;
+        color: $black;
+    }
+
+    .transactionsTable {
+        li {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin: 12px 0;
+        }
+    }
+}

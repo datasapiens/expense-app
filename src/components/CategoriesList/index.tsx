@@ -1,7 +1,7 @@
 import React from "react";
 import { Button } from "react-bootstrap";
 import { Category } from "../../models";
-import "./styles.scss";
+import styles from "./CategoriesList.module.scss";
 
 const CategoriesList = (props: {
   categories: Category[];
@@ -9,14 +9,16 @@ const CategoriesList = (props: {
 }) => {
   const onDelete = props.onDelete;
   return (
-    <div className="categoriesListContainer">
-      <p className="categoriesListTitle">CategoriesList</p>
-      <ul className="categoriesList">
+    <div className={styles.categoriesListContainer}>
+      <p className={styles.categoriesListTitle}>CategoriesList</p>
+      <ul className={styles.categoriesList}>
         {props.categories.map((category: Category) => {
           return (
             <li key={category.id}>
               {category.label}{" "}
-              <Button variant="danger" onClick={() => onDelete(category)}>Delete</Button>{" "}
+              <Button variant="danger" onClick={() => onDelete(category)}>
+                Delete
+              </Button>{" "}
             </li>
           );
         })}

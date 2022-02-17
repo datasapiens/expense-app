@@ -1,7 +1,7 @@
 import { ResponsivePie } from "@nivo/pie";
 import { useLayoutEffect, useState } from "react";
 import { Category, Transaction } from "../../models";
-import "./styles.scss";
+import styles from "./PieChart.module.scss";
 
 export const PieChart = (props: {
   transactions: Transaction[];
@@ -46,7 +46,7 @@ export const PieChart = (props: {
   }, [props]);
 
   return (
-    <div className="chartContainer">
+    <div className={styles.chartContainer}>
       <ResponsivePie
         data={data}
         margin={{ top: 40, right: 80, bottom: 80, left: 80 }}

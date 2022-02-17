@@ -2,7 +2,7 @@ import React, { useLayoutEffect } from "react";
 import { Button, Form, FormControl } from "react-bootstrap";
 import { useForm } from "react-hook-form";
 import { Category } from "../../models";
-import "./styles.scss";
+import styles from "./AddTransactionsForm.module.scss";
 
 const AddTransactionsForm = (props: {
   categories: Category[];
@@ -28,29 +28,29 @@ const AddTransactionsForm = (props: {
   };
 
   return (
-    <div className="addTransactionsForm">
-      <p className="addTransactionsTitle">Add Transactions</p>
+    <div className={styles.addTransactionsForm}>
+      <p className={styles.addTransactionsTitle}>Add Transactions</p>
       <Form onSubmit={handleSubmit((data) => submitValues(data))}>
-        <div className="formControls">
-          <Form.Label className="label">Label</Form.Label>
+        <div className={styles.formControls}>
+          <Form.Label className={styles.label}>Label</Form.Label>
           <FormControl
-            className="control"
+            className={styles.control}
             {...register("label", { required: true })}
             type="text"
             placeholder="Transaction label"
           />
-          <Form.Label className="label">
+          <Form.Label className={styles.label}>
             Amount (negative amount means expense)
           </Form.Label>
           <FormControl
-            className="control"
+            className={styles.control}
             {...register("amount", { required: true })}
             type="number"
             placeholder="Transaction amount"
           />
-          <Form.Label className="label">Category</Form.Label>
+          <Form.Label className={styles.label}>Category</Form.Label>
           <Form.Select
-            className="control"
+            className={styles.control}
             {...register("category", { required: true })}
           >
             {categories.map((category: any) => (
@@ -59,7 +59,9 @@ const AddTransactionsForm = (props: {
               </option>
             ))}
           </Form.Select>
-          <Button type="submit" variant="success">Add Transaction</Button>
+          <Button type="submit" variant="success">
+            Add Transaction
+          </Button>
         </div>
       </Form>
     </div>

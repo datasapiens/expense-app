@@ -10,7 +10,7 @@ import {
   requestAddTransaction,
   requestDeleteCategory,
 } from "../../state/actions";
-import "./styles.scss";
+import styles from "./Main.module.scss";
 
 const Main = () => {
   const dispatch = useDispatch();
@@ -41,12 +41,12 @@ const Main = () => {
   };
 
   return (
-    <div className="mainContainer">
-      <div className="mainContainerForms">
-        <div className="categoriesFormWrapper formContainer">
+    <div className={styles.mainContainer}>
+      <div className={styles.mainContainerForms}>
+        <div className={styles.categoriesFormWrapper}>
           <AddCategoriesForm onSubmit={submitCategoriesForm} />
         </div>
-        <div className="transactionsFormWrapper formContainer">
+        <div className={styles.transactionsFormWrapper}>
           <AddTransactionsForm
             categories={activeCategories}
             onSubmit={submitTransactionsForm}
@@ -54,14 +54,14 @@ const Main = () => {
         </div>
       </div>
 
-      <div className="mainContainerLists">
-        <div className="categoriesListWrapper">
+      <div className={styles.mainContainerLists}>
+        <div className={styles.categoriesListWrapper}>
           <CategoriesList
             categories={activeCategories}
             onDelete={deleteCategory}
           />
         </div>
-        <div className="transactionsListWrapper">
+        <div className={styles.transactionsListWrapper}>
           <TransactionsTable
             categories={allCategories}
             transactions={transactions}
