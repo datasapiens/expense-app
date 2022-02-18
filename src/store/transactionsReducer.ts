@@ -4,15 +4,7 @@ import type { RootState } from './index';
 
 type TransactionsState = Transaction[];
 
-const initialState: TransactionsState = [
-  {
-    id: 1,
-    label: 'label',
-    date: 1231231212,
-    amount: 12312312,
-    category: [],
-  },
-];
+const initialState: TransactionsState = [];
 
 export const transactionsSlice = createSlice({
   name: 'transactions',
