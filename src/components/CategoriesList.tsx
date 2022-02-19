@@ -1,34 +1,34 @@
 import React, { FC } from 'react';
 import { useAppDispatch, useAppSelector } from '../store/hooks';
-import { removeCategory } from '../store/categoriesReducer';
-import { RootState } from '../store';
-import { List, ListItem } from '@mui/material';
-import ListItemText from '@mui/material/ListItemText';
-import IconButton from '@mui/material/IconButton';
+import {
+  categoriesSelector,
+  removeCategory,
+} from '../store/slices/categories/slice';
+import { ListItemText, IconButton, List, ListItem } from '@mui/material';
 import DeleteIcon from '@mui/icons-material/Delete';
 
-const CategoriesList:FC = () => {
+const CategoriesList: FC = () => {
   const dispatch = useAppDispatch();
 
-  const categories = useAppSelector((state: RootState) => state.categories);
+  const { data: categories } = useAppSelector(categoriesSelector);
 
   return (
     <List>
-      {categories.map((category, i) => (
+      {categories?.map(({ id, label }, i) => (
         <ListItem
-          key={category.id}
+          key={id}
           secondaryAction={
             <IconButton
               disabled={i === 0}
               edge='end'
               aria-label='delete'
-              onClick={() => dispatch(removeCategory(category.id))}
+              onClick={() => dispatch(removeCategory(id))}
             >
               <DeleteIcon />
             </IconButton>
           }
         >
-          <ListItemText primary={category.label} />
+          <ListItemText primary={label} />
         </ListItem>
       ))}
     </List>

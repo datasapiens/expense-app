@@ -1,12 +1,13 @@
 import React, { FC } from 'react';
-import { RootState } from '../store';
 import { useAppSelector } from '../store/hooks';
+import { categoriesSelector } from '../store/slices/categories/slice';
+import { transactionSelector } from '../store/slices/transactions/slice';
 import { DataGrid, GridColDef } from '@mui/x-data-grid';
 import { Chip, Grid, Typography } from '@mui/material';
 
-const TransactionsDataGrid:FC = () => {
-  const transactions = useAppSelector((state: RootState) => state.transactions);
-  const categories = useAppSelector((state: RootState) => state.categories);
+const TransactionsDataGrid: FC = () => {
+  const { data: transactions } = useAppSelector(transactionSelector);
+  const { data: categories } = useAppSelector(categoriesSelector);
 
   const columns: GridColDef[] = [
     {
@@ -33,7 +34,7 @@ const TransactionsDataGrid:FC = () => {
       sortable: false,
       renderCell: (params) => {
         const selectedCategory = categories.find(
-          (category) => category.id === params.row.category
+          ({ id }) => id === params.row.category
         );
         return selectedCategory ? (
           <Chip key={selectedCategory?.id} label={selectedCategory?.label} />
@@ -53,7 +54,7 @@ const TransactionsDataGrid:FC = () => {
       </Grid>
       <Grid item xs={12}>
         <DataGrid
-          rows={transactions}
+          rows={transactions || []}
           columns={columns}
           pageSize={10}
           rowsPerPageOptions={[10]}

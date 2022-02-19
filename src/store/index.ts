@@ -1,9 +1,9 @@
 import { createStore } from 'redux';
-import { ThunkAction, Action, combineReducers } from '@reduxjs/toolkit';
+import { combineReducers } from '@reduxjs/toolkit';
 import { persistStore, persistReducer } from 'redux-persist';
 import storage from 'redux-persist/lib/storage';
-import categoriesReducer from './categoriesReducer';
-import transactionsReducer from './transactionsReducer';
+import categoriesReducer from './slices/categories/slice';
+import transactionsReducer from './slices/transactions/slice';
 
 const persistConfig = {
   key: 'root',
@@ -23,10 +23,3 @@ export const persistor = persistStore(appStore);
 
 export type AppDispatch = typeof appStore.dispatch;
 export type RootState = ReturnType<typeof appStore.getState>;
-
-export type AppThunk<ReturnType = void> = ThunkAction<
-  ReturnType,
-  RootState,
-  unknown,
-  Action<string>
->;

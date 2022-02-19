@@ -1,12 +1,11 @@
-export interface Category {
-  id: number;
-  label: string;
-}
-
 export interface Transaction {
   id: number;
   label: string;
   date: number;
-  amount: number;
+  amount: string;
   category: number | null;
+}
+
+export interface TransactionsInitialState {
+  data: Transaction[];
 }

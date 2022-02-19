@@ -1,6 +1,7 @@
 import React, { FC } from 'react';
-import { RootState } from '../store';
 import { useAppSelector } from '../store/hooks';
+import { categoriesSelector } from '../store/slices/categories/slice';
+import { transactionSelector } from '../store/slices/transactions/slice';
 import { getRandomColor } from '../utils';
 import {
   BarChart,
@@ -16,14 +17,14 @@ import {
 import { Grid, Typography } from '@mui/material';
 
 const Graphs: FC = () => {
-  const transactions = useAppSelector((state: RootState) => state.transactions);
-  const categories = useAppSelector((state: RootState) => state.categories);
+  const { data: transactions } = useAppSelector(transactionSelector);
+  const { data: categories } = useAppSelector(categoriesSelector);
 
   const data = categories.map(({ id, label }) => {
     const color = getRandomColor();
     const sum = transactions
       .filter((transaction) => transaction.category === id)
-      .reduce((acc, transaction) => acc + transaction.amount, 0);
+      .reduce((acc, transaction) => acc + Number(transaction.amount), 0);
 
     return {
       id,
@@ -49,9 +50,9 @@ const Graphs: FC = () => {
             <ReferenceLine y={0} stroke='#000' />
             <CartesianGrid strokeDasharray='5 5' />
             <Bar dataKey='sum' fill='#1976d2'>
-              {data.map((bar, i) => {
-                return <Cell key={i} fill={bar.color} />;
-              })}
+              {data.map(({ color }, i) => (
+                <Cell key={i} fill={color} />
+              ))}
             </Bar>
           </BarChart>
         </ResponsiveContainer>

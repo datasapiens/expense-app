@@ -1,7 +1,7 @@
 import React, { FC } from 'react';
+import { Grid, Divider } from '@mui/material';
 import Categories from './Categories';
 import Transactions from './Transactions';
-import { Grid, Divider } from '@mui/material';
 
 const Dashboard: FC = () => (
   <Grid container spacing={2}>
