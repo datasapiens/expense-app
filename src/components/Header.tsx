@@ -6,12 +6,12 @@ const pages = [
   {
     id: 0,
     label: 'Home',
-    path: '/',
+    path: '/expense-app/',
   },
   {
     id: 1,
     label: 'Graphs',
-    path: '/graphs',
+    path: '/expense-app/graphs',
   },
 ];
 

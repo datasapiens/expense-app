@@ -1,3 +1,10 @@
+# Solution
+
+[DEMO LINK](https://eugenepolischuk.github.io/expense-app/)
+
+
+# The task
+
 The task is to create an income/expense web app. The app should have two screens. The app should be written using the technologies mentioned in the Technologies section.
 Successful candidates spend on average 4 hours on this task.
 

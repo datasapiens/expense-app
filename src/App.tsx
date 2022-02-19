@@ -1,5 +1,5 @@
 import React from 'react';
-import { Routes, Route } from 'react-router-dom';
+import { Routes, Route,  Navigate } from 'react-router-dom';
 import { Container } from '@mui/material';
 import Dashboard from './components/Dashboard';
 import Graphs from './components/Graphs';
@@ -11,8 +11,8 @@ const App = () => {
       <Header />
       <Container maxWidth='lg' sx={{ padding: '50px 20px' }}>
         <Routes>
-          <Route path='/' element={<Dashboard />} />
-          <Route path='graphs' element={<Graphs />} />
+          <Route path='/expense-app/' element={<Dashboard />} />
+          <Route path='/expense-app/graphs' element={<Graphs />} />
         </Routes>
       </Container>
     </>
