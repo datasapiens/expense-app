@@ -1,27 +1,29 @@
-import React, { useState } from 'react';
+import React, { FC, useState } from 'react';
 import { useAppDispatch, useAppSelector } from '../store/hooks';
-import { Category } from '../types';
 import { addTransaction } from '../store/transactionsReducer';
+import { RootState } from '../store';
 import {
   Grid,
   TextField,
-  Autocomplete,
+  FormControl,
+  Select,
+  MenuItem,
   Button,
   Typography,
+  InputLabel,
 } from '@mui/material';
-import { DesktopDatePicker, LocalizationProvider } from '@mui/lab';
+import { DesktopDatePicker, LocalizationProvider,  } from '@mui/lab';
 import AdapterDateFns from '@mui/lab/AdapterDateFns';
 
-const TransactionForm = () => {
+const TransactionForm:FC = () => {
   const dispatch = useAppDispatch();
+  
   const [label, setLabel] = useState<string>('');
   const [amount, setAmount] = useState<number>(0);
   const [date, setDate] = useState<Date | null>(new Date());
-  const [selectedCategories, setSelectedCategories] = useState<Category[] | []>(
-    []
-  );
+  const [selectedCategory, setSelectedCategory] = useState<number>(0);
 
-  const categories = useAppSelector((state) => state.categories);
+  const categories = useAppSelector((state: RootState) => state.categories);
 
   const addNewTransaction = () => {
     if (label === '' || !amount || !date) {
@@ -35,29 +37,30 @@ const TransactionForm = () => {
       label,
       amount,
       date,
-      categories: selectedCategories,
+      category: selectedCategory,
     };
 
     dispatch(addTransaction(transaction));
 
     setLabel('');
     setAmount(0);
-    setDate(null);
-    setSelectedCategories([]);
+    setDate(new Date());
+    setSelectedCategory(0);
   };
 
   return (
     <Grid container spacing={2}>
       <Grid item xs={12}>
         <Typography variant='h5' component='h5'>
-          Create new transaction
+          New transaction
         </Typography>
       </Grid>
       <Grid item xs={12}>
         <Grid container spacing={2}>
-          <Grid item xs={2}>
+          <Grid item xs={4}>
             <TextField
               required
+              fullWidth
               label='Label'
               id='outlined-basic'
               value={label}
@@ -90,23 +93,24 @@ const TransactionForm = () => {
               style={{ flex: 1 }}
             />
           </Grid>
-          <Grid item xs={4}>
-            <Autocomplete
-              multiple
-              limitTags={2}
-              id='tags-outlined'
-              options={categories}
-              value={selectedCategories || []}
-              onChange={(e, value) => {
-                setSelectedCategories(value);
-              }}
-              getOptionLabel={(option) => (option.label ? option.label : '')}
-              filterSelectedOptions
-              renderInput={(params) => (
-                <TextField {...params} label='Categories' />
-              )}
-              style={{ flex: 1 }}
-            />
+          <Grid item xs={2}>
+            <FormControl fullWidth>
+              <InputLabel id='demo-simple-select-label'>Category</InputLabel>
+              <Select
+                required
+                labelId='demo-simple-select-label'
+                id='demo-simple-select'
+                value={selectedCategory}
+                label='Category'
+                onChange={(e) => setSelectedCategory(Number(e.target.value))}
+              >
+                {categories.map((category) => (
+                  <MenuItem key={category.id} value={category.id}>
+                    {category.label}
+                  </MenuItem>
+                ))}
+              </Select>
+            </FormControl>
           </Grid>
           <Grid item xs={2}>
             <Button

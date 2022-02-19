@@ -6,6 +6,10 @@ type CategoriesState = Category[];
 
 const initialState: CategoriesState = [
   {
+    id: 0,
+    label: 'Other',
+  },
+  {
     id: 1,
     label: 'Salary',
   },

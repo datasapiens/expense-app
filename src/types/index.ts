@@ -8,5 +8,5 @@ export interface Transaction {
   label: string;
   date: number;
   amount: number;
-  category: Category[];
+  category: number | null;
 }
