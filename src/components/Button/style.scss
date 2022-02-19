@@ -1,0 +1,39 @@
+@import './src/variable';
+
+.app-button {
+  border: none;
+  border-radius: 5px;
+  padding: 8px 16px;
+  cursor: pointer;
+
+  &.primary {
+    background: $primary;
+    color: white;
+
+    &:hover {
+      background: $primary-light;
+    }
+  }
+
+  &.normal {
+    background: $light-gray;
+    color: black;
+
+    &:hover {
+      background: $light-gray-hover;
+    }
+  }
+
+  &:focus {
+    outline: none;
+  }
+
+  &:disabled {
+    background: $light-gray-hover;
+    cursor: not-allowed;
+
+    &:hover {
+      background: $light-gray-hover;
+    }
+  }
+}

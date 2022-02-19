@@ -1,0 +1,34 @@
+@import './src/variable';
+
+.app-list {
+  .list-item {
+    padding: 10px;
+    border-bottom: 1px solid $light-gray;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    &:first-of-type {
+      border-top: 1px solid $light-gray;
+    }
+
+    .icon-button {
+      border-radius: 50%;
+      border: none;
+      height: 36px;
+      width: 36px;
+      cursor: pointer;
+      background: transparent;
+      transition: background-color 0.2s;
+
+      &:focus {
+        outline: none;
+      }
+
+      &:hover {
+        background: #f0f0f0;
+      }
+    }
+  }
+}
+
