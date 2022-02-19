@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="16px" height="18px" viewBox="0 0 16 18" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: sketchtool 59.1 (101010) - https://sketch.com -->
+    <title>6850AD92-A0B4-42F0-BF5C-BC18527A4DF8</title>
+    <desc>Created with sketchtool.</desc>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" stroke-linecap="round" stroke-linejoin="round">
+        <g id="1.8-offers-purchaser" transform="translate(-24.000000, -266.000000)" stroke="#000" stroke-width="0.75">
+            <g id="sidenav">
+                <g id="sidenav-main">
+                    <g id="menu">
+                        <g id="menu-icons" transform="translate(24.000000, 187.000000)">
+                            <g id="Analytics" transform="translate(0.000000, 80.000000)">
+                                <g id="Group" transform="translate(1.000000, 5.000000)">
+                                    <path d="M0.4,10.7 L0.4,5.8 C0.4,5.6 0.6,5.5 0.7,5.5 L2.6,5.5 C2.8,5.5 2.9,5.7 2.9,5.8 L2.9,10.7" id="Path"></path>
+                                    <path d="M10.9,10.7 L10.9,0.8 C10.9,0.6 11.1,0.3 11.2,0.3 L13.1,0.3 C13.3,0.3 13.4,0.5 13.4,0.8 L13.4,10.7" id="Path"></path>
+                                    <path d="M5.6,10.7 L5.6,3.2 C5.6,3 5.8,2.9 6,2.9 L7.9,2.9 C8.1,2.9 8.2,3 8.2,3.2 L8.2,10.7" id="Path"></path>
+                                </g>
+                                <line x1="0.6" y1="15.7" x2="15.4" y2="15.7" id="Path"></line>
+                                <polyline id="Path" points="11.3 0.3 13.7 1.2 12.8 3.6"></polyline>
+                                <line x1="13.7" y1="1.2" x2="1.4" y2="6.7" id="Path"></line>
+                            </g>
+                        </g>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

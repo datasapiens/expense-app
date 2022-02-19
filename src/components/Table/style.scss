@@ -1,0 +1,44 @@
+@import './src/variable';
+
+.app-table {
+  table {
+    min-width: 100%;
+    border-spacing: 0;
+    white-space: nowrap;
+
+    thead {
+      th {
+        text-align: left;
+        padding: 20px 10px;
+        border-bottom: 1px solid inherit;
+        font-size: 16px;
+        background: $primary;
+        color: white;
+
+        &:first-child {
+          border-bottom-left-radius: 10px;
+          border-top-left-radius: 10px;
+          padding-left: 20px;
+        }
+
+        &:last-child {
+          border-bottom-right-radius: 10px;
+          border-top-right-radius: 10px;
+        }
+      }
+    }
+
+    tbody {
+      td {
+        text-align: left;
+        padding: 16px 10px;
+        border-bottom: 1px solid $primary;
+        font-size: 16px;
+
+        &:first-child {
+          padding-left: 20px;
+        }
+      }
+    }
+  }
+}

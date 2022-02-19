@@ -1,0 +1,50 @@
+.home-wrapper {
+  display: flex;
+
+  .card {
+    &:first-of-type {
+      margin-right: 10px;
+      width: 20%;
+    }
+
+    &:last-of-type {
+      flex-grow: 1;
+      margin-left: 10px;
+    }
+  }
+
+  .chip {
+    text-align: center;
+    padding: 2px 12px;
+    border-radius: 30px;
+    color: white;
+
+    svg {
+      fill: white;
+      margin-right: 5px;
+    }
+
+    &.income {
+      background-color: #5153ff;
+    }
+
+    &.expense {
+      background-color: #b32521;
+    }
+  }
+}
+
+.modal-content {
+  .form-wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 16px;
+
+    & > p {
+      font-size: 16px;
+      font-weight: 600;
+      margin-right: 16px;
+    }
+  }
+}

@@ -1,0 +1,54 @@
+@import './src/variable';
+
+.text-field-input {
+  position: relative;
+
+  &.filled:not(.no-placeholder) {
+    input {
+      padding: 18px 16px 6px 16px;
+    }
+
+    .placeholder {
+      top: 7px;
+      transform: translateY(0%);
+      font-size: 12px;
+    }
+  }
+
+  input {
+    outline: none;
+    border: 1px solid $primary;
+    padding: 12px 16px;
+    border-radius: 8px;
+    font-size: 16px;
+    height: 16px;
+    font-weight: 500;
+    position: relative;
+    background-color: transparent;
+    transition: padding 0.4s, box-shadow 0.2s;
+
+    &:focus {
+      box-shadow: 0 0 0 4px rgba(68, 124, 136, 0.25);
+    }
+  }
+
+  .placeholder {
+    position: absolute;
+    color: #979797;
+    top: 12px;
+    left: 16px;
+    font-size: 16px;
+    white-space: nowrap;
+    transition: top 0.4s, font-size 0.4s;
+    text-transform: uppercase;
+  }
+
+  input[type="number"]::-webkit-outer-spin-button,
+  input[type="number"]::-webkit-inner-spin-button {
+    display: none;
+  }
+
+  input[type="date"]::-webkit-inner-spin-button {
+    display: none;
+  }
+}
