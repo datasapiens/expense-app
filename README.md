@@ -1,59 +1,46 @@
-The task is to create an income/expense web app. The app should have two screens. The app should be written using the technologies mentioned in the Technologies section.
-Successful candidates spend on average 4 hours on this task.
+# Getting Started with Create React App
 
-## Data layer
+This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-There are two entities in the app: Category and Transaction
+## Available Scripts
 
-### Category
+In the project directory, you can run:
 
-Represents one category of transaction. As examples of categories: Salary, Gifts, Food, Going out, Traveling. There must be pre-defined categories in the app from the beginning (3-5 is enough).
+### `npm start`
 
-Should have following fields
+Runs the app in the development mode.\
+Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 
-- id
-- label
+The page will reload if you make edits.\
+You will also see any lint errors in the console.
 
-### Transaction
+### `npm test`
 
-Should have following fields
+Launches the test runner in the interactive watch mode.\
+See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
 
-- id
-- label
-- date
-- amount (negative value means expense, positive value means income)
-- category (reference by category id)
+### `npm run build`
 
-## Screens
+Builds the app for production to the `build` folder.\
+It correctly bundles React in production mode and optimizes the build for the best performance.
 
-### Home
+The build is minified and the filenames include the hashes.\
+Your app is ready to be deployed!
 
-This is the default screen and app entry point. This screen should have a table of transactions and a form for adding a new transaction. Users should not be able to remove transactions. Also, on this screen, there should be a list of categories with the ability to add/remove categories. It's up to you to decide what happens to transactions in category when the category gets deleted.
+See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
 
-### Graph(s)
+### `npm run eject`
 
-This screen should have a graph or multiple graphs to represent the data. It's up to you to decide how exactly to visualize the data. To give you an example: a graph representing total spends per category.
+**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
 
-## Technologies
+If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
 
-- Typescript
-- SCSS Modules
-- React version 16.8 and up, please make sure to use Hooks
-- Redux version compatible with React version of choice
-- Use `localStorage` as a DB for the app
+Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
 
-Usage of any additional libraries, such as react-router is allowed.
+You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
 
-## How to participate
+## Learn More
 
-There are 3 simple steps
+You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
 
-1. Fork this repository
-2. Complete the task in your repository
-3. Create a PR to this repository
-
-Afterwards we will contact you, please make sure you have contact details in your GitHub profile.
-
-Tip: you can [deploy your application](https://www.freecodecamp.org/news/deploy-a-react-app-to-github-pages/) for demo on github pages for free
-
-Happy coding 🚀
+To learn React, check out the [React documentation](https://reactjs.org/).

@@ -1,0 +1,123 @@
+$mainColor: rgb(255, 68, 0);
+$secondaryColor: rgb(255,89,0);
+$thirdColor: rgb(255,255,255);
+body{
+    margin: 0;
+    overflow: hidden;
+}
+.header-amount{
+    width: 100%;
+    height: 10vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: large;
+    font-weight: 100;
+    background-color: $mainColor;
+    color: $thirdColor;
+}
+.button{
+    text-decoration: none;
+    border: none;
+    border-radius: 5px;
+    padding: 4px;
+    background-color:$mainColor;
+    color: $thirdColor;
+    cursor:pointer;
+    margin-top: 5px;
+    margin-left: 10px;
+    margin-right: 10px;
+}
+.button:hover{
+    background-color:$secondaryColor;
+}
+.ul{
+   width: 25vw; 
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   flex-wrap: wrap;
+   flex-direction: column;
+}
+
+.ul li{
+    padding: 5px;
+    margin: 5px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    flex-wrap: wrap;
+    border-bottom: 1px solid black;
+}
+
+.div{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.select{
+   background-color: $mainColor;
+   color: $thirdColor;
+   border: none;
+   margin: 10px;
+   padding:5px;
+}
+
+.select:hover{
+    background-color: $secondaryColor;
+}
+
+.input{
+    border: 1px solid $mainColor;
+    border-radius: 5px;
+    padding: 5px;
+    margin: 5px;
+}
+
+.input:hover{
+    border: 1px solid $secondaryColor;
+}
+
+.expenses{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-direction: row;
+    width: 100%;
+}
+
+.graph{
+    width: 25vw;
+    height: 25vh;
+}
+
+h1{
+    background-color: $mainColor;
+    border-radius: 25px;
+    color:$thirdColor;
+}
+
+.left{
+    height: 100vh;
+    width: 15vw;
+    background-color: $mainColor;
+    left: 0;
+    top: 0;
+}
+
+.right{
+    height: 100vh;
+    width: 15vw;
+    background-color: $mainColor;
+    right: 0;
+    top: 0;
+}
+
+.graph-container{
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+}
