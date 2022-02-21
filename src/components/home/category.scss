@@ -1,0 +1,23 @@
+.category-list {
+  text-align: left;
+
+  .ant-tag {
+    line-height: '40px';
+  }
+
+  .site-tag-plus {
+    color: #1890ff;
+    background-color: white;
+    border-style: dashed;
+  }
+  .edit-tag {
+    user-select: none;
+    color: #1890ff;
+    background-color: white;
+  }
+  .tag-input {
+    width: 78px;
+    margin-right: 8px;
+    vertical-align: top;
+  }
+}
