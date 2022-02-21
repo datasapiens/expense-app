@@ -16,7 +16,7 @@ const App: FC = () => {
           <Route path='/graphs' element={<Balance />} />
           <Route path='/graphs/incoming' element={<Incoming />} />
           <Route path='graphs/outgoing' element={<Outgoing />} />
-          <Route path='*' element={<Home />} />
+          <Route path='*/' element={<Home />} />
         </Routes>
       </PageLayout>
     </div>
