@@ -5,16 +5,17 @@ import PageLayout from './layout';
 import { Incoming, Outgoing, Balance } from './components/graphs';
 
 import './layout.scss';
+export const app_URL: string = '/expense-app';
 
 const App: FC = () => {
   return (
     <div className='App'>
       <PageLayout>
         <Routes>
-          <Route path='/' element={<Home />} />
-          <Route path='/graphs' element={<Balance />} />
-          <Route path='/graphs/incoming' element={<Incoming />} />
-          <Route path='/graphs/outgoing' element={<Outgoing />} />
+          <Route path={app_URL} element={<Home />} />
+          <Route path={`${app_URL}/graphs`} element={<Balance />} />
+          <Route path={`${app_URL}/graphs/incoming`} element={<Incoming />} />
+          <Route path={`${app_URL}/graphs/outgoing`} element={<Outgoing />} />
           <Route path='*' element={<Home />} />
         </Routes>
       </PageLayout>

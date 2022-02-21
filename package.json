@@ -1,5 +1,6 @@
 {
   "name": "datasapiens",
+  "homepage": "https://dorukucak.github.io/expense-app/",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
@@ -27,6 +28,8 @@
   "scripts": {
     "start": "craco start",
     "build": "craco build",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -b master -d build",
     "test": "craco test",
     "eject": "react-scripts eject"
   },
@@ -46,6 +49,7 @@
     ]
   },
   "devDependencies": {
-    "@types/uuid": "^8.3.4"
+    "@types/uuid": "^8.3.4",
+    "gh-pages": "^3.2.3"
   }
 }
