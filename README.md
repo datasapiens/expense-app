@@ -5,10 +5,16 @@ In this simple app, you can add your incomes and expenses with respect to their 
 Used technologies: 
 
 React 17.0.2
+
 Redux/Toolkit 1.7.2
+
 Ant Design 4.18.7
+
 React-router-dom 6.2.1
+
 Sass 1.49.8
+
+
 
 Node v16.13.0
 
