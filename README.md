@@ -10,6 +10,8 @@ Ant Design 4.18.7
 React-router-dom 6.2.1
 Sass 1.49.8
 
+Node v16.13.0
+
 
 ## Available Scripts
 
