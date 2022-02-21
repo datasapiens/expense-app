@@ -127,7 +127,7 @@ const InputBar = ({ setUpdate, update }: { setUpdate: any; update: any }) => {
               <Button
                 type='primary'
                 htmlType='submit'
-                style={{ float: 'right', width: 100, marginRight: 10 }}
+                style={{ float: 'right', width: 100, marginRight: 20 }}
               >
                 Save
               </Button>
