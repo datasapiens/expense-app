@@ -2,7 +2,14 @@
 
 In this simple app, you can add your incomes and expenses with respect to their categories, to track your finances: In the charts section, you can view visualization of your transactions.
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app), using the [Redux](https://redux.js.org/) and [Redux Toolkit](https://redux-toolkit.js.org/) template.
+Used technologies: 
+
+React 17.0.2
+Redux/Toolkit 1.7.2
+Ant Design 4.18.7
+React-router-dom 6.2.1
+Sass 1.49.8
+
 
 ## Available Scripts
 
