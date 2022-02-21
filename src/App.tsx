@@ -13,9 +13,9 @@ const App: FC = () => {
       <PageLayout>
         <Routes>
           <Route path={app_URL} element={<Home />} />
-          <Route path={`${app_URL}/graphs`} element={<Balance />} />
-          <Route path={`${app_URL}/graphs/incoming`} element={<Incoming />} />
-          <Route path={`${app_URL}/graphs/outgoing`} element={<Outgoing />} />
+          <Route path='/graphs' element={<Balance />} />
+          <Route path='/graphs/incoming' element={<Incoming />} />
+          <Route path='graphs/outgoing' element={<Outgoing />} />
           <Route path='*' element={<Home />} />
         </Routes>
       </PageLayout>
