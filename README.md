@@ -2,6 +2,8 @@
 
 In this simple app, you can add your incomes and expenses with respect to their categories, to track your finances: In the charts section, you can view visualization of your transactions.
 
+See it live: https://dorukucak.github.io/expense-app
+
 Used technologies: 
 
 React 17.0.2
