@@ -7,7 +7,7 @@ import { CategoriesTable } from '../components/CategoriesTable'
 
 const Home = () => {
   return (
-    <div className='Home'>
+    <div>
       <h1>Home</h1>
 
       <TransactionTable />
