@@ -3,6 +3,7 @@ import React, { useState, useEffect } from 'react'
 import styles from './Home.module.scss'
 
 import { TransactionTable } from '../components/TransactionTable'
+import { CategoriesTable } from '../components/CategoriesTable'
 
 const Home = () => {
   return (
@@ -11,7 +12,7 @@ const Home = () => {
 
       <TransactionTable />
 
-      {/* <CategoriesTable */}
+      <CategoriesTable />
     </div>
   )
 }

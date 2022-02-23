@@ -12,7 +12,6 @@ const emptyFormState = {
 
 const TransactionTable = () => {
   const [transactions, setTransactions] = useState([])
-  const [categories, setCategories] = useState([])
   const [userInput, setUserInput] = useState(emptyFormState) // form data
 
   // todo: pass data to Redux
@@ -82,47 +81,50 @@ const TransactionTable = () => {
         </td>
 
         <td>
-          <input type='submit' name='Add' />
+          <input type='submit' name='Add' value='Add Transaction' />
         </td>
       </tr>
     )
   }
 
   return (
-    <form onSubmit={addTransaction}>
-      <table className={styles.table}>
-        <thead>
-          <tr>
-            <th>ID</th>
-            <th>Label</th>
-            <th>Date (dd/mm/yyyy)</th>
-            <th>Amount ($)</th>
-            <th>Category</th>
-          </tr>
-        </thead>
-        <tbody>
-          {/* Render Transactions */}
-          {Array.isArray(transactions)
-            ? transactions.map((item, index) => {
-                return (
-                  <Row
-                    key={index}
-                    id={item?.id}
-                    label={item?.label}
-                    date={item?.date}
-                    amount={item?.amount}
-                    category={item?.category}
-                    addTransaction={addTransaction}
-                  />
-                )
-              })
-            : null}
+    <section>
+      <h2>Transactions Table</h2>
+      <form onSubmit={addTransaction}>
+        <table className={styles.table}>
+          <thead>
+            <tr>
+              <th>ID</th>
+              <th>Label</th>
+              <th>Date (dd/mm/yyyy)</th>
+              <th>Amount ($)</th>
+              <th>Category</th>
+            </tr>
+          </thead>
+          <tbody>
+            {/* Render Transactions */}
+            {Array.isArray(transactions)
+              ? transactions.map((item, index) => {
+                  return (
+                    <Row
+                      key={index}
+                      id={item?.id}
+                      label={item?.label}
+                      date={item?.date}
+                      amount={item?.amount}
+                      category={item?.category}
+                      addTransaction={addTransaction}
+                    />
+                  )
+                })
+              : null}
 
-          {/* Transaction addition Form */}
-          <TransactionAdditionForm />
-        </tbody>
-      </table>
-    </form>
+            {/* Transaction addition Form */}
+            <TransactionAdditionForm />
+          </tbody>
+        </table>
+      </form>
+    </section>
   )
 }
 
