@@ -5,7 +5,6 @@ import TransactionAdditionForm from './TransactionAdditionForm'
 import useTransactions from '../../hooks/useTransactions'
 
 import styles from './TransactionTable.module.scss'
-import TransactionsJSON from './Transactions.json'
 
 const emptyFormState = {
   id: '',
@@ -16,11 +15,8 @@ const emptyFormState = {
 }
 
 const TransactionTable = ({ categories }) => {
-  const { transactions, addTransaction, addMultipleTransactions } = useTransactions() // from global store
+  const { transactions, addTransaction } = useTransactions() // from global store
   const [userInput, setUserInput] = useState(emptyFormState) // controlled form data
-
-  // pre-populate some transactions statically
-  useEffect(() => addMultipleTransactions(TransactionsJSON), [])
 
   useEffect(() => resetForm(), [transactions])
 
