@@ -5,13 +5,13 @@ import styles from './Home.module.scss'
 
 const Home = () => {
   return (
-    <div>
+    <main>
       <h1>Home</h1>
 
       <TransactionTable />
 
       <CategoriesTable />
-    </div>
+    </main>
   )
 }
 
