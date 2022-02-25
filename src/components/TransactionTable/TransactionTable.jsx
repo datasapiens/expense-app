@@ -2,21 +2,27 @@ import React, { useState, useEffect } from 'react'
 
 import styles from './TransactionTable.module.scss'
 
+import TransactionAdditionForm from './TransactionAdditionForm'
+import TransactionsJSON from './Transactions.json'
+
 const emptyFormState = {
-  id: 0,
+  id: '',
   label: '',
-  date: new Date(),
-  amount: 0,
+  date: new Date().toLocaleString(),
+  amount: '',
   category: '',
 }
 
-const TransactionTable = () => {
-  const [transactions, setTransactions] = useState([])
+const TransactionTable = ({ categories, transactions, setTransactions }) => {
   const [userInput, setUserInput] = useState(emptyFormState) // form data
+
+  useEffect(() => {
+    setTransactions(TransactionsJSON)
+  }, [])
 
   // todo: pass data to Redux
   const addTransaction = event => {
-    // console.log('@addTransaction', event, userInput)
+    console.log('@addTransaction', userInput, transactions)
     event.preventDefault()
 
     // Add transaction to UI (local state)
@@ -33,7 +39,6 @@ const TransactionTable = () => {
   }
 
   // ROW component
-  // todo: extract component
   const Row = ({ id, label, date, amount, category }) => {
     return (
       <tr>
@@ -42,47 +47,6 @@ const TransactionTable = () => {
         <td>{date}</td>
         <td>{amount}</td>
         <td>{category}</td>
-      </tr>
-    )
-  }
-
-  // Last Row on Table
-  const TransactionAdditionForm = () => {
-    return (
-      <tr>
-        <td>
-          <input type='number' name='id' value={userInput?.id} onChange={handleInputChange} />
-        </td>
-        <td>
-          <input type='text' name='label' value={userInput?.label} onChange={handleInputChange} />
-        </td>
-        <td>
-          <input type='date' name='date' value={userInput?.date} onChange={handleInputChange} />
-        </td>
-        <td>
-          <input
-            type='number'
-            name='amount'
-            value={userInput?.amount}
-            onChange={handleInputChange}
-          />
-        </td>
-        <td>
-          <select
-            name='category'
-            id='category-select'
-            value={userInput?.category}
-            onChange={handleInputChange}>
-            <option value=''>--Please choose an option--</option>
-            <option value='dog'>Dog</option>
-            <option value='cat'>Cat</option>
-            <option value='hamster'>Hamster</option>
-          </select>
-        </td>
-
-        <td>
-          <input type='submit' name='Add' value='Add Transaction' />
-        </td>
       </tr>
     )
   }
@@ -113,14 +77,19 @@ const TransactionTable = () => {
                       date={item?.date}
                       amount={item?.amount}
                       category={item?.category}
-                      addTransaction={addTransaction}
                     />
                   )
                 })
               : null}
 
             {/* Transaction addition Form */}
-            <TransactionAdditionForm />
+            <TransactionAdditionForm
+              transactions={transactions}
+              userInput={userInput}
+              categories={categories}
+              handleInputChange={handleInputChange}
+              addTransaction={addTransaction}
+            />
           </tbody>
         </table>
       </form>

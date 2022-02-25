@@ -1,43 +1,63 @@
 import React, { useState, useEffect } from 'react'
 
 import CategoryRow from './CategoryRow'
+import CategoryAdditionForm from './CategoryAdditionForm'
 import styles from './CategoriesTable.module.scss'
 
 const emptyFormState = {
-  id: 0,
+  id: 0, // autoIncrement
   label: '',
 }
 
-const CategoriesTable = () => {
-  const [categories, setCategories] = useState([])
+const CategoriesTable = ({ categories, setCategories }) => {
   const [userInput, setUserInput] = useState(emptyFormState) // form data
 
+  useEffect(() => {
+    resetForm()
+  }, [categories])
+
+  const resetForm = () => {
+    // factor in prepopulated values to autogenerate ID
+    if (categories.length > 0) {
+      setUserInput({ ...emptyFormState, id: categories.at(-1)?.id + 1 })
+    } else setUserInput(emptyFormState)
+  }
+
   // todo: pass data to Redux
-  // todo: fix uniqueness bug
   const addCategory = event => {
-    // console.log('@addCategory', event, userInput)
+    // console.log('@addCategory', event, userInput, categories)
     event.preventDefault()
 
     if (categories.length === 0) setCategories([userInput])
 
+    let idExists = false
+    let labelExists = false
+
     // check unique id & categories
     for (let i = 0; i < categories.length; i++) {
-      if (userInput.id == categories[i].id) {
+      if (userInput.id === categories[i].id) {
         console.log('@AddCat - id match', userInput)
+        idExists = true
+        resetForm()
         alert('Enter Unique ID')
         break
-      } else if (userInput.label == categories[i].label) {
+      } else if (userInput.label === categories[i].label) {
         console.log('@AddCat - label match', userInput)
+        labelExists = true
+        resetForm()
         alert('Enter Unique Label')
         break
-      } else if (userInput.id != categories[i].id && userInput.label != categories[i].label) {
-        console.log('@AddCat', userInput)
-        // Add transaction to UI (local state)
-        setCategories([...categories, userInput])
-
-        // Clear form
-        setUserInput(emptyFormState)
       }
+    }
+
+    // safe insertion after finishing the loop
+    if (!idExists && !labelExists) {
+      console.log('@AddCat - adding', userInput)
+      // Add transaction to UI (local state)
+      setCategories([...categories, userInput])
+
+      // Reset form
+      resetForm()
     }
   }
 
@@ -48,46 +68,15 @@ const CategoriesTable = () => {
   }
 
   const removeCategory = () => {
+    console.log('@removeCategory')
     // if category has no transactions yet -> delete
     // if category has transaction -> provide option to merge with another category
-  }
-
-  // Last Row on Table
-  const TransactionAdditionForm = () => {
-    return (
-      <tr>
-        <td>
-          <input
-            autoFocus
-            key='id'
-            type='number'
-            name='id'
-            value={userInput?.id}
-            onChange={handleInputChange}
-          />
-        </td>
-        <td>
-          <input
-            autoFocus
-            key='label'
-            type='text'
-            name='label'
-            value={userInput?.label}
-            onChange={handleInputChange}
-          />
-        </td>
-
-        <td>
-          <input key='submit' type='submit' name='Add' value='Add Category ' />
-        </td>
-      </tr>
-    )
   }
 
   return (
     <section>
       <h2>Categories Table</h2>
-      <form onSubmit={addCategory}>
+      <form>
         <table className={styles.table}>
           <thead>
             <tr>
@@ -100,7 +89,12 @@ const CategoriesTable = () => {
             <CategoryRow categories={categories} removeCategory={removeCategory} />
 
             {/* Transaction addition Form */}
-            <TransactionAdditionForm />
+            <CategoryAdditionForm
+              categories={categories}
+              userInput={userInput}
+              handleInputChange={handleInputChange}
+              addCategory={addCategory}
+            />
           </tbody>
         </table>
       </form>
