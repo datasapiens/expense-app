@@ -1,21 +1,13 @@
 import useCategories from '../../hooks/useCategories'
-import useTransactions from '../../hooks/useTransactions'
 
 // Last Row on Table
 const TransactionAdditionForm = ({ userInput, handleInputChange, handleFormSubmission }) => {
   const { categories } = useCategories()
-  const { transactions } = useTransactions()
 
   return (
     <tr key='additionForm'>
       <td>
-        <input
-          disabled
-          type='number'
-          name='id'
-          value={userInput?.id}
-          // value={transactions.at(-1)?.id ? transactions.at(-1)?.id + 1 : 0} // bad
-        />
+        <input disabled type='number' name='id' value={userInput?.id} />
       </td>
       <td>
         <input type='text' name='label' value={userInput?.label} onChange={handleInputChange} />
@@ -35,7 +27,7 @@ const TransactionAdditionForm = ({ userInput, handleInputChange, handleFormSubmi
           <option value=''>--Please choose an option--</option>
           {Array.isArray(categories)
             ? categories.map(i => (
-                <option key={i.id} value={i?.label}>
+                <option key={i.id} value={i?.id}>
                   {i.label}
                 </option>
               ))
