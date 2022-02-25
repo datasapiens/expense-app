@@ -1,20 +1,55 @@
-import React, { useState, useEffect } from 'react'
+import { useState, useEffect } from 'react'
 
 import CategoryRow from './CategoryRow'
 import CategoryAdditionForm from './CategoryAdditionForm'
 import styles from './CategoriesTable.module.scss'
+
+import useCategories from '../../hooks/useCategories'
 
 const emptyFormState = {
   id: 0, // autoIncrement
   label: '',
 }
 
-const CategoriesTable = ({ categories, setCategories }) => {
-  const [userInput, setUserInput] = useState(emptyFormState) // form data
+const CategoriesTable = () => {
+  const { categories, addCategory } = useCategories() // from global store
+  const [userInput, setUserInput] = useState(emptyFormState) // controlled form data
 
-  useEffect(() => {
-    resetForm()
-  }, [categories])
+  useEffect(() => resetForm(), [categories])
+
+  // ------------------------ TABLE METHODS ------------------------
+
+  const handleInputChange = event => {
+    const newUserInput = { ...userInput, [event?.target?.name]: event?.target?.value }
+    setUserInput(newUserInput)
+  }
+
+  const handleFormSubmission = () => {
+    if (categories.length === 0) addCategory(userInput)
+
+    // check unique id & categories
+    let idExists = false
+    let labelExists = false
+
+    for (let i = 0; i < categories.length; i++) {
+      if (userInput.id === categories[i].id) {
+        idExists = true // enable flag
+        resetForm()
+        alert('Enter Unique ID') // the user
+        break // the loop
+      } else if (userInput.label === categories[i].label) {
+        labelExists = true // enable flag
+        resetForm()
+        alert('Enter Unique Label') // the user
+        break // the loop
+      }
+    }
+
+    // safe insertion after finishing the loop
+    if (!idExists && !labelExists) {
+      addCategory(userInput) // to global store
+    }
+  }
 
   const resetForm = () => {
     // factor in prepopulated values to autogenerate ID
@@ -23,55 +58,13 @@ const CategoriesTable = ({ categories, setCategories }) => {
     } else setUserInput(emptyFormState)
   }
 
-  // todo: pass data to Redux
-  const addCategory = event => {
-    // console.log('@addCategory', event, userInput, categories)
-    event.preventDefault()
-
-    if (categories.length === 0) setCategories([userInput])
-
-    let idExists = false
-    let labelExists = false
-
-    // check unique id & categories
-    for (let i = 0; i < categories.length; i++) {
-      if (userInput.id === categories[i].id) {
-        console.log('@AddCat - id match', userInput)
-        idExists = true
-        resetForm()
-        alert('Enter Unique ID')
-        break
-      } else if (userInput.label === categories[i].label) {
-        console.log('@AddCat - label match', userInput)
-        labelExists = true
-        resetForm()
-        alert('Enter Unique Label')
-        break
-      }
-    }
-
-    // safe insertion after finishing the loop
-    if (!idExists && !labelExists) {
-      console.log('@AddCat - adding', userInput)
-      // Add transaction to UI (local state)
-      setCategories([...categories, userInput])
-
-      // Reset form
-      resetForm()
-    }
-  }
-
-  const handleInputChange = event => {
-    // if(event.target.value)
-    const newUserInput = { ...userInput, [event?.target?.name]: event?.target?.value }
-    setUserInput(newUserInput)
-  }
-
   const removeCategory = () => {
     console.log('@removeCategory')
     // if category has no transactions yet -> delete
     // if category has transaction -> provide option to merge with another category
   }
+
+  // ------------------------ JSX RENDERING ------------------------
 
   return (
     <section>
@@ -86,14 +79,13 @@ const CategoriesTable = ({ categories, setCategories }) => {
           </thead>
           <tbody>
             {/* Render Categories */}
-            <CategoryRow categories={categories} removeCategory={removeCategory} />
+            <CategoryRow removeCategory={removeCategory} />
 
             {/* Transaction addition Form */}
             <CategoryAdditionForm
-              categories={categories}
               userInput={userInput}
               handleInputChange={handleInputChange}
-              addCategory={addCategory}
+              handleFormSubmission={handleFormSubmission}
             />
           </tbody>
         </table>

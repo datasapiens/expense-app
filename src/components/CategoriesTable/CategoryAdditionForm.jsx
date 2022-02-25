@@ -1,20 +1,10 @@
-import React from 'react'
-
 // Last Row on Table
-const CategoryAdditionForm = ({ categories, userInput, handleInputChange, addCategory }) => {
+const CategoryAdditionForm = ({ userInput, handleInputChange, handleFormSubmission }) => {
   return (
-    <tr>
+    <tr key='additionForm'>
       <td>
         {/* Auto Incrementing ID Field */}
-        <input
-          // disabled
-          key='id'
-          type='number'
-          name='id'
-          value={userInput?.id}
-          // value={categories.at(-1)?.id + 1} // bad
-          onChange={handleInputChange}
-        />
+        <input disabled key='id' type='number' name='id' value={userInput?.id} />
       </td>
       <td>
         <input
@@ -27,9 +17,13 @@ const CategoryAdditionForm = ({ categories, userInput, handleInputChange, addCat
       </td>
 
       <td>
-        {/* <input key='submit' type='submit' name='Add' value='Add Category ' onSubmit={addCategory} /> */}
-        <button key='submit' type='button' name='Add' value='Add Category ' onClick={addCategory}>
-          Submmit
+        <button
+          key='submit'
+          type='button'
+          name='Add'
+          value='Add Category '
+          onClick={handleFormSubmission}>
+          Submit
         </button>
       </td>
     </tr>

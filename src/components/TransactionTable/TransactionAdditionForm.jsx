@@ -1,22 +1,20 @@
-import React from 'react'
+import useCategories from '../../hooks/useCategories'
+import useTransactions from '../../hooks/useTransactions'
 
 // Last Row on Table
-const TransactionAdditionForm = ({
-  transactions,
-  userInput,
-  handleInputChange,
-  categories,
-  addTransaction,
-}) => {
+const TransactionAdditionForm = ({ userInput, handleInputChange, handleFormSubmission }) => {
+  const { categories } = useCategories()
+  const { transactions } = useTransactions()
+
   return (
-    <tr>
+    <tr key='additionForm'>
       <td>
         <input
           disabled
           type='number'
           name='id'
-          value={transactions.at(-1)?.id ? transactions.at(-1)?.id + 1 : 0}
-          // onChange={handleInputChange}
+          value={userInput?.id}
+          // value={transactions.at(-1)?.id ? transactions.at(-1)?.id + 1 : 0} // bad
         />
       </td>
       <td>
@@ -46,7 +44,7 @@ const TransactionAdditionForm = ({
       </td>
 
       <td>
-        <input type='submit' name='Add' value='Add Transaction' onSubmit={addTransaction} />
+        <input type='submit' name='Add' value='Add Transaction' onSubmit={handleFormSubmission} />
       </td>
     </tr>
   )

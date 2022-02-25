@@ -1,8 +1,10 @@
-import React, { useState, useEffect } from 'react'
+import { useState, useEffect } from 'react'
+
+import TransactionsRow from './TransactionsRow'
+import TransactionAdditionForm from './TransactionAdditionForm'
+import useTransactions from '../../hooks/useTransactions'
 
 import styles from './TransactionTable.module.scss'
-
-import TransactionAdditionForm from './TransactionAdditionForm'
 import TransactionsJSON from './Transactions.json'
 
 const emptyFormState = {
@@ -13,48 +15,39 @@ const emptyFormState = {
   category: '',
 }
 
-const TransactionTable = ({ categories, transactions, setTransactions }) => {
-  const [userInput, setUserInput] = useState(emptyFormState) // form data
+const TransactionTable = ({ categories }) => {
+  const { transactions, addTransaction, addMultipleTransactions } = useTransactions() // from global store
+  const [userInput, setUserInput] = useState(emptyFormState) // controlled form data
 
-  useEffect(() => {
-    setTransactions(TransactionsJSON)
-  }, [])
+  // pre-populate some transactions statically
+  useEffect(() => addMultipleTransactions(TransactionsJSON), [])
 
-  // todo: pass data to Redux
-  const addTransaction = event => {
-    console.log('@addTransaction', userInput, transactions)
-    event.preventDefault()
+  useEffect(() => resetForm(), [transactions])
 
-    // Add transaction to UI (local state)
-    setTransactions([...transactions, userInput])
-
-    // Clear form
-    setUserInput(emptyFormState)
-  }
+  // ------------------------ TABLE METHODS ------------------------
 
   const handleInputChange = event => {
-    // if(event.target.value)
     const newUserInput = { ...userInput, [event?.target?.name]: event?.target?.value }
     setUserInput(newUserInput)
   }
 
-  // ROW component
-  const Row = ({ id, label, date, amount, category }) => {
-    return (
-      <tr>
-        <td>{id}</td>
-        <td>{label}</td>
-        <td>{date}</td>
-        <td>{amount}</td>
-        <td>{category}</td>
-      </tr>
-    )
+  const handleFormSubmission = () => {
+    addTransaction(userInput) // to globalStore
   }
+
+  const resetForm = () => {
+    // factor in any previous values to autogenerate ID
+    if (transactions.length > 0) {
+      setUserInput({ ...emptyFormState, id: transactions.at(-1)?.id + 1 })
+    } else setUserInput(emptyFormState)
+  }
+
+  // ------------------------ JSX RENDERING ------------------------
 
   return (
     <section>
       <h2>Transactions Table</h2>
-      <form onSubmit={addTransaction}>
+      <form onSubmit={handleFormSubmission}>
         <table className={styles.table}>
           <thead>
             <tr>
@@ -67,28 +60,13 @@ const TransactionTable = ({ categories, transactions, setTransactions }) => {
           </thead>
           <tbody>
             {/* Render Transactions */}
-            {Array.isArray(transactions)
-              ? transactions.map((item, index) => {
-                  return (
-                    <Row
-                      key={index}
-                      id={item?.id}
-                      label={item?.label}
-                      date={item?.date}
-                      amount={item?.amount}
-                      category={item?.category}
-                    />
-                  )
-                })
-              : null}
+            <TransactionsRow />
 
             {/* Transaction addition Form */}
             <TransactionAdditionForm
-              transactions={transactions}
               userInput={userInput}
-              categories={categories}
               handleInputChange={handleInputChange}
-              addTransaction={addTransaction}
+              handleFormSubmission={handleFormSubmission}
             />
           </tbody>
         </table>
