@@ -1,0 +1,34 @@
+{
+  "env": {
+    "browser": true,
+    "es6": true,
+    "jest": true
+  },
+  "extends": [
+    "eslint:recommended",
+    "plugin:react/recommended",
+    "plugin:@typescript-eslint/recommended"
+  ],
+  "plugins": ["react", "@typescript-eslint"],
+  "settings": {
+    "react": {
+      "pragma": "React",
+      "version": "detect"
+    }
+  },
+  "rules": {
+    "@typescript-eslint/explicit-function-return-type": 0,
+    "react/prop-types": 0,
+    "@typescript-eslint/no-use-before-define": ["error", { "functions": false }],
+    "@typescript-eslint/member-delimiter-style": ["error", {
+      "multiline": {
+        "delimiter": "comma",    // 'none' or 'semi' or 'comma'
+        "requireLast": true
+      },
+      "singleline": {
+        "delimiter": "comma",    // 'semi' or 'comma'
+        "requireLast": false
+      }
+    }]
+  }
+}
