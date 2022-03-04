@@ -1,3 +1,5 @@
+import { LOCAL_STORAGE_KEY } from 'src/Constants'
+
 export const asyncer = (dispatch, state) => action =>
   typeof action === 'function' ? action(dispatch, state) : dispatch(action)
 
@@ -10,4 +12,8 @@ export const logger = (action, prevState, currentState) => {
     console.log('%c Current State:', 'color: green', currentState)
     console.groupEnd()
   }
+}
+
+export const storeToLocalStorage = currentState => {
+  localStorage.setItem(LOCAL_STORAGE_KEY, JSON.stringify(currentState))
 }

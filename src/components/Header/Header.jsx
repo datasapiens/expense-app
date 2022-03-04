@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom'
 
-import styles from './Header.module.scss'
+import s from './Header.module.scss'
 
 const NAVIGATION = [
   {
@@ -17,7 +17,7 @@ const Header = () => {
   return (
     <header>
       <nav>
-        <ul>
+        <ul className={s.container}>
           {NAVIGATION.map((i, index) => (
             <li key={index}>
               <Link to={i.href}>{i.label}</Link>

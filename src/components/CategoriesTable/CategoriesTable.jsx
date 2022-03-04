@@ -5,6 +5,7 @@ import CategoryAdditionForm from './CategoryAdditionForm'
 import styles from './CategoriesTable.module.scss'
 
 import useCategories from '../../hooks/useCategories'
+import useTransactions from '../../hooks/useTransactions'
 
 const emptyFormState = {
   id: 0, // autoIncrement
@@ -12,7 +13,8 @@ const emptyFormState = {
 }
 
 const CategoriesTable = () => {
-  const { categories, addCategory } = useCategories() // from global store
+  const { categories, addCategory, removeCategory } = useCategories() // from global store
+  const { transactions } = useTransactions() // from global store
   const [userInput, setUserInput] = useState(emptyFormState) // controlled form data
 
   useEffect(() => resetForm(), [categories])
@@ -58,10 +60,32 @@ const CategoriesTable = () => {
     } else setUserInput(emptyFormState)
   }
 
-  const removeCategory = () => {
-    console.log('@removeCategory')
+  const handleDelBtnOnPress = event => {
+    console.log('@handleDelBtnOnPress', event?.target?.name)
     // if category has no transactions yet -> delete
-    // if category has transaction -> provide option to merge with another category
+    let transactionExists = false
+
+    for (let i = 0; i < transactions.length; i++) {
+      if (transactions[i].categoryId == event?.target?.id) {
+        transactionExists = true
+        break
+      }
+    }
+
+    if (!transactionExists) {
+      // safe delete
+      removeCategory(event?.target?.id)
+    } else if (transactionExists) {
+      // -> todo: provide option to merge with another category
+      // use modal based alerts or libs
+      const message = `Transaction exists with a category called ${event?.target?.name}`
+
+      // if (window.confirm(message)) {
+      //   console.log('YES')
+      // }
+
+      alert(message)
+    }
   }
 
   // ------------------------ JSX RENDERING ------------------------
@@ -79,7 +103,7 @@ const CategoriesTable = () => {
           </thead>
           <tbody>
             {/* Render Categories */}
-            <CategoryRow removeCategory={removeCategory} />
+            <CategoryRow handleDelBtnOnPress={handleDelBtnOnPress} />
 
             {/* Transaction addition Form */}
             <CategoryAdditionForm

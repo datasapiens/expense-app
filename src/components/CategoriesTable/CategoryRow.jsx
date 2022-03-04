@@ -2,7 +2,7 @@ import React from 'react'
 
 import useCategories from '../../hooks/useCategories'
 
-const CategoryRow = ({ removeCategory }) => {
+const CategoryRow = ({ handleDelBtnOnPress }) => {
   const { categories } = useCategories()
   if (!Array.isArray(categories)) return null
 
@@ -11,7 +11,7 @@ const CategoryRow = ({ removeCategory }) => {
       <td>#{item?.id}</td>
       <td>{item?.label}</td>
       <td>
-        <button type='button' onClick={removeCategory}>
+        <button id={item?.id} name={item?.label} type='button' onClick={handleDelBtnOnPress}>
           -
         </button>
       </td>

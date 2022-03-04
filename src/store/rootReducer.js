@@ -3,13 +3,21 @@
 // individual reducers
 import transactionsReducer from './reducers/transactions'
 import categoriesReducer from './reducers/categories'
+import { logger, storeToLocalStorage } from './middlewares'
 
-import { logger } from './middlewares'
+import { LOCAL_STORAGE_KEY } from 'src/Constants'
+
+const lsString = localStorage.getItem(LOCAL_STORAGE_KEY)
+const lsObject = !!lsString ? JSON.parse(lsString) : {}
 
 // Default Global state of application at launch
 export const initialState = {
+  // lower data precedence
   transactions: transactionsReducer.initialState,
   categories: categoriesReducer.initialState,
+
+  // higher data precedence
+  ...lsObject,
 }
 
 const rootReducer = (state, action) => {
@@ -24,6 +32,7 @@ const rootReducer = (state, action) => {
 
   // Middlewares
   logger(action, state, currentState)
+  storeToLocalStorage(currentState)
 
   return currentState
 }

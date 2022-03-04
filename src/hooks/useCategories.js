@@ -8,25 +8,27 @@ const useCategories = () => {
   const { state, dispatch } = useGlobalStore()
 
   // List of Props
-  const categories = state?.categories
+  const { categories, categoryFM } = state?.categories
 
   // List of Actions
   const addCategory = categoriesReducer?.actions?.addCategory
-  const addMultipleCategories = categoriesReducer?.actions?.addMultipleCategories
+  const removeCategory = categoriesReducer?.actions?.removeCategory
   const resetCategories = categoriesReducer?.actions?.resetCategories
+  const addMultipleCategories = categoriesReducer?.actions?.addMultipleCategories
 
   // Bind all Actions to globalDispatch (important)
   const boundActions = bindActions(
     {
       addCategory,
-      addMultipleCategories,
+      removeCategory,
       resetCategories,
+      addMultipleCategories,
     },
     dispatch
   )
 
   // expose
-  return { categories, ...boundActions }
+  return { categories, categoryFM, ...boundActions }
 }
 
 export default useCategories

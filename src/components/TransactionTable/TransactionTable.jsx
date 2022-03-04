@@ -3,6 +3,7 @@ import { useState, useEffect } from 'react'
 import TransactionsRow from './TransactionsRow'
 import TransactionAdditionForm from './TransactionAdditionForm'
 import useTransactions from '../../hooks/useTransactions'
+import useCategories from '../../hooks/useCategories'
 
 import styles from './TransactionTable.module.scss'
 
@@ -14,8 +15,9 @@ const emptyFormState = {
   category: '',
 }
 
-const TransactionTable = ({ categories }) => {
+const TransactionTable = () => {
   const { transactions, addTransaction } = useTransactions() // from global store
+  const { categories } = useCategories() // from global store
   const [userInput, setUserInput] = useState(emptyFormState) // controlled form data
 
   useEffect(() => resetForm(), [transactions])
