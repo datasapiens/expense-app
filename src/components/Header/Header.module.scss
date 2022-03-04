@@ -1,0 +1,9 @@
+.container {
+  display: flex;
+  flex: 1;
+
+  * + * {
+    // space-x
+    margin-left: 1rem;
+  }
+}
