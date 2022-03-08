@@ -1,0 +1,7 @@
+const actions = {
+  ADD_CATEGORY: "ADD_CATEGORY",
+  ADD_TRANSACTION: "ADD_TRANSACTION",
+  DELETE_CATEGORY: "DELETE_CATEGORY",
+};
+
+export default actions;
