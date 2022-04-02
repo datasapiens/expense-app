@@ -1,40 +1,23 @@
-import CategoryTable from "components/CategoryTable";
-import TransactionsTable from "components/TransactionsTable";
+import CategoryTable from "components/Category/categoryTable.component";
+import TransactionsTable from "components/Transactions/transactionsTable.component";
 import React from "react";
-import styled from "styled-components";
+import styles from "./index.module.scss";
 
-const HomePage = () => {
+const HomePage: React.FC = () => {
   return (
-    <Wrapper className="container">
+    <div className="container">
       <h1>Welcome Guest</h1>
 
-      <div className="split">
-        <div className="split-transaction">
+      <div className={styles.split}>
+        <div className={styles.splitTransaction}>
           <TransactionsTable />
         </div>
-        <div className="split-category">
+        <div className={styles.splitCategory}>
           <CategoryTable />
         </div>
       </div>
-    </Wrapper>
+    </div>
   );
 };
 
 export default HomePage;
-
-const Wrapper = styled.div`
-  .split {
-    gap: 1rem;
-    @media screen and (min-width: 768px) {
-      display: flex;
-    }
-    &-transaction {
-      flex: 1;
-    }
-    &-category {
-      @media screen and (min-width: 768px) {
-        width: 40%;
-      }
-    }
-  }
-`;

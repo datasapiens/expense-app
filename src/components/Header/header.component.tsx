@@ -1,10 +1,10 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import styled from "styled-components";
+import styles from "./header.module.scss";
 
 const HeaderComp = () => {
   return (
-    <Header>
+    <header className={styles.nav}>
       <nav className="container">
         <ul>
           <li>
@@ -15,24 +15,8 @@ const HeaderComp = () => {
           </li>
         </ul>
       </nav>
-    </Header>
+    </header>
   );
 };
 
 export default HeaderComp;
-
-const Header = styled.header`
-  nav {
-    display: flex;
-    justify-content: flex-end;
-    ul {
-      list-style: none;
-      display: flex;
-      gap: 1rem;
-      a {
-        text-decoration: none;
-        color: inherit;
-      }
-    }
-  }
-`;

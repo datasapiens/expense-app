@@ -6,7 +6,7 @@ import {
   categorySelector,
   removeCategory,
 } from "store/slices/category.slice";
-import styled from "styled-components";
+import styles from "./category.module.scss";
 import { uid } from "utils/helpers";
 
 const CategoryTable = () => {
@@ -27,7 +27,7 @@ const CategoryTable = () => {
   };
 
   return (
-    <Wrapper>
+    <div className={styles.categoryTable}>
       <h2>Categories</h2>
       <form onSubmit={handleAddCategory}>
         <input
@@ -46,46 +46,23 @@ const CategoryTable = () => {
           ))}
         </tbody>
       </table>
-    </Wrapper>
+    </div>
   );
 };
 
 export default CategoryTable;
 
-const Wrapper = styled.div`
-  input {
-    display: block;
-    width: 100%;
-    padding: 0.5rem;
-  }
-  .add-input {
-    margin-bottom: 1rem;
-  }
-  .edit-input {
-    all: unset;
-    &:focus {
-      color: #2e373a;
-    }
-  }
-  .category-item {
-    button {
-      all: unset;
-      cursor: pointer;
-    }
-  }
-`;
-
 const SingleRow: React.FC<{ category: ICategory }> = ({ category }) => {
   const dispatch = useDispatch();
   return (
-    <tr className="category-item">
+    <tr className={styles.categoryItem}>
       <td>{category.label}</td>
       <td align="right">
         <button
           style={{ color: "red" }}
           onClick={() => dispatch(removeCategory(category.id))}
         >
-          <i className="fas fa-remove"></i>
+          x
         </button>
       </td>
     </tr>

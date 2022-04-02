@@ -1,4 +1,4 @@
-import HeaderComp from "components/HeaderComp";
+import HeaderComp from "components/Header/header.component";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import HomePage from "./pages";
 import GraphsPage from "./pages/graphs";

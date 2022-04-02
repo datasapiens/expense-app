@@ -3,7 +3,7 @@ import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { categorySelector } from "store/slices/category.slice";
 import { addTransaction } from "store/slices/transaction.slice";
-import styled from "styled-components";
+import styles from "./transaction.module.scss";
 
 const AddTransaction = () => {
   const categories = useSelector(categorySelector);
@@ -30,7 +30,7 @@ const AddTransaction = () => {
     });
   };
   return (
-    <Form onSubmit={handleSubmit}>
+    <form onSubmit={handleSubmit} className={styles.form}>
       <select
         value={info.category as unknown as string}
         onChange={handleChange}
@@ -70,23 +70,8 @@ const AddTransaction = () => {
       />
 
       <button>Add Transaction</button>
-    </Form>
+    </form>
   );
 };
 
 export default AddTransaction;
-
-const Form = styled.form`
-  select,
-  input {
-    margin-bottom: 1rem;
-    width: 100%;
-    padding: 0.5rem;
-  }
-  button {
-    all: unset;
-    background-color: #ddd;
-    padding: 0.5rem 1.5rem;
-    margin-bottom: 1rem;
-  }
-`;

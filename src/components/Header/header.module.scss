@@ -1,0 +1,14 @@
+nav {
+  display: flex;
+  justify-content: flex-end;
+
+  ul {
+    list-style: none;
+    display: flex;
+    gap: 1rem;
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+  }
+}

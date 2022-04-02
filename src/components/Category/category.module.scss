@@ -1,0 +1,23 @@
+.categoryTable {
+  input {
+    display: block;
+    width: 100%;
+    padding: 0.5rem;
+  }
+  .add-input {
+    margin-bottom: 1rem;
+  }
+  .edit-input {
+    all: unset;
+    &:focus {
+      color: #2e373a;
+    }
+  }
+}
+
+.categoryItem {
+  button {
+    all: unset;
+    cursor: pointer;
+  }
+}

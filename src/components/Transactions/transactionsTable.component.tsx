@@ -2,7 +2,6 @@ import React, { useMemo } from "react";
 import { useAppSelector } from "store";
 import { categorySelector } from "store/slices/category.slice";
 import { transactionSeletor } from "store/slices/transaction.slice";
-import styled from "styled-components";
 import AddTransaction from "./AddTransaction";
 
 const TransactionsTable = () => {
@@ -24,11 +23,11 @@ const TransactionsTable = () => {
   }, [allTransactions, categories]);
 
   return (
-    <Wrapper>
+    <div>
       <AddTransaction />
 
       <h2>Transactions</h2>
-      {transaction.transactions?.length > 0 && (
+      {transaction.transactions?.length > 0 ? (
         <table className="table">
           <thead>
             <tr>
@@ -63,11 +62,13 @@ const TransactionsTable = () => {
             </tr>
           </tbody>
         </table>
+      ) : (
+        <div>
+          <p>You have no transactions! Add a transaction to view record</p>
+        </div>
       )}
-    </Wrapper>
+    </div>
   );
 };
 
 export default TransactionsTable;
-
-const Wrapper = styled.div``;
