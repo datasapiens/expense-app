@@ -1,0 +1,44 @@
+@use "../functions/functions" as *;
+
+// Colors
+$white: #ffffff;
+$black: #000000;
+$gray: #e0e0e0;
+$darkGray: #8e8e8e;
+$lightGray: #f5f5f5;
+$red: #ff0000;
+$green: #00ff00;
+$blue: #0000ff;
+$yellow: #ffff00;
+$orange: #ffa500;
+$pink: #ff00ff;
+$purple: #800080;
+$brown: #a52a2a;
+$cyan: #00ffff;
+$lightBlue: #add8e6;
+$lightGreen: #90ee90;
+$lightRed: #ffb6c1;
+$lightOrange: #ffa07a;
+$lightPink: #ffb6c1;
+$lightPurple: #e9967a;
+$lightBrown: #ffe4b5;
+$lightCyan: #b0e0e6;
+
+// Fonts
+$fontFamily: "Roboto", sans-serif;
+$fontFamilyMonospace: "Roboto Mono", monospace;
+
+// Font sizes
+$fontSizeSmall: rem(12);
+$fontSizeMedium: rem(14);
+$fontSizeLarge: rem(16);
+$fontSizeHuge: rem(18);
+
+// Spacing
+$spacingSmall: rem(8);
+$spacingMedium: rem(12);
+$spacingLarge: rem(16);
+$spacingHuge: rem(20);
+
+// Border radius
+$borderRadius: rem(15);
