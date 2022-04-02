@@ -27,6 +27,8 @@ export const initialState: ContainerState = {
     },
   ],
   transactions: [],
+  totalExpenses: 0,
+  totalIncome: 0,
 };
 
 const homPageSlice = createSlice({

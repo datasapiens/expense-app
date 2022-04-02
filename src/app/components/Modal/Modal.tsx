@@ -1,7 +1,7 @@
 import React from 'react';
 import Modal from 'antd/lib/modal/Modal';
 
-const CustomModal = ({}) => {
+const CustomModal = ({ children }) => {
   return (
     <Modal
       title="Basic Modal"
@@ -9,8 +9,7 @@ const CustomModal = ({}) => {
       onOk={() => {}}
       onCancel={() => {}}
     >
-      <p>Some contents...</p>
-      <p>Some contents...</p>
+      {children}
     </Modal>
   );
 };

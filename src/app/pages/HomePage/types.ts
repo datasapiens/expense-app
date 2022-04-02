@@ -2,6 +2,8 @@ export interface HomePageState {
   isLoading: boolean;
   categories: ICategory[];
   transactions: ITransaction[];
+  totalExpenses: number;
+  totalIncome: number;
 }
 
 export interface ICategory {
