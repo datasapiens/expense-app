@@ -34,8 +34,9 @@ export const categorySlice = createSlice({
       );
     },
     removeCategory: (state, { payload }: PayloadAction<string>) => {
-      state.filter((s) => s.id !== payload);
-      localStorage.setItem(CATEGORIES, JSON.stringify(state));
+      const data = state.filter((s) => s.id !== payload);
+      localStorage.setItem(CATEGORIES, JSON.stringify(data));
+      state = data;
     },
   },
 });

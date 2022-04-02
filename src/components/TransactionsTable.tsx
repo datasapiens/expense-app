@@ -18,8 +18,8 @@ const TransactionsTable = () => {
             <tr>
               <th>Label</th>
               <th>Date</th>
-              <th>Amount</th>
               <th>Category</th>
+              <th>Amount</th>
             </tr>
           </thead>
           <tbody>
@@ -27,6 +27,7 @@ const TransactionsTable = () => {
               <tr key={i}>
                 <td>{transaction?.label}</td>
                 <td>{transaction.date}</td>
+                <td>{transaction.category}</td>
                 <td
                   style={{
                     color: transaction.amount.toString().includes("-")
@@ -36,10 +37,10 @@ const TransactionsTable = () => {
                 >
                   {transaction?.amount}
                 </td>
-                <td>{transaction.category}</td>
               </tr>
             ))}
             <tr>
+              <td></td>
               <td></td>
               <td style={{ fontWeight: "bold" }}>Total</td>
               <td style={{ fontWeight: "bold" }}>{total}</td>
