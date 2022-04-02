@@ -18,8 +18,9 @@ if (!db.length) {
 const initialState: TransactionProp = {
   transactions: db,
   get total() {
-    const transactions = this.transactions.map((t) => Number(t.amount));
-    const sum = transactions.length ? transactions.reduce((a, b) => a + b) : 0;
+    const sum = this.transactions
+      ?.map((t) => Number(t.amount))
+      ?.reduce((a, b) => a + b);
 
     return sum;
   },
