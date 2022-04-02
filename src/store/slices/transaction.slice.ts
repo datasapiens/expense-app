@@ -5,40 +5,21 @@ import { TRANSACTIONS } from "utils/constants";
 
 let db: ITransaction[] = [];
 
-interface TransactionProp {
-  transactions: ITransaction[];
-  total: number;
-}
-
 if (!db.length) {
   const localDB = JSON.parse(localStorage.getItem(TRANSACTIONS) as string);
   if (localDB) db = localDB;
 }
 
-const initialState: TransactionProp = {
-  transactions: db,
-  get total() {
-    const sum = this.transactions
-      ?.map((t) => Number(t.amount))
-      ?.reduce((a, b) => a + b);
-
-    return sum;
-  },
-};
+const initialState: ITransaction[] = db;
 
 const transactionSlice = createSlice({
   name: "Transaction",
   initialState,
   reducers: {
     addTransaction: (state, { payload }: PayloadAction<ITransaction>) => {
-      const data = {
-        ...state,
-        transactions: [...state.transactions, payload],
-        total: state.transactions.reduce((total, num) => total + num.amount, 0),
-      };
-      localStorage.setItem(TRANSACTIONS, JSON.stringify(data.transactions));
-
-      return data;
+      const data = [...state, payload];
+      localStorage.setItem(TRANSACTIONS, JSON.stringify(data));
+      return (state = [...state, payload]);
     },
   },
 });

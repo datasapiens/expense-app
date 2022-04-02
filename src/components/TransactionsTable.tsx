@@ -1,11 +1,17 @@
-import React from "react";
+import React, { useMemo } from "react";
 import { useAppSelector } from "store";
 import { transactionSeletor } from "store/slices/transaction.slice";
 import styled from "styled-components";
 import AddTransaction from "./AddTransaction";
 
 const TransactionsTable = () => {
-  const { transactions, total } = useAppSelector(transactionSeletor);
+  const transactions = useAppSelector(transactionSeletor);
+
+  const total = useMemo(() => {
+    return transactions.length > 0
+      ? transactions.map((t) => Number(t.amount))?.reduce((a, b) => a + b)
+      : 0;
+  }, [transactions]);
 
   return (
     <Wrapper>

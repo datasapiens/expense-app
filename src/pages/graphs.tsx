@@ -11,7 +11,7 @@ import {
 import { useAppSelector } from "store";
 
 const GraphPage: React.FC = () => {
-  const { transactions } = useAppSelector((state) => state.transactions);
+  const transactions = useAppSelector((state) => state.transactions);
 
   const graphData = useMemo(() => {
     return transactions.map((transaction) => ({

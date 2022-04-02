@@ -13,8 +13,9 @@ const AddTransaction = () => {
   const handleChange = (
     e: React.ChangeEvent<HTMLSelectElement | HTMLInputElement>
   ) => {
-    const { value, name } = e.target;
-    setInfo({ ...info, [name]: value });
+    const { value, name, type } = e.target;
+
+    setInfo({ ...info, [name]: type === "number" ? Number(value) : value });
   };
 
   const handleSubmit = (e: React.FormEvent) => {
