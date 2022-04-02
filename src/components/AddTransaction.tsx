@@ -7,7 +7,7 @@ import styled from "styled-components";
 
 const AddTransaction = () => {
   const categories = useSelector(categorySelector);
-  const [info, setInfo] = useState<Partial<ITransaction>>({});
+  const [info, setInfo] = useState<Partial<ITransaction>>({ label: "" });
   const dispatch = useDispatch();
 
   const handleChange = (
@@ -20,12 +20,12 @@ const AddTransaction = () => {
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-
+    if (!info.categoryId || !info.label) return;
     dispatch(addTransaction(info as ITransaction));
     setInfo({
-      category: " " as unknown as ITransaction,
+      categoryId: "",
+      amount: "" as unknown as number,
       label: "",
-      amount: 0,
       date: "",
     });
   };
@@ -34,12 +34,12 @@ const AddTransaction = () => {
       <select
         value={info.category as unknown as string}
         onChange={handleChange}
-        name="category"
+        name="categoryId"
         required
       >
         <option value="">Category</option>
         {categories.map((cateory, i) => (
-          <option value={cateory.label} key={i}>
+          <option value={cateory.id} key={i}>
             {cateory.label}
           </option>
         ))}

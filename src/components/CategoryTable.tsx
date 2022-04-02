@@ -16,6 +16,10 @@ const CategoryTable = () => {
 
   const handleAddCategory = (e: React.FormEvent) => {
     e.preventDefault();
+    if (
+      categories.some((c) => c.label.toLowerCase() === category.toLowerCase())
+    )
+      return alert("Category Already exist");
     const payload = { label: category, id: uid() };
 
     dispatch(addCategory(payload));

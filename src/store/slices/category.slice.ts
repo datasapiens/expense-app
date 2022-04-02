@@ -8,8 +8,6 @@ const initialCategories: ICategory[] = [
   { label: "Salary", id: uid() },
   { label: "Gifts", id: uid() },
   { label: "Food", id: uid() },
-  { label: "Going out", id: uid() },
-  { label: "Traveling", id: uid() },
 ];
 
 const db: ICategory[] = JSON.parse(localStorage.getItem(CATEGORIES) as string);
@@ -36,7 +34,7 @@ export const categorySlice = createSlice({
     removeCategory: (state, { payload }: PayloadAction<string>) => {
       const data = state.filter((s) => s.id !== payload);
       localStorage.setItem(CATEGORIES, JSON.stringify(data));
-      state = data;
+      return (state = data);
     },
   },
 });

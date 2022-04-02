@@ -1,24 +1,34 @@
 import React, { useMemo } from "react";
 import { useAppSelector } from "store";
+import { categorySelector } from "store/slices/category.slice";
 import { transactionSeletor } from "store/slices/transaction.slice";
 import styled from "styled-components";
 import AddTransaction from "./AddTransaction";
 
 const TransactionsTable = () => {
-  const transactions = useAppSelector(transactionSeletor);
+  const allTransactions = useAppSelector(transactionSeletor);
+  const categories = useAppSelector(categorySelector);
 
-  const total = useMemo(() => {
-    return transactions.length > 0
-      ? transactions.map((t) => Number(t.amount))?.reduce((a, b) => a + b)
-      : 0;
-  }, [transactions]);
+  const transaction = useMemo(() => {
+    const total =
+      allTransactions.length > 0
+        ? allTransactions.map((t) => Number(t.amount))?.reduce((a, b) => a + b)
+        : 0;
+    const transactions = allTransactions.map((transaction) => ({
+      ...transaction,
+      category: categories.find(
+        (category) => category.id === transaction.categoryId
+      ),
+    }));
+    return { transactions, total };
+  }, [allTransactions, categories]);
 
   return (
     <Wrapper>
       <AddTransaction />
 
       <h2>Transactions</h2>
-      {transactions.length > 0 && (
+      {transaction.transactions?.length > 0 && (
         <table className="table">
           <thead>
             <tr>
@@ -29,11 +39,11 @@ const TransactionsTable = () => {
             </tr>
           </thead>
           <tbody>
-            {transactions?.map((transaction, i) => (
+            {transaction.transactions?.map((transaction, i) => (
               <tr key={i}>
                 <td>{transaction?.label}</td>
                 <td>{transaction.date}</td>
-                <td>{transaction.category}</td>
+                <td>{transaction.category?.label}</td>
                 <td
                   style={{
                     color: transaction.amount.toString().includes("-")
@@ -49,7 +59,7 @@ const TransactionsTable = () => {
               <td></td>
               <td></td>
               <td style={{ fontWeight: "bold" }}>Total</td>
-              <td style={{ fontWeight: "bold" }}>{total}</td>
+              <td style={{ fontWeight: "bold" }}>{transaction.total}</td>
             </tr>
           </tbody>
         </table>
