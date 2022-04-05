@@ -1,0 +1,10 @@
+.chartContainer {
+    display: flex;
+    flex-direction: row;
+}
+.chart {
+    margin: 10px;
+    padding: 5px;
+    width: 25%;
+    border: 1px solid #eee
+}

@@ -1,0 +1,37 @@
+.container {
+    padding: 10px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    .table {
+        flex: 1;
+    }
+}
+.categories {
+    padding-left: 10px;
+    width: 300px;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    thead {        
+        background-color: #E36397;
+        th {
+            text-align: right;
+            padding: 10px;
+        }
+    }
+    tbody {
+        td {
+            text-align: right;
+            padding: 10px;
+        }
+        tr:nth-child(even) {
+            background-color: #BC8DA7;
+        }
+        tr:nth-child(odd) {
+            background-color: #BDB4BF;
+        }
+    }
+}
