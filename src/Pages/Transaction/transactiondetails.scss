@@ -1,0 +1,21 @@
+.country-item-value {
+    img.flag {
+        width: 17px;
+    }
+}
+
+.p-button-label {
+    font-weight: 700;
+}
+
+a[aria-selected="true"] {
+    .p-tabview-title{
+        color: #545cd8 !important;
+    }
+  }
+
+  a[aria-selected="true"]:hover {
+    color: #545cd8 !important;
+  }
+
+  

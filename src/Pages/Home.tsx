@@ -1,4 +1,4 @@
-import Transactions from "./Transaction/Transactions";
+import { Transactions } from "./Transaction/Transactions";
 import { Categories } from './Category/Categories';
 
 export function Home() {
