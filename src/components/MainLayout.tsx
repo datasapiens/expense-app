@@ -1,8 +1,7 @@
-import { JsxElement } from 'typescript';
 import Menu from './Menu';
 import Nav from './Nav';
 
- const MainLayout = (props: JsxElement) => {
+ const MainLayout = (props: any) => {
 
 
     return (
