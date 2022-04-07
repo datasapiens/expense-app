@@ -1,7 +1,7 @@
 import { max } from "lodash";
 import { Category } from "../models/Category";
 import { Transaction } from "../models/Transaction";
-import { httpService } from "./HttpService";
+import { seedService } from "./SeedService";
 
 class LocalStorageService {
 
@@ -12,7 +12,7 @@ class LocalStorageService {
         let list = this.getLocalItem(this.CategoriesKey);
 
         if(list.length == 0) {
-            localStorage.setItem(this.CategoriesKey, JSON.stringify(httpService.getSeedCategories()));
+            localStorage.setItem(this.CategoriesKey, JSON.stringify(seedService.getSeedCategories()));
             return this.getLocalItem(this.CategoriesKey);
         }
 
@@ -57,7 +57,7 @@ class LocalStorageService {
         let list = this.getLocalItem(this.TransactionKey);
 
         if(list.length == 0) {
-            localStorage.setItem(this.TransactionKey, JSON.stringify(httpService.getSeedTransactions()));
+            localStorage.setItem(this.TransactionKey, JSON.stringify(seedService.getSeedTransactions()));
             return this.getLocalItem(this.TransactionKey);
         }
 
