@@ -1,6 +1,6 @@
 {
   "name": "expense-app",
-  "homepage": "https://asadcr.github.io/expense-app/",
+  "homepage": "/expense-app/",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
