@@ -1,4 +1,4 @@
-import { Route, Routes } from "react-router-dom";
+import { Navigate, Route, Routes } from "react-router-dom";
 import React, { Suspense} from "react";
 import ExtendedRouter from "../extendedRouter";
 import history from "../history";
@@ -21,6 +21,7 @@ class Router extends React.Component {
                             <Route path="/graphs" element={<Graphs />} />
                             <Route path="/category-detail/:id" element={<CategoryDetail />} />
                             <Route path="/transaction-details/:id" element={<TransactionDetail />} />
+                            <Route path="*" element={<Navigate to="/" replace />} />
                         </Routes>
                     </MainLayout>
                 </Suspense>
