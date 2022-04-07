@@ -42,8 +42,8 @@ const DoughnutChart = () => {
                 const amount: number[] = [];
 
                 for (var transaction of transactionsResult) {
-                    labels.push(statusTypes.get(transaction.category)!);
-                    amount.push(transaction.amount);
+                    labels.push(statusTypes.get(transaction.category) ?? 'Unknown');
+                    amount.push(Math.abs(transaction.amount));
                 }
 
                 setData({

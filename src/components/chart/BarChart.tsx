@@ -23,15 +23,12 @@ const BarChart = () => {
 
         (
             async () => {
-
-                
-
                 const transactionsResult: Transaction[] = await localStorageService.getTransactions()
                 const labels: string[] = [];
                 const amount: number[] = [];
-                for (var transaction of transactionsResult) {
+                for (var transaction of transactionsResult.filter(f => f.amount < 0)) {
                     labels.push(moment(transaction.date).format("DD/MM/YYYY"))
-                    amount.push(transaction.amount)
+                    amount.push(Math.abs(transaction.amount))
                 }
 
                 setData({
@@ -90,7 +87,7 @@ const BarChart = () => {
     return (
         <div>
             <div>
-                <h5>Transactions by Day</h5>
+                <h5>Expenses by Day</h5>
                 <Chart type="bar" data={basicData} options={basicOptions} />
             </div>
         </div>
