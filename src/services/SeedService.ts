@@ -14,8 +14,8 @@ class SeedService {
 
     getSeedTransactions = (): Transaction[] => {
         return [
-            { id: 1, label: "Local transactions", date: new Date('04/03/2022'), amount: 1000, category: 3 },
-            { id: 2, label: "Front transactions", date: new Date(), amount: 12000, category: 5 },
+            { id: 1, label: "Bought Food", date: new Date('04/03/2022'), amount: -1000, category: 3 },
+            { id: 2, label: "Travelled to France", date: new Date(), amount: -1200, category: 5 },
         ];
     };
 }
