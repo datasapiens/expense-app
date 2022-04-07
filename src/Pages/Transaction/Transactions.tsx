@@ -13,7 +13,7 @@ import _ from "lodash";
 
 export const Transactions = () => {
 
-    let categories: SelectItem<number>[] = [];
+    const [categories, setCategories] = useState<SelectItem<number>[]>([]);
     const [transactions, setTransactions] = useState<Transaction[]>([]);
     const [isLoading, setIsLoading] = useState<boolean>(false);
     const [first, setFirst] = useState<number>(0);
@@ -27,7 +27,7 @@ export const Transactions = () => {
     const loadCategoriesAndTransactions = () => {
         setIsLoading(true);
 
-        categories = localStorageService.getCategories().map(item => ({ label: item.label, value: item.id } as SelectItem<number>));
+        setCategories(localStorageService.getCategories().map(item => ({ label: item.label, value: item.id } as SelectItem<number>)));
 
         // to add a loading effect only.
         setTimeout(() => {
