@@ -17,8 +17,8 @@ class Router extends React.Component {
                 <Suspense fallback={<Loader />}>
                     <MainLayout>
                         <Routes>
-                            <Route path="/graphs" element={<Graphs />} />
                             <Route path="/" element={<Home />} />
+                            <Route path="/graphs" element={<Graphs />} />
                             <Route path="/category-detail/:id" element={<CategoryDetail />} />
                             <Route path="/transaction-details/:id" element={<TransactionDetail />} />
                         </Routes>
