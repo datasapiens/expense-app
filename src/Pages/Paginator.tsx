@@ -1,4 +1,3 @@
-import React from "react";
 import { Dropdown } from 'primereact/dropdown';
 import { PaginatorTemplateOptions, PaginatorRowsPerPageDropdownOptions } from "primereact/paginator";
 import { DataTablePFSEvent } from "primereact/datatable";
@@ -30,20 +29,4 @@ var paginatorTemplate: PaginatorTemplateOptions = {
     },
 } as any;
 
-export interface IPagedState {
-    first: number;
-    page: number;
-    pageRowCount: number;
-}
-
-const OnPageChange = async (component: React.Component<any, IPagedState>, event : DataTablePFSEvent, callback: (page: number, count: number) => Promise<any>) => {
-    component.setState({
-        first: event.first,
-        page: event.page!,
-        pageRowCount: event.rows,
-    });
-
-    await callback(event.page!, event.rows);
-}
-
-export { paginatorTemplate, OnPageChange };
+export { paginatorTemplate };
