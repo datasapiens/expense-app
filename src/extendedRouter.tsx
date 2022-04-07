@@ -16,7 +16,6 @@ function ExtendedRouter({children, history}: ExtendedRouterProps): JSX.Element {
 
     return (
         <Router
-            basename={process.env.PUBLIC_URL}
             children={children}
             location={state.location}
             navigationType={state.action}
