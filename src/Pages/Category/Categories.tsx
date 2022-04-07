@@ -54,7 +54,7 @@ export const Categories = () => {
     };
 
     const onActionButtonClick = (categoryId: number) => {
-        history.push(`/category-detail/${categoryId}`);
+        history.push(process.env.PUBLIC_URL + `/category-detail/${categoryId}`);
     };
 
     const renderHeader = () => {

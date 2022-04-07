@@ -53,7 +53,7 @@ export const Transactions = () => {
     }
 
     const onActionButtonClick = (TransactionId: number) => {
-        history.push(`/transaction-details/${TransactionId}`);
+        history.push(process.env.PUBLIC_URL + `/transaction-details/${TransactionId}`);
     };
 
     const renderHeader = () => {
