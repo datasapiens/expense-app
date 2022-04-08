@@ -1,6 +1,14 @@
 .layout-default {
     height: 100vh;
 
+    .menu-collapse {
+        margin-left: 20px;
+
+        @media (max-width: 768px) {
+            display: none;
+        }
+    }
+
     .logo {
         padding: 20px;
         img {

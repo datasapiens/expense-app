@@ -6,7 +6,6 @@ import AddTransaction from '../AddTransaction';
 import AddCategory from '../AddCategory';
 import selectState from '../../selectors';
 import { ITransaction, EAddTypes } from '../../types';
-import moment from 'moment';
 import { useDispatch } from 'react-redux';
 import { actions } from 'app/pages/HomePage/slice';
 import styles from './transactions.module.scss';
@@ -14,6 +13,13 @@ import cx from 'classnames';
 
 const StyledRow = styled(Row)`
   margin-bottom: 10px;
+`;
+
+const StyledTable = styled(Table)`
+  @media (max-width: 768px) {
+    width: 100%;
+    overflow-x: scroll;
+  }
 `;
 
 const { Search } = Input;
@@ -93,10 +99,10 @@ const Transactions = () => {
   return (
     <React.Fragment>
       <StyledRow gutter={[16, 16]}>
-        <Col span={4}>
+        <Col xs={24} sm={24} md={4}>
           <h3>Transactions</h3>
         </Col>
-        <Col span={8}>
+        <Col xs={24} sm={24} md={8}>
           <div className={cx(styles['button-list'])}>
             <Button
               type="primary"
@@ -112,14 +118,14 @@ const Transactions = () => {
             </Button>
           </div>
         </Col>
-        <Col span={10}>
+        <Col xs={24} sm={24} md={10}>
           <Search
             placeholder="Search"
             onChange={e => setSearch(e.target.value)}
           />
         </Col>
       </StyledRow>
-      <Table columns={columns} dataSource={currentTransactions} />
+      <StyledTable columns={columns} dataSource={currentTransactions} />
       <Modal
         title="Add Transaction"
         visible={visible}

@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Layout, Menu } from 'antd';
 import {
   MenuUnfoldOutlined,
@@ -16,6 +16,28 @@ const { Header, Sider, Content } = Layout;
 
 const DeafultLayout = props => {
   const [collapsed, setCollapsed] = useState(false);
+  const [width, setWidth] = useState<number>(window.innerWidth);
+
+  const handleWindowSizeChange = () => {
+    setWidth(window.innerWidth);
+  };
+
+  useEffect(() => {
+    window.addEventListener('resize', handleWindowSizeChange);
+    return () => {
+      window.removeEventListener('resize', handleWindowSizeChange);
+    };
+  }, []);
+
+  const isMobile = width <= 768;
+
+  useEffect(() => {
+    if (isMobile) {
+      setCollapsed(true);
+    } else {
+      setCollapsed(false);
+    }
+  }, [isMobile]);
 
   const toggle = () => {
     setCollapsed(!collapsed);
@@ -43,13 +65,15 @@ const DeafultLayout = props => {
       </Sider>
       <Layout>
         <Header style={{ background: '#fff', padding: 0 }}>
-          {React.createElement(
-            collapsed ? MenuUnfoldOutlined : MenuFoldOutlined,
-            {
-              className: 'trigger',
-              onClick: toggle,
-            },
-          )}
+          <div className={cx(styles['menu-collapse'])}>
+            {React.createElement(
+              collapsed ? MenuUnfoldOutlined : MenuFoldOutlined,
+              {
+                className: 'trigger',
+                onClick: toggle,
+              },
+            )}
+          </div>
         </Header>
         <Content className={cx(styles['content'])}>{props.children}</Content>
       </Layout>
