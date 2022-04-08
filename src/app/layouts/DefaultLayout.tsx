@@ -10,6 +10,7 @@ import styles from './default-layout.module.scss';
 import cx from 'classnames';
 import Logo from 'assets/images/logo.png';
 import LogoMobile from 'assets/images/logo-mobile.png';
+import { Link } from 'react-router-dom';
 
 const { Header, Sider, Content } = Layout;
 
@@ -31,12 +32,12 @@ const DeafultLayout = props => {
         <div className={cx(styles['logo'])}>
           <img src={collapsed ? LogoMobile : Logo} alt="logo" />
         </div>
-        <Menu theme="dark" mode="inline" defaultSelectedKeys={['1']}>
+        <Menu theme="dark" mode="inline">
           <Menu.Item key="1" icon={<HomeOutlined />}>
-            Home
+            <Link to="/">Home</Link>
           </Menu.Item>
           <Menu.Item key="2" icon={<LineChartOutlined />}>
-            Grapghs
+            <Link to="/graphs">Graphs</Link>
           </Menu.Item>
         </Menu>
       </Sider>
@@ -50,16 +51,7 @@ const DeafultLayout = props => {
             },
           )}
         </Header>
-        <Content
-          style={{
-            margin: '24px 16px',
-            padding: 24,
-            background: '#fff',
-            minHeight: 280,
-          }}
-        >
-          {props.children}
-        </Content>
+        <Content className={cx(styles['content'])}>{props.children}</Content>
       </Layout>
     </Layout>
   );

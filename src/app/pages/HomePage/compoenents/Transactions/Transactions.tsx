@@ -48,7 +48,7 @@ const Transactions = () => {
       title: 'Date',
       dataIndex: 'date',
       key: 'date',
-      render: date => <div>{moment(date).format('l')}</div>,
+      render: date => <div>{date}</div>,
     },
     {
       title: 'Amount',

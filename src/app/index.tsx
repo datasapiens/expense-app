@@ -3,6 +3,7 @@ import { Helmet } from 'react-helmet-async';
 import { Switch, Route, BrowserRouter } from 'react-router-dom';
 
 import { HomePage } from './pages/HomePage/Loadable';
+import { Graphs } from './pages/Graphs/Loadable';
 import { NotFoundPage } from './pages/NotFoundPage/Loadable';
 import { useTranslation } from 'react-i18next';
 import 'antd/dist/antd.min.css';
@@ -22,6 +23,7 @@ export function App() {
 
       <Switch>
         <Route exact path="/" component={HomePage} />
+        <Route exact path="/graphs" component={Graphs} />
         <Route component={NotFoundPage} />
       </Switch>
     </BrowserRouter>

@@ -3,6 +3,7 @@ import { Form, Input, Button, Select, DatePicker } from 'antd';
 import { actions } from 'app/pages/HomePage/slice';
 import { useDispatch } from 'react-redux';
 import { ITransaction, ICategory } from 'app/pages/HomePage/types';
+import moment from 'moment';
 
 const { Option } = Select;
 
@@ -12,18 +13,17 @@ interface IAddTransactionProps {
   transactions: ITransaction[];
 }
 
-const AddTransaction = ({
-  categories,
-  onCancel,
-  transactions,
-}: IAddTransactionProps) => {
+const AddTransaction = ({ categories, transactions }: IAddTransactionProps) => {
   const dispatch = useDispatch();
   const [form] = Form.useForm();
 
   const onFinish = (values: ITransaction) => {
     let transaction = {
       id: transactions.length + 1,
-      ...values,
+      date: moment(values.date).format('l'),
+      label: values.label,
+      amount: values.amount,
+      category: values.category,
     };
     dispatch(
       actions.createTransaction({
