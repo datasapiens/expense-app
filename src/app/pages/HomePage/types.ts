@@ -1,4 +1,5 @@
 export interface HomePageState {
+  language: string;
   isLoading: boolean;
   error: boolean;
   categories: ICategory[];

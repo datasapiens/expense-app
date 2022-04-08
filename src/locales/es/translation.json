@@ -1,0 +1,19 @@
+{
+  "NAV_HOME": "Casa",
+  "NAV_GRAPHS": "gráficos",
+  "TRANSACTIONS": "Actas",
+  "ADD_TRANSACTIONS": "Agregar transacción",
+  "ADD_A_TRANSACTION": "Agregar una transacción",
+  "ADD_CATEGORY": "añadir categoría",
+  "ADD_A_CATEGORY": "Agregar una categoría",
+  "MY_HOMPAGE": "Mi página de inicio",
+  "SUBMIT": "Entregar",
+  "CURRENT_CATEGORIES": "Categorías actuales",
+  "MY_GRAPHS": "Mis gráficos",
+  "SELECT_A_CATEGORY": "Seleccione una categoría",
+  "LABEL": "etiqueta",
+  "DATE": "Fecha",
+  "AMOUNT": "Cantidad",
+  "CATEGORY": "Categoría",
+  "SEARCH": "Búsqueda"
+}

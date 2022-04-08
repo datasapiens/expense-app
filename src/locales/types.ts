@@ -1,12 +1,5 @@
-// export type ConvertedToObjectType<T> = {
-//   [P in keyof T]: T[P] extends string ? string : ConvertedToObjectType<T[P]>;
-// };
-
-export type ConvertedToObjectType<T> = {
-  [P in keyof T]: T[P] extends string ? string : ConvertedToObjectType<T[P]>;
-} & {
-  [P: string]: any;
+export type ConvertedToFunctionsType<T> = {
+  [P in keyof T]: T[P] extends string
+    ? () => string
+    : ConvertedToFunctionsType<T[P]>;
 };
-
-// Selecting the json file that our intellisense would pick from
-export type TranslationJsonType = typeof import('./en/translation.json');

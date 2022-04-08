@@ -1,22 +1,37 @@
 import React, { useState, useEffect } from 'react';
-import { Layout, Menu } from 'antd';
+import { Layout, Menu, Radio } from 'antd';
 import {
   MenuUnfoldOutlined,
   MenuFoldOutlined,
   HomeOutlined,
   LineChartOutlined,
 } from '@ant-design/icons';
+import {
+  getCurrentLanguage,
+  setCurrentLanguage,
+  setLanguageKeys,
+} from 'utils/translations';
 import styles from './default-layout.module.scss';
 import cx from 'classnames';
 import Logo from 'assets/images/logo.png';
 import LogoMobile from 'assets/images/logo-mobile.png';
 import { Link } from 'react-router-dom';
+import { actions } from 'app/pages/HomePage/slice';
+import { useDispatch } from 'react-redux';
+import i18next from 'i18next';
 
 const { Header, Sider, Content } = Layout;
 
+const langugaues = [
+  { label: 'EN', value: 'en-US' },
+  { label: 'ES', value: 'es-ES' },
+];
+
 const DeafultLayout = props => {
+  const dispatch = useDispatch();
   const [collapsed, setCollapsed] = useState(false);
   const [width, setWidth] = useState<number>(window.innerWidth);
+  const [language, setLanguage] = useState<string>(getCurrentLanguage());
 
   const handleWindowSizeChange = () => {
     setWidth(window.innerWidth);
@@ -43,6 +58,13 @@ const DeafultLayout = props => {
     setCollapsed(!collapsed);
   };
 
+  const onLangChange = (e: any) => {
+    setLanguage(e.target.value);
+    setLanguageKeys(e.target.value, e.target.value.split('-')[0]);
+    setCurrentLanguage(e.target.value);
+    dispatch(actions.setLanguage(e.target.value));
+  };
+
   return (
     <Layout className={cx(styles['layout-default'])}>
       <Sider
@@ -56,10 +78,10 @@ const DeafultLayout = props => {
         </div>
         <Menu theme="dark" mode="inline">
           <Menu.Item key="1" icon={<HomeOutlined />}>
-            <Link to="/">Home</Link>
+            <Link to="/">{i18next.t('NAV_HOME')}</Link>
           </Menu.Item>
           <Menu.Item key="2" icon={<LineChartOutlined />}>
-            <Link to="/graphs">Graphs</Link>
+            <Link to="/graphs">{i18next.t('NAV_GRAPHS')}</Link>
           </Menu.Item>
         </Menu>
       </Sider>
@@ -73,6 +95,15 @@ const DeafultLayout = props => {
                 onClick: toggle,
               },
             )}
+          </div>
+          <div className={cx(styles['language-switcher'])}>
+            <Radio.Group
+              options={langugaues}
+              onChange={onLangChange}
+              value={language}
+              optionType="button"
+              buttonStyle="solid"
+            />
           </div>
         </Header>
         <Content className={cx(styles['content'])}>{props.children}</Content>

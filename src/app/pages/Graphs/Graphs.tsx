@@ -2,6 +2,7 @@ import React, { useEffect, useMemo } from 'react';
 import DeafultLayout from 'app/layouts/DefaultLayout';
 import selectState from 'app/pages/HomePage/selectors';
 import { Row, Col } from 'antd';
+import i18next from 'i18next';
 import {
   Legend,
   Line,
@@ -32,6 +33,9 @@ export function Graphs() {
   return (
     <DeafultLayout>
       <Row>
+        <Col span={24}>
+          <h1>{i18next.t('NAV_GRAPHS')}</h1>
+        </Col>
         <Col span={24}>
           <ResponsiveContainer width="100%" height={500}>
             <LineChart

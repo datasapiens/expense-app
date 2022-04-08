@@ -3,6 +3,7 @@ import { Form, Input, Button, Tag } from 'antd';
 import { ICategory } from '../../types';
 import { actions } from '../../slice';
 import { useDispatch } from 'react-redux';
+import i18next from 'i18next';
 
 interface IAddCategoryProps {
   onSubmit: (values: any) => void;
@@ -32,7 +33,7 @@ const AddCategory = ({ onSubmit, catergories }: IAddCategoryProps) => {
   return (
     <React.Fragment>
       <div>
-        <p>Current categories</p>
+        <p>{i18next.t('CURRENT_CATEGORIES')}</p>
         {catergories &&
           catergories.map((category, index) => (
             <Tag
@@ -44,14 +45,14 @@ const AddCategory = ({ onSubmit, catergories }: IAddCategoryProps) => {
             </Tag>
           ))}
       </div>
-      <h4>Add a Category</h4>
+      <h4>{i18next.t('ADD_A_CATEGORY')}</h4>
       <Form form={form} name="control-hooks" onFinish={onFinish}>
         <Form.Item name="label" label="Label" rules={[{ required: true }]}>
           <Input />
         </Form.Item>
         <Form.Item>
           <Button type="primary" htmlType="submit">
-            Add Category
+            {i18next.t('SUBMIT')}
           </Button>
         </Form.Item>
       </Form>

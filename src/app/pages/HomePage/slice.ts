@@ -3,6 +3,7 @@ import { createSlice } from 'utils/@reduxjs/toolkit';
 import { ContainerState, ICategory, ITransaction } from './types';
 
 export const initialState: ContainerState = {
+  language: 'en-US',
   isLoading: false,
   error: false,
   categories: [
@@ -38,6 +39,9 @@ const homPageSlice = createSlice({
   name: 'homePage',
   initialState,
   reducers: {
+    setLanguage(state, action: PayloadAction<string>) {
+      state.language = action.payload;
+    },
     setIsLoading: (state, action: PayloadAction<boolean>) => {
       state.isLoading = action.payload;
     },

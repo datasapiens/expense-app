@@ -3,6 +3,7 @@
 
     .menu-collapse {
         margin-left: 20px;
+        display: inline-block;
 
         @media (max-width: 768px) {
             display: none;
@@ -21,5 +22,9 @@
         padding: 24px;
         background: #fff;
         min-height: 280px;
+    }
+    .language-switcher {
+        display: inline-block;
+        margin-left: 20px;
     }
 }

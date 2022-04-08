@@ -10,6 +10,7 @@ import { useDispatch } from 'react-redux';
 import { actions } from 'app/pages/HomePage/slice';
 import styles from './transactions.module.scss';
 import cx from 'classnames';
+import i18next from 'i18next';
 
 const StyledRow = styled(Row)`
   margin-bottom: 10px;
@@ -46,23 +47,23 @@ const Transactions = () => {
       render: id => <div>{id}</div>,
     },
     {
-      title: 'Label',
+      title: i18next.t('LABEL'),
       dataIndex: 'label',
       key: 'label',
     },
     {
-      title: 'Date',
+      title: i18next.t('DATE'),
       dataIndex: 'date',
       key: 'date',
       render: date => <div>{date}</div>,
     },
     {
-      title: 'Amount',
+      title: i18next.t('AMOUNT'),
       dataIndex: 'amount',
       key: 'amount',
     },
     {
-      title: 'Category',
+      title: i18next.t('CATEGORY'),
       key: 'category',
       dataIndex: 'category',
       render: category => <Tag>{category}</Tag>,
@@ -100,7 +101,7 @@ const Transactions = () => {
     <React.Fragment>
       <StyledRow gutter={[16, 16]}>
         <Col xs={24} sm={24} md={4}>
-          <h3>Transactions</h3>
+          <h3>{i18next.t('TRANSACTIONS')}</h3>
         </Col>
         <Col xs={24} sm={24} md={8}>
           <div className={cx(styles['button-list'])}>
@@ -108,26 +109,26 @@ const Transactions = () => {
               type="primary"
               onClick={() => handleAdd(EAddTypes.ADD_TRANSACTION_MODAL)}
             >
-              Add Transaction
+              {i18next.t('ADD_TRANSACTIONS')}
             </Button>
             <Button
               type="primary"
               onClick={() => handleAdd(EAddTypes.ADD_CATEGORY_MODAL)}
             >
-              Add Category
+              {i18next.t('ADD_CATEGORY')}
             </Button>
           </div>
         </Col>
         <Col xs={24} sm={24} md={10}>
           <Search
-            placeholder="Search"
+            placeholder={i18next.t('SEARCH')}
             onChange={e => setSearch(e.target.value)}
           />
         </Col>
       </StyledRow>
       <StyledTable columns={columns} dataSource={currentTransactions} />
       <Modal
-        title="Add Transaction"
+        title={i18next.t('ADD_TRANSACTIONS')}
         visible={visible}
         onCancel={() => setVisible(false)}
       >

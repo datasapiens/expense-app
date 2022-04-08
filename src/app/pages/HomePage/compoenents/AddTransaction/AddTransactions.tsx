@@ -4,6 +4,7 @@ import { actions } from 'app/pages/HomePage/slice';
 import { useDispatch } from 'react-redux';
 import { ITransaction, ICategory } from 'app/pages/HomePage/types';
 import moment from 'moment';
+import i18next from 'i18next';
 
 const { Option } = Select;
 
@@ -34,23 +35,35 @@ const AddTransaction = ({ categories, transactions }: IAddTransactionProps) => {
 
   return (
     <React.Fragment>
-      <h4>Add a Transaction</h4>
+      <h4>{i18next.t('ADD_A_TRANSACTION')}</h4>
       <Form form={form} name="control-hooks" onFinish={onFinish}>
-        <Form.Item name="label" label="Label" rules={[{ required: true }]}>
+        <Form.Item
+          name="label"
+          label={i18next.t('LABEL')}
+          rules={[{ required: true }]}
+        >
           <Input />
         </Form.Item>
-        <Form.Item label="Date" name="date" rules={[{ required: true }]}>
+        <Form.Item
+          label={i18next.t('DATE')}
+          name="date"
+          rules={[{ required: true }]}
+        >
           <DatePicker />
         </Form.Item>
-        <Form.Item name="amount" label="Amount" rules={[{ required: true }]}>
+        <Form.Item
+          name="amount"
+          label={i18next.t('AMOUNT')}
+          rules={[{ required: true }]}
+        >
           <Input />
         </Form.Item>
         <Form.Item
           name="category"
-          label="Category"
+          label={i18next.t('CATEGORY')}
           rules={[{ required: true }]}
         >
-          <Select placeholder="Select a category" allowClear>
+          <Select placeholder={i18next.t('SELECT_A_CATEGORY')} allowClear>
             {categories.map((category, index) => (
               <Option key={index} value={category.label}>
                 {category.label}
@@ -60,7 +73,7 @@ const AddTransaction = ({ categories, transactions }: IAddTransactionProps) => {
         </Form.Item>
         <Form.Item>
           <Button type="primary" htmlType="submit">
-            Submit
+            {i18next.t('SUBMIT')}
           </Button>
         </Form.Item>
       </Form>

@@ -1,3 +1,19 @@
 {
-  "title": "welcome"
+  "NAV_HOME": "Home",
+  "NAV_GRAPHS": "Graphs",
+  "TRANSACTIONS": "Transactions",
+  "ADD_TRANSACTIONS": "Add Transaction",
+  "ADD_A_TRANSACTION": "Add a Transaction",
+  "ADD_CATEGORY": "Add Category",
+  "ADD_A_CATEGORY": "Add a Category",
+  "MY_HOMPAGE": "My HomePage",
+  "SUBMIT": "Submit",
+  "CURRENT_CATEGORIES": "Current categories",
+  "MY_GRAPHS": "My Graphs",
+  "SELECT_A_CATEGORY": "Select a category",
+  "LABEL": "label",
+  "DATE": "Date",
+  "AMOUNT": "Amount",
+  "CATEGORY": "Category",
+  "SEARCH": "Search"
 }
