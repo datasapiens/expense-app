@@ -3,9 +3,14 @@ import { Table, Tag, Button, Row, Col, Input } from 'antd';
 import styled from 'styled-components/macro';
 import Modal from 'app/components/Modal';
 import AddTransaction from '../AddTransaction';
+import AddCategory from '../AddCategory';
 import selectState from '../../selectors';
-import { ITransaction } from '../../types';
+import { ITransaction, EAddTypes } from '../../types';
 import moment from 'moment';
+import { useDispatch } from 'react-redux';
+import { actions } from 'app/pages/HomePage/slice';
+import styles from './transactions.module.scss';
+import cx from 'classnames';
 
 const StyledRow = styled(Row)`
   margin-bottom: 10px;
@@ -14,12 +19,18 @@ const StyledRow = styled(Row)`
 const { Search } = Input;
 
 const Transactions = () => {
+  const dispatch = useDispatch();
   const [visible, setVisible] = React.useState<boolean>(false);
   const [currentTransactions, setCurrentTransactions] = React.useState<
     ITransaction[]
   >([]);
   const [search, setSearch] = React.useState<string>('');
-  const { categories, transactions } = selectState();
+  const {
+    categories,
+    transactions,
+    isAddCategoryModalOpen,
+    isAddTransactionModalOpen,
+  } = selectState();
 
   const columns = [
     {
@@ -68,6 +79,17 @@ const Transactions = () => {
     console.log(transactions);
   }, [search, transactions]);
 
+  const handleAdd = (type: string) => {
+    dispatch(actions.resetModalContent());
+    if (type === EAddTypes.ADD_TRANSACTION_MODAL) {
+      dispatch(actions.addTransactionModal());
+      setVisible(true);
+    } else {
+      dispatch(actions.addCategoryModal());
+      setVisible(true);
+    }
+  };
+
   return (
     <React.Fragment>
       <StyledRow gutter={[16, 16]}>
@@ -75,9 +97,20 @@ const Transactions = () => {
           <h3>Transactions</h3>
         </Col>
         <Col span={8}>
-          <Button type="primary" onClick={() => setVisible(!visible)}>
-            Add Transaction
-          </Button>
+          <div className={cx(styles['button-list'])}>
+            <Button
+              type="primary"
+              onClick={() => handleAdd(EAddTypes.ADD_TRANSACTION_MODAL)}
+            >
+              Add Transaction
+            </Button>
+            <Button
+              type="primary"
+              onClick={() => handleAdd(EAddTypes.ADD_CATEGORY_MODAL)}
+            >
+              Add Category
+            </Button>
+          </div>
         </Col>
         <Col span={10}>
           <Search
@@ -92,11 +125,20 @@ const Transactions = () => {
         visible={visible}
         onCancel={() => setVisible(false)}
       >
-        <AddTransaction
-          categories={categories}
-          onCancel={() => setVisible(false)}
-          transactions={transactions}
-        />
+        {isAddTransactionModalOpen && (
+          <AddTransaction
+            categories={categories}
+            onCancel={() => setVisible(false)}
+            transactions={transactions}
+          />
+        )}
+
+        {isAddCategoryModalOpen && (
+          <AddCategory
+            catergories={categories}
+            onSubmit={() => setVisible(false)}
+          />
+        )}
       </Modal>
     </React.Fragment>
   );

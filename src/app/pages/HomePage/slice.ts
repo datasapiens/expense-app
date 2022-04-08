@@ -1,6 +1,6 @@
 import { PayloadAction } from '@reduxjs/toolkit';
 import { createSlice } from 'utils/@reduxjs/toolkit';
-import { ContainerState, ITransaction } from './types';
+import { ContainerState, ICategory, ITransaction } from './types';
 
 export const initialState: ContainerState = {
   isLoading: false,
@@ -8,28 +8,30 @@ export const initialState: ContainerState = {
   categories: [
     {
       id: '1',
-      value: 'Food',
+      label: 'Food',
     },
     {
       id: '2',
-      value: 'Transport',
+      label: 'Transport',
     },
     {
       id: '3',
-      value: 'Clothes',
+      label: 'Clothes',
     },
     {
       id: '4',
-      value: 'Entertainment',
+      label: 'Entertainment',
     },
     {
       id: '5',
-      value: 'Other',
+      label: 'Other',
     },
   ],
   transactions: [],
   totalExpenses: 0,
   totalIncome: 0,
+  isAddTransactionModalOpen: false,
+  isAddCategoryModalOpen: false,
 };
 
 const homPageSlice = createSlice({
@@ -50,6 +52,32 @@ const homPageSlice = createSlice({
     createTransactionError: (state, action: PayloadAction<string>) => {
       state.error = true;
       state.isLoading = false;
+    },
+    createCategory: (state, action: PayloadAction<ICategory>) => {
+      state.isLoading = true;
+      state.error = false;
+      state.categories.push(action.payload);
+    },
+    deleteCategory: (state, action: PayloadAction<string>) => {
+      const foundIndex = state.transactions.findIndex(
+        x => x.category === action.payload,
+      );
+      state.isLoading = true;
+      state.error = false;
+      state.categories = state.categories.filter(
+        category => category.id !== action.payload,
+      );
+      state.transactions[foundIndex].category = 'uncatogrized';
+    },
+    addTransactionModal: state => {
+      state.isAddTransactionModalOpen = true;
+    },
+    addCategoryModal: state => {
+      state.isAddCategoryModalOpen = true;
+    },
+    resetModalContent: state => {
+      state.isAddCategoryModalOpen = false;
+      state.isAddTransactionModalOpen = false;
     },
   },
 });

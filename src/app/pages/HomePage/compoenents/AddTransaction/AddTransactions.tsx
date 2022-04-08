@@ -52,8 +52,8 @@ const AddTransaction = ({
         >
           <Select placeholder="Select a category" allowClear>
             {categories.map((category, index) => (
-              <Option key={index} value={category.value}>
-                {category.value}
+              <Option key={index} value={category.label}>
+                {category.label}
               </Option>
             ))}
           </Select>
@@ -61,15 +61,6 @@ const AddTransaction = ({
         <Form.Item>
           <Button type="primary" htmlType="submit">
             Submit
-          </Button>
-          <Button
-            htmlType="button"
-            onClick={() => {
-              form.resetFields();
-              onCancel();
-            }}
-          >
-            Cancel
           </Button>
         </Form.Item>
       </Form>
