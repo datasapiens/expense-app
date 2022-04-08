@@ -11,14 +11,13 @@ import { App } from 'app';
 
 import { HelmetProvider } from 'react-helmet-async';
 
-import { configureAppStore } from 'store/configureStore';
+import { store } from 'store/configureStore';
 
 import reportWebVitals from 'reportWebVitals';
 
 // languages
 import './locales/i18n';
 
-const store = configureAppStore();
 const MOUNT_NODE = document.getElementById('root') as HTMLElement;
 
 ReactDOM.render(

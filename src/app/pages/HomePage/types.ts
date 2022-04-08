@@ -1,5 +1,6 @@
 export interface HomePageState {
   isLoading: boolean;
+  error: boolean;
   categories: ICategory[];
   transactions: ITransaction[];
   totalExpenses: number;
@@ -12,7 +13,6 @@ export interface ICategory {
 }
 
 export interface ITransaction {
-  id: number | string;
   label: string;
   date: string;
   amount: number | string;

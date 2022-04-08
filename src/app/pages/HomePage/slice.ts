@@ -1,9 +1,10 @@
 import { PayloadAction } from '@reduxjs/toolkit';
 import { createSlice } from 'utils/@reduxjs/toolkit';
-import { ContainerState } from './types';
+import { ContainerState, ITransaction } from './types';
 
 export const initialState: ContainerState = {
   isLoading: false,
+  error: false,
   categories: [
     {
       id: '1',
@@ -37,6 +38,18 @@ const homPageSlice = createSlice({
   reducers: {
     setIsLoading: (state, action: PayloadAction<boolean>) => {
       state.isLoading = action.payload;
+    },
+    createTransaction: (state, action: PayloadAction<ITransaction>) => {
+      state.isLoading = true;
+      state.error = false;
+      state.transactions.push(action.payload);
+    },
+    createTransactionSuccess: (state, action: PayloadAction<ITransaction>) => {
+      state.isLoading = false;
+    },
+    createTransactionError: (state, action: PayloadAction<string>) => {
+      state.error = true;
+      state.isLoading = false;
     },
   },
 });
