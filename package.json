@@ -1,6 +1,7 @@
 {
   "name": "expense-app",
   "version": "0.1.0",
+  "homepage": "https://Munei89.github.io/expense-app/",
   "private": true,
   "dependencies": {
     "@craco/craco": "6.4.3",
