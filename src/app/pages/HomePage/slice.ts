@@ -63,15 +63,17 @@ const homPageSlice = createSlice({
       state.categories.push(action.payload);
     },
     deleteCategory: (state, action: PayloadAction<string>) => {
-      const foundIndex = state.transactions.findIndex(
-        x => x.category === action.payload,
-      );
       state.isLoading = true;
       state.error = false;
       state.categories = state.categories.filter(
         category => category.id !== action.payload,
       );
-      state.transactions[foundIndex].category = 'uncatogrized';
+      if (state.transactions.length > 0) {
+        const foundIndex = state.transactions.findIndex(
+          x => x.category === action.payload,
+        );
+        state.transactions[foundIndex].category = 'uncatogrized';
+      }
     },
     addTransactionModal: state => {
       state.isAddTransactionModalOpen = true;
