@@ -82,7 +82,7 @@
     "build": "craco build",
     "test": "craco test",
     "eject": "react-scripts eject",
-    "predeploy": "yarn build",
+    "predeploy": "yarn run build",
     "deploy": "gh-pages -d build",
     "start:prod": "yarn run build && serve -s build",
     "test:generators": "ts-node ./internals/testing/generators/test-generators.ts",
