@@ -1,0 +1,18 @@
+.multiselect {
+  padding: 0 4rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  & > button {
+    margin-left: 2rem;
+  }
+}
+
+select {
+  max-width: 30rem;
+}
+
+.multi-select {
+  max-width: 300px;
+}
