@@ -1,0 +1,64 @@
+@import '../../assets/scss/variables';
+
+.homepage {
+  &__title {
+    font-size: $font-size-xlarge;
+    background: $white;
+    padding: $spacing-16;
+    border-radius: 1rem;
+    margin-bottom: $spacing-16;
+  }
+
+  &__content {
+    display: flex;
+    flex-direction: column-reverse;
+
+    @media screen and (min-width: $screen-md-min) {
+      flex-direction: row;
+      justify-content: space-between;
+    }
+  }
+
+  &__forms {
+    @media screen and (min-width: $screen-md-min) {
+      position: sticky;
+      top: 0;
+      align-self: flex-start;
+    }
+  }
+
+  &__transactions {
+    background: $white;
+    padding: $spacing-16;
+    border-radius: 1rem;
+    margin-bottom: $spacing-16;
+
+    @media screen and (min-width: $screen-md-min) {
+      width: 70%;
+      margin-left: $spacing-16;
+    }
+
+    &--empty {
+      margin-top: $spacing-40;
+      display: flex;
+      align-content: center;
+      flex-direction: column;
+      align-items: center;
+      svg {
+        width: 50%;
+        path {
+          fill: rgba(0, 0, 0, 0.05);
+        }
+      }
+    }
+  }
+
+  .transaction:not(:last-child) {
+    border-bottom: 1px solid $grey-light;
+    padding-bottom: $spacing-8;
+  }
+
+  .add-transaction {
+    flex: 0.5;
+  }
+}

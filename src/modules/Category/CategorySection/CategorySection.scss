@@ -1,0 +1,14 @@
+@import '../../../assets/scss/variables';
+
+.category-section {
+  background: $white;
+  padding: $spacing-16;
+  border-radius: $spacing-8;
+  margin-bottom: $spacing-16;
+
+  &__title {
+    font-size: $font-size-medium;
+    margin-bottom: $spacing-8;
+    font-weight: $font-weight-bold;
+  }
+}

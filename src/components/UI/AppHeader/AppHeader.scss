@@ -1,0 +1,16 @@
+@import '../../../assets/scss/variables';
+
+.app-header {
+  background: $white;
+  padding: $spacing-16;
+  border-radius: $spacing-16;
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: $spacing-16;
+
+  &__nav-item {
+    margin-left: $spacing-8;
+    list-style: none;
+    display: inline-block;
+  }
+}

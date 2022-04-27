@@ -1,0 +1,1 @@
+export { CategoryItemPill } from './CategoryItemPill';

@@ -1,0 +1,37 @@
+[
+  {
+    "id": "1",
+    "label": "Jollof rice",
+    "date": "2022-04-25T16:30:00.000Z",
+    "amount": -50,
+    "category": "food"
+  },
+  {
+    "id": "2",
+    "label": "Received from John Doe",
+    "date": "2022-04-22T16:30:00.000Z",
+    "amount": 120,
+    "category": "gifts"
+  },
+  {
+    "id": "3",
+    "label": "Headphones",
+    "date": "2022-04-24T16:30:00.000Z",
+    "amount": -20,
+    "category": "gifts"
+  },
+  {
+    "id": "4",
+    "label": "Trip to Zanzibar",
+    "date": "2022-04-23T16:30:00.000Z",
+    "amount": -300,
+    "category": "traveling"
+  },
+  {
+    "id": "5",
+    "label": "Receive Salary",
+    "date": "2022-04-22T16:30:00.000Z",
+    "amount": 7000,
+    "category": "salary"
+  }
+]

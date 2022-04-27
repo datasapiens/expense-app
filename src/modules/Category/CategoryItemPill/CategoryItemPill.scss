@@ -1,0 +1,25 @@
+@import '../../../assets/scss/variables';
+
+.category-item-pill {
+  display: flex;
+  margin-right: $spacing-16;
+  padding: $spacing-4 $spacing-8;
+  margin-bottom: $spacing-4;
+  border-radius: $spacing-12;
+  background: rgba($accent-color, 0.5);
+  @include slideUp($spacing-2, 1s);
+
+  &__wrapper {
+    display: inline-block;
+  }
+
+  &__label {
+    color: $white;
+    font-size: $font-size-xsmall;
+  }
+
+  &__dismiss-button {
+    margin-left: $spacing-4;
+    color: $white;
+  }
+}

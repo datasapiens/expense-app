@@ -1,0 +1,16 @@
+@import '../assets/scss/variables';
+@import '../assets/scss/reset';
+
+body {
+  font-family: $font-family-primary;
+  background: $grey-light;
+}
+
+.app-container {
+  max-width: 1000px;
+  margin: auto;
+
+  @media screen and (min-width: $screen-md-min) {
+    margin: $spacing-32 auto;
+  }
+}

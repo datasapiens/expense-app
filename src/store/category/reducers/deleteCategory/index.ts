@@ -1,0 +1,1 @@
+export { deleteCategory } from './deleteCategory';

@@ -1,0 +1,24 @@
+@mixin slideUp($length, $duration) {
+  @keyframes slideUp {
+    0% {
+      transform: translateY($length);
+      opacity: 0;
+    }
+    100% {
+      transform: translateY(0);
+      opacity: 1;
+    }
+  }
+
+  animation: slideUp $duration ease-in-out;
+}
+
+@mixin inputStyles() {
+  font-weight: $font-weight-bold;
+  border-radius: $spacing-8;
+  font-size: $font-size-small;
+  width: 100%;
+  border: 1px solid $grey-light;
+  padding: $spacing-12;
+  margin: $spacing-6 0;
+}

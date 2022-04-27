@@ -1,0 +1,14 @@
+@import '../../../assets/scss/variables';
+
+.button {
+  border-radius: $spacing-8;
+  font-weight: $font-weight-bold;
+
+  &__primary {
+    padding: $spacing-8;
+    margin: $spacing-4 0;
+    width: 100%;
+    background: $accent-color;
+    color: $white;
+  }
+}

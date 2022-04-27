@@ -1,0 +1,28 @@
+/* Media Queries */
+
+// Small Phone: 320px(or less) - 539px
+$screen-xs-min: 320px !default;
+
+// Large Phone: 540px - 600px
+$screen-sm-min: 540px !default;
+
+// Large Phone: 600px - 767px
+$screen-sm-mid-min: 600px !default;
+
+// Tablet: 768px - 990px
+$screen-md-min: 768px !default;
+
+// Normal screen / Large Tablet: 991px - 1079px
+$screen-lg-min: 991px !default;
+
+// Large screen / Wide Desktop: 1080px+
+$screen-xl-min: 1080px !default;
+
+// Added to prevent overlap of media queries
+$screen-xs-max: ($screen-sm-min - 1) !default;
+$screen-sm-max: ($screen-md-min - 1) !default;
+$screen-sm-mid-max: ($screen-sm-mid-min - 1) !default;
+$screen-md-max: ($screen-lg-min - 1) !default;
+$screen-lg-max: ($screen-xl-min - 1) !default;
+
+$app-container-width: 1140px !default;

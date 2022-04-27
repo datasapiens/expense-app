@@ -1,0 +1,12 @@
+@import '../../assets/scss/variables';
+
+.graph-page {
+  display: grid;
+  width: 100%;
+
+  &__graph {
+    background: $white;
+    border-radius: $spacing-16;
+    padding: $spacing-16;
+  }
+}

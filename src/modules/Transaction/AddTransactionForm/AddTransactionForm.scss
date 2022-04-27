@@ -1,0 +1,14 @@
+@import '../../../assets/scss/variables';
+
+.add-transaction {
+  background: $white;
+  padding: $spacing-16;
+  border-radius: $spacing-8;
+  margin-bottom: $spacing-16;
+
+  &__title {
+    font-size: $font-size-medium;
+    font-weight: $font-weight-bold;
+    margin-bottom: $spacing-8;
+  }
+}

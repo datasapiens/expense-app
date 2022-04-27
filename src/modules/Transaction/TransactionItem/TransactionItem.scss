@@ -1,0 +1,48 @@
+@import '../../../assets/scss/variables';
+
+.transaction {
+  margin: $spacing-8 0;
+  margin-bottom: $spacing-16;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-right: $spacing-10;
+  @include slideUp($spacing-4, 2s);
+
+  &__income {
+    .transaction__amount {
+      color: $color-green;
+    }
+  }
+
+  &__expense {
+    .transaction__amount {
+      color: $color-red;
+    }
+  }
+
+  &__icon {
+    margin-right: $spacing-16;
+  }
+
+  &__info {
+    display: flex;
+    flex-direction: column;
+  }
+
+  &__label {
+    font-size: $font-size-medium;
+    font-weight: $font-weight-bold;
+    line-height: 1.5;
+  }
+
+  &__date {
+    color: $grey;
+    font-size: $font-size-xsmall;
+    margin-right: $spacing-8;
+  }
+
+  &__amount {
+    font-weight: $font-weight-bolder;
+  }
+}

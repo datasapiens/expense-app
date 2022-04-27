@@ -1,0 +1,22 @@
+[
+  {
+    "id": "salary",
+    "name": "Salary"
+  },
+  {
+    "id": "gifts",
+    "name": "Gifts"
+  },
+  {
+    "id": "food",
+    "name": "Food"
+  },
+  {
+    "id": "going-out",
+    "name": "Going Out"
+  },
+  {
+    "id": "traveling",
+    "name": "Traveling"
+  }
+]

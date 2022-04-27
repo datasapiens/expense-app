@@ -1,0 +1,6 @@
+@import '../../../assets/scss/variables';
+
+.add-category {
+  @include slideUp(-$spacing-4, 1s);
+  margin-top: $spacing-8;
+}
