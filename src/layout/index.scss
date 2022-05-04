@@ -1,0 +1,26 @@
+.global-container {
+  width: 100%;
+}
+
+.header {
+  width: 100%;
+  padding: 2rem;
+  background-color: #fff;
+  border-bottom: 1px solid #0cf;
+  font-size: 1.6rem;
+  display: flex;
+  align-items: center;
+  margin-bottom: 4rem;
+
+  &__item {
+    text-decoration: none;
+    color: #fff;
+    display: inline-block;
+    background-color: #0cf;
+    padding: 0.5rem 1rem;
+    border-radius: 10px;
+    &:not(:last-child) {
+      margin-right: 2rem;
+    }
+  }
+}

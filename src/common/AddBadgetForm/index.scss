@@ -1,0 +1,12 @@
+.badget-form {
+  width: 50rem;
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+
+  & > button {
+    margin-top: 2rem;
+    align-self: flex-end;
+    text-transform: capitalize;
+  }
+}

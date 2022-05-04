@@ -1,0 +1,10 @@
+.transaction {
+  width: 100%;
+  padding: 1rem;
+  border-radius: 10px;
+  background-color: #fefefe;
+
+  &:not(:last-child) {
+    margin-bottom: 1rem;
+  }
+}
