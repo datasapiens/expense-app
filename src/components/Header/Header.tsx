@@ -1,10 +1,10 @@
-import { Link } from 'react-router-dom';
+import { Link } from 'react-router-dom'
 
-import s from './Header.module.scss';
+import s from './Header.module.scss'
 
 interface Navigation {
-  label: string;
-  href: string;
+  label: string
+  href: string
 }
 
 const NAVIGATION: Navigation[] = [
@@ -16,7 +16,7 @@ const NAVIGATION: Navigation[] = [
     label: 'Graph',
     href: '/graph',
   },
-];
+]
 
 const Header = (): JSX.Element => {
   return (
@@ -25,13 +25,15 @@ const Header = (): JSX.Element => {
         <ul className={s.container}>
           {NAVIGATION.map((i, index) => (
             <li key={index}>
-              <Link to={i.href}>{i.label}</Link>
+              <Link to={i.href} className={s.navigation}>
+                {i.label}
+              </Link>
             </li>
           ))}
         </ul>
       </nav>
     </header>
-  );
-};
+  )
+}
 
-export default Header;
+export default Header

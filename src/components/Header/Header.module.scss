@@ -6,4 +6,15 @@
     // space-x
     margin-left: 1rem;
   }
+
+  .navigation {
+    cursor: pointer;
+    border: 1px solid gray;
+    border-radius: 0.2rem;
+    padding: 0.4rem 0.6rem;
+
+    &:hover {
+      background: white;
+    }
+  }
 }

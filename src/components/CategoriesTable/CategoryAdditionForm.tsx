@@ -1,3 +1,5 @@
+import s from './CategoryAdditionForm.module.scss'
+
 // Last Row on Table
 const CategoryAdditionForm = ({
   userInput,
@@ -5,7 +7,7 @@ const CategoryAdditionForm = ({
   handleFormSubmission,
 }): JSX.Element => {
   return (
-    <tr key='additionForm'>
+    <tr key='additionForm' className={s.categoryAddRow}>
       <td>
         {/* Auto Incrementing ID Field */}
         <input disabled key='id' type='number' name='id' value={userInput?.id} />
@@ -21,14 +23,7 @@ const CategoryAdditionForm = ({
       </td>
 
       <td>
-        <button
-          key='submit'
-          type='button'
-          name='Add'
-          value='Add Category '
-          onClick={handleFormSubmission}>
-          Submit
-        </button>
+        <input type='submit' name='Add' value='Add' className={s.addBtn} />
       </td>
     </tr>
   )

@@ -1,4 +1,6 @@
-import useCategories from '../../hooks/useCategories';
+import useCategories from '../../hooks/useCategories'
+
+import s from './TransactionAdditionForm.module.scss'
 
 // Last Row on Table
 const TransactionAdditionForm = ({
@@ -6,10 +8,10 @@ const TransactionAdditionForm = ({
   handleInputChange,
   handleFormSubmission,
 }): JSX.Element => {
-  const { categories } = useCategories();
+  const { categories } = useCategories()
 
   return (
-    <tr key='additionForm'>
+    <tr key='additionForm' className={s.transactionAddRow}>
       <td>
         <input disabled type='number' name='id' value={userInput?.id} />
       </td>
@@ -28,7 +30,7 @@ const TransactionAdditionForm = ({
           id='category-select'
           value={userInput?.category}
           onChange={handleInputChange}>
-          <option value=''>--Please choose an option--</option>
+          <option value=''>--Select--</option>
           {Array.isArray(categories)
             ? categories.map(i => (
                 <option key={i.id} value={i?.id}>
@@ -40,10 +42,16 @@ const TransactionAdditionForm = ({
       </td>
 
       <td>
-        <input type='submit' name='Add' value='Add Transaction' onSubmit={handleFormSubmission} />
+        <input
+          type='submit'
+          name='Add'
+          value='Add'
+          onSubmit={handleFormSubmission}
+          className={s.addBtn}
+        />
       </td>
     </tr>
-  );
-};
+  )
+}
 
-export default TransactionAdditionForm;
+export default TransactionAdditionForm

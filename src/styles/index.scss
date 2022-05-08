@@ -7,6 +7,7 @@ body {
     'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  box-sizing: border-box;
 
   // mobile font size clamper
   // @media screen and (min-width: 320px) and (max-width: 767px) {
@@ -25,4 +26,12 @@ code {
 
 ul {
   list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+  cursor: pointer;
 }

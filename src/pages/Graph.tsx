@@ -90,7 +90,7 @@ const Graph = () => {
           Bar Chart of {xAxisKey?.toUpperCase()} vs {yAxisKey?.toUpperCase()}{' '}
         </h2>
         <BarChart
-          width={900}
+          width={768}
           height={400}
           data={graphData}
           margin={{ top: 15, right: 30, left: 20, bottom: 5 }}>
@@ -109,7 +109,7 @@ const Graph = () => {
         {/* Summary */}
         <h2>Summary Graph (Accumulated)</h2>
         <LineChart
-          width={900}
+          width={768}
           height={400}
           data={graphData}
           margin={{ top: 20, right: 30, left: 0, bottom: 0 }}>

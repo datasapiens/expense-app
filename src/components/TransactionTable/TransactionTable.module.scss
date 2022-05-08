@@ -1,0 +1,11 @@
+.table {
+  border: 1px solid gray;
+  padding: 0.4rem;
+  border-radius: 0.2rem;
+
+  .thead {
+    text-align: left;
+    background-color: gray;
+    color: white;
+  }
+}

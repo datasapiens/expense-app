@@ -12,7 +12,7 @@ const CategoryRow = ({ handleDelBtnOnPress }): JSX.Element => {
       <td>{item?.label}</td>
       <td>
         <button id={item?.id} name={item?.label} type='button' onClick={handleDelBtnOnPress}>
-          -
+          🗑
         </button>
       </td>
     </tr>

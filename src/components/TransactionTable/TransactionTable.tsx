@@ -56,7 +56,7 @@ const TransactionTable = () => {
       <h2>Transactions Table</h2>
       <form onSubmit={handleFormSubmission}>
         <table className={styles.table}>
-          <thead>
+          <thead className={styles.thead}>
             <tr>
               <th>ID</th>
               <th>Label</th>

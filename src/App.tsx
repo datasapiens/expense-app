@@ -5,9 +5,11 @@ import Home from './pages/Home'
 import Graph from './pages/Graph'
 import { Header } from './components/Header'
 
+import s from './App.module.scss'
+
 function App() {
   return (
-    <div className='App'>
+    <div className={s.app}>
       <Header />
       <Routes>
         <Route path='/' element={<Home />} />

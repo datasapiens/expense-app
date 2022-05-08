@@ -28,7 +28,9 @@ const CategoriesTable = (): JSX.Element => {
     setUserInput(newUserInput)
   }
 
-  const handleFormSubmission = () => {
+  const handleFormSubmission = event => {
+    event.preventDefault()
+
     if (categories.length === 0) addCategory(userInput)
 
     // check unique id & categories
@@ -63,7 +65,6 @@ const CategoriesTable = (): JSX.Element => {
   }
 
   const handleDelBtnOnPress = event => {
-    console.log('@handleDelBtnOnPress', event?.target?.name)
     // if category has no transactions yet -> delete
     let transactionExists = false
 
@@ -93,9 +94,9 @@ const CategoriesTable = (): JSX.Element => {
   return (
     <section>
       <h2>Categories Table</h2>
-      <form>
+      <form onSubmit={handleFormSubmission}>
         <table className={styles.table}>
-          <thead>
+          <thead className={styles.thead}>
             <tr>
               <th>ID</th>
               <th>Label</th>
