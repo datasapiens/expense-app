@@ -28,6 +28,7 @@
 		"yup": "^0.32.11"
 	},
 	"scripts": {
+    "lint": "eslint . --ext .ts,.tsx",
 		"format": "prettier --write .",
 		"dev": "react-scripts start",
 		"build": "react-scripts build",
