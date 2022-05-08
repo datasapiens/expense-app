@@ -1,5 +1,8 @@
+@import "styles/variables";
+
 .nav {
   display: flex;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
   a {
     text-align: center;
     flex: 1;
@@ -7,9 +10,9 @@
     font-size: 24px;
     line-height: 28.8px;
     padding: 10px;
-    color: #777;
+    color: $color-grey;
     &:global(.active) {
-      color: #000;
+      color: $color-black;
     }
     &:hover {
       text-decoration: underline;
@@ -18,6 +21,4 @@
       border-left: 1px solid rgba(0, 0, 0, 0.1);
     }
   }
-
-  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
 }

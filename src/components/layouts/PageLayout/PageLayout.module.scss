@@ -1,5 +1,7 @@
+@import "styles/variables";
+
 .container {
-  max-width: 1020px;
+  max-width: $content-width;
   width: 100%;
   height: 100%;
   margin: 0 auto;

@@ -7,7 +7,6 @@ import { categoriesSelector } from "state/selectors/categoriesSelector";
 import { Transactions } from "state/slice/transactions";
 import { Input } from "components/common/Input";
 import { Select } from "components/common/Select";
-import style from "./AddTransactionForm.module.scss";
 
 export const AddTransactionForm = () => {
   const dispatch = useDispatch();
@@ -35,7 +34,6 @@ export const AddTransactionForm = () => {
   return (
     <FormProvider {...methods}>
       <form
-        className={style.form}
         onSubmit={methods.handleSubmit((data) => {
           const result = {
             ...data,

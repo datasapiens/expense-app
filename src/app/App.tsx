@@ -1,7 +1,7 @@
 import { Route, Routes } from "react-router-dom";
 import { Home } from "views/Home";
 import { Info } from "views/Info";
-import "./global.scss";
+import "styles/global.scss";
 
 export const App = () => (
   <Routes>
