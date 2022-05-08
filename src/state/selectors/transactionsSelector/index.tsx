@@ -1,1 +1,1 @@
-export * from "./transactionsSelector";
+export * from './transactionsSelector';

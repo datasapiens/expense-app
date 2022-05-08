@@ -1,1 +1,1 @@
-export * from "./useDispatch";
+export * from './useDispatch';

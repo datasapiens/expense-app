@@ -1,24 +1,24 @@
-@import "styles/variables";
+@import 'styles/variables';
 
 .nav {
-  display: flex;
-  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
-  a {
-    text-align: center;
-    flex: 1;
-    text-decoration: none;
-    font-size: 24px;
-    line-height: 28.8px;
-    padding: 10px;
-    color: $color-grey;
-    &:global(.active) {
-      color: $color-black;
-    }
-    &:hover {
-      text-decoration: underline;
-    }
-    & + a {
-      border-left: 1px solid rgba(0, 0, 0, 0.1);
-    }
-  }
+	display: flex;
+	border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+	a {
+		text-align: center;
+		flex: 1;
+		text-decoration: none;
+		font-size: 24px;
+		line-height: 28.8px;
+		padding: 10px;
+		color: $color-grey;
+		&:global(.active) {
+			color: $color-black;
+		}
+		&:hover {
+			text-decoration: underline;
+		}
+		& + a {
+			border-left: 1px solid rgba(0, 0, 0, 0.1);
+		}
+	}
 }

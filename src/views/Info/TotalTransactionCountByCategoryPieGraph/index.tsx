@@ -1,1 +1,1 @@
-export * from "./SpendingByCategoryPieGraph";
+export * from './SpendingByCategoryPieGraph';

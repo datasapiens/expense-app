@@ -1,18 +1,18 @@
-@import "styles/variables";
+@import 'styles/variables';
 
 .container {
-  display: flex;
-  flex-direction: row;
+	display: flex;
+	flex-direction: row;
 
-  @media (max-width: $mobile-break-point) {
-    flex-direction: column;
-  }
+	@media (max-width: $mobile-break-point) {
+		flex-direction: column;
+	}
 }
 
 .graph {
-  width: 50%;
+	width: 50%;
 
-  @media (max-width: $mobile-break-point) {
-    width: 100%;
-  }
+	@media (max-width: $mobile-break-point) {
+		width: 100%;
+	}
 }

@@ -1,6 +1,5 @@
 The task is to create an income/expense web app. The app should have two screens. The app should be written using the technologies mentioned in the Technologies section.
 
-
 ## Data layer
 
 There are two entities in the app: Category and Transaction

@@ -1,1 +1,1 @@
-export * from './spendingSelectors'
+export * from './spendingSelectors';

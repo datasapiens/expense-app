@@ -1,1 +1,1 @@
-export * from "./SpendingByCategoryLineGraph";
+export * from './SpendingByCategoryLineGraph';

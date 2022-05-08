@@ -1,1 +1,1 @@
-export * from "./localStorageSyncMiddleware";
+export * from './localStorageSyncMiddleware';

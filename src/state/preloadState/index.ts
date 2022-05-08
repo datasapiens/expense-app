@@ -1,1 +1,1 @@
-export * from './preloadState'
+export * from './preloadState';

@@ -1,1 +1,1 @@
-export * from "./generateRandomColor";
+export * from './generateRandomColor';
