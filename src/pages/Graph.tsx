@@ -50,13 +50,13 @@ const Graph = () => {
             id='x-axis-select'
             value={xAxisKey}
             onChange={handleXAxisKeySelection}>
-            {/* {Array.isArray(graphData)
-              ? Object.keys(graphData?.[0]).map((i, index) => (
+            {graphData?.length
+              ? Object.keys(graphData?.[0])?.map((i, index) => (
                   <option key={i} value={i}>
                     {i}
                   </option>
                 ))
-              : null} */}
+              : null}
           </select>
         </div>
 
@@ -68,11 +68,13 @@ const Graph = () => {
             id='y-axis-select'
             value={yAxisKey}
             onChange={handleYAxisKeySelection}>
-            {/* {Object.keys(graphData?.[0]).map((i, index) => (
-              <option key={i} value={i}>
-                {i}
-              </option>
-            ))} */}
+            {graphData?.length
+              ? Object.keys(graphData?.[0])?.map((i, index) => (
+                  <option key={i} value={i}>
+                    {i}
+                  </option>
+                ))
+              : null}
           </select>
         </div>
 

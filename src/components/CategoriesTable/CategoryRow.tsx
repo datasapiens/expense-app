@@ -2,7 +2,7 @@ import React from 'react'
 
 import useCategories from '../../hooks/useCategories'
 
-const CategoryRow = ({ handleDelBtnOnPress }) => {
+const CategoryRow = ({ handleDelBtnOnPress }): JSX.Element => {
   const { categories } = useCategories()
   if (!Array.isArray(categories)) return null
 
@@ -18,7 +18,7 @@ const CategoryRow = ({ handleDelBtnOnPress }) => {
     </tr>
   ))
 
-  return Rows
+  return <>{Rows}</>
 }
 
 export default CategoryRow

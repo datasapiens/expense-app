@@ -1,9 +1,9 @@
-// import { useState, useEffect } from 'react'
+import dayjs from 'dayjs'
 
 import useTransactions from '../../hooks/useTransactions'
 import useCategories from '../../hooks/useCategories'
 
-const TransactionsRow = () => {
+const TransactionsRow = (): JSX.Element => {
   const { transactions } = useTransactions()
   const { categoryFM } = useCategories()
 
@@ -13,7 +13,7 @@ const TransactionsRow = () => {
     <tr key={item?.id}>
       <td> # {item.id}</td>
       <td>{item?.label}</td>
-      <td>{item?.date}</td>
+      <td>{dayjs(item?.date).format('DD/MM/YYYY')}</td>
       <td>${item?.amount}</td>
       <td>
         {categoryFM?.[item?.categoryId]}-{item?.categoryId}
@@ -21,7 +21,7 @@ const TransactionsRow = () => {
     </tr>
   ))
 
-  return Rows
+  return <>{Rows}</>
 }
 
 export default TransactionsRow

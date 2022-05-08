@@ -7,15 +7,17 @@ import styles from './CategoriesTable.module.scss'
 import useCategories from '../../hooks/useCategories'
 import useTransactions from '../../hooks/useTransactions'
 
-const emptyFormState = {
+import { Category } from 'src/store/reducers/categories'
+
+const emptyFormState: Category = {
   id: 0, // autoIncrement
   label: '',
 }
 
-const CategoriesTable = () => {
+const CategoriesTable = (): JSX.Element => {
   const { categories, addCategory, removeCategory } = useCategories() // from global store
   const { transactions } = useTransactions() // from global store
-  const [userInput, setUserInput] = useState(emptyFormState) // controlled form data
+  const [userInput, setUserInput] = useState<Category>(emptyFormState) // controlled form data
 
   useEffect(() => resetForm(), [categories])
 
@@ -76,13 +78,11 @@ const CategoriesTable = () => {
       // safe delete
       removeCategory(event?.target?.id)
     } else if (transactionExists) {
-      // -> todo: provide option to merge with another category
+      // TODO: provide option to merge with another category
+      // Typically handled by backend as relates to data-structure
+
       // use modal based alerts or libs
       const message = `Transaction exists with a category called ${event?.target?.name}`
-
-      // if (window.confirm(message)) {
-      //   console.log('YES')
-      // }
 
       alert(message)
     }

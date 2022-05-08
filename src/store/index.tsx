@@ -6,10 +6,10 @@ import rootReducer, { initialState } from './rootReducer'
 
 // React's context apis in action
 const GlobalStore = createContext({})
-export const useGlobalStore = () => useContext(GlobalStore)
+export const useGlobalStore = (): any => useContext(GlobalStore)
 
 // Parent Component that provides access to GlobalStore (props & methods)
-const Provider = ({ children }) => {
+const Provider = ({ children }): JSX.Element => {
   const [state, dispatchBase] = useReducer(rootReducer, initialState)
 
   const dispatch = useCallback(asyncer(dispatchBase, state), [])

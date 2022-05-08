@@ -1,8 +1,12 @@
-import useCategories from '../../hooks/useCategories'
+import useCategories from '../../hooks/useCategories';
 
 // Last Row on Table
-const TransactionAdditionForm = ({ userInput, handleInputChange, handleFormSubmission }) => {
-  const { categories } = useCategories()
+const TransactionAdditionForm = ({
+  userInput,
+  handleInputChange,
+  handleFormSubmission,
+}): JSX.Element => {
+  const { categories } = useCategories();
 
   return (
     <tr key='additionForm'>
@@ -20,7 +24,7 @@ const TransactionAdditionForm = ({ userInput, handleInputChange, handleFormSubmi
       </td>
       <td>
         <select
-          name='category'
+          name='categoryId'
           id='category-select'
           value={userInput?.category}
           onChange={handleInputChange}>
@@ -39,7 +43,7 @@ const TransactionAdditionForm = ({ userInput, handleInputChange, handleFormSubmi
         <input type='submit' name='Add' value='Add Transaction' onSubmit={handleFormSubmission} />
       </td>
     </tr>
-  )
-}
+  );
+};
 
-export default TransactionAdditionForm
+export default TransactionAdditionForm;

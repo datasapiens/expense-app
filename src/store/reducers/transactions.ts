@@ -1,7 +1,20 @@
 // ------------- Transactions -------------
 
+export interface Transaction {
+  id: number
+  label: string
+  date: string
+  amount: number
+  categoryId: number
+}
+
+export interface TransactionAction {
+  type: 'ADD_TRANSACTION' | 'ADD_MULTIPLE_TRANSACTIONS' | 'RESET_TRANSACTIONS'
+  payload?: any
+}
+
 // #1 Initial state
-const initialState = [
+const initialState: Transaction[] = [
   {
     id: 1,
     label: 'June income',
@@ -61,12 +74,18 @@ const initialState = [
 ]
 
 // #2 Possible fixed Actions on the state
-const addTransaction = value => ({ type: 'ADD_TRANSACTION', payload: value })
-const addMultipleTransactions = value => ({ type: 'ADD_MULTIPLE_TRANSACTIONS', payload: value })
-const resetTransactions = () => ({ type: 'RESET_TRANSACTIONS' })
+const addTransaction = (value: Transaction): TransactionAction => ({
+  type: 'ADD_TRANSACTION',
+  payload: value,
+})
+const addMultipleTransactions = (value: Transaction[]): TransactionAction => ({
+  type: 'ADD_MULTIPLE_TRANSACTIONS',
+  payload: value,
+})
+const resetTransactions = (): TransactionAction => ({ type: 'RESET_TRANSACTIONS' })
 
 // #3 Dispatch above actions with the help of reducers
-function transactionsReducer(state = initialState, action) {
+function transactionsReducer(state = initialState, action): Transaction[] {
   switch (action.type) {
     case 'ADD_TRANSACTION':
       return [...state, action?.payload]

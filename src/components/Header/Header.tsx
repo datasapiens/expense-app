@@ -1,8 +1,13 @@
-import { Link } from 'react-router-dom'
+import { Link } from 'react-router-dom';
 
-import s from './Header.module.scss'
+import s from './Header.module.scss';
 
-const NAVIGATION = [
+interface Navigation {
+  label: string;
+  href: string;
+}
+
+const NAVIGATION: Navigation[] = [
   {
     label: 'Home',
     href: '/',
@@ -11,9 +16,9 @@ const NAVIGATION = [
     label: 'Graph',
     href: '/graph',
   },
-]
+];
 
-const Header = () => {
+const Header = (): JSX.Element => {
   return (
     <header>
       <nav>
@@ -26,7 +31,7 @@ const Header = () => {
         </ul>
       </nav>
     </header>
-  )
-}
+  );
+};
 
-export default Header
+export default Header;

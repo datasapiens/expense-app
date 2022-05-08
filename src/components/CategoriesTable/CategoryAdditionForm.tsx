@@ -1,5 +1,9 @@
 // Last Row on Table
-const CategoryAdditionForm = ({ userInput, handleInputChange, handleFormSubmission }) => {
+const CategoryAdditionForm = ({
+  userInput,
+  handleInputChange,
+  handleFormSubmission,
+}): JSX.Element => {
   return (
     <tr key='additionForm'>
       <td>
