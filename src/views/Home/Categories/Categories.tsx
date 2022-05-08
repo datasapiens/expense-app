@@ -1,9 +1,11 @@
 import { useSelector, useDispatch } from "react-redux";
+import { useTranslation } from "react-i18next";
 import { Categories as CategoriesSlice } from "state/slice/categories";
 import { categoriesSelector } from "state/selectors/categoriesSelector";
 import style from "./Categories.module.scss";
 
 export const Categories = () => {
+  const { t } = useTranslation();
   const categories = useSelector(categoriesSelector);
   const dispatch = useDispatch();
 
@@ -20,7 +22,7 @@ export const Categories = () => {
                 dispatch(CategoriesSlice.actions.remove({ id }));
               }}
             >
-              Remove
+              {t("actions.remove")}
             </button>
           </div>
         ))}

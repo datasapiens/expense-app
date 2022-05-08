@@ -1,10 +1,12 @@
 import { useMemo, useCallback } from "react";
 import { useSelector } from "react-redux";
+import { useTranslation } from "react-i18next";
 import { categoriesSelector } from "state/selectors/categoriesSelector";
 import { transactionsSelector } from "state/selectors/transactionsSelector";
 import style from "./Transactions.module.scss";
 
 export const Transactions = () => {
+  const { t } = useTranslation();
   const categories = useSelector(categoriesSelector);
   const transactions = useSelector(transactionsSelector);
   const categoriesNameMap = useMemo(() => {
@@ -25,14 +27,14 @@ export const Transactions = () => {
 
   return (
     <div>
-      <h2>Transactions</h2>
+      <h2>{t("headers.transactions")}</h2>
       <table className={style.table}>
         <thead>
           <tr>
-            <th>Transaction</th>
-            <th>Date</th>
-            <th>Category</th>
-            <th>Amount</th>
+            <th>{t("views.transactions.table.transaction")}</th>
+            <th>{t("views.transactions.table.date")}</th>
+            <th>{t("views.transactions.table.category")}</th>
+            <th>{t("views.transactions.table.amount")}</th>
           </tr>
         </thead>
         <tbody>

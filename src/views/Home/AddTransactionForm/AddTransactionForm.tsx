@@ -1,5 +1,6 @@
 import { useForm, FormProvider } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
+import { useTranslation } from "react-i18next";
 import * as yup from "yup";
 import { useSelector } from "react-redux";
 import { useDispatch } from "state/hooks/useDispatch";
@@ -9,6 +10,7 @@ import { Input } from "components/common/Input";
 import { Select } from "components/common/Select";
 
 export const AddTransactionForm = () => {
+  const { t } = useTranslation();
   const dispatch = useDispatch();
   const categories = useSelector(categoriesSelector);
 
@@ -54,7 +56,7 @@ export const AddTransactionForm = () => {
         />
 
         <div>
-          <button type="submit"> Add Transaction</button>
+          <button type="submit"> {t("actions.add")}</button>
         </div>
       </form>
     </FormProvider>

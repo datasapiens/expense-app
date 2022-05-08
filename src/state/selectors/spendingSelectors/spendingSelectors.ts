@@ -7,7 +7,6 @@ type SpendingByCategory = Category & {
   spending: number;
   income: number;
   total: number;
-  totalAbs: number;
   count: number;
 };
 
@@ -22,7 +21,6 @@ export const spendingByCategories = createSelector(
         count: 0,
         income: 0,
         total: 0,
-        totalAbs: 0,
       });
 
       return acc;
@@ -45,7 +43,6 @@ export const spendingByCategories = createSelector(
 
         category.count += 1;
         category.total += transaction.amount;
-        category.totalAbs += Math.abs(transaction.amount);
       });
 
     const result: SpendingByCategory[] = [];

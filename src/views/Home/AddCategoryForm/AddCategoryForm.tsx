@@ -1,4 +1,5 @@
 import { useForm, FormProvider } from "react-hook-form";
+import { useTranslation } from "react-i18next";
 import { yupResolver } from "@hookform/resolvers/yup";
 import * as yup from "yup";
 import { useDispatch } from "state/hooks/useDispatch";
@@ -6,6 +7,7 @@ import { Categories } from "state/slice/categories";
 import { Input } from "components/common/Input";
 
 export const AddCategoryForm = () => {
+  const { t } = useTranslation();
   const schema = yup.object().shape({
     label: yup.string().required(),
   });
@@ -20,10 +22,9 @@ export const AddCategoryForm = () => {
           methods.reset();
         })}
       >
-        <h2> Add new Category</h2>
-
+        <h2> {t("views.transactions.add-category")}</h2>
         <Input label="Category" name="label" type="input" />
-        <button type="submit"> Add category</button>
+        <button type="submit"> {t("actions.add")}</button>
       </form>
     </FormProvider>
   );

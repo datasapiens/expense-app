@@ -1,0 +1,21 @@
+{
+  "headers": {
+    "transactions": "Transactions",
+    "graphs": "Graphs"
+  },
+  "actions": {
+    "remove": "Remove",
+    "add": "Add"
+  },
+  "views": {
+    "transactions": {
+      "add-category": "Add new Category",
+      "table": {
+        "transaction": "Transaction",
+        "date": "Date",
+        "category": "Category",
+        "amount": "Amount"
+      }
+    }
+  }
+}

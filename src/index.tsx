@@ -5,6 +5,7 @@ import { Provider } from "react-redux";
 import { store } from "state";
 
 import { App } from "./app/App";
+import "./i18n";
 
 const rootElement = document.getElementById("root");
 
