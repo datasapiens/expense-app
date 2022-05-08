@@ -1,0 +1,18 @@
+@import 'styles/variables';
+
+.container {
+	display: flex;
+	flex-direction: row;
+
+	@media (max-width: $mobile-break-point) {
+		flex-direction: column;
+	}
+}
+
+.graph {
+	width: 50%;
+
+	@media (max-width: $mobile-break-point) {
+		width: 100%;
+	}
+}

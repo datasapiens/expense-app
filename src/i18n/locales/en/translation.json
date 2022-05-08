@@ -1,0 +1,31 @@
+{
+	"graphs": {
+		"transaction-count": "Transaction Count By Category",
+		"spending-count": "Total Transaction Money Sum By Category"
+	},
+	"headers": {
+		"transactions": "Transactions",
+		"graphs": "Graphs",
+		"categories": "Categories"
+	},
+	"placeholder": {
+		"no-category": "No Category",
+		"category-missing": "-----------"
+	},
+	"actions": {
+		"remove": "Remove",
+		"add": "Add"
+	},
+	"views": {
+		"transactions": {
+			"add-category": "Add new Category",
+			"add-new-transaction": "Add new Transaction",
+			"table": {
+				"transaction": "Transaction",
+				"date": "Date",
+				"category": "Category",
+				"amount": "Amount"
+			}
+		}
+	}
+}
