@@ -15,27 +15,34 @@ import {
 import useTransactions from '../hooks/useTransactions'
 import useCategories from 'src/hooks/useCategories'
 
+import { Category } from 'src/store/reducers/categories'
+import { Transaction } from 'src/store/reducers/transactions'
+
 import s from './Graph.module.scss'
+
+interface GraphData extends Transaction, Category {}
 
 const Graph = () => {
   const { transactions } = useTransactions()
-  const { categoryFM } = useCategories()
+  const { categoryFlatMap } = useCategories()
 
-  const [graphData, setgraphData] = useState([])
-  const [xAxisKey, setXAxisKey] = useState('label')
-  const [yAxisKey, setYAxisKey] = useState('amount')
+  // "id":1,"label":"June income","date":"01/06/2022","amount":5000,"categoryId":1,"category":"Salary"
+
+  const [graphData, setgraphData] = useState<GraphData[]>([])
+  const [xAxisKey, setXAxisKey] = useState<string>('label') // label vs amount is a default graph view
+  const [yAxisKey, setYAxisKey] = useState<string>('amount')
 
   useEffect(() => {
     const graphData = transactions.map(i => ({
       ...i,
-      category: categoryFM?.[i?.id],
+      category: categoryFlatMap?.[i?.id],
     }))
 
     setgraphData(graphData)
   }, [])
 
-  const handleXAxisKeySelection = e => setXAxisKey(e.target.value)
-  const handleYAxisKeySelection = e => setYAxisKey(e.target.value)
+  const handleXAxisKeySelection = (e): void => setXAxisKey(e.target.value)
+  const handleYAxisKeySelection = (e): void => setYAxisKey(e.target.value)
 
   return (
     <main>
@@ -58,6 +65,7 @@ const Graph = () => {
                 ))
               : null}
           </select>
+          {/* {JSON.stringify(graphData)} */}
         </div>
 
         {/* Y-AXIS Key Selector */}

@@ -1,19 +1,20 @@
-import { useGlobalStore } from '../store';
+import { useGlobalStore } from '../store'
 
-import bindActions from '../store/bindActions';
-import categoriesReducer from '../store/reducers/categories';
+import bindActions from '../store/bindActions'
+import categoriesReducer, { Category } from '../store/reducers/categories'
 
 // Custom Hook to expose all the props and binded actions
 const useCategories = () => {
-  const { state, dispatch } = useGlobalStore();
+  const { state, dispatch } = useGlobalStore()
 
   // List of Props
-  const { categories, categoryFM } = state?.categories;
+  const categories: Category[] = state?.categories?.categories
+  const categoryFlatMap: any = state?.categories?.categoryFlatMap
 
   // List of Actions
-  const addCategory = categoriesReducer?.actions?.addCategory;
-  const removeCategory = categoriesReducer?.actions?.removeCategory;
-  const resetCategories = categoriesReducer?.actions?.resetCategories;
+  const addCategory = categoriesReducer?.actions?.addCategory
+  const removeCategory = categoriesReducer?.actions?.removeCategory
+  const resetCategories = categoriesReducer?.actions?.resetCategories
   // const addMultipleCategories = categoriesReducer?.actions?.addMultipleCategories
 
   // Bind all Actions to globalDispatch (important)
@@ -25,10 +26,10 @@ const useCategories = () => {
       // addMultipleCategories,
     },
     dispatch
-  );
+  )
 
   // expose
-  return { categories, categoryFM, ...boundActions } as any;
-};
+  return { categories, categoryFlatMap, ...boundActions } as any
+}
 
-export default useCategories;
+export default useCategories

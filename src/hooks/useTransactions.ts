@@ -1,19 +1,19 @@
-import { useGlobalStore } from '../store';
+import { useGlobalStore } from '../store'
 
-import bindActions from '../store/bindActions';
-import transactionsReducer from '../store/reducers/transactions';
+import bindActions from '../store/bindActions'
+import transactionsReducer, { Transaction } from '../store/reducers/transactions'
 
 // Custom Hook to expose all the props and binded actions
 const useTransactions = () => {
-  const { state, dispatch } = useGlobalStore();
+  const { state, dispatch } = useGlobalStore()
 
   // List of Props
-  const transactions = state?.transactions;
+  const transactions: Transaction[] = state?.transactions
 
   // List of Actions
-  const addTransaction = transactionsReducer?.actions?.addTransaction;
-  const addMultipleTransactions = transactionsReducer?.actions?.addMultipleTransactions;
-  const resetTransactions = transactionsReducer?.actions?.resetTransactions;
+  const addTransaction = transactionsReducer?.actions?.addTransaction
+  const addMultipleTransactions = transactionsReducer?.actions?.addMultipleTransactions
+  const resetTransactions = transactionsReducer?.actions?.resetTransactions
 
   // Bind all Actions to globalDispatch (important)
   const boundActions = bindActions(
@@ -23,10 +23,10 @@ const useTransactions = () => {
       resetTransactions,
     },
     dispatch
-  );
+  )
 
   // expose
-  return { transactions, ...boundActions } as any;
-};
+  return { transactions, ...boundActions } as any
+}
 
-export default useTransactions;
+export default useTransactions

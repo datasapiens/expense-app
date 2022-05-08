@@ -31,15 +31,19 @@ const initialCat: Category[] = [
   },
 ]
 
-interface CategoryState {
+export interface CategoryFlatMap {
+  [index: number]: string
+}
+
+export interface CategoryState {
   categories: Category[]
-  categoryFM?: any
+  categoryFlatMap?: any
 }
 
 // #1 Initial state
 const initialState: CategoryState = {
   categories: [...initialCat],
-  categoryFM: flattenCategories(initialCat),
+  categoryFlatMap: flattenCategories(initialCat),
 }
 
 // #2 Possible fixed Actions on the state
@@ -63,26 +67,26 @@ function categoriesReducer(
   switch (action.type) {
     case 'ADD_CATEGORY':
       const addedCat = [...state?.categories, action.payload]
-      return { categories: [...addedCat], categoryFM: flattenCategories(addedCat) }
+      return { categories: [...addedCat], categoryFlatMap: flattenCategories(addedCat) }
 
     // case 'ADD_MULTIPLE_CATEGORIES':
     //   const updatedCat = [...state?.categories, ...action?.payload]
-    //   return { categories: [...updatedCat], categoryFM: flattenCategories(updatedCat) }
+    //   return { categories: [...updatedCat], categoryFlatMap: flattenCategories(updatedCat) }
 
     case 'REMOVE_CATEGORY':
       const adjustedCat = state?.categories.filter(i => i.id != action.payload)
-      return { categories: [...adjustedCat], categoryFM: flattenCategories(adjustedCat) }
+      return { categories: [...adjustedCat], categoryFlatMap: flattenCategories(adjustedCat) }
 
     case 'RESET_CATEGORIES':
       return {
         categories: [...initialState.categories],
-        categoryFM: flattenCategories(initialState.categories),
+        categoryFlatMap: flattenCategories(initialState.categories),
       }
 
     case 'INIT_CATEGORIES_FLATMAP':
       return {
         ...state,
-        categoryFM: flattenCategories(state.categories),
+        categoryFlatMap: flattenCategories(state.categories),
       }
 
     default:

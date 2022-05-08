@@ -3,9 +3,11 @@ import dayjs from 'dayjs'
 import useTransactions from '../../hooks/useTransactions'
 import useCategories from '../../hooks/useCategories'
 
+import getFormattedCurrency from '../../utils/formatCurrency'
+
 const TransactionsRow = (): JSX.Element => {
   const { transactions } = useTransactions()
-  const { categoryFM } = useCategories()
+  const { categoryFlatMap } = useCategories()
 
   if (!Array.isArray(transactions)) return null
 
@@ -14,9 +16,9 @@ const TransactionsRow = (): JSX.Element => {
       <td> # {item.id}</td>
       <td>{item?.label}</td>
       <td>{dayjs(item?.date).format('DD/MM/YYYY')}</td>
-      <td>${item?.amount}</td>
+      <td>{getFormattedCurrency(item?.amount)}</td>
       <td>
-        {categoryFM?.[item?.categoryId]}-{item?.categoryId}
+        {categoryFlatMap?.[item?.categoryId]}-{item?.categoryId}
       </td>
     </tr>
   ))

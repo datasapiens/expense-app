@@ -1,12 +1,12 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react'
 
-import TransactionsRow from './TransactionsRow';
-import TransactionAdditionForm from './TransactionAdditionForm';
-import useTransactions from '../../hooks/useTransactions';
+import TransactionsRow from './TransactionsRow'
+import TransactionAdditionForm from './TransactionAdditionForm'
+import useTransactions from '../../hooks/useTransactions'
 
-import styles from './TransactionTable.module.scss';
+import styles from './TransactionTable.module.scss'
 
-import { Transaction } from '../../store/reducers/transactions';
+import { Transaction } from '../../store/reducers/transactions'
 
 const emptyFormState: Transaction = {
   id: 0,
@@ -14,39 +14,40 @@ const emptyFormState: Transaction = {
   date: new Date().toISOString().slice(0, 10),
   amount: 0,
   categoryId: 0,
-};
+}
 
 const TransactionTable = () => {
-  const { transactions, addTransaction } = useTransactions(); // from global store
-  const [userInput, setUserInput] = useState<Transaction>(emptyFormState); // controlled form data
+  const { transactions, addTransaction } = useTransactions() // from global store
+  const [userInput, setUserInput] = useState<Transaction>(emptyFormState) // controlled form data
 
-  useEffect(() => resetForm(), [transactions]);
+  useEffect(() => resetForm(), [transactions])
 
   // ------------------------ TABLE METHODS ------------------------
 
   const handleInputChange = event => {
-    const key = event?.target?.name;
-    const value = // could be better
-      key === 'amount' || key === 'categoryId'
-        ? parseInt(event?.target?.value)
-        : event?.target.value;
+    const key = event?.target?.name
+    const value = event?.target.value
+    // const value = // could be better
+    //   key === 'amount' || key === 'categoryId'
+    //     ? parseInt(event?.target?.value)
+    //     : event?.target.value;
 
-    const newUserInput = { ...userInput, [key]: value };
+    const newUserInput = { ...userInput, [key]: value }
     // console.log('@handleInputChange', newUserInput);
-    setUserInput(newUserInput);
-  };
+    setUserInput(newUserInput)
+  }
 
   const handleFormSubmission = () => {
     // console.log('@handleFormSubmission', userInput);
-    addTransaction(userInput); // to globalStore
-  };
+    addTransaction(userInput) // to globalStore
+  }
 
   const resetForm = () => {
     // factor in any previous values to autogenerate ID
     if (transactions.length > 0) {
-      setUserInput({ ...emptyFormState, id: transactions.at(-1)?.id + 1 });
-    } else setUserInput(emptyFormState);
-  };
+      setUserInput({ ...emptyFormState, id: transactions.at(-1)?.id + 1 })
+    } else setUserInput(emptyFormState)
+  }
 
   // ------------------------ JSX RENDERING ------------------------
 
@@ -78,7 +79,7 @@ const TransactionTable = () => {
         </table>
       </form>
     </section>
-  );
-};
+  )
+}
 
-export default TransactionTable;
+export default TransactionTable
