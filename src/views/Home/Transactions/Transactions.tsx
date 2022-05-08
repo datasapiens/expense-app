@@ -21,8 +21,9 @@ export const Transactions = () => {
     return result;
   }, [categories]);
   const getCategoryName = useCallback(
-    (categoryId: string) => categoriesNameMap[categoryId] ?? "----",
-    [categoriesNameMap]
+    (categoryId: string) =>
+      categoriesNameMap[categoryId] ?? t("placeholder.category-missing"),
+    [categoriesNameMap, t]
   );
 
   return (

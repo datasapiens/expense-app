@@ -45,7 +45,7 @@ export const AddTransactionForm = () => {
           methods.reset();
         })}
       >
-        <h2> Add new Transaction</h2>
+        <h2> {t("views.transactions.add-new-transaction")}</h2>
         <Input type="input" label="Label" name="label" />
         <Input type="date" label="Date" name="date" />
         <Input type="input" label="Amount" name="amount" />

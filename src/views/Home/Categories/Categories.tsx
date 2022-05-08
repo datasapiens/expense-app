@@ -11,7 +11,7 @@ export const Categories = () => {
 
   return (
     <div>
-      <h2>Categories</h2>
+      <h2>{t("headers.categories")}</h2>
       <div className={style.categories}>
         {categories.map(({ label, id }) => (
           <div key={id} className={style.category}>

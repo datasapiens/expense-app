@@ -1,7 +1,12 @@
 {
   "headers": {
     "transactions": "Transactions",
-    "graphs": "Graphs"
+    "graphs": "Graphs",
+    "categories": "Categories"
+  },
+  "placeholder": {
+    "no-category": "No Category",
+    "category-missing": "-----------"
   },
   "actions": {
     "remove": "Remove",
@@ -10,6 +15,7 @@
   "views": {
     "transactions": {
       "add-category": "Add new Category",
+      "add-new-transaction": "Add new Transaction",
       "table": {
         "transaction": "Transaction",
         "date": "Date",
