@@ -55,7 +55,7 @@ export const spendingByCategories = createSelector(
 				category.spending += transaction.amount;
 			}
 			if (transaction.amount > 0) {
-				category.spending += transaction.amount;
+				category.income += transaction.amount;
 			}
 
 			category.count += 1;
