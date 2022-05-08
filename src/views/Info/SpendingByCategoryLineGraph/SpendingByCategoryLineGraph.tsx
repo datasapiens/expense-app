@@ -14,7 +14,7 @@ export const SpendingByCategoryLineGraph = () => {
         type="bar"
         datasets={[
           {
-            label: "temp",
+            label: "Totals",
             data: data.map((category) => category.total),
             backgroundColor: data.map((category) => category.color),
           },

@@ -1,7 +1,7 @@
 {
   "graphs": {
     "transaction-count": "Transaction Count By Category",
-    "spending-count": "Spending Count By Category"
+    "spending-count": "Total Transaction Money Sum By Category"
   },
   "headers": {
     "transactions": "Transactions",
