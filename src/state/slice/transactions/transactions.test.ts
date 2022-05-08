@@ -13,5 +13,4 @@ describe("Transactions slice", () => {
 
     expect(result).toPartiallyContain(action.payload);
   });
-  it.todo("should remove Transaction");
 });

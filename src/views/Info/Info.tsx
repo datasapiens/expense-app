@@ -1,13 +1,13 @@
 import { PageLayout } from "components/layouts/PageLayout";
-import { SpendingByWeekdayGraph } from "./SpendingByWeekdayGraph";
-import { SpendingByCategoryPieGraph } from "./SpendingByCategoryPieGraph";
+import { SpendingByCategoryLineGraph } from "./SpendingByCategoryLineGraph";
+import { SpendingByCategoryPieGraph } from "./TotalTransactionCountByCategoryPieGraph";
 import style from "./Info.module.scss";
 
 export const Info = () => (
   <PageLayout>
     <div className={style.container}>
       <div className={style.graph}>
-        <SpendingByWeekdayGraph />
+        <SpendingByCategoryLineGraph />
       </div>
 
       <div className={style.graph}>

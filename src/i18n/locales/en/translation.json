@@ -1,4 +1,8 @@
 {
+  "graphs": {
+    "transaction-count": "Transaction Count By Category",
+    "spending-count": "Spending Count By Category"
+  },
   "headers": {
     "transactions": "Transactions",
     "graphs": "Graphs",

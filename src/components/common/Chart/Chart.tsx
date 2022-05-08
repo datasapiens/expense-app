@@ -4,11 +4,13 @@ import { useRef, useEffect } from "react";
 interface Data {
   label?: string;
   backgroundColor?: string[];
+  borderColor?: string[];
+  borderWidth?: number;
   data: number[];
 }
 
 interface Props {
-  type: "line" | "pie";
+  type: "line" | "pie" | "bar";
   datasets: Data[];
   labels?: string[];
 }
