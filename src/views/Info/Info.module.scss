@@ -1,0 +1,16 @@
+.container {
+  display: flex;
+  flex-direction: row;
+
+  @media (max-width: 1020px) {
+    flex-direction: column;
+  }
+}
+
+.graph {
+  width: 50%;
+
+  @media (max-width: 1020px) {
+    width: 100%;
+  }
+}
