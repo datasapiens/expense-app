@@ -2,6 +2,7 @@
 	"name": "expenses-app",
 	"version": "0.1.0",
 	"private": true,
+	"homepage": "https://stralos.github.io/expenses-app",
 	"dependencies": {
 		"@hookform/resolvers": "^2.8.8",
 		"@reduxjs/toolkit": "^1.8.1",
@@ -13,6 +14,7 @@
 		"@types/react": "^18.0.8",
 		"@types/react-dom": "^18.0.3",
 		"chart.js": "^3.7.1",
+		"gh-pages": "^3.2.3",
 		"i18next": "^21.7.1",
 		"react": "^18.1.0",
 		"react-dom": "^18.1.0",
@@ -28,7 +30,9 @@
 		"yup": "^0.32.11"
 	},
 	"scripts": {
-    "lint": "eslint . --ext .ts,.tsx",
+		"predeploy": "yarn build",
+		"deploy": "gh-pages -d build",
+		"lint": "eslint . --ext .ts,.tsx",
 		"format": "prettier --write .",
 		"dev": "react-scripts start",
 		"build": "react-scripts build",
