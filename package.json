@@ -2,7 +2,7 @@
 	"name": "expenses-app",
 	"version": "0.1.0",
 	"private": true,
-	"homepage": "https://stralos.github.io/expenses-app",
+	"homepage": "https://stralos.github.io/expense-app/",
 	"dependencies": {
 		"@hookform/resolvers": "^2.8.8",
 		"@reduxjs/toolkit": "^1.8.1",
