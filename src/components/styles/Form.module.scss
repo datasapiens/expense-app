@@ -1,0 +1,53 @@
+.form {
+  padding: 1rem;
+
+  .title {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+  }
+
+  .control {
+    margin-bottom: 1rem;
+
+    label,
+    input {
+      display: block;
+    }
+
+    label {
+      font-weight: bold;
+      margin-bottom: 0.5rem;
+    }
+
+    select,
+    input {
+      width: 100%;
+      padding: 0.5rem;
+      border: 1px solid #ccc;
+      background-color: white;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      font: inherit;
+    }
+  }
+
+  .actions {
+    margin-top: 1rem;
+    text-align: right;
+    button {
+      font: inherit;
+      cursor: pointer;
+      background-color: #3d50a7;
+      color: white;
+      padding: 0.5rem 1.5rem;
+      border: 1px solid #3d50a7;
+      border-radius: 4px;
+      font-weight: bold;
+
+      &:hover,
+      &:active {
+        background-color: #374892;
+      }
+    }
+  }
+}

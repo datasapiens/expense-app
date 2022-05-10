@@ -1,0 +1,29 @@
+.transationCategoryWrapper {
+  // border: 1px solid red;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 2%;
+  flex-wrap: wrap;
+
+  .transactionForm {
+    min-width: 59%;
+  }
+  .categorySection {
+    min-width: 39%;
+  }
+}
+
+@media (max-width: 991px) {
+  .transationCategoryWrapper {
+    justify-content: flex-start;
+    flex-direction: column;
+    .transactionForm,
+    .categorySection {
+      width: 100%;
+    }
+    .categorySection {
+      margin-top: 0.5rem;
+    }
+  }
+}
