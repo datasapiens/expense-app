@@ -1,0 +1,14 @@
+.split {
+  gap: 1rem;
+  @media screen and (min-width: 768px) {
+    display: flex;
+  }
+}
+.splitTransaction {
+  flex: 1;
+}
+.splitCategory {
+  @media screen and (min-width: 768px) {
+    width: 40%;
+  }
+}

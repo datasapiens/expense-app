@@ -1,0 +1,23 @@
+.table {
+  width: 100%;
+  thead {
+    text-align: left;
+    background-color: #8f8787;
+    th {
+      padding: 0.5rem;
+    }
+  }
+  tbody {
+    tr {
+      &:nth-child(even) {
+        background-color: #f2f2f2;
+      }
+      &:hover {
+        background-color: #ddd;
+      }
+      td {
+        padding: 0.5rem;
+      }
+    }
+  }
+}
