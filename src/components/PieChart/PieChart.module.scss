@@ -1,0 +1,59 @@
+@import "../../styles/abstracts/variables";
+
+.chartContainer {
+    width: 100%;
+    height: 550px;
+}
+
+.noDataContainer {
+    padding: 20px 0 36px 0;
+
+    .noDataTitle {
+        text-align: center;
+        font-size: 18px;
+        font-weight: bold;
+        color: $grey;
+    }
+}
+
+@media only screen and (max-width: 1440px) {
+    .chartContainer {
+        height: 500px;
+    }
+}
+
+@media only screen and (max-width: 1260px) {
+    .chartContainer {
+        height: 450px;
+    }
+}
+
+@media only screen and (max-width: 1140px) {
+    .chartContainer {
+        height: 400px;
+    }
+}
+
+@media only screen and (max-width: 550px) {
+    .chartContainer {
+        height: 350px;
+    }
+}
+
+@media only screen and (max-width: 480px) {
+    .chartContainer {
+        height: 300px;
+    }
+}
+
+@media only screen and (max-width: 420px) {
+    .chartContainer {
+        height: 250px;
+    }
+}
+
+@media only screen and (max-width: 360px) {
+    .chartContainer {
+        height: 200px;
+    }
+}

@@ -1,0 +1,25 @@
+@import "../../styles/abstracts/variables";
+
+.headerContainer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 20px;
+    font-size: 20px;
+    font-weight: bold;
+    color: $white;
+    background-color: $primary;
+    box-shadow: 0px 0px 10px 0px $grey;
+}
+
+.routerLinks {
+    text-decoration: none;
+    color: $white;
+    -webkit-transition: color .2s ease;
+    -moz-transition: color .2s ease;
+    transition: color .2s ease;
+}
+
+.routerLinks:hover {
+    color: $light-grey;
+}

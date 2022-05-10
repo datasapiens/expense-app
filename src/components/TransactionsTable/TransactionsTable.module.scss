@@ -1,0 +1,35 @@
+@import "../../styles/abstracts/variables";
+
+.transactionsTableContainer {
+
+    table {
+        width: 100%;
+    }
+
+    .transactionsTableTitle {
+        text-align: center;
+        margin-bottom: 20px;
+        font-size: 18px;
+        font-weight: bold;
+        color: $black;
+        background-color: $light-grey;
+        border-radius: 4px;
+        padding: 4px 0;
+    }
+
+    .transactionsTable {
+        tbody {
+            font-size: 14px;
+            color: $black;
+            font-weight: bold;
+
+            .negative {
+                color: $red;
+            }
+
+            .positive {
+                color: $green;
+            }
+        }
+    }
+}
