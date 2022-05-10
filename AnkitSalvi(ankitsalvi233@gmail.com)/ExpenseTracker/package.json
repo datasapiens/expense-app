@@ -1,0 +1,63 @@
+{
+  "name": "expense-tracker",
+  "version": "0.1.0",
+  "private": true,
+  "dependencies": {
+    "@devexpress/dx-react-chart": "^3.0.2",
+    "@devexpress/dx-react-chart-material-ui": "^3.0.2",
+    "@devexpress/dx-react-core": "^3.0.2",
+    "@emotion/react": "^11.8.1",
+    "@emotion/styled": "^11.8.1",
+    "@material-ui/core": "^4.11.0",
+    "@mui/material": "^5.4.3",
+    "@types/material-ui": "^0.21.7",
+    "@types/react-chartjs-2": "^2.5.7",
+    "chart.js": "^3.7.1",
+    "clsx": "^1.1.1",
+    "easy-peasy": "^3.3.1",
+    "luxon": "^1.24.1",
+    "react": "^16.13.1",
+    "react-chartjs-2": "^4.0.1",
+    "react-dom": "^16.13.1",
+    "react-hook-form": "^6.0.8",
+    "react-router-dom": "^5.2.0",
+    "react-scripts": "3.4.1",
+    "uuid": "^8.3.0"
+  },
+  "devDependencies": {
+    "@testing-library/jest-dom": "^4.2.4",
+    "@testing-library/react": "^9.3.2",
+    "@testing-library/user-event": "^7.1.2",
+    "@types/jest": "^24.0.0",
+    "@types/luxon": "^1.24.3",
+    "@types/node": "^12.0.0",
+    "@types/react": "^16.9.0",
+    "@types/react-dom": "^16.9.8",
+    "@types/react-router-dom": "^5.1.5",
+    "@types/uuid": "^8.0.0",
+    "gh-pages": "^3.2.3",
+    "typescript": "~3.7.2"
+  },
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test",
+    "eject": "react-scripts eject",
+    "lint": "eslint \"./src/**/*.{ts,tsx}\""
+  },
+  "eslintConfig": {
+    "extends": "react-app"
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  }
+}
