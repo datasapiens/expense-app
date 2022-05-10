@@ -1,0 +1,22 @@
+.btnContainer {
+  display: flex;
+  justify-content: space-between;
+}
+
+.transactionsTable {
+  max-width: 50%;
+
+  td:last-child, th:last-child {
+    display: flex;
+    justify-content: flex-end;
+  }
+}
+
+.categoryWrapper {
+  padding: 5px;
+  margin: 0;
+  border-radius: 4px;
+  text-align: center;
+  width: 100px;
+  display: flex;
+}
