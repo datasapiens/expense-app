@@ -1,0 +1,8 @@
+@import './styles/variables.scss';
+
+.container {
+  margin: $spacing-16 auto;
+  padding: $spacing-8;
+  max-width: 1200px;
+  background-color: $white;
+}
