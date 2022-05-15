@@ -23,9 +23,12 @@ export const transactions = createSlice({
         addNewTransaction: (state, action: PayloadAction<Transaction>) => {
             state.transactions = state.transactions.concat(action.payload);
           },
+          updateTransactions: (state, action: PayloadAction<Transaction[]>) => {
+              state.transactions = action.payload;
+          }
     },
 });
 
-export const { initializeTransactionsStore, addNewTransaction } = transactions.actions;
+export const { initializeTransactionsStore, addNewTransaction, updateTransactions } = transactions.actions;
 
 export default transactions.reducer;

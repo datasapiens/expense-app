@@ -18,6 +18,7 @@ type HomeProps = {
   removeCategory: (category: Category) => void;
   transactions: Transaction[];
   addNewTransaction: (transaction: Transaction) => void;
+  updateTransactions: (transactions: Transaction[]) => void;
 };
 
 const Home: React.FC<HomeProps> = ({
@@ -26,11 +27,13 @@ const Home: React.FC<HomeProps> = ({
   removeCategory,
   addNewTransaction,
   transactions,
+  updateTransactions,
 }) => {
   const [isAddCategoryModalVisible, setIsAddCategoryModalVisible] =
     useState(false);
   const [isAddTransactionModalVisible, setIsAddTransactionModalVisible] =
     useState(false);
+
 
   return (
     <div className="container">
@@ -46,7 +49,10 @@ const Home: React.FC<HomeProps> = ({
 
           <Divider />
 
-          <TransactionsList transactions={transactions} categories={categories} />
+          <TransactionsList
+            transactions={transactions}
+            categories={categories}
+          />
 
           {isAddTransactionModalVisible && (
             <AddTransaction
@@ -73,6 +79,8 @@ const Home: React.FC<HomeProps> = ({
           <CategoriesList
             categories={categories}
             removeCategory={removeCategory}
+            transactions={transactions}
+            updateTransactions={updateTransactions}
           />
 
           {isAddCategoryModalVisible && (

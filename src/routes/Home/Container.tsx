@@ -6,7 +6,7 @@ import {
   removeCategory,
 } from '../../store/reducers/categories';
 import { selectCategories } from '../../store/selectors/categories';
-import { addNewTransaction } from '../../store/reducers/transactions';
+import { addNewTransaction, updateTransactions } from '../../store/reducers/transactions';
 import { selectTransactions } from '../../store/selectors/transactions';
 import { useAppSelector, useAppDispatch } from '../../app/hooks';
 import Category from '../../types/category';
@@ -26,6 +26,7 @@ const Container = () => {
       }
       addNewTransaction={(transaction: Transaction) => dispatch(addNewTransaction(transaction))}
       transactions={useAppSelector(selectTransactions)}
+      updateTransactions={(transactions: Transaction[]) => dispatch(updateTransactions(transactions))}
     />
   );
 };

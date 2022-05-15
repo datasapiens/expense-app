@@ -1,21 +1,29 @@
 import React from 'react';
 import { Tag, Popconfirm, message } from 'antd';
 import Category from '../../../types/category';
+import Transaction from '../../../types/transaction';
 
 type CategoryProps = {
   removeCategory: (category: Category) => void;
   category: Category;
+  transactions: Transaction[];
+  updateTransactions: (transactions: Transaction[]) => void;
 };
 
 const SingleCategory: React.FC<CategoryProps> = ({
   removeCategory,
   category,
+  transactions,
+  updateTransactions,
 }) => {
   const [visible, setVisible] = React.useState(false);
 
   const showPopconfirm = (e: any) => {
     e.preventDefault();
     setVisible(true);
+    
+    const updatedTransactions = transactions.filter(transaction => transaction.categoryId !== category.id);
+    updateTransactions(updatedTransactions);
   };
 
   const handleRemoveCategoryClick = (e: any, category: Category) => {
