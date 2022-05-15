@@ -34,7 +34,7 @@ const Home: React.FC<HomeProps> = ({
 
   return (
     <div className="container">
-      <PageHeader className="site-page-header" title="Home page" />
+      <PageHeader className="site-page-header" title="Home" />
       <Tabs defaultActiveKey="1" type="card">
         <TabPane tab="Transactions" key="1" style={{ minHeight: '500px' }}>
           <Button
@@ -69,8 +69,6 @@ const Home: React.FC<HomeProps> = ({
           </Button>
 
           <Divider />
-
-          {/* <Skeleton /> */}
 
           <CategoriesList
             categories={categories}

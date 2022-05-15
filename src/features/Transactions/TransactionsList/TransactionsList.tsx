@@ -1,8 +1,10 @@
-import React, { useCallback, useEffect, useState } from 'react';
-import { Table, Empty, Tag } from 'antd';
+import React, { useEffect, useState } from 'react';
+import { Table, Empty, Typography } from 'antd';
 
 import Transaction from '../../../types/transaction';
 import Category from '../../../types/category';
+import getCategoryById from '../../../utils/getCategoryById';
+const { Text } = Typography;
 
 type TransactionsListProps = {
   transactions: Transaction[];
@@ -32,12 +34,14 @@ const columns = [
     title: 'Amount',
     dataIndex: 'amount',
     key: 'amount',
+    render: (amount: number) => (
+      <Text type={amount < 0 ? 'danger' : 'success'}> {amount} </Text>
+    ),
   },
   {
     title: 'Category',
     dataIndex: 'category',
     key: 'category',
-    render: (category: any) => <Tag color="blue"> {category} </Tag>,
   },
 ];
 
@@ -49,13 +53,6 @@ const TransactionsList: React.FC<TransactionsListProps> = ({
     FormattedTransaction[]
   >([]);
 
-  const getCategoryById = useCallback(
-    (id: string) => {
-      return categories.find((category) => category.id === id);
-    },
-    [categories]
-  );
-
   useEffect(() => {
     let formattedTx: FormattedTransaction[] = [];
     transactions.forEach((tx) => {
@@ -64,14 +61,13 @@ const TransactionsList: React.FC<TransactionsListProps> = ({
         label: tx.label,
         date: tx.date,
         amount: tx.amount,
-        category: getCategoryById(tx.categoryId)?.label || '',
+        category: getCategoryById(tx.categoryId, categories)?.label || '',
       });
     });
 
     setFormattedTransactions(formattedTx);
-  }, [transactions, categories, getCategoryById]);
+  }, [transactions, categories]);
 
-  console.log(transactions, '---', formattedTransactions);
   return (
     <div>
       {formattedTransactions.length === 0 && <Empty />}

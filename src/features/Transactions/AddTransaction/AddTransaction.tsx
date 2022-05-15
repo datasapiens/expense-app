@@ -4,7 +4,7 @@ import { v4 as uuid } from 'uuid';
 
 import AddTransactionForm from './AddTransactionForm';
 import Modal from '../../../modules/Modal';
-import Transaction from '../../../types/transaction';
+import Transaction, { TransactionType } from '../../../types/transaction';
 import Category from '../../../types/category';
 
 type AddTransactionProps = {
@@ -21,7 +21,6 @@ const AddTransaction: React.FC<AddTransactionProps> = ({
   categories,
 }) => {
   const handleCategorySuccess = (values: any) => {
-    console.log('here', values, values.date.format('YYYY-MM-DD HH:mm:ss'));
     try {
       addNewTransaction({
         id: uuid(),
@@ -29,6 +28,10 @@ const AddTransaction: React.FC<AddTransactionProps> = ({
         date: values.date.format('YYYY-MM-DD HH:mm:ss'),
         categoryId: values.categoryId,
         amount: Number(values.amount),
+        type:
+          Number(values.amount) < 0
+            ? TransactionType.EXPENSES
+            : TransactionType.INCOME,
       });
       message.success('Transaction created successfully!');
     } catch (error) {

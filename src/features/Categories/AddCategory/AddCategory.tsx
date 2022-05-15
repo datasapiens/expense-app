@@ -18,17 +18,12 @@ const AddCategory: React.FC<AddCategoryProps> = ({
   addNewCategory,
 }) => {
   const handleCategorySuccess = (values: any) => {
-    console.log('here');
     try {
       addNewCategory({
         id: uuid(),
         label: values.label,
       });
       message.success('Label created successfully!');
-      // notification.success({
-      //   message: 'Label created successfully!',
-      //   placement: 'bottom',
-      // });
     } catch (error) {
       message.error('Error creating label, please try again!');
     }

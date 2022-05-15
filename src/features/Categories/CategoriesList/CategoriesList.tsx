@@ -1,7 +1,8 @@
-import React, { useEffect } from 'react';
-import { Row, Empty, Button, Tag, Popconfirm } from 'antd';
+import React from 'react';
+import { Empty } from 'antd';
 
 import Category from '../../../types/category';
+import SingleCategory from './Category';
 
 type CategoriesListProps = {
   categories: Category[];
@@ -12,28 +13,23 @@ const CategoriesList: React.FC<CategoriesListProps> = ({
   categories,
   removeCategory,
 }) => {
-  const handleRemoveCategoryClick = (e: any, category: Category) => {
-    e.preventDefault();
-    removeCategory(category);
-  };
   return (
     <div>
       {categories.length === 0 && <Empty />}
-      {categories.map((category) => (
-        <Row key={category.id} justify="start" align="middle">
-          {/* <p>{category.label}</p> */}
-          {/* <Popconfirm
-            placement="top"
-            title="Are you sure"
-            onConfirm={(e: any) => handleRemoveCategoryClick(e, category)}
-          >
-            <Button>{category.label}</Button>
-          </Popconfirm> */}
-            <Tag closable onClose={(e: any) => handleRemoveCategoryClick(e, category)}>
-              {category.label}
-            </Tag>
-        </Row>
-      ))}
+
+      {categories.length > 0 && (
+        <>
+          <h3>Categories</h3>
+          {categories.map((category) => (
+            <span key={category.id}>
+              <SingleCategory
+                removeCategory={removeCategory}
+                category={category}
+              />
+            </span>
+          ))}
+        </>
+      )}
     </div>
   );
 };

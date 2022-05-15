@@ -21,7 +21,6 @@ export const transactions = createSlice({
             state.status = action.payload.status
         },
         addNewTransaction: (state, action: PayloadAction<Transaction>) => {
-            console.log(action, '-----aaa')
             state.transactions = state.transactions.concat(action.payload);
           },
     },
