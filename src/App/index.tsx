@@ -1,7 +1,8 @@
-import React from 'react'
+import { FC } from 'react'
+import { Routes } from 'react-router-dom'
 
-const App = () => {
-    return <div>{}</div>
+const App: FC = () => {
+    return <Routes />
 }
 
 export default App
