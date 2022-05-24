@@ -1,8 +1,8 @@
 import { FC } from 'react'
-import { Routes } from 'react-router-dom'
+import AppRoutes from './AppRoutes'
 
 const App: FC = () => {
-    return <Routes />
+    return <AppRoutes />
 }
 
 export default App
