@@ -1,0 +1,127 @@
+{
+    "parser": "@typescript-eslint/parser",
+    "plugins": [
+      "@typescript-eslint",
+      "sort-keys-fix",
+      "typescript-sort-keys",
+      "unused-imports"
+    ],
+    "extends": [
+      "airbnb", 
+      "plugin:prettier/recommended"
+    ],
+    "env": {
+        "browser": true,
+        "es6": true
+    },
+    "parserOptions": {
+        "project": "./tsconfig.json",
+        "sourceType": "module"
+    },
+    "settings": {
+        "import/extensions": [".js", ".jsx", ".ts", ".tsx"],
+        "import/parsers": {
+            "@typescript-eslint/parser": [".ts", ".tsx"]
+        },
+        "import/resolver": {
+            "node": {
+                "extensions": [".js", ".jsx", ".ts", ".tsx"]
+            },
+            "typescript": {} // this loads <rootdir>/tsconfig.json to eslint
+        }
+    },
+    "rules": {
+        // suppress errors for missing 'import React' in files
+        "react/react-in-jsx-scope": "off",
+        "react/jsx-no-constructed-context-values": "off",
+        "react/jsx-props-no-spreading": ["off"],
+        "react/jsx-filename-extension": [
+            "warn",
+            { "extensions": [".ts", ".tsx"] }
+        ],
+        "react/button-has-type": "off",
+        "react/prop-types": 0,
+        "react/require-default-props": 0,
+        "react/no-danger": "off",
+        "react/jsx-sort-props": ["error"],
+        "react/function-component-definition": [
+            2,
+            {
+                "namedComponents": "arrow-function",
+                "unnamedComponents": "arrow-function"
+            }
+        ],
+        "typescript-sort-keys/interface": "error",
+        "typescript-sort-keys/string-enum": "error",
+        "@typescript-eslint/no-useless-constructor": "error",
+        "@typescript-eslint/no-unused-vars": "error",
+        "@typescript-eslint/no-use-before-define": ["error"],
+        "jsx-a11y/href-no-hash": ["off"],
+        "jsx-a11y/alt-text": ["off"],
+        "jsx-a11y/click-events-have-key-events": "off",
+        "jsx-a11y/no-static-element-interactions": "off",
+        "no-param-reassign": "off",
+        "no-plusplus": "off",
+        "no-console": [
+            "warn",
+            {
+                "allow": ["warn", "error"]
+            }
+        ],
+        "multiline-ternary": 0,
+        "no-unused-vars": "off",
+        "import/prefer-default-export": "off",
+        "unused-imports/no-unused-imports": "error",
+        "unused-imports/no-unused-vars": [
+          "warn",
+          { 
+            "vars": "all", 
+            "varsIgnorePattern": "^_", 
+            "args": "after-used", 
+            "argsIgnorePattern": "^_" 
+          }
+        ],
+        "no-shadow": 0,
+        "no-useless-constructor": "off",
+        "import/extensions": [
+            "error",
+            "ignorePackages",
+            {
+                "js": "never",
+                "jsx": "never",
+                "ts": "never",
+                "tsx": "never"
+            }
+        ],
+        "max-len": [
+            "warn",
+            {
+                "code": 80,
+                "tabWidth": 2,
+                "comments": 80,
+                "ignoreComments": false,
+                "ignoreTrailingComments": true,
+                "ignoreUrls": true,
+                "ignoreStrings": true,
+                "ignoreTemplateLiterals": true,
+                "ignoreRegExpLiterals": true
+            }
+        ],
+        "sort-keys-fix/sort-keys-fix": "error",
+        "import/order": [
+          "error",
+          {
+            "groups": [
+              "builtin",
+              "external",
+              "internal",
+              "index",
+              "sibling",
+              "parent",
+              "object",
+              "type"
+            ]
+          }
+        ]
+    }
+}

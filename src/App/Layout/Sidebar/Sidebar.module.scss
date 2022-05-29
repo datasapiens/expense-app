@@ -1,0 +1,30 @@
+@import 'src/styles/variables.scss';
+
+.drawer {
+    width: $drawer-width;
+}
+
+.title {
+    font-size: 2rem;
+    font-weight: bold;
+    height: $app-bar-top-height;
+    font-family: 'Roboto';
+    display: flex;
+    align-items: center;
+    padding-left: 1.6rem;
+    width: 20rem;
+}
+
+.link {
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    transition: all 0.2s ease-in-out;
+    width: 100%;
+    font-size: 1.4rem;
+    padding: 0.8rem 0;
+}
+
+.active {
+    background-color: $grey;
+}
