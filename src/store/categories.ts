@@ -5,7 +5,9 @@ import { getCategoriesFromLocalStorage } from 'src/localStorage/categories'
 import { CategoryState } from 'src/enums/categoryState.enum'
 import type { RootState } from 'src/store/interfaces/store.interface'
 
-const initialState: Record<string, Category> = getCategoriesFromLocalStorage()
+const initialState: { list: Record<string, Category> } = {
+    list: getCategoriesFromLocalStorage(),
+}
 
 export const categoriesSlice = createSlice({
     initialState,
@@ -17,16 +19,16 @@ export const categoriesSlice = createSlice({
                 label: action.payload,
                 state: CategoryState.ACTIVE,
             }
-            state[category.id] = category
+            state.list[category.id] = category
         },
         deleteCategory: (state, action: PayloadAction<string>) => {
-            state[action.payload].state = CategoryState.DELETED
+            state.list[action.payload].state = CategoryState.DELETED
         },
         setCategories: (
             state,
             action: PayloadAction<Record<string, Category>>
         ) => {
-            state = action.payload
+            state.list = action.payload
         },
     },
 })
@@ -34,9 +36,9 @@ export const categoriesSlice = createSlice({
 export const { addCategory, setCategories, deleteCategory } =
     categoriesSlice.actions
 
-export const selectCategories = (state: RootState) => state.categories
+export const selectCategories = (state: RootState) => state.categories.list
 export const selectFilteredCategories = (state: RootState): Category[] =>
-    Object.values(state.categories).filter(
+    Object.values(state.categories.list).filter(
         (category) => category.state === CategoryState.ACTIVE
     ) || []
 

@@ -5,10 +5,7 @@ import { generateId } from 'src/utils/generateId'
 import { getRandomFloat } from 'src/utils/getRandomFloat'
 import { CategoryState } from './enums/categoryState.enum'
 import { setCategoriesToLocalStorage } from './localStorage/categories'
-import {
-    getTransactionsFromLocalStorage,
-    setTransactionsToLocalStorage,
-} from './localStorage/transactions'
+import { setTransactionsToLocalStorage } from './localStorage/transactions'
 import { getRandomElementFromArray } from './utils/getRandomElementFromArray'
 
 const TRANSACTION_COUNT = 75
@@ -60,16 +57,20 @@ const generateMockTransactions = (categories: Category[]): Transaction[] => {
     return transactions
 }
 
-export const initiateLocalStorageData = () => {
-    const localStorageTransactions = getTransactionsFromLocalStorage()
+export const initiateLocalStorageData = (): {
+    categories: Record<string, Category>
+    transactions: Transaction[]
+} => {
+    const categories: Record<string, Category> = generateCategories()
+    const transactions: Transaction[] = generateMockTransactions(
+        Object.values(categories)
+    )
 
-    if (localStorageTransactions.length === 0) {
-        const categories: Record<string, Category> = generateCategories()
-        const transactions: Transaction[] = generateMockTransactions(
-            Object.values(categories)
-        )
+    setTransactionsToLocalStorage(transactions)
+    setCategoriesToLocalStorage(categories)
 
-        setTransactionsToLocalStorage(transactions)
-        setCategoriesToLocalStorage(categories)
+    return {
+        categories,
+        transactions,
     }
 }

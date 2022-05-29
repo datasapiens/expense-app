@@ -13,6 +13,7 @@ import { useAppSelector } from 'src/store/hooks'
 import { Transaction } from 'src/interfaces/transaction.interface'
 import { Category } from 'src/interfaces/category.interface'
 import { selectFilteredTransactions } from 'src/store/transactions'
+import { selectCategories } from 'src/store/categories'
 import styles from './Transactions.module.scss'
 import { AddTransactionModalContent } from '../AddTransactionModalContent'
 
@@ -25,9 +26,8 @@ export const Transactions: FC<Props> = ({ setModalContent, setError }) => {
     const transactions: Transaction[] = useAppSelector(
         selectFilteredTransactions
     )
-    const categories: Record<string, Category> = useAppSelector(
-        (state) => state.categories
-    )
+    const categories: Record<string, Category> =
+        useAppSelector(selectCategories)
 
     const onAddClick = () => {
         setModalContent(
