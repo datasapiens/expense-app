@@ -2,13 +2,32 @@ import React from 'react'
 import ReactDOM from 'react-dom/client'
 import { BrowserRouter } from 'react-router-dom'
 import { Provider } from 'react-redux'
-import { Chart as ChartJS, ArcElement, Tooltip, Legend } from 'chart.js'
+import {
+    Chart as ChartJS,
+    ArcElement,
+    Tooltip,
+    Legend,
+    CategoryScale,
+    LinearScale,
+    BarElement,
+    Title,
+} from 'chart.js'
 import { store } from 'src/store'
 import App from './App'
 import reportWebVitals from './reportWebVitals'
 import './styles/normalize.scss'
 
-ChartJS.register(ArcElement, Tooltip, Legend)
+ChartJS.register(
+    ArcElement,
+    Tooltip,
+    Legend,
+    CategoryScale,
+    LinearScale,
+    BarElement,
+    Title,
+    Tooltip,
+    Legend
+)
 
 const root = ReactDOM.createRoot(document.getElementById('root') as HTMLElement)
 root.render(

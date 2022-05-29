@@ -11,6 +11,8 @@ import {
 } from './localStorage/transactions'
 import { getRandomElementFromArray } from './utils/getRandomElementFromArray'
 
+const TRANSACTION_COUNT = 75
+
 const generateCategories = (): Record<string, Category> => {
     const categoryNames = ['Salary', 'Gifts', 'Food', 'Going out', 'Traveling']
     const categories: Record<string, Category> = {}
@@ -30,9 +32,9 @@ const generateMockTransactions = (categories: Category[]): Transaction[] => {
     const transactions: Transaction[] = []
     let initialDate = moment()
 
-    for (let i = 0; i < 2; i++) {
+    for (let i = 0; i < TRANSACTION_COUNT; i++) {
         const date = initialDate.subtract(
-            Math.floor(Math.random() * 24),
+            Math.floor(Math.random() * 12),
             'hours'
         )
 

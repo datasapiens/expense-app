@@ -6,7 +6,7 @@ import { Transaction } from 'src/interfaces/transaction.interface'
 import { round } from 'src/utils/round'
 import { BACKGROUND_COLOR, BORDER_COLOR } from 'src/constants/chartColors'
 
-export const IncomeExpense: FC = () => {
+export const IncomeExpenseDoughnut: FC = () => {
     const transactions: Transaction[] = useAppSelector(
         selectFilteredTransactions
     )
