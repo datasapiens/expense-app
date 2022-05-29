@@ -30,7 +30,7 @@ const generateMockTransactions = (categories: Category[]): Transaction[] => {
     const transactions: Transaction[] = []
     let initialDate = moment()
 
-    for (let i = 0; i < 100; i++) {
+    for (let i = 0; i < 2; i++) {
         const date = initialDate.subtract(
             Math.floor(Math.random() * 24),
             'hours'

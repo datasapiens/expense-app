@@ -1,4 +1,4 @@
-import React, { FC, ReactNode, useState } from 'react'
+import React, { ChangeEvent, FC, ReactNode, useState } from 'react'
 import AppBar from '@material-ui/core/AppBar'
 import Tabs from '@material-ui/core/Tabs'
 import Tab from '@material-ui/core/Tab'
@@ -11,18 +11,11 @@ import { Categories } from './Categories'
 
 const Home: FC = () => {
     const [modalContent, setModalContent] = useState<ReactNode>(null)
-    const [value, setValue] = useState(0)
+    const [tabIndex, setTabIndex] = useState(0)
     const [error, setError] = useState('')
 
-    const a11yProps = (index: number) => {
-        return {
-            'aria-controls': `simple-tabpanel-${index}`,
-            id: `simple-tab-${index}`,
-        }
-    }
-
-    const handleChange = (event: React.ChangeEvent<{}>, newValue: number) => {
-        setValue(newValue)
+    const handleChange = (event: ChangeEvent<{}>, newValue: number) => {
+        setTabIndex(newValue)
     }
 
     return (
@@ -31,22 +24,18 @@ const Home: FC = () => {
                 <div className={styles.appBar}>
                     <span className={styles.title}>Home</span>
                 </div>
-                <Tabs
-                    aria-label="simple tabs example"
-                    onChange={handleChange}
-                    value={value}
-                >
-                    <Tab label="Transactions" {...a11yProps(0)} />
-                    <Tab label="Categories" {...a11yProps(1)} />
+                <Tabs onChange={handleChange} value={tabIndex}>
+                    <Tab label="Transactions" />
+                    <Tab label="Categories" />
                 </Tabs>
             </AppBar>
-            <TabPanel index={0} value={value}>
+            <TabPanel index={0} value={tabIndex}>
                 <Transactions
                     setError={setError}
                     setModalContent={setModalContent}
                 />
             </TabPanel>
-            <TabPanel index={1} value={value}>
+            <TabPanel index={1} value={tabIndex}>
                 <Categories
                     setError={setError}
                     setModalContent={setModalContent}

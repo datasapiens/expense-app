@@ -12,7 +12,7 @@ import { IconButton, Toolbar } from '@material-ui/core'
 import { useAppSelector } from 'src/store/hooks'
 import { Transaction } from 'src/interfaces/transaction.interface'
 import { Category } from 'src/interfaces/category.interface'
-import { CategoryState } from 'src/enums/categoryState.enum'
+import { selectFilteredTransactions } from 'src/store/transactions'
 import styles from './Transactions.module.scss'
 import { AddTransactionModalContent } from '../AddTransactionModalContent'
 
@@ -23,7 +23,7 @@ interface Props {
 
 export const Transactions: FC<Props> = ({ setModalContent, setError }) => {
     const transactions: Transaction[] = useAppSelector(
-        (state) => state.transactions
+        selectFilteredTransactions
     )
     const categories: Record<string, Category> = useAppSelector(
         (state) => state.categories
@@ -64,10 +64,6 @@ export const Transactions: FC<Props> = ({ setModalContent, setError }) => {
                         {transactions.map((transaction: Transaction) => {
                             const category: Category =
                                 categories?.[transaction.categoryId]
-
-                            if (category.state !== CategoryState.ACTIVE) {
-                                return null
-                            }
 
                             return (
                                 <TableRow key={transaction.id}>
