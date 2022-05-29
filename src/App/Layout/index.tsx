@@ -1,11 +1,11 @@
 import { FC } from 'react'
 import { Outlet } from 'react-router-dom'
 import Sidebar from './Sidebar'
+import styles from './Layout.module.scss'
 
-// TODO:
 const Layout: FC = () => {
     return (
-        <div className="layout">
+        <div className={styles.layout}>
             <Sidebar />
             <div>
                 <Outlet />

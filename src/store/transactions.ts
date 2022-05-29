@@ -1,20 +1,27 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit'
+import { initiateLocalStorageData } from 'src/initiateLocalStorageData'
 import { Transaction } from 'src/interfaces/transaction.interface'
+import { getTransactionsFromLocalStorage } from 'src/localStorage/transactions'
 import type { RootState } from 'src/store/interfaces/store.interface'
 
-const initialState: Transaction[] = []
+initiateLocalStorageData()
+
+const initialState: Transaction[] = getTransactionsFromLocalStorage()
 
 export const transactionsSlice = createSlice({
     initialState,
     name: 'transactions',
     reducers: {
         addTransactions: (state, action: PayloadAction<Transaction>) => {
-            state.push(action.payload)
+            state.unshift(action.payload)
+        },
+        setTransactions: (state, action: PayloadAction<Transaction[]>) => {
+            state = action.payload
         },
     },
 })
 
-export const { addTransactions } = transactionsSlice.actions
+export const { addTransactions, setTransactions } = transactionsSlice.actions
 
 export const selectTransactions = (state: RootState) => state.transactions
 

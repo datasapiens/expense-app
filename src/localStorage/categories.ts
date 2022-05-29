@@ -3,9 +3,11 @@ import { getItemFromLocalStorage } from 'src/localStorage/utils/getItemFromLocal
 import { Category } from 'src/interfaces/category.interface'
 import { LocalStorageKeys } from 'src/enums/localStorageKeys.enum'
 
-export const getCategoriesFromLocalStorage = (): Category[] => {
+export const getCategoriesFromLocalStorage = (): Record<string, Category> => {
     return (
-        getItemFromLocalStorage<Category[]>(LocalStorageKeys.CATEGORIES) || []
+        getItemFromLocalStorage<Record<string, Category>>(
+            LocalStorageKeys.CATEGORIES
+        ) || {}
     )
 }
 

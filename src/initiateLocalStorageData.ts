@@ -46,7 +46,9 @@ const generateMockTransactions = (categories: Category[]): Transaction[] => {
             date: date.toDate(),
             id: generateId(),
             label:
-                amount > 0 ? `Sell ${category.label}` : `Buy ${category.label}`,
+                amount > 0
+                    ? `Income: ${category.label}`
+                    : `Expense: ${category.label}`,
         }
 
         transactions.push(transaction)
