@@ -39,9 +39,9 @@ export const Transactions: FC<Props> = ({ setModalContent, setError }) => {
     }
 
     return (
-        <div>
+        <div className={styles.tableWrapper}>
             <Toolbar className={styles.toolbar}>
-                <div>Transactions</div>
+                <div className={styles.title}>Transactions</div>
                 <IconButton
                     aria-label="add"
                     color="default"
@@ -54,10 +54,18 @@ export const Transactions: FC<Props> = ({ setModalContent, setError }) => {
                 <Table aria-label="simple table">
                     <TableHead>
                         <TableRow>
-                            <TableCell align="left">Label</TableCell>
-                            <TableCell align="left">Date</TableCell>
-                            <TableCell align="left">Amount</TableCell>
-                            <TableCell align="left">Category</TableCell>
+                            <TableCell align="left">
+                                <span className={styles.head}>Label</span>
+                            </TableCell>
+                            <TableCell align="left">
+                                <span className={styles.head}>Date</span>
+                            </TableCell>
+                            <TableCell align="left">
+                                <span className={styles.head}>Amount</span>
+                            </TableCell>
+                            <TableCell align="left">
+                                <span className={styles.head}>Category</span>
+                            </TableCell>
                         </TableRow>
                     </TableHead>
                     <TableBody>
@@ -68,18 +76,26 @@ export const Transactions: FC<Props> = ({ setModalContent, setError }) => {
                             return (
                                 <TableRow key={transaction.id}>
                                     <TableCell align="left">
-                                        {transaction.label}
+                                        <span className={styles.cell}>
+                                            {transaction.label}
+                                        </span>
                                     </TableCell>
                                     <TableCell align="left">
-                                        {moment(transaction.date).format(
-                                            'DD/MM/YYYY'
-                                        )}
+                                        <span className={styles.cell}>
+                                            {moment(transaction.date).format(
+                                                'DD/MM/YYYY'
+                                            )}
+                                        </span>
                                     </TableCell>
                                     <TableCell align="left">
-                                        {transaction.amount.toFixed(2)}
+                                        <span className={styles.cell}>
+                                            {transaction.amount.toFixed(2)}
+                                        </span>
                                     </TableCell>
                                     <TableCell align="left">
-                                        {category.label}
+                                        <span className={styles.cell}>
+                                            {category.label}
+                                        </span>
                                     </TableCell>
                                 </TableRow>
                             )

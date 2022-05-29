@@ -49,9 +49,9 @@ export const Categories: FC<Props> = ({ setModalContent, setError }) => {
     }
 
     return (
-        <div>
+        <div className={styles.tableWrapper}>
             <Toolbar className={styles.toolbar}>
-                <div>Categories</div>
+                <div className={styles.title}>Categories</div>
                 <IconButton
                     aria-label="add"
                     color="default"
@@ -64,8 +64,12 @@ export const Categories: FC<Props> = ({ setModalContent, setError }) => {
                 <Table aria-label="simple table">
                     <TableHead>
                         <TableRow>
-                            <TableCell align="left">#</TableCell>
-                            <TableCell align="left">Label</TableCell>
+                            <TableCell align="left">
+                                <span className={styles.head}>#</span>
+                            </TableCell>
+                            <TableCell align="left">
+                                <span className={styles.head}>Label</span>
+                            </TableCell>
                             <TableCell align="left">{}</TableCell>
                         </TableRow>
                     </TableHead>
@@ -74,10 +78,14 @@ export const Categories: FC<Props> = ({ setModalContent, setError }) => {
                             return (
                                 <TableRow key={category.id}>
                                     <TableCell align="left">
-                                        {index + 1}
+                                        <span className={styles.cell}>
+                                            {index + 1}
+                                        </span>
                                     </TableCell>
                                     <TableCell align="left">
-                                        {category.label}
+                                        <span className={styles.cell}>
+                                            {category.label}
+                                        </span>
                                     </TableCell>
                                     <TableCell align="right">
                                         <IconButton

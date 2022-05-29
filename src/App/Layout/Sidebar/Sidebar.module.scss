@@ -20,4 +20,11 @@
     align-items: center;
     cursor: pointer;
     transition: all 0.2s ease-in-out;
+    width: 100%;
+    font-size: 1.4rem;
+    padding: 0.8rem 0;
+}
+
+.active {
+    background-color: $grey;
 }
