@@ -2,13 +2,12 @@ import React, { FC, ReactNode, useState } from 'react'
 import AppBar from '@material-ui/core/AppBar'
 import Tabs from '@material-ui/core/Tabs'
 import Tab from '@material-ui/core/Tab'
-import { Add } from '@material-ui/icons'
-import { IconButton, Snackbar } from '@material-ui/core'
+import { Snackbar } from '@material-ui/core'
 import { TabPanel } from 'src/components/TabPanel'
 import { Modal } from 'src/components/Modal'
 import styles from './Home.module.scss'
 import { Transactions } from './Transactions'
-import { AddTransactionModalContent } from './AddTransactionModalContent'
+import { Categories } from './Categories'
 
 const Home: FC = () => {
     const [modalContent, setModalContent] = useState<ReactNode>(null)
@@ -26,28 +25,11 @@ const Home: FC = () => {
         setValue(newValue)
     }
 
-    const onAddClick = () => {
-        setModalContent(
-            <AddTransactionModalContent
-                onClose={() => setModalContent(null)}
-                setError={(error) => setError(error)}
-            />
-        )
-    }
-
     return (
         <div className={styles.home}>
             <AppBar position="sticky">
                 <div className={styles.appBar}>
                     <span className={styles.title}>Home</span>
-
-                    <IconButton
-                        aria-label="delete"
-                        color="default"
-                        onClick={onAddClick}
-                    >
-                        <Add fontSize="large" style={{ color: 'white' }} />
-                    </IconButton>
                 </div>
                 <Tabs
                     aria-label="simple tabs example"
@@ -59,10 +41,16 @@ const Home: FC = () => {
                 </Tabs>
             </AppBar>
             <TabPanel index={0} value={value}>
-                <Transactions />
+                <Transactions
+                    setError={setError}
+                    setModalContent={setModalContent}
+                />
             </TabPanel>
             <TabPanel index={1} value={value}>
-                Item Two
+                <Categories
+                    setError={setError}
+                    setModalContent={setModalContent}
+                />
             </TabPanel>
 
             <Modal
@@ -77,6 +65,7 @@ const Home: FC = () => {
                     vertical: 'bottom',
                 }}
                 autoHideDuration={6000}
+                color="error"
                 message={error}
                 onClose={() => setError('')}
                 open={!!error}

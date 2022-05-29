@@ -12,6 +12,7 @@ import { useAppDispatch, useAppSelector } from 'src/store/hooks'
 import { Category } from 'src/interfaces/category.interface'
 import { addTransaction } from 'src/store/transactions'
 import { generateId } from 'src/utils/generateId'
+import { selectFilteredCategories } from 'src/store/categories'
 import styles from './AddTransactionModalContent.module.scss'
 
 interface Props {
@@ -27,9 +28,7 @@ export const AddTransactionModalContent: FC<Props> = ({
     const [amount, setAmount] = useState('')
     const [categoryId, setCategoryId] = useState('')
 
-    const categories: Record<string, Category> = useAppSelector(
-        (state) => state.categories
-    )
+    const categories: Category[] = useAppSelector(selectFilteredCategories)
 
     const dispatch = useAppDispatch()
 
@@ -97,7 +96,7 @@ export const AddTransactionModalContent: FC<Props> = ({
                         }
                         value={categoryId}
                     >
-                        {Object.values(categories).map((category: Category) => (
+                        {categories.map((category: Category) => (
                             <MenuItem key={category.id} value={category.id}>
                                 {category.label}
                             </MenuItem>

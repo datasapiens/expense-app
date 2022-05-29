@@ -6,32 +6,42 @@ import TableContainer from '@material-ui/core/TableContainer'
 import TableHead from '@material-ui/core/TableHead'
 import TableRow from '@material-ui/core/TableRow'
 import Paper from '@material-ui/core/Paper'
-import moment from 'moment'
-import { Add } from '@material-ui/icons'
+import { Add, Delete } from '@material-ui/icons'
 import { IconButton, Toolbar } from '@material-ui/core'
-import { useAppSelector } from 'src/store/hooks'
-import { Transaction } from 'src/interfaces/transaction.interface'
+import { useAppDispatch, useAppSelector } from 'src/store/hooks'
 import { Category } from 'src/interfaces/category.interface'
-import { CategoryState } from 'src/enums/categoryState.enum'
-import styles from './Transactions.module.scss'
-import { AddTransactionModalContent } from '../AddTransactionModalContent'
+import { ConfirmationModalContent } from 'src/components/ConfirmationModalContent'
+import { deleteCategory, selectFilteredCategories } from 'src/store/categories'
+import styles from './Categories.module.scss'
+import { AddCategoryModalContent } from '../AddCategoryModalContent'
 
 interface Props {
     setError: (error: string) => void
     setModalContent: (content: ReactNode) => void
 }
 
-export const Transactions: FC<Props> = ({ setModalContent, setError }) => {
-    const transactions: Transaction[] = useAppSelector(
-        (state) => state.transactions
+export const Categories: FC<Props> = ({ setModalContent, setError }) => {
+    const filteredCategories: Category[] = useAppSelector(
+        selectFilteredCategories
     )
-    const categories: Record<string, Category> = useAppSelector(
-        (state) => state.categories
-    )
+
+    const dispatch = useAppDispatch()
+
+    const onDelete = (category: Category) => {
+        setModalContent(
+            <ConfirmationModalContent
+                onClose={() => setModalContent(null)}
+                onConfirm={() => {
+                    setModalContent(null)
+                    dispatch(deleteCategory(category.id))
+                }}
+            />
+        )
+    }
 
     const onAddClick = () => {
         setModalContent(
-            <AddTransactionModalContent
+            <AddCategoryModalContent
                 onClose={() => setModalContent(null)}
                 setError={(error) => setError(error)}
             />
@@ -41,7 +51,7 @@ export const Transactions: FC<Props> = ({ setModalContent, setError }) => {
     return (
         <div>
             <Toolbar className={styles.toolbar}>
-                <div>Transactions</div>
+                <div>Categories</div>
                 <IconButton
                     aria-label="add"
                     color="default"
@@ -54,36 +64,29 @@ export const Transactions: FC<Props> = ({ setModalContent, setError }) => {
                 <Table aria-label="simple table">
                     <TableHead>
                         <TableRow>
+                            <TableCell align="left">#</TableCell>
                             <TableCell align="left">Label</TableCell>
-                            <TableCell align="left">Date</TableCell>
-                            <TableCell align="left">Amount</TableCell>
-                            <TableCell align="left">Category</TableCell>
+                            <TableCell align="left">{}</TableCell>
                         </TableRow>
                     </TableHead>
                     <TableBody>
-                        {transactions.map((transaction: Transaction) => {
-                            const category: Category =
-                                categories?.[transaction.categoryId]
-
-                            if (category.state !== CategoryState.ACTIVE) {
-                                return null
-                            }
-
+                        {filteredCategories.map((category: Category, index) => {
                             return (
-                                <TableRow key={transaction.id}>
+                                <TableRow key={category.id}>
                                     <TableCell align="left">
-                                        {transaction.label}
-                                    </TableCell>
-                                    <TableCell align="left">
-                                        {moment(transaction.date).format(
-                                            'DD/MM/YYYY'
-                                        )}
-                                    </TableCell>
-                                    <TableCell align="left">
-                                        {transaction.amount.toFixed(2)}
+                                        {index + 1}
                                     </TableCell>
                                     <TableCell align="left">
                                         {category.label}
+                                    </TableCell>
+                                    <TableCell align="right">
+                                        <IconButton
+                                            aria-label="delete"
+                                            color="default"
+                                            onClick={() => onDelete(category)}
+                                        >
+                                            <Delete />
+                                        </IconButton>
                                     </TableCell>
                                 </TableRow>
                             )

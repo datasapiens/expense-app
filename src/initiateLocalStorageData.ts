@@ -3,6 +3,7 @@ import { Category } from 'src/interfaces/category.interface'
 import { Transaction } from 'src/interfaces/transaction.interface'
 import { generateId } from 'src/utils/generateId'
 import { getRandomFloat } from 'src/utils/getRandomFloat'
+import { CategoryState } from './enums/categoryState.enum'
 import { setCategoriesToLocalStorage } from './localStorage/categories'
 import {
     getTransactionsFromLocalStorage,
@@ -18,6 +19,7 @@ const generateCategories = (): Record<string, Category> => {
         const category: Category = {
             id: generateId(),
             label: categoryNames[i],
+            state: CategoryState.ACTIVE,
         }
         categories[category.id] = category
     }
