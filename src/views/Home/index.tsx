@@ -1,15 +1,19 @@
-import React, { FC, useState } from 'react'
+import React, { FC, ReactNode, useState } from 'react'
 import AppBar from '@material-ui/core/AppBar'
 import Tabs from '@material-ui/core/Tabs'
 import Tab from '@material-ui/core/Tab'
 import { Add } from '@material-ui/icons'
-import { IconButton } from '@material-ui/core'
+import { IconButton, Snackbar } from '@material-ui/core'
 import { TabPanel } from 'src/components/TabPanel'
+import { Modal } from 'src/components/Modal'
 import styles from './Home.module.scss'
-import { Transactions } from './transactions'
+import { Transactions } from './Transactions'
+import { AddTransactionModalContent } from './AddTransactionModalContent'
 
 const Home: FC = () => {
+    const [modalContent, setModalContent] = useState<ReactNode>(null)
     const [value, setValue] = useState(0)
+    const [error, setError] = useState('')
 
     const a11yProps = (index: number) => {
         return {
@@ -23,7 +27,12 @@ const Home: FC = () => {
     }
 
     const onAddClick = () => {
-        // TODO:
+        setModalContent(
+            <AddTransactionModalContent
+                onClose={() => setModalContent(null)}
+                setError={(error) => setError(error)}
+            />
+        )
     }
 
     return (
@@ -55,6 +64,23 @@ const Home: FC = () => {
             <TabPanel index={1} value={value}>
                 Item Two
             </TabPanel>
+
+            <Modal
+                content={modalContent}
+                isOpen={!!modalContent}
+                onClose={() => setModalContent(null)}
+            />
+
+            <Snackbar
+                anchorOrigin={{
+                    horizontal: 'left',
+                    vertical: 'bottom',
+                }}
+                autoHideDuration={6000}
+                message={error}
+                onClose={() => setError('')}
+                open={!!error}
+            />
         </div>
     )
 }
