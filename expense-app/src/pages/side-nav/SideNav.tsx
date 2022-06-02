@@ -1,9 +1,13 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 const SideNav = () => {
   return (
     <>
-      <nav></nav>
+      <nav>
+        <Link to={'/'}>Home</Link>
+        <Link to={'/graphs'}>Graphs</Link>
+      </nav>
     </>
   );
 };
