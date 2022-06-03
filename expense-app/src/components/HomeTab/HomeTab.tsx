@@ -1,30 +1,46 @@
-import React from "react";
+import React, { useState } from "react";
+import Add from "../buttons/Add";
+
 import Table from "../Table/Table";
 import "./tab.scss";
+
 const HomeTab = () => {
+  const [toggleState, setToggleState] = useState(1);
+
+  const toggleTab = (index: number) => {
+    setToggleState(index);
+  };
+
   return (
-    <div className="tab">
-      {/* Tab Header */}
-      <button
-        className="tablink"
-        id="defaultOpen"
-        onClick={(e) => console.log(e.target)}
-      >
-        Transactions
-      </button>
-      <button className="tablink" onClick={(e) => console.log(e.target)}>
-        Categories
-      </button>
-      
-      {/* Tab content */}
-      <div id="Transactions" className="tabcontent">
-        <h3>Transactions</h3>
-        <Table />
+    <div className="container">
+      <div className="bloc-tabs">
+        <button
+          className={toggleState === 1 ? "tabs active-tabs" : "tabs"}
+          onClick={() => toggleTab(1)}
+        >
+         Transactions
+        </button>
+        <button
+          className={toggleState === 2 ? "tabs active-tabs" : "tabs"}
+          onClick={() => toggleTab(2)}
+        >
+         Categories
+        </button>
       </div>
 
-      <div id="Categories" className="tabcontent">
-        <h3>Categories</h3>
-        <Table />
+      <div className="content-tabs">
+        <div
+          className={toggleState === 1 ? "content  active-content" : "content"}
+        >
+          <span><h2>Transactions</h2> <Add/></span>
+          <Table />
+        </div>
+        <div
+          className={toggleState === 2 ? "content  active-content" : "content"}
+        >
+          <span><h2>Categories</h2> <Add/></span>
+          <Table />
+        </div>
       </div>
     </div>
   );
