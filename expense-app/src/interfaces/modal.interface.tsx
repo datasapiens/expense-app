@@ -1,4 +1,4 @@
 export interface IModal {
-    modal: boolean;
+    modal?: boolean;
     updateModal: (status: boolean) => void;
 }

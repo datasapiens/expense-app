@@ -41,7 +41,7 @@ const HomeTab = () => {
           <button className="button-add" onClick={() => setOpenTransactionModal(true)}><FontAwesomeIcon icon={faPlus}></FontAwesomeIcon></button>
            </div>
           <Table />
-          {openTransactionModal && <Modal/>}
+          {openTransactionModal && <Modal updateModal={setOpenTransactionModal} />}
         </div>
         <div
           className={toggleState === 2 ? "content  active-content" : "content"}
@@ -51,7 +51,7 @@ const HomeTab = () => {
             <button className="button-add"><FontAwesomeIcon icon={faPlus}></FontAwesomeIcon></button>
             </div>
           <Table />
-          <Modal />
+          {/* <Modal /> */}
         </div>
       </div>
     </div>

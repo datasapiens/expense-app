@@ -1,16 +1,27 @@
 import React from 'react'
+import { IModal } from '../../interfaces/modal.interface'
+import './modal.scss'
 
-function Modal() {
+function Modal({updateModal}: IModal) {
   return (
-    <div className="modal-background">
-        <div className="modal-container">
-            <button>X</button>
+    <div className="modalBackground">
+        <div className="modalContainer">
+
+            <div className="titleCloseBtn">
+          <button
+            onClick={() => {
+                updateModal(false);
+            }}
+          >
+            X
+          </button>
+        </div>
             <div className="title">Add Transaction</div>
             <div className="body">
                 <p>This is where the forms will go</p>
             </div>
             <div className="footer">
-            <button className="cancel">cancel</button>
+            <button className="cancel" onClick={() => updateModal(false)}>cancel</button>
             <button className="submit">save</button>
             </div>
         </div>
