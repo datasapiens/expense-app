@@ -22,6 +22,13 @@ const Table = () => {
             <td>with two columns</td>
             <td>with two columns</td>
           </tr>
+          <tr>
+            <td>The table body</td>
+            <td>with two columns</td>
+            <td>with two columns</td>
+            <td>with two columns</td>
+            <td>with two columns</td>
+          </tr>
         </tbody>
       </table>
     </div>
