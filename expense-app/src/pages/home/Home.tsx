@@ -1,6 +1,5 @@
 import React from 'react'
-import HomeTab from '../../components/HomeTab';
-import Table from '../../components/Table';
+import HomeTab from '../../components/HomeTab/HomeTab';
 import './Home.scss';
 
 const Home = () => {
@@ -8,7 +7,6 @@ const Home = () => {
     <div className='home'>
         <div className="wrapper">
             <HomeTab/>
-            <Table  />
         </div>
     </div>
   )

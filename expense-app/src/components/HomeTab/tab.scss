@@ -1,4 +1,4 @@
-@import './../styles/index.scss';
+@import './../../styles/index.scss';
 
 .tablink {
     background-color: #555;
@@ -13,4 +13,18 @@
   }
   .tablink:hover {
     background-color: #777;
+  }
+
+  .tabcontent {
+    color: white;
+    display: block;
+    padding: 100px 20px;
+    height: 100%;
+  }
+  
+  #Transactions {
+    background-color: red;
+  }
+  #Categories {
+    background-color: green;
   }
