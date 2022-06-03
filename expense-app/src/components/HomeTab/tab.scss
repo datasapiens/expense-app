@@ -81,3 +81,16 @@ button {
   flex-direction: row;
   justify-content: space-between;
 }
+.button-add {
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  margin-right: 5%;
+  margin-top: 20px;
+  color: #fff;
+  background-color: black;
+  &:hover {
+     background-color: gray;
+  }
+  
+}

@@ -1,11 +1,16 @@
+import { faPlus } from "@fortawesome/free-solid-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import React, { useState } from "react";
-import Add from "../buttons/Add";
+import Modal from "../modal/Modal";
 
 import Table from "../Table/Table";
 import "./tab.scss";
 
 const HomeTab = () => {
   const [toggleState, setToggleState] = useState(1);
+  const [openTransactionModal, setOpenTransactionModal] = useState(false);
+  // const [openCategoryModal, setOpenCategoryModal] = useState(false);
+  
 
   const toggleTab = (index: number) => {
     setToggleState(index);
@@ -32,17 +37,21 @@ const HomeTab = () => {
         <div
           className={toggleState === 1 ? "content  active-content" : "content"}
         >
-          <div className="header-button"><h2>Transactions</h2> <Add/></div>
+          <div className="header-button"><h2>Transactions</h2>
+          <button className="button-add" onClick={() => setOpenTransactionModal(true)}><FontAwesomeIcon icon={faPlus}></FontAwesomeIcon></button>
+           </div>
           <Table />
+          {openTransactionModal && <Modal/>}
         </div>
         <div
           className={toggleState === 2 ? "content  active-content" : "content"}
         >
           <div className="header-button">
             <h2>Categories</h2> 
-            <Add/>
+            <button className="button-add"><FontAwesomeIcon icon={faPlus}></FontAwesomeIcon></button>
             </div>
           <Table />
+          <Modal />
         </div>
       </div>
     </div>
