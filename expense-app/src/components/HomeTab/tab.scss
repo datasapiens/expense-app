@@ -7,6 +7,7 @@
   background: #f1f1f1;
   word-break: break-all;
   border: 1px solid rgba(0, 0, 0, 0.274);
+  overflow: hidden;
 }
 
 .bloc-tabs {
@@ -73,4 +74,10 @@ button {
 }
 .active-content {
   display: block;
+}
+
+.header-button {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
 }

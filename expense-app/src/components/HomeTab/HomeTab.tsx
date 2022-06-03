@@ -32,13 +32,16 @@ const HomeTab = () => {
         <div
           className={toggleState === 1 ? "content  active-content" : "content"}
         >
-          <span><h2>Transactions</h2> <Add/></span>
+          <div className="header-button"><h2>Transactions</h2> <Add/></div>
           <Table />
         </div>
         <div
           className={toggleState === 2 ? "content  active-content" : "content"}
         >
-          <span><h2>Categories</h2> <Add/></span>
+          <div className="header-button">
+            <h2>Categories</h2> 
+            <Add/>
+            </div>
           <Table />
         </div>
       </div>
