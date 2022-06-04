@@ -88,9 +88,10 @@ button {
   margin-right: 5%;
   margin-top: 20px;
   color: #fff;
-  background-color: black;
+  background-color: #04AA6D;
   &:hover {
-     background-color: gray;
+    background-color: #04AA6D;
+    opacity: 0.7;
   }
   
 }
