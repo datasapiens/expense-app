@@ -2,7 +2,7 @@ import React from 'react'
 import { IModal } from '../../interfaces/modal.interface'
 import './modal.scss'
 
-function Modal({updateModal}: IModal) {
+function Modal({modal, updateModal}: IModal) {
   return (
     <div className="modalBackground">
         <div className="modalContainer">
@@ -16,7 +16,7 @@ function Modal({updateModal}: IModal) {
             X
           </button>
         </div>
-            <div className="title">Add Transaction</div>
+            <div className="title">{modal}</div>
             <div className="body">
                 <p>This is where the forms will go</p>
             </div>
