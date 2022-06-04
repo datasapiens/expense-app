@@ -11,7 +11,7 @@ const Table = ({ tableData, columns, del }: ITable) => {
       <table>
         <thead>
           <tr>{newCol && newCol.map((col) => (<th>{col.header}</th>))}
-          {del && <th>Del</th>}
+          {del && <th>Delete</th>}
           </tr>
         </thead>
         <tbody>
