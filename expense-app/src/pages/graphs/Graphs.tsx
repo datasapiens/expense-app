@@ -1,9 +1,14 @@
 import React from 'react'
+import GraphTab from '../../components/Tabs/GraphTab'
 
 const Graphs = () => {
   return (
-    <div>Graphs</div>
-  )
+    <div className='page-wrapper'>
+    <div className="wrapper">
+        <GraphTab/>
+    </div>
+</div>
+)
 }
 
 export default Graphs

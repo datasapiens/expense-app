@@ -1,10 +1,10 @@
 import React from 'react'
-import HomeTab from '../../components/HomeTab/HomeTab';
+import HomeTab from '../../components/Tabs/HomeTab';
 import './Home.scss';
 
 const Home = () => {
   return (
-    <div className='home'>
+    <div className='page-wrapper'>
         <div className="wrapper">
             <HomeTab/>
         </div>
