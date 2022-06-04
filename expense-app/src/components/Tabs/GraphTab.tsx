@@ -1,4 +1,6 @@
 import React, { useState } from 'react'
+import DougnutChart from '../charts/Dougnut';
+import LineChart from '../charts/LineChart';
 
 import './tab.scss';
 
@@ -43,34 +45,31 @@ function GraphTab() {
           <div
             className={toggleState === 1 ? "content  active-content" : "content"}
           >
-            <div className="header-button"><h2>Income vs. Expenses</h2>
-           
-             </div>
+            <div className="header-button"><h2>Income vs. Expenses</h2></div>
+            <LineChart/>
+            
           </div>
           <div
             className={toggleState === 2 ? "content  active-content" : "content"}
           >
             <div className="header-button">
-              <h2>Income per category</h2> 
-            
-              </div>
+              <h2>Income per category</h2> </div>
+              <DougnutChart/>
           </div>
           <div
             className={toggleState === 3 ? "content  active-content" : "content"}
           >
             <div className="header-button">
-              <h2>Expenses per category</h2> 
-            
-              </div>
+              <h2>Expenses per category</h2></div>
+              <DougnutChart/>
           </div>
           <div
             className={toggleState === 4 ? "content  active-content" : "content"}
           >
             <div className="header-button">
-              <h2>Income vs. Expenses Daily</h2> 
-            
-              </div>
+              <h2>Income vs. Expenses Daily</h2></div>
           </div>
+          <LineChart/>
         </div>
       </div>
     )
