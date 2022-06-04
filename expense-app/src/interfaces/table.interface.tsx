@@ -8,9 +8,9 @@ export interface IColumn {
     header: string
 }
 export interface ITableFields {
-    id: number,
-    name: string,
-    address: string,
-    date: string,
-    order: string,
+    id: string,
+    label: string,
+    amount?: number,
+    date?: string,
+    category?: string,
 }

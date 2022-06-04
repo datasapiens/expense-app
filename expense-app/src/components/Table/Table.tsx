@@ -1,27 +1,29 @@
 import { faTrashAlt } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import React from "react";
-import { ITable } from "../../interfaces/table.interface";
+import {ITable } from "../../interfaces/table.interface";
 import "./table.scss";
 
 const Table = ({ tableData, columns, del }: ITable) => {
+  const newCol = columns.filter(col => col.header !== '#')
+  
   return (
     <div className="table-container">
       <table>
         <thead>
-          <tr>{columns && columns.map((col) => (<th>{col.header}</th>))}
-          {del && <th><FontAwesomeIcon icon={faTrashAlt}/></th>}
+          <tr>{newCol && newCol.map((col) => (<th>{col.header}</th>))}
+          {del && <th>Del</th>}
           </tr>
         </thead>
         <tbody>
           {tableData && tableData.map((row: any) => (
             <tr>
               {
-               columns && columns.map((col) => (
+               newCol && newCol.map((col) => (
                 <td>{row[col.field]}</td>
+                
                )) 
               }
-            
+            {del &&<td><FontAwesomeIcon icon={faTrashAlt}/></td>}
           </tr>
           ))}
           

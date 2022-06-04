@@ -1,7 +1,7 @@
 import { faPlus } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import React, { useState } from "react";
-import { tableData, CategoriesColumns, TransactionColumns } from "../../data";
+import { tableData, CategoriesColumns, TransactionColumns, catData } from "../../data";
 import Modal from "../modal/Modal";
 
 import Table from "../Table/Table";
@@ -51,7 +51,7 @@ const HomeTab = () => {
             <h2>Categories</h2> 
             <button className="button-add" onClick={() => setOpenCategoryModal(true)}><FontAwesomeIcon icon={faPlus} ></FontAwesomeIcon></button>
             </div>
-          <Table tableData={tableData} columns={CategoriesColumns} del={true}/>
+          <Table tableData={catData} columns={CategoriesColumns} del={true}/>
          {openCategoryModal && <Modal modal={'Add Category'} updateModal={setOpenCategoryModal} />} 
         </div>
       </div>
