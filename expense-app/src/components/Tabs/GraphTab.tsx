@@ -33,12 +33,6 @@ function GraphTab() {
           >
            Expenses per category
           </button>
-          <button
-            className={toggleState === 4 ? "tabs active-tabs" : "tabs"}
-            onClick={() => toggleTab(4)}
-          >
-           Income vs. Expenses Daily
-          </button>
         </div>
   
         <div className="content-tabs">
@@ -63,13 +57,6 @@ function GraphTab() {
               <h2>Expenses per category</h2></div>
               <DougnutChart/>
           </div>
-          <div
-            className={toggleState === 4 ? "content  active-content" : "content"}
-          >
-            <div className="header-button">
-              <h2>Income vs. Expenses Daily</h2></div>
-          </div>
-          <LineChart/>
         </div>
       </div>
     )

@@ -7,6 +7,8 @@ import {
   TransactionColumns,
   catData,
 } from "../../data/data";
+import CategoryForm from "../forms/Category/CategoryForm";
+import TransactionForm from "../forms/Transactions/TransactionForm";
 import Modal from "../modal/Modal";
 
 import Table from "../Table/Table";
@@ -60,7 +62,9 @@ const HomeTab = () => {
             <Modal
               modal={"Add Transaction"}
               updateModal={setOpenTransactionModal}
-            />
+            >
+              <TransactionForm categories={catData}/>
+            </Modal>
           )}
         </div>
         <div
@@ -77,7 +81,9 @@ const HomeTab = () => {
           </div>
           <Table tableData={catData} columns={CategoriesColumns} del={true} />
           {openCategoryModal && (
-            <Modal modal={"Add Category"} updateModal={setOpenCategoryModal} />
+            <Modal modal={"Add Category"} updateModal={setOpenCategoryModal} >
+              <CategoryForm/>
+            </Modal>
           )}
         </div>
       </div>

@@ -1,32 +1,24 @@
-import React from 'react'
-import { IModal } from '../../interfaces/modal.interface'
-import './modal.scss'
+import React from "react";
+import "./modal.scss";
 
-function Modal({modal, updateModal}: IModal) {
+function Modal({ modal, updateModal, children }: any) {
   return (
     <div className="modalBackground">
-        <div className="modalContainer">
-
-            <div className="titleCloseBtn">
+      <div className="modalContainer">
+        <div className="titleCloseBtn">
           <button
             onClick={() => {
-                updateModal(false);
+              updateModal(false);
             }}
           >
             X
           </button>
         </div>
-            <div className="title">{modal}</div>
-            <div className="body">
-                <p>This is where the forms will go</p>
-            </div>
-            <div className="footer">
-            <button className="cancel" onClick={() => updateModal(false)}>cancel</button>
-            <button className="submit">save</button>
-            </div>
-        </div>
+        <div className="title">{modal}</div>
+        <div className="body">{children}</div>
+      </div>
     </div>
-  )
+  );
 }
 
-export default Modal
+export default Modal;
