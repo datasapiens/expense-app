@@ -1,4 +1,4 @@
-@import './../../styles/index.scss';
+@import "./../../styles/index.scss";
 
 .tab-wrapper {
   display: flex;
@@ -14,7 +14,6 @@
   display: flex;
 }
 .tabs {
-
   padding: 15px;
   text-align: center;
   width: 50%;
@@ -25,11 +24,11 @@
   position: relative;
   outline: none;
 }
-.tabs:not(:last-child){
+.tabs:not(:last-child) {
   border-right: 1px solid rgba(0, 0, 0, 0.274);
 }
 
-.active-tabs  {
+.active-tabs {
   background: white;
   border-bottom: 1px solid transparent;
 }
@@ -47,10 +46,9 @@
 }
 button {
   border: none;
-  
 }
 .content-tabs {
-  flex-grow : 1;
+  flex-grow: 1;
 }
 .content {
   background: white;
@@ -88,10 +86,18 @@ button {
   margin-right: 5%;
   margin-top: 20px;
   color: #fff;
-  background-color: #04AA6D;
+  background-color: #04aa6d;
   &:hover {
-    background-color: #04AA6D;
+    background-color: #04aa6d;
     opacity: 0.7;
   }
-  
+}
+
+.chart-container {
+  height: 424px;
+  width: 814px;
+}
+.dougnut-container {
+  height: 424px;
+  width: 428px;
 }

@@ -40,7 +40,10 @@ function GraphTab() {
             className={toggleState === 1 ? "content  active-content" : "content"}
           >
             <div className="header-button"><h2>Income vs. Expenses</h2></div>
+            <div className="chart-container">
             <LineChart/>
+            </div>
+            
             
           </div>
           <div
@@ -48,14 +51,20 @@ function GraphTab() {
           >
             <div className="header-button">
               <h2>Income per category</h2> </div>
+              <div className="dougnut-container">
               <DougnutChart/>
+              </div>
+            
           </div>
           <div
             className={toggleState === 3 ? "content  active-content" : "content"}
           >
             <div className="header-button">
               <h2>Expenses per category</h2></div>
+              <div className="dougnut-container">
               <DougnutChart/>
+              </div>
+            
           </div>
         </div>
       </div>

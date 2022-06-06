@@ -11,6 +11,7 @@ import {
 } from 'chart.js';
 import { Line } from 'react-chartjs-2';
 import { faker } from '@faker-js/faker';
+import './charts.scss';
 
 ChartJS.register(
   CategoryScale,
@@ -56,6 +57,6 @@ export const data = {
 };
 
 function LineChart() {
-  return <Line options={options} data={data} />;
+  return <Line options={options} data={data}  className="chart-line"/>;
 }
 export default LineChart
