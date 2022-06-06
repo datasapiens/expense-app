@@ -2,11 +2,11 @@ import { faPlus } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import React, { useState } from "react";
 import {
-  tableData,
-  CategoriesColumns,
   TransactionColumns,
   catData,
 } from "../../data/data";
+import { useAppSelector } from "../../state/store/hooks";
+import { selectTransactions } from "../../state/store/selectors/transaction.selector";
 import CategoryForm from "../forms/Category/CategoryForm";
 import TransactionForm from "../forms/Transactions/TransactionForm";
 import Modal from "../modal/Modal";
@@ -54,16 +54,18 @@ const HomeTab = () => {
             </button>
           </div>
           <Table
-            tableData={tableData}
+            tableData={useAppSelector(selectTransactions)}
             columns={TransactionColumns}
             del={false}
+            categories={catData}
           />
           {openTransactionModal && (
             <Modal
               modal={"Add Transaction"}
               updateModal={setOpenTransactionModal}
             >
-              <TransactionForm categories={catData}/>
+              <TransactionForm categories={catData} closeModal={setOpenTransactionModal}
+             />
             </Modal>
           )}
         </div>
@@ -79,7 +81,7 @@ const HomeTab = () => {
               <FontAwesomeIcon icon={faPlus}></FontAwesomeIcon>
             </button>
           </div>
-          <Table tableData={catData} columns={CategoriesColumns} del={true} />
+          {/* <Table tableData={catData} columns={CategoriesColumns} del={true} /> */}
           {openCategoryModal && (
             <Modal modal={"Add Category"} updateModal={setOpenCategoryModal} >
               <CategoryForm/>
