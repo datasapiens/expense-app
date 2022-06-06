@@ -84,7 +84,7 @@ const HomeTab = ({categories}: any) => {
           <CategoryTable categories={categories}  />
           {openCategoryModal && (
             <Modal modal={"Add Category"} updateModal={setOpenCategoryModal} >
-              <CategoryForm/>
+              <CategoryForm closeModal={setOpenCategoryModal} />
             </Modal>
           )}
         </div>

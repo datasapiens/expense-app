@@ -19,8 +19,11 @@ export interface CategoriesState {
         state.categories = action.payload.categories
         state.status = action.payload.status
       },
+      addNewCategory: (state, action: PayloadAction<Category>) => {
+        state.categories = state.categories.concat(action.payload);
+      },
     }
 })
 
-export const { initializeCategoriesStore } = categories.actions;
+export const { initializeCategoriesStore, addNewCategory } = categories.actions;
 export default categories.reducer;
