@@ -23,7 +23,7 @@ const Table = ({ tableData, columns, categories }: ITable) => {
         label: element.label,
         date: element.date!,
         amount: element.amount!,
-        category: getCategoryById(element.categoryId, categories)?.label || "",
+        category: getCategoryById(element.categoryId, categories)?.label || "N/A",
       });
     });
     SetCategory(addCategoryToTableData);

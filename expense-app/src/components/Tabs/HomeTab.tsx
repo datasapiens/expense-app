@@ -24,7 +24,7 @@ const HomeTab = ({categories}: any) => {
   };
 
   return (
-    <div className="container">
+    <div className="tab-wrapper">
       <div className="bloc-tabs">
         <button
           className={toggleState === 1 ? "tabs active-tabs" : "tabs"}
@@ -90,6 +90,7 @@ const HomeTab = ({categories}: any) => {
         </div>
       </div>
     </div>
+    
   );
 };
 
