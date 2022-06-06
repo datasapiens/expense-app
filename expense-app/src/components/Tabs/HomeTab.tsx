@@ -5,16 +5,16 @@ import {
   TransactionColumns,
 } from "../../data/data";
 import { useAppSelector } from "../../state/store/hooks";
-import { selectCategories } from "../../state/store/selectors/categories.selector";
 import { selectTransactions } from "../../state/store/selectors/transaction.selector";
 import CategoryForm from "../forms/Category/CategoryForm";
 import TransactionForm from "../forms/Transactions/TransactionForm";
 import Modal from "../modal/Modal";
+import CategoryTable from "../Table/CategoryTable";
 
 import Table from "../Table/Table";
 import "./tab.scss";
 
-const HomeTab = () => {
+const HomeTab = ({categories}: any) => {
   const [toggleState, setToggleState] = useState(1);
   const [openTransactionModal, setOpenTransactionModal] = useState(false);
   const [openCategoryModal, setOpenCategoryModal] = useState(false);
@@ -56,8 +56,7 @@ const HomeTab = () => {
           <Table
             tableData={useAppSelector(selectTransactions)}
             columns={TransactionColumns}
-            del={false}
-            categories={useAppSelector(selectCategories)}
+            categories={categories}
           />
           {openTransactionModal && (
             <Modal
@@ -65,7 +64,7 @@ const HomeTab = () => {
               updateModal={setOpenTransactionModal}
             >
           
-              <TransactionForm  closeModal={setOpenTransactionModal} 
+              <TransactionForm categories={categories} closeModal={setOpenTransactionModal}
              />
             </Modal>
           )}
@@ -82,7 +81,7 @@ const HomeTab = () => {
               <FontAwesomeIcon icon={faPlus}></FontAwesomeIcon>
             </button>
           </div>
-          {/* <Table tableData={catData} columns={CategoriesColumns} del={true} /> */}
+          <CategoryTable categories={categories}  />
           {openCategoryModal && (
             <Modal modal={"Add Category"} updateModal={setOpenCategoryModal} >
               <CategoryForm/>
