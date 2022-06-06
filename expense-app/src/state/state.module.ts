@@ -1,11 +1,13 @@
 import { Action, configureStore, ThunkAction } from "@reduxjs/toolkit";
 import { getStoreFromLocalStorage } from "../helpers/localstorate";
 import { listenerMiddleware } from "./middleware";
-import transactionsReducer, { initializeTransactionsStore } from "./store/reducers/transaction";
+import categoriesReducer, { initializeCategoriesStore } from "./store/reducers/categories.reducer";
+import transactionsReducer, { initializeTransactionsStore } from "./store/reducers/transaction.reducer";
 
 export const store = configureStore({
     reducer: {
-      transactions: transactionsReducer
+      transactions: transactionsReducer,
+      categories: categoriesReducer,
     },
     middleware: (getDefaultMiddleware) => getDefaultMiddleware().prepend(listenerMiddleware.middleware),
   });
@@ -14,6 +16,7 @@ export const store = configureStore({
 
   if (cachedStore) {
     store.dispatch(initializeTransactionsStore(cachedStore.transactions))
+    store.dispatch(initializeCategoriesStore(cachedStore.categories))
   }
 
   export type AppDispatch = typeof store.dispatch;

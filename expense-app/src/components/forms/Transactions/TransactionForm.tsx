@@ -5,7 +5,7 @@ import { Form, Button } from "react-bootstrap";
 import { Category } from "../../../interfaces/category.interface";
 import { TransactionType } from "../../../interfaces/transaction.interface";
 import "./Transaction.scss";
-import { addNewTransaction } from "../../../state/store/reducers/transaction";
+import { addNewTransaction } from "../../../state/store/reducers/transaction.reducer";
 import { useAppDispatch } from "../../../state/store/hooks";
 
 function TransactionForm({ categories, closeModal}: any) {

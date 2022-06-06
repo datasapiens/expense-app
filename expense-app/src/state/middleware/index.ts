@@ -1,6 +1,6 @@
 import { createListenerMiddleware, isAnyOf } from '@reduxjs/toolkit';
 import { addStoreToLocalStorage } from '../../helpers/localstorate';
-import { addNewTransaction } from '../store/reducers/transaction';
+import { addNewTransaction } from '../store/reducers/transaction.reducer';
 
 export const listenerMiddleware = createListenerMiddleware();
 

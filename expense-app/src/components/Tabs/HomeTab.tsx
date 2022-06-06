@@ -3,9 +3,9 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import React, { useState } from "react";
 import {
   TransactionColumns,
-  catData,
 } from "../../data/data";
 import { useAppSelector } from "../../state/store/hooks";
+import { selectCategories } from "../../state/store/selectors/categories.selector";
 import { selectTransactions } from "../../state/store/selectors/transaction.selector";
 import CategoryForm from "../forms/Category/CategoryForm";
 import TransactionForm from "../forms/Transactions/TransactionForm";
@@ -57,14 +57,15 @@ const HomeTab = () => {
             tableData={useAppSelector(selectTransactions)}
             columns={TransactionColumns}
             del={false}
-            categories={catData}
+            categories={useAppSelector(selectCategories)}
           />
           {openTransactionModal && (
             <Modal
               modal={"Add Transaction"}
               updateModal={setOpenTransactionModal}
             >
-              <TransactionForm categories={catData} closeModal={setOpenTransactionModal}
+          
+              <TransactionForm  closeModal={setOpenTransactionModal} 
              />
             </Modal>
           )}
