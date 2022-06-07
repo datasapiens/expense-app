@@ -1,5 +1,7 @@
 import React, {  useState } from "react";
+import { expensesAndCategoryData, incomeAndCategoryData } from "../../helpers/computeForDougnutChart";
 import {  PieChartData } from "../../helpers/computeForPieChart";
+import { getCategoryById } from "../../helpers/getCategoryById";
 import { Category } from "../../interfaces/category.interface";
 import { Transaction } from "../../interfaces/transaction.interface";
 import DougnutChart from "../charts/Dougnut";
@@ -16,10 +18,7 @@ export const GraphTab: React.FC<GraphInput> = ({
   categories,
 }) => {
   const [toggleState, setToggleState] = useState(1);
-  const date: any = [];
-  transactions.filter((tx) => date.push(tx.date));
-
-
+  
 
   const toggleTab = (index: number) => {
     setToggleState(index);
@@ -66,7 +65,7 @@ export const GraphTab: React.FC<GraphInput> = ({
             <h2>Income per category</h2>{" "}
           </div>
           <div className="dougnut-container">
-            <DougnutChart />
+            <DougnutChart data={incomeAndCategoryData(transactions, categories)} />
           </div>
         </div>
         <div
@@ -76,7 +75,7 @@ export const GraphTab: React.FC<GraphInput> = ({
             <h2>Expenses per category</h2>
           </div>
           <div className="dougnut-container">
-            <DougnutChart />
+            <DougnutChart data={expensesAndCategoryData(transactions, categories)} />
           </div>
         </div>
       </div>
@@ -85,3 +84,5 @@ export const GraphTab: React.FC<GraphInput> = ({
 };
 
 export default GraphTab;
+
+
