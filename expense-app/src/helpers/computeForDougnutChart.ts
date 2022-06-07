@@ -4,10 +4,7 @@ import { getCategoryById } from "./getCategoryById";
 
 
 
- export const incomeAndCategoryData = (transactions: Transaction[], categories: Category[]) => {
-    const labels: string[] = []
-      categories.filter(c => labels.push(c.label));
-      const labelAndIncome: any[] = [];
+ export const incomeAndCategoryData = (transactions: Transaction[], categories: Category[]) => {let labelAndIncome: any[] = [];
       transactions.forEach((tx) => {
         if (tx) {
           labelAndIncome.push({
@@ -17,16 +14,25 @@ import { getCategoryById } from "./getCategoryById";
           })
         }
       })
-    
+      labelAndIncome = labelAndIncome.filter(tx => tx.type === 'income')
+      var result: any[] = [];
+      labelAndIncome.reduce(function(res, value) {
+        if (!res[value.label]) {
+          res[value.label] = { label: value.label, amount: 0, type: value.type };
+          result.push(res[value.label])
+        }
+        res[value.label].amount += value.amount;
+        return res;
+      }, {});
     
     const incomeLabels: any[] = []; 
-    labelAndIncome.forEach((label) => {
+    result.forEach((label) => {
       if (label.type === 'income')
       incomeLabels.push(label.label)
     });
     const income: any[] =[];
     
-    labelAndIncome.forEach((label) => {
+    result.forEach((label) => {
       if (label.type === 'income') {
         income.push(label.amount)
       }
@@ -61,8 +67,7 @@ import { getCategoryById } from "./getCategoryById";
     
   };
 
-  export const expensesAndCategoryData = (transactions: Transaction[], categories: Category[]) => {
-      const labelAndExpenses: any[] = [];
+  export const expensesAndCategoryData = (transactions: Transaction[], categories: Category[]) => {let labelAndExpenses: any[] = [];
       transactions.forEach((tx) => {
         if (tx) {
           labelAndExpenses.push({
@@ -72,16 +77,24 @@ import { getCategoryById } from "./getCategoryById";
           })
         }
       })
-    
-    
+    labelAndExpenses = labelAndExpenses.filter(tx => tx.type === 'expenses')
+      var result: any[] = [];
+      labelAndExpenses.reduce(function(res, value) {
+        if (!res[value.label]) {
+          res[value.label] = { label: value.label, amount: 0, type: value.type };
+          result.push(res[value.label])
+        }
+        res[value.label].amount += value.amount;
+        return res;
+      }, {});
     const labels: any[] = []; 
-    labelAndExpenses.forEach((label) => {
+    result.forEach((label) => {
       if (label.type === 'expenses')
       labels.push(label.label)
     });
     const expenseData: any[] =[];
     
-    labelAndExpenses.forEach((label) => {
+    result.forEach((label) => {
       if (label.type === 'expenses') {
         expenseData.push(label.amount)
       }
