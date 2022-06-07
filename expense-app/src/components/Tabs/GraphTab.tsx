@@ -1,9 +1,9 @@
 import React, {  useState } from "react";
-import { getExpenses, getIncome } from "../../helpers/computeForPieChart";
+import {  PieChartData } from "../../helpers/computeForPieChart";
 import { Category } from "../../interfaces/category.interface";
 import { Transaction } from "../../interfaces/transaction.interface";
 import DougnutChart from "../charts/Dougnut";
-import PieChart from "../charts/LineChart";
+import PieChart from "../charts/PieChart";
 
 import "./tab.scss";
 type GraphInput = {
@@ -20,32 +20,7 @@ export const GraphTab: React.FC<GraphInput> = ({
   transactions.filter((tx) => date.push(tx.date));
 
 
-const PieChartData = {
-    labels: ['Income', 'Expenses'],
-    datasets: [
-      {
-        label: '# of Votes',
-        data: [getIncome(transactions).reduce((a , b) => a + b), getExpenses(transactions).reduce((a , b) => a + b)],
-        backgroundColor: [
-          'rgba(255, 99, 132, 0.2)',
-          'rgba(54, 162, 235, 0.2)',
-          'rgba(255, 206, 86, 0.2)',
-          'rgba(75, 192, 192, 0.2)',
-          'rgba(153, 102, 255, 0.2)',
-          'rgba(255, 159, 64, 0.2)',
-        ],
-        borderColor: [
-          'rgba(255, 99, 132, 1)',
-          'rgba(54, 162, 235, 1)',
-          'rgba(255, 206, 86, 1)',
-          'rgba(75, 192, 192, 1)',
-          'rgba(153, 102, 255, 1)',
-          'rgba(255, 159, 64, 1)',
-        ],
-        borderWidth: 1,
-      },
-    ],
-  };
+
   const toggleTab = (index: number) => {
     setToggleState(index);
   };
@@ -81,7 +56,7 @@ const PieChartData = {
             <h2>Income vs. Expenses</h2>
           </div>
           <div className="chart-container">
-            <PieChart data={PieChartData} />
+            <PieChart data={PieChartData(transactions)} />
           </div>
         </div>
         <div
