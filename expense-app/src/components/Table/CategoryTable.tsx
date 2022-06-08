@@ -1,3 +1,4 @@
+import { faCircleXmark } from "@fortawesome/free-regular-svg-icons";
 import { faTrashAlt } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import React from "react";
@@ -17,7 +18,7 @@ function CategoryTable({ categories }: any) {
     try {
       dispatch(deleteCategory(category));
     } catch (error) {
-      console.log(error);
+      console.warn(error)
     }
   };
 
@@ -30,7 +31,7 @@ function CategoryTable({ categories }: any) {
               columns.map((col: any, index: number) => (
                 <th key={index}>{col.header}</th>
               ))}
-            <th>Delete</th>
+            <th><FontAwesomeIcon icon={faCircleXmark}/> Delete</th>
           </tr>
         </thead>
         <tbody>
@@ -42,8 +43,8 @@ function CategoryTable({ categories }: any) {
                     <td>{row[col.field]}</td>
                   ))}
                 <td>
-                  <button type="button" onClick={(e) => handleDelete(index, e)}>
-                    <FontAwesomeIcon icon={faTrashAlt} />
+                  <button type="button" onClick={(e) => handleDelete(index, e)} className="button">
+                    <FontAwesomeIcon icon={faTrashAlt} className="del-button" />
                   </button>
                 </td>
               </tr>
