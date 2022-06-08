@@ -16,7 +16,10 @@
 // }
 
 .page-wrapper {
-  margin-left: 200px;
+ 
   background: rgb(243, 235, 235);
   height: 100vh;
+  @media screen and (min-width: 600px) {
+    margin-left: 200px;
+  }
 }

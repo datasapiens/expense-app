@@ -18,12 +18,18 @@
   text-align: center;
   width: 50%;
   background: rgba(128, 128, 128, 0.075);
+
   cursor: pointer;
   border-bottom: 1px solid rgba(0, 0, 0, 0.274);
   box-sizing: content-box;
   position: relative;
   outline: none;
+  @media screen and (max-width: 768px) {
+    font-size: small;
+    min-inline-size: fit-content;
+  }
 }
+
 .tabs:not(:last-child) {
   border-right: 1px solid rgba(0, 0, 0, 0.274);
 }
@@ -97,9 +103,17 @@ button {
   height: 424px;
   width: 428px;
   margin: 0 auto;
+  @media screen and (max-width: 768px) {
+    height: 352px;
+    width: 328px;
+  }
 }
 .dougnut-container {
   height: 424px;
   width: 428px;
   margin: 0 auto;
+  @media screen and (max-width: 768px) {
+    height: 352px;
+    width: 328px;
+  }
 }

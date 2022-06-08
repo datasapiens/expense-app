@@ -4,6 +4,9 @@ table {
     font-family: arial, sans-serif;
     border-collapse: collapse;
     width: 95%;
+    @media screen and (max-width: 768px) {
+      font-size: 12px;
+      }
   }
   
   td {
