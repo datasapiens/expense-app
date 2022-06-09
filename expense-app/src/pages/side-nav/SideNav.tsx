@@ -18,8 +18,6 @@ const SideNav = () => {
     setToggleState(index);
   };
 
-console.log(toggleState);
-
   
   return (
     <>
