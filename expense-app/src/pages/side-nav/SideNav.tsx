@@ -5,15 +5,15 @@ import "./SideNav.scss";
 import { useState } from "react";
 
 const SideNav = () => {
-  const toggle = () => {    
-    if (window.location.href.endsWith('/')) {
-      return 1;
-    }
-    if (window.location.href.includes('/graphs')) {
-      return 2;
-    }
-  }
-  const [toggleState, setToggleState] = useState(toggle);
+  // const toggle = () => {    
+  //   if (window.location.href.endsWith('/')) {
+  //     return 1;
+  //   }
+  //   if (window.location.href.includes('/graphs')) {
+  //     return 2;
+  //   }
+  // }
+  const [toggleState, setToggleState] = useState(1);
   const toggleTab = (index: number) => {
     setToggleState(index);
   };
