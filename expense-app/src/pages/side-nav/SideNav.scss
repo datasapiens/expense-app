@@ -1,0 +1,46 @@
+@import "./../../styles/index.scss";
+
+.sidebar {
+    margin: 0;
+    padding: 0;
+    width: 200px;
+    background-color: black;
+    position: fixed;
+    height: 100%;
+    overflow: auto;
+  }
+  .sidebar .link {
+    display: block;
+    color: rgb(255, 255, 255);
+    padding: 16px;
+    text-decoration: none;
+  }
+  .sidebar .link.active {
+    background-color: #04AA6D;
+    color: white;
+  }
+  
+  .sidebar .link:hover:not(.active) {
+    background-color: #555;
+    color: white;
+  }
+
+  .sidebar .link .icon {
+      padding: 0 8px 0px 8px;
+  }
+  @media screen and (max-width: 700px) {
+    .sidebar {
+      width: 100%;
+      height: auto;
+      position: relative;
+    }
+    .sidebar .link {float: left;}
+    div.content {margin-left: 0;}
+  }
+  
+  @media screen and (max-width: 400px) {
+    .sidebar .link {
+      text-align: center;
+      float: none;
+    }
+  }
