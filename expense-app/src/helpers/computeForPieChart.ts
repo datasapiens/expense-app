@@ -9,7 +9,12 @@ export const getIncome = (transactions: Transaction[]) => {
       }
     }
   });
-  return income;
+  if (income.length <= 0) {
+    return [0];
+  } else {
+    return income;
+  }
+  
 };
 export const getExpenses = (transactions: Transaction[]) => {
   const expense: number[] = [];
@@ -20,11 +25,15 @@ export const getExpenses = (transactions: Transaction[]) => {
       }
     }
   });
-  return expense;
+  if (expense.length <= 0) {
+    return [0];
+  } else {
+    return expense;
+  }
 };
 
 export const PieChartData = (transactions: Transaction[]) => {
-  if (transactions.length > 0) {
+  if (transactions.length > 1) {
     const income = getIncome(transactions).reduce((a, b) => a + b);
     const expense = getExpenses(transactions).reduce((a, b) => a + b);
     return {

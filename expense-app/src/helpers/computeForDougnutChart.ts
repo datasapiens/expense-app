@@ -7,7 +7,7 @@ export const incomeAndCategoryData = (
   categories: Category[]
 ) => {
   let labelAndIncome: any[] = [];
-  if (transactions.length > 0) {
+  if (transactions.length > 1) {
     transactions.forEach((tx) => {
       if (tx) {
         labelAndIncome.push({
@@ -101,7 +101,7 @@ export const expensesAndCategoryData = (
 ) => {
   let labelAndExpenses: any[] = [];
 
-  if (transactions.length > 0) {
+  if (transactions.length > 1) {
     transactions.forEach((tx) => {
       if (tx) {
         labelAndExpenses.push({
