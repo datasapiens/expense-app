@@ -1,7 +1,6 @@
 import React, {  useState } from "react";
 import { expensesAndCategoryData, incomeAndCategoryData } from "../../helpers/computeForDougnutChart";
 import {  PieChartData } from "../../helpers/computeForPieChart";
-import { getCategoryById } from "../../helpers/getCategoryById";
 import { Category } from "../../interfaces/category.interface";
 import { Transaction } from "../../interfaces/transaction.interface";
 import DougnutChart from "../charts/Dougnut";
