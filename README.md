@@ -1,59 +1,112 @@
-The task is to create an income/expense web app. The app should have two screens. The app should be written using the technologies mentioned in the Technologies section.
+<div id="top"></div>
+
+[![LinkedIn][linkedin-shield]][linkedin-url]
+
+## About the project
+
+This project forms part of the take home task assigned for a frontend engineering role at [Datasapiens](https://www.datasapiens.co.uk/).
+
+The core focus of the solution:
+* List Categories.
+* List Transactions.
+* Add a Category.
+* Remove a Category.
+* Add a transaction.
+* Include a home route and a graphs route.
+* Filter transactions depending on the existence of category.
+
+<p align="right">(<a href="#top">back to top</a>)</p>
 
 
-## Data layer
 
-There are two entities in the app: Category and Transaction
+### Technologies and Libraries used
 
-### Category
+The core libraries are listed here:
 
-Represents one category of transaction. As examples of categories: Salary, Gifts, Food, Going out, Traveling. There must be pre-defined categories in the app from the beginning (3-5 is enough).
+* [ReactJS](https://reactjs.org/)
+* [MaterialUI](https://mui.com/)
+* [Typescript](https://www.typescriptlang.org/)
+* [CreatReactApp](https://create-react-app.dev/)
+* [ESLint](https://eslint.org/)
+* [Prettier](https://prettier.io/)
 
-Should have following fields
+ESLint and prettier are set up as combined config. Formatting will run as part of linting rules.
 
-- id
-- label
+<p align="right">(<a href="#top">back to top</a>)</p>
 
-### Transaction
+## Getting Started
 
-Should have following fields
+### Prerequisites
 
-- id
-- label
-- date
-- amount (negative value means expense, positive value means income)
-- category (reference by category id)
+### Installation
 
-## Screens
+1. ```shell
+   yarn
+   ```
+2. You should have no errors after installation and that is pretty much it for installation.
 
-### Home
+<p align="right">(<a href="#top">back to top</a>)</p>
 
-This is the default screen and app entry point. This screen should have a table of transactions and a form for adding a new transaction. Users should not be able to remove transactions. Also, on this screen, there should be a list of categories with the ability to add/remove categories. It's up to you to decide what happens to transactions in category when the category gets deleted.
 
-### Graph(s)
+<div id="usage"></div>
+## Usage
 
-This screen should have a graph or multiple graphs to represent the data. It's up to you to decide how exactly to visualize the data. To give you an example: a graph representing total spends per category.
+Here will follow steps to run the project.
+* To start the application in watch mode
+    ```shell
+    yarn start
+    ```
+* To lint and format the code
+    ```shell
+    yarn lint
+    ```
+* To fix linting and formatting
+    ```shell
+    yarn lint:fix
+    ```
+After the project is running dev you can open it on http://localhost:3000/.
 
-## Technologies
+<p align="right">(<a href="#top">back to top</a>)</p>
 
-- Typescript
-- SCSS Modules
-- React version 16.8 and up, please make sure to use Hooks
-- Redux version compatible with React version of choice
-- Use `localStorage` as a DB for the app
+## Roadmap
 
-Usage of any additional libraries, such as react-router is allowed.
+- [x] List Categories
+- [x] List Transactions
+- [x] Add a Category
+- [x] Remove a Category
+- [X] Add a transaction
+- [X] Include a home route and a graphs route
+- [X] Filter transactions depending on the existence of category
+- [X] Render Graphs that will dynamically update after date has been added or removed
 
-## How to participate
+## Follow up
+### Implementation
 
-There are 3 simple steps
+_Library Selection_
+* ReactJS - The required tool for the job.
+* Material UI - Quick multi select.
+* Typescript - For some added Type safety to tighten up the data contract across various segments of the app. Also aids in catching
+  bugs that you might have missed.
+* Prettier - Formats the code.
+* ESLint - Enforce som standards and rules. Basic configuration.
 
-1. Fork this repository
-2. Complete the task in your repository
-3. Create a PR to this repository
+_Start Command_ `yarn start` (<a href="#usage">Refer to the usage section</a>)
 
-Afterwards we will contact you, please make sure you have contact details in your GitHub profile.
+### General
+Given more time I would Implement the following.
+* In the ideal scenario the api would be paginated on the server side.
+* Add unit test and push repo coverage to an acceptable level.
+* Do some proper UI/UX with a better more fluent design.
+* Setup async handling for data calls like redux-thunk or redux-saga.
+* Preload with lots of data.
+* When we absolutely have to render long lists of data we can virtualize the lists for  performance. React 18 might cover this.
+* Config setup for test, staging and prod.
+* Implement path aliases for module imports.
+* Error handling and tracking.
 
-Tip: you can [deploy your application](https://www.freecodecamp.org/news/deploy-a-react-app-to-github-pages/) for demo on github pages for free
+<p align="right">(<a href="#top">back to top</a>)</p>
 
-Happy coding 🚀
+
+[linkedin-shield]: https://img.shields.io/badge/-LinkedIn-black.svg?style=for-the-badge&logo=linkedin&colorB=555
+[linkedin-url]: https://www.linkedin.com/in/jahil-khalfe/
+
