@@ -14,7 +14,7 @@ const Graphs = () => {
 
   return (
     <Container maxWidth='xl'>
-      <Grid container spacing={2} sx={{ height: '100vh' }}>
+      <Grid container sx={{ height: '100vh' }} direction='row'>
         <Grid item xs>
           <BarGraph data={formattedData} />
         </Grid>
