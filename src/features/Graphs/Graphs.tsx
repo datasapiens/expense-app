@@ -14,11 +14,11 @@ const Graphs = () => {
 
   return (
     <Container maxWidth='xl'>
-      <Grid container spacing={2} direction='column' sx={{ height: '100vh' }}>
-        <Grid item xs={6}>
+      <Grid container spacing={2} sx={{ height: '100vh' }}>
+        <Grid item xs>
           <BarGraph data={formattedData} />
         </Grid>
-        <Grid item xs={6}>
+        <Grid item xs>
           <AreaGraph data={formattedData} />
         </Grid>
       </Grid>
