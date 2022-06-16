@@ -13,15 +13,9 @@ const Graphs = () => {
   const formattedData = buildGraphData(data)
 
   return (
-    <Container maxWidth='xl'>
-      <Grid container sx={{ height: '100vh' }} direction='row'>
-        <Grid item xs>
-          <BarGraph data={formattedData} />
-        </Grid>
-        <Grid item xs>
-          <AreaGraph data={formattedData} />
-        </Grid>
-      </Grid>
+    <Container maxWidth='xl' sx={{ height: '100vh' }}>
+      <BarGraph data={formattedData} />
+      <AreaGraph data={formattedData} />
     </Container>
   )
 }
