@@ -4,7 +4,8 @@
 
 ## About the project
 
-This project forms part of the take home task assigned for a frontend engineering role at [Datasapiens](https://www.datasapiens.co.uk/).
+This project forms part of the take home task assigned for a frontend engineering role at [Datasapiens](https://www.datasapiens.co.uk/).  
+Note there is a link to the app in the repo about section on the top right corner.
 
 The core focus of the solution:
 * List Categories.
