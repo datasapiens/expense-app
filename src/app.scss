@@ -1,0 +1,55 @@
+.App {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  background-color: #FFF;
+  color: #C1DFF0;
+}
+
+.App-logo {
+  height: 40vmin;
+  pointer-events: none;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .App-logo {
+    animation: App-logo-float infinite 3s ease-in-out;
+  }
+}
+
+.App-header {
+  background-color: #2D898B;
+}
+
+.nav {
+  color: #C1DFF0;
+  ul {
+    list-style: none;
+    display: flex;
+    li {
+      margin: 1rem;
+    }
+  }
+}
+
+.container {
+  padding-top: 2rem;
+  font-size: calc(10px + 2vmin);
+  overflow: auto;
+}
+
+.App-link {
+  color: rgb(112, 76, 182);
+}
+
+@keyframes App-logo-float {
+  0% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(10px);
+  }
+  100% {
+    transform: translateY(0px);
+  }
+}
