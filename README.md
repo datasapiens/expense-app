@@ -28,6 +28,8 @@ The core libraries are listed here:
 * [MaterialUI](https://mui.com/)
 * [Typescript](https://www.typescriptlang.org/)
 * [CreatReactApp](https://create-react-app.dev/)
+* [Formik](https://formik.org/)
+* [Yup](https://github.com/jquense/yup)
 * [ESLint](https://eslint.org/)
 * [Prettier](https://prettier.io/)
 
@@ -65,6 +67,8 @@ Here will follow steps to run the project.
     ```shell
     yarn lint:fix
     ```
+  
+Alternatively there is the docker route `docker-compose up -d`  
 After the project is running dev you can open it on http://localhost:3000/.
 
 <p align="right">(<a href="#top">back to top</a>)</p>
@@ -90,6 +94,8 @@ _Library Selection_
   bugs that you might have missed.
 * Prettier - Formats the code.
 * ESLint - Enforce som standards and rules. Basic configuration.
+* Formik - Quick and easy forms.
+* Yup - Form validation.
 
 _Start Command_ `yarn start` (<a href="#usage">Refer to the usage section</a>)
 

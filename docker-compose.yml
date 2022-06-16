@@ -1,0 +1,11 @@
+version: '3.5'
+
+services:
+  expense-app:
+    image: node:lts
+    volumes:
+      - .:/app
+    ports:
+      - 3000:3000
+    working_dir: /app
+    command: bash -c "yarn && yarn start"

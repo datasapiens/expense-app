@@ -1,6 +1,6 @@
 import React from 'react'
 import { useAppSelector } from '../../store'
-import { Container, Grid } from '@mui/material'
+import { Container } from '@mui/material'
 import BarGraph from './components/BarGraph'
 import AreaGraph from './components/AreaGraph'
 import { buildGraphData } from './helpers'
