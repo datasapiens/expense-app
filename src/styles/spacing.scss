@@ -1,0 +1,26 @@
+@import './constants.scss';
+
+// padding-i -> i = number of arguments
+@mixin padding-4($top, $right, $bottom, $left) {
+  padding: #{($top * $default-spacing)} + 'px'  #{($right * $default-spacing)} + 'px' #{($bottom * $default-spacing)} + 'px' #{($left * $default-spacing)} + 'px';
+}
+
+@mixin padding-2($y, $x) {
+  padding: #{($y * $default-spacing)} + 'px' #{($x * $default-spacing)} + 'px';
+}
+
+@mixin padding-1($all) {
+  padding: #{($all * $default-spacing)} + 'px';
+}
+
+@mixin margin-4($top, $right, $bottom, $left) {
+  margin: #{($top * $default-spacing)} + 'px'  #{($right * $default-spacing)} + 'px' #{($bottom * $default-spacing)} + 'px' #{($left * $default-spacing)} + 'px';
+}
+
+@mixin margin-2($y, $x) {
+  margin: #{($y * $default-spacing)} + 'px' #{($x * $default-spacing)} + 'px';
+}
+
+@mixin margin-1($all) {
+  margin: #{($all * $default-spacing)} + 'px';
+}

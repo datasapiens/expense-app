@@ -1,0 +1,27 @@
+@import '../../styles/spacing.scss';
+
+.button-wrapper {
+  @include margin-2(2, 0);
+}
+
+h1 {
+  font-size: $max;
+}
+ 
+.page-header {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin-bottom: #{(2 * $default-spacing)} + 'px'
+}
+
+.transactions-page {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-start;
+  justify-content: space-around;
+
+  .card {
+    @include margin-1(2)
+  }
+}

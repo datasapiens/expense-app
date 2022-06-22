@@ -1,0 +1,30 @@
+@import '../../../styles/spacing.scss';
+@import '../../../styles/constants.scss';
+
+.header {
+  border: 1px solid $color-primary-hover;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  @include padding-1(2);
+  box-shadow: 0px 0px 6px 0px $color-primary-hover;
+  .item {
+    @include padding-1(1);
+    border-radius: 1000px;
+    color: $color-primary;
+    text-decoration: none;
+    cursor: pointer;
+    font-size: $large;
+
+    &:hover {
+      background-color: $color-light;
+    }
+    &.active-item {
+      cursor: default;
+      color: $color-text;
+      &:hover {
+        background-color: transparent;
+      }
+    }
+  }
+}

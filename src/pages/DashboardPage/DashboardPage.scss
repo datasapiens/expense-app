@@ -1,0 +1,19 @@
+@import '../../styles/spacing.scss';
+
+.page-header {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin-bottom: #{(2 * $default-spacing)} + 'px'
+}
+
+.dashboard-page {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-start;
+  justify-content: space-around;
+
+  .card {
+    @include margin-1(2)
+  }
+}
