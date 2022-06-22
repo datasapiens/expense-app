@@ -1,0 +1,39 @@
+@import '../../../styles/constants.scss';
+@import '../../../styles/spacing.scss';
+
+.table {
+  border: 1px solid $color-text;
+  display: flex;
+  flex-direction: column;
+  background-color: white;
+
+  .table-row {
+    display: flex;
+    justify-content: space-between;
+    &.table-head {
+      background-color: $color-lighter;
+      .table-cell {
+        font-weight: 600;
+      }
+    }
+
+    .table-cell {
+      @include padding-4(1, 0.5, 0.5, 1);
+      border-right: 2px solid $color-light;
+      border-bottom: 2px solid $color-light;
+
+      &:nth-child(1) {
+        width: 45%;
+      }
+      &:nth-child(2) {
+        width: 15%;
+      }
+      &:nth-child(3) {
+        width: 15%;
+      }
+      &:nth-child(4) {
+        width: 25%;
+      }
+    }
+  }
+}

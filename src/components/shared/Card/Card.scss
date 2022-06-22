@@ -1,0 +1,20 @@
+@import '../../../styles/constants.scss';
+@import '../../../styles/spacing.scss';
+
+.card {
+  box-shadow: 0px 0px 3px 0px;
+  background-color: #fff;
+  min-width: 600px;
+  max-width: 600px;
+  @include margin-2(2, 0);
+  border-radius: 4px;
+
+  .card-header {
+    @include padding-2(1, 2);
+    border-bottom: 1px solid $color-text;
+  }
+
+  .card-body {
+    @include padding-1(2);
+  }
+}

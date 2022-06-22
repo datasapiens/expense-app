@@ -1,0 +1,12 @@
+@import '../../../styles/constants.scss';
+@import '../../../styles/spacing.scss';
+
+
+.list-item {
+  @include padding-2(1, 0);
+  border-bottom: 1px solid $color-text;
+  font-weight: 600;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}

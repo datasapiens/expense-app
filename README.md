@@ -28,19 +28,19 @@ Should have following fields
 
 ### Home
 
-This is the default screen and app entry point. This screen should have a table of transactions and a form for adding a new transaction. Users should not be able to remove transactions. Also, on this screen, there should be a list of categories with the ability to add/remove categories. It's up to you to decide what happens to transactions in category when the category gets deleted.
+~~This is the default screen and app entry point. This screen should have a table of transactions and a form for adding a new transaction. Users should not be able to remove transactions. Also, on this screen, there should be a list of categories with the ability to add/remove categories. It's up to you to decide what happens to transactions in category when the category gets deleted.~~
 
 ### Graph(s)
 
-This screen should have a graph or multiple graphs to represent the data. It's up to you to decide how exactly to visualize the data. To give you an example: a graph representing total spends per category.
+~~This screen should have a graph or multiple graphs to represent the data. It's up to you to decide how exactly to visualize the data. To give you an example: a graph representing total spends per category.~~
 
 ## Technologies
 
-- Typescript
-- SCSS Modules
-- React version 16.8 and up, please make sure to use Hooks
-- Redux version compatible with React version of choice
-- Use `localStorage` as a DB for the app
+- ~~Typescript~~
+- ~~SCSS Modules~~
+- ~~React version 16.8 and up, please make sure to use Hooks~~
+- ~~Redux version compatible with React version of choice~~
+- ~~Use `localStorage` as a DB for the app~~
 
 Usage of any additional libraries, such as react-router is allowed.
 
@@ -57,3 +57,10 @@ Afterwards we will contact you, please make sure you have contact details in you
 Tip: you can [deploy your application](https://www.freecodecamp.org/news/deploy-a-react-app-to-github-pages/) for demo on github pages for free
 
 Happy coding 🚀
+
+
+## Delivery
+
+
+- Project deployed at [expenses-app](https://gsilvap1994.github.io/expense-app/)
+
