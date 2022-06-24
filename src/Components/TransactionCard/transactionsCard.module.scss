@@ -1,0 +1,42 @@
+.card {
+  padding: 1rem;
+  border-radius: 0.5rem;
+  width: 30rem;
+  box-shadow: 5px 5px 10px rgba(0,0,0,0.2);
+  margin-bottom: 1rem;
+  display: flex;
+  justify-content: space-between;
+
+
+  .transactionLabel {
+    font-size: 32px;
+    margin: 0;
+    padding: 0;
+  }
+
+  p {
+    margin: 0;
+    padding: 0;
+  }
+
+  .category {
+    color: gray;
+    text-align: right;
+  }
+
+  .date {
+    color: gray;
+    text-align: left;
+  }
+
+  .amount {
+    text-align: right;
+    font-size: 32px;
+
+    &[data-positive="true"]  {
+      color: #006400;
+    }
+  }
+
+}
+
