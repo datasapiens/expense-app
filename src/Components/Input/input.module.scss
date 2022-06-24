@@ -1,0 +1,42 @@
+@use '../../Style/theme.module.scss';
+
+.input {
+    position: relative;
+    margin-bottom: theme.$spacing;
+   
+
+    label {
+        font-size: 1.4rem;
+        line-height: 0.6;
+        position: absolute;
+        top: -0.5rem;
+        left: theme.$spacing;
+        background: white;
+        padding: 0 0.5*theme.$spacing;
+    }
+
+    input {
+        border: 1px solid gray;
+        border-radius: 0.5rem;
+        padding: 1rem;
+        width: 100%;
+    }
+}
+
+.ordinaryInput {
+    margin-bottom: 0.5*theme.$spacing;
+    display: flex;
+    flex-direction: column;
+    
+    label {
+        font-size: 1.4rem;
+        padding: 0.1*theme.$spacing;
+    }
+
+    input {
+        padding: 0.5rem;
+        font-size: 2rem;
+    }
+
+  
+}

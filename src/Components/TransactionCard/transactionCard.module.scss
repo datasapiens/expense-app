@@ -1,12 +1,13 @@
+@use "../../Style/theme.module.scss";
+
 .card {
-  padding: 1rem;
+  padding: theme.$spacing;
   border-radius: 0.5rem;
-  width: 30rem;
+  width: theme.$baseWidth;
   box-shadow: 5px 5px 10px rgba(0,0,0,0.2);
   margin-bottom: 1rem;
   display: flex;
   justify-content: space-between;
-
 
   .transactionLabel {
     font-size: 32px;
@@ -20,11 +21,13 @@
   }
 
   .category {
+    font-size: 1.5rem;
     color: gray;
     text-align: right;
   }
 
   .date {
+    font-size: 1.5rem;
     color: gray;
     text-align: left;
   }

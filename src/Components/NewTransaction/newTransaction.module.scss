@@ -1,0 +1,58 @@
+@use '../../Style/theme.module.scss';
+
+.newTransaction {
+    width: theme.$baseWidth;
+    margin-bottom: theme.$spacing;
+
+    .card {
+        box-shadow: 5px 5px 10px rgba(0,0,0,0.2);
+        border-radius: 0.5rem;
+        padding: theme.$spacing;
+        display: flex;
+        flex-direction: column;
+        align-items: stretch;
+        justify-content: stretch;
+    }
+
+    .submitButton {
+        justify-self: flex-end;
+        align-self: flex-end;
+        margin-top: theme.$spacing;
+    }
+}
+
+
+
+.newTransaction2 {
+    width: theme.$baseWidth;
+    margin-bottom: theme.$spacing;
+
+    .card {
+        box-shadow: 5px 5px 10px rgba(0,0,0,0.2);
+        border-radius: 0.5rem;
+        padding: theme.$spacing;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .side {
+        display: flex;
+        flex-direction: column;
+        align-items: stretch;
+        width: calc(50% - 0.5*theme.$spacing);
+    }
+
+    .layout {
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+    }
+
+    .submitButton {
+        justify-self: flex-end;
+        align-self: flex-end;
+        margin-top: theme.$spacing;
+    }
+}
+

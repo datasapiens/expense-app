@@ -1,5 +1,5 @@
 import { Transaction } from '../Home'
-import styles from './transactionsCard.module.scss'
+import styles from './transactionCard.module.scss'
 
 export function TransactionCard({
   label,

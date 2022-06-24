@@ -1,6 +1,6 @@
 import { useState } from 'react'
+import { ListOfTransactions } from './ListOfTransactions/ListOfTransactions'
 import { NewTransaction } from './NewTransaction/NewTransaction'
-import { TransactionCard } from './TransactionCard/TransactionCard'
 
 export type Category = {
   id: string
@@ -47,16 +47,18 @@ export function Home() {
     },
   ])
 
+  const addNewTransaction = (newTransaction: Transaction) => {
+    setTransactions([...transactions, newTransaction])
+  }
+
   return (
     <>
-      <div>Home</div>
-      <NewTransaction categories={categories} />
-      <div>List of transactions</div>
-      <div>
-        {transactions.map((transaction) => (
-          <TransactionCard {...transaction} key={transaction.id} />
-        ))}
-      </div>
+      <h1>Home</h1>
+      <NewTransaction
+        categories={categories}
+        addTransaction={addNewTransaction}
+      />
+      <ListOfTransactions transactions={transactions} />
     </>
   )
 }
