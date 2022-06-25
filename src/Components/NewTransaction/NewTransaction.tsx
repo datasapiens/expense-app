@@ -34,8 +34,8 @@ export function NewTransaction({ categories, addTransaction }: Props) {
   }
 
   return (
-    <section className={styles.newTransaction2}>
-      <h2>New transaction 2</h2>
+    <section className={styles.newTransaction}>
+      <h2>New transaction</h2>
 
       <div className={styles.card}>
         <Input
