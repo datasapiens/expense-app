@@ -1,4 +1,4 @@
-import { Transaction } from '../Home'
+import { Transaction } from '../../features/transactions/transactionsSlice'
 import styles from './transactionCard.module.scss'
 
 export function TransactionCard({

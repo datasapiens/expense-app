@@ -1,16 +1,16 @@
 import { useState } from 'react'
-import { Category, Transaction } from '../Home'
 import { Input } from '../Input/Input'
 import styles from './newTransaction.module.scss'
-
-type Props = {
-  categories: Category[]
-  addTransaction: (t: Transaction) => void
-}
+import { useStore } from '../../app/store'
+import { useDispatch } from 'react-redux'
+import { addTransaction } from '../../features/transactions/transactionsSlice'
 
 const DEFAULT_CATEGORY = 'other'
 
-export function NewTransaction({ categories, addTransaction }: Props) {
+export function NewTransaction() {
+  const { categories } = useStore().categoires
+  const dispatch = useDispatch()
+
   const [amount, setAmount] = useState('')
   const [category, setCategory] = useState(DEFAULT_CATEGORY)
   const [transactionLabel, setTransactionLabel] = useState('')
@@ -18,7 +18,6 @@ export function NewTransaction({ categories, addTransaction }: Props) {
     // iso format is looks like "2022-06-25T00:37:18.547Z" and input type="date" wants "2022-06-25"
     () => new Date().toISOString().split('T')[0]
   )
-  // const [category, setCategory] = useState(DEFAULT_CATEGORY)
 
   const submit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault()
@@ -26,13 +25,15 @@ export function NewTransaction({ categories, addTransaction }: Props) {
     const amountNumber = Number(amount)
 
     if (!Number.isNaN(amountNumber)) {
-      addTransaction({
-        id: Date.now().toString(),
-        amount: amountNumber,
-        category,
-        label: transactionLabel,
-        date,
-      })
+      dispatch(
+        addTransaction({
+          id: Date.now().toString(),
+          amount: amountNumber,
+          category,
+          label: transactionLabel,
+          date,
+        })
+      )
     }
   }
 
@@ -65,13 +66,31 @@ export function NewTransaction({ categories, addTransaction }: Props) {
           onChange={(e) => setDate(e.target.value)}
           value={date}
         />
-        <Input
+        {/* <Input
           id="category"
           label="Category"
           name="category"
           onChange={(e) => setCategory(e.target.value)}
           value={category}
-        />
+        /> */}
+
+        <div>
+          <label htmlFor="category">Category</label>
+          <select
+            name="category"
+            id="category"
+            value={category}
+            onChange={(e) => {
+              setCategory(e.target.value)
+            }}
+          >
+            {categories.map(({ id, label }) => (
+              <option key={id}>{label}</option>
+            ))}
+            <option key={DEFAULT_CATEGORY}>Other</option>
+          </select>
+        </div>
+
         <button className={styles.submitButton} type="submit">
           Submit
         </button>

@@ -1,11 +1,9 @@
-import { Transaction } from '../Home'
+import { useStore } from '../../app/store'
 import { TransactionCard } from '../TransactionCard/TransactionCard'
 
-type Props = {
-  transactions: Transaction[]
-}
+export function ListOfTransactions() {
+  const { transactions } = useStore().transactions
 
-export function ListOfTransactions({ transactions }: Props) {
   return (
     <div>
       <h2>List of transactions</h2>
