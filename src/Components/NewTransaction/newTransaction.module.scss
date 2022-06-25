@@ -1,17 +1,17 @@
-@use '../../Style/theme.module.scss';
+@use '../../styles/theme.module.scss';
+@use '../../styles/mixins.module.scss';
 
 .newTransaction {
   margin-bottom: theme.$spacing;
   width: theme.$baseWidth;
 
   .card {
-    border-radius: 0.5rem;
-    box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.2);
+    @include mixins.card;
+
     column-gap: theme.$spacing;
     display: grid;
     grid-template-columns: 1fr 1fr;
     grid-template-rows: 2fr 2fr 1fr;
-    padding: theme.$spacing;
   }
 
   .submitButton {

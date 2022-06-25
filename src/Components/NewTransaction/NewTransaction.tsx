@@ -40,7 +40,6 @@ export function NewTransaction() {
   return (
     <section className={styles.newTransaction}>
       <h2>New transaction</h2>
-
       <form className={styles.card} onSubmit={submit}>
         <Input
           id="transaction-label"
@@ -90,7 +89,7 @@ export function NewTransaction() {
             <option key={DEFAULT_CATEGORY}>Other</option>
           </select>
         </div>
-
+        <button>Manage categories</button>
         <button className={styles.submitButton} type="submit">
           Submit
         </button>

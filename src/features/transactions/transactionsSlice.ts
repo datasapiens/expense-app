@@ -17,7 +17,7 @@ const initialState: TransactionsState = {
   transactions: [
     {
       id: '1',
-      label: 'Lunch',
+      label: 'Salary!',
       date: '2022-06-02',
       amount: 1000,
       category: 'salary',
@@ -31,7 +31,7 @@ const initialState: TransactionsState = {
     },
     {
       id: '3',
-      label: 'Lunch',
+      label: 'Bus',
       date: '2022-06-03',
       amount: -1,
       category: 'commute',

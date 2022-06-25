@@ -1,3 +1,4 @@
+import { CategoryManagement } from './CategoryManagement/CategoryManagement'
 import { ListOfTransactions } from './ListOfTransactions/ListOfTransactions'
 import { NewTransaction } from './NewTransaction/NewTransaction'
 
@@ -6,6 +7,7 @@ export function Home() {
     <>
       <h1>Home</h1>
       <NewTransaction />
+      <CategoryManagement />
       <ListOfTransactions />
     </>
   )
