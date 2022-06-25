@@ -38,42 +38,35 @@ export function NewTransaction({ categories, addTransaction }: Props) {
       <h2>New transaction 2</h2>
 
       <div className={styles.card}>
-        <div className={styles.layout}>
-          <div className={styles.side}>
-            <Input
-              label="Label"
-              name="transaction-label"
-              id="transaction-label"
-              value={transactionLabel}
-              onChange={(e) => setTransactionLabel(e.target.value)}
-            />
-            <Input
-              label="Date"
-              name="date"
-              id="date"
-              type="date"
-              value={date}
-              onChange={(e) => setDate(e.target.value)}
-            />
-          </div>
-
-          <div className={styles.side}>
-            <Input
-              label="Amount"
-              name="amount"
-              id="amount"
-              value={amount}
-              onChange={(e) => setAmount(e.target.value)}
-            />
-            <Input
-              label="Category"
-              name="category"
-              id="category"
-              value={category}
-              onChange={(e) => setCategory(e.target.value)}
-            />
-          </div>
-        </div>
+        <Input
+          label="Label"
+          name="transaction-label"
+          id="transaction-label"
+          value={transactionLabel}
+          onChange={(e) => setTransactionLabel(e.target.value)}
+        />
+        <Input
+          label="Date"
+          name="date"
+          id="date"
+          type="date"
+          value={date}
+          onChange={(e) => setDate(e.target.value)}
+        />
+        <Input
+          label="Amount"
+          name="amount"
+          id="amount"
+          value={amount}
+          onChange={(e) => setAmount(e.target.value)}
+        />
+        <Input
+          label="Category"
+          name="category"
+          id="category"
+          value={category}
+          onChange={(e) => setCategory(e.target.value)}
+        />
         <button className={styles.submitButton} onClick={submit}>
           Submit
         </button>
