@@ -1,22 +1,21 @@
 @use '../../Style/theme.module.scss';
 
 .newTransaction {
-    width: theme.$baseWidth;
-    margin-bottom: theme.$spacing;
+  margin-bottom: theme.$spacing;
+  width: theme.$baseWidth;
 
-    .card {
-        box-shadow: 5px 5px 10px rgba(0,0,0,0.2);
-        border-radius: 0.5rem;
-        padding: theme.$spacing;
-        display: grid;
-        grid-template-columns: 1fr 1fr;
-        grid-template-rows: 2fr 2fr 1fr;
-        column-gap: theme.$spacing;
-    }
+  .card {
+    border-radius: 0.5rem;
+    box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.2);
+    column-gap: theme.$spacing;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 2fr 2fr 1fr;
+    padding: theme.$spacing;
+  }
 
-    .submitButton {
-        grid-column: 2;
-        place-self: end;
-    }
+  .submitButton {
+    grid-column: 2;
+    place-self: end;
+  }
 }
-

@@ -11,7 +11,9 @@ export function TransactionCard({
     <div className={styles.card}>
       <div>
         <h1 className={styles.transactionLabel}>{label}</h1>
-        <p className={styles.date}>{date}</p>
+        <p className={styles.date}>
+          {new Intl.DateTimeFormat().format(new Date(date))}
+        </p>
       </div>
       <div>
         <p className={styles.amount} data-positive={amount > 0}>

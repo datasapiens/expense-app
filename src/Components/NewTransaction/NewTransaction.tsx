@@ -46,19 +46,19 @@ export function NewTransaction({ categories, addTransaction }: Props) {
           onChange={(e) => setTransactionLabel(e.target.value)}
         />
         <Input
+          label="Amount"
+          name="amount"
+          id="amount"
+          value={amount}
+          onChange={(e) => setAmount(e.target.value)}
+        />
+        <Input
           label="Date"
           name="date"
           id="date"
           type="date"
           value={date}
           onChange={(e) => setDate(e.target.value)}
-        />
-        <Input
-          label="Amount"
-          name="amount"
-          id="amount"
-          value={amount}
-          onChange={(e) => setAmount(e.target.value)}
         />
         <Input
           label="Category"

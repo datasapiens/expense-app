@@ -1,13 +1,13 @@
-@use "../../Style/theme.module.scss";
+@use '../../Style/theme.module.scss';
 
 .card {
-  padding: theme.$spacing;
   border-radius: 0.5rem;
-  width: theme.$baseWidth;
-  box-shadow: 5px 5px 10px rgba(0,0,0,0.2);
-  margin-bottom: 1rem;
+  box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.2);
   display: flex;
   justify-content: space-between;
+  margin-bottom: 1rem;
+  padding: theme.$spacing;
+  width: theme.$baseWidth;
 
   .transactionLabel {
     font-size: 32px;
@@ -21,25 +21,23 @@
   }
 
   .category {
-    font-size: 1.5rem;
     color: gray;
+    font-size: 1.5rem;
     text-align: right;
   }
 
   .date {
-    font-size: 1.5rem;
     color: gray;
+    font-size: 1.5rem;
     text-align: left;
   }
 
   .amount {
-    text-align: right;
     font-size: 32px;
+    text-align: right;
 
-    &[data-positive="true"]  {
+    &[data-positive='true'] {
       color: #006400;
     }
   }
-
 }
-
