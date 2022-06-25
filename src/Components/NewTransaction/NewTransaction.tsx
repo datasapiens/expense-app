@@ -15,6 +15,7 @@ export function NewTransaction({ categories, addTransaction }: Props) {
   const [category, setCategory] = useState(DEFAULT_CATEGORY)
   const [transactionLabel, setTransactionLabel] = useState('')
   const [date, setDate] = useState<string>(
+    // iso format is looks like "2022-06-25T00:37:18.547Z" and input type="date" wants "2022-06-25"
     () => new Date().toISOString().split('T')[0]
   )
   // const [category, setCategory] = useState(DEFAULT_CATEGORY)
