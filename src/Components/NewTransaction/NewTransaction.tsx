@@ -19,7 +19,9 @@ export function NewTransaction({ categories, addTransaction }: Props) {
   )
   // const [category, setCategory] = useState(DEFAULT_CATEGORY)
 
-  const submit = () => {
+  const submit = (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault()
+
     const amountNumber = Number(amount)
 
     if (!Number.isNaN(amountNumber)) {
@@ -37,40 +39,42 @@ export function NewTransaction({ categories, addTransaction }: Props) {
     <section className={styles.newTransaction}>
       <h2>New transaction</h2>
 
-      <div className={styles.card}>
+      <form className={styles.card} onSubmit={submit}>
         <Input
+          id="transaction-label"
           label="Label"
           name="transaction-label"
-          id="transaction-label"
-          value={transactionLabel}
+          required
           onChange={(e) => setTransactionLabel(e.target.value)}
+          value={transactionLabel}
         />
         <Input
+          id="amount"
           label="Amount"
           name="amount"
-          id="amount"
-          value={amount}
+          required
           onChange={(e) => setAmount(e.target.value)}
+          value={amount}
         />
         <Input
+          id="date"
           label="Date"
           name="date"
-          id="date"
           type="date"
-          value={date}
           onChange={(e) => setDate(e.target.value)}
+          value={date}
         />
         <Input
+          id="category"
           label="Category"
           name="category"
-          id="category"
-          value={category}
           onChange={(e) => setCategory(e.target.value)}
+          value={category}
         />
-        <button className={styles.submitButton} onClick={submit}>
+        <button className={styles.submitButton} type="submit">
           Submit
         </button>
-      </div>
+      </form>
     </section>
   )
 }

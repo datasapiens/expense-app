@@ -11,7 +11,7 @@ export function Input({ label, ...props }: Props) {
   return (
     <div className={styles.ordinaryInput}>
       <label htmlFor={props.id}>{label}</label>
-      <input {...props} />
+      <input {...props} required />
     </div>
   )
 }
