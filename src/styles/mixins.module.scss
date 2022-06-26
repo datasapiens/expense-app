@@ -1,7 +1,0 @@
-@use './theme.module.scss';
-
-@mixin card {
-  border-radius: 0.5rem;
-  box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.2);
-  padding: theme.$spacing;
-}

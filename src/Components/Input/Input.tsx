@@ -1,4 +1,4 @@
-import styles from './input.module.scss'
+import styles from '../../styles/common/input.module.scss'
 
 type Props = React.DetailedHTMLProps<
   React.InputHTMLAttributes<HTMLInputElement>,
@@ -9,7 +9,7 @@ type Props = React.DetailedHTMLProps<
 
 export function Input({ label, ...props }: Props) {
   return (
-    <div className={styles.ordinaryInput}>
+    <div className={styles.inputField}>
       <label htmlFor={props.id}>{label}</label>
       <input {...props} required />
     </div>

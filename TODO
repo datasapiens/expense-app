@@ -1,8 +1,0 @@
-[x] center the app
-[x] add redux to handle categories and transactions
-[x] make category management
-[ ] handle error when the user tries to create category with the label that already exists
-[ ] make category management look somewhat good
-[ ] store the store in the local storage
-[ ] sort transactions via date
-[ ] chart page

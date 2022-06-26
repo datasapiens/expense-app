@@ -1,0 +1,39 @@
+@use '../theme.module.scss';
+
+.inputField {
+  position: relative;
+
+  /* Remove number arrows */
+  input::-webkit-outer-spin-button,
+  input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+  }
+  input[type='number'] {
+    -moz-appearance: textfield;
+  }
+
+  label {
+    background: white;
+    font-size: 1.3rem;
+    left: 0.6 * theme.$spacing;
+    line-height: 0.6;
+    padding: 0 0.4 * theme.$spacing;
+    position: absolute;
+    top: -0.4rem;
+    min-width: 2rem;
+
+    &::after {
+      content: ':';
+    }
+  }
+
+  input,
+  select {
+    border: 1px solid gray;
+    border-radius: 0.5rem;
+    padding: 1.5rem;
+    width: 100%;
+    background-color: transparent;
+  }
+}

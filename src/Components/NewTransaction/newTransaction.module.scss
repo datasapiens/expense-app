@@ -1,21 +1,12 @@
 @use '../../styles/theme.module.scss';
-@use '../../styles/mixins.module.scss';
+@use '../../styles/placeholders.module.scss';
 
 .newTransaction {
-  margin-bottom: theme.$spacing;
-  width: theme.$baseWidth;
+  @extend %cardWithHeading;
+}
 
-  .card {
-    @include mixins.card;
-
-    column-gap: theme.$spacing;
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    grid-template-rows: 2fr 2fr 1fr;
-  }
-
-  .submitButton {
-    grid-column: 2;
-    place-self: end;
-  }
+.card {
+  gap: theme.$spacing;
+  display: grid;
+  grid-template-columns: 4fr 3fr 1fr 2fr 1fr;
 }

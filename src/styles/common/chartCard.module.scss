@@ -1,0 +1,15 @@
+@use '../placeholders.module.scss';
+@use '../theme.module.scss';
+
+.chartCard {
+  @extend %cardWithHeading;
+
+  & > div {
+    padding: 2 * theme.$spacing;
+  }
+
+  .chartContainer {
+    position: relative;
+    height: 40vh;
+  }
+}

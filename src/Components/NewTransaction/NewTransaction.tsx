@@ -1,19 +1,21 @@
 import { useState } from 'react'
 import { Input } from '../Input/Input'
-import styles from './newTransaction.module.scss'
+import styles from './NewTransaction.module.scss'
 import { useStore } from '../../app/store'
 import { useDispatch } from 'react-redux'
-import { addTransaction } from '../../features/transactions/transactionsSlice'
-
-const DEFAULT_CATEGORY = 'other'
+import {
+  addTransaction,
+  DEFAULT_CATEGORY,
+} from '../../features/expenseTrackerSlice'
+import { Select } from '../Select/Select'
 
 export function NewTransaction() {
-  const { categories } = useStore().categoires
+  const { categories } = useStore()
   const dispatch = useDispatch()
 
-  const [amount, setAmount] = useState('')
-  const [category, setCategory] = useState(DEFAULT_CATEGORY)
   const [transactionLabel, setTransactionLabel] = useState('')
+  const [amount, setAmount] = useState('')
+  const [category, setCategory] = useState(DEFAULT_CATEGORY.id)
   const [date, setDate] = useState<string>(
     // iso format is looks like "2022-06-25T00:37:18.547Z" and input type="date" wants "2022-06-25"
     () => new Date().toISOString().split('T')[0]
@@ -25,16 +27,22 @@ export function NewTransaction() {
     const amountNumber = Number(amount)
 
     if (!Number.isNaN(amountNumber)) {
+      const positiveSignManuallyInserted = amount.startsWith('+')
+
       dispatch(
         addTransaction({
           id: Date.now().toString(),
-          amount: amountNumber,
+          amount: positiveSignManuallyInserted
+            ? amountNumber
+            : -Math.abs(amountNumber),
           category,
           label: transactionLabel,
           date,
         })
       )
     }
+    setAmount('')
+    setTransactionLabel('')
   }
 
   return (
@@ -45,6 +53,7 @@ export function NewTransaction() {
           id="transaction-label"
           label="Label"
           name="transaction-label"
+          placeholder="Name of new transaction"
           required
           onChange={(e) => setTransactionLabel(e.target.value)}
           value={transactionLabel}
@@ -53,6 +62,8 @@ export function NewTransaction() {
           id="amount"
           label="Amount"
           name="amount"
+          type="number"
+          placeholder="Add plus sign for income"
           required
           onChange={(e) => setAmount(e.target.value)}
           value={amount}
@@ -65,89 +76,27 @@ export function NewTransaction() {
           onChange={(e) => setDate(e.target.value)}
           value={date}
         />
-        {/* <Input
-          id="category"
+
+        <Select
           label="Category"
           name="category"
-          onChange={(e) => setCategory(e.target.value)}
+          id="category"
           value={category}
-        /> */}
+          onChange={(e) => {
+            setCategory(e.target.value)
+          }}
+        >
+          {categories.map(({ id, label }) => (
+            <option key={id} value={id}>
+              {label}
+            </option>
+          ))}
+        </Select>
 
-        <div>
-          <label htmlFor="category">Category</label>
-          <select
-            name="category"
-            id="category"
-            value={category}
-            onChange={(e) => {
-              setCategory(e.target.value)
-            }}
-          >
-            {categories.map(({ id, label }) => (
-              <option key={id}>{label}</option>
-            ))}
-            <option key={DEFAULT_CATEGORY}>Other</option>
-          </select>
-        </div>
-        <button>Manage categories</button>
         <button className={styles.submitButton} type="submit">
           Submit
         </button>
       </form>
     </section>
   )
-}
-
-{
-  /*
-
-      <section className={styles.newTransaction}>
-        <h2>New transaction</h2>
-<div className={styles.card}>
-          <div className={styles.layout}>
-            <Input
-              label="Label"
-              name="transaction-label"
-              id="transaction-label"
-              value={transactionLabel}
-              onChange={(e) => setTransactionLabel(e.target.value)}
-            />
-
-            <Input label="Date" name="date" id="date" type="date" />
-
-            <Input
-              label="Amount"
-              name="amount"
-              id="amount"
-              value={amount}
-              onChange={(e) => setAmount(e.target.value)}
-            />
-
-            <Input
-              label="Category"
-              name="category"
-              id="category"
-              value={amount}
-              onChange={(e) => setAmount(e.target.value)}
-            />
-
-            /* <label htmlFor="category">Category</label>
-          <select
-            name="category"
-            id="category"
-            value={category}
-            onChange={(e) => {
-              setCategory(e.target.value)
-            }}
-          >
-            {categories.map(({ id, label }) => (
-              <option key={id}>{label}</option>
-            ))}
-            <option key={DEFAULT_CATEGORY}>Other</option>
-          </select> 
-          </div>
-          <button className={styles.submitButton}>Submit</button>
-        </div>
-      </section> 
-  */
 }

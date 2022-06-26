@@ -1,46 +1,34 @@
-@use '../../styles/mixins.module.scss';
+@use '../../styles/placeholders.module.scss';
 @use '../../styles/theme.module.scss';
 
+.categoryManagement {
+  @extend %cardWithHeading;
+}
+
 .card {
-  @include mixins.card;
+  padding-bottom: 0.5 * theme.$spacing;
+}
 
-  width: theme.$baseWidth;
-  margin-bottom: theme.$spacing;
+.header {
+  cursor: pointer;
+  transition: 0.4s;
+}
 
-  ul {
-    padding: 0;
-    margin: 0;
-    // margin-bottom: theme.$spacing;
-  }
+.chips {
+  display: flex;
+  align-items: flex-start;
+  flex-wrap: wrap;
+}
 
-  li {
-    font-size: 1.5rem;
-    list-style: none;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    border-bottom: 1px solid transparent;
+.icon {
+  margin-left: theme.$spacing;
+  width: 1.5rem;
+  height: 1.5rem;
+  transform: scale(2) translateY(1px);
+  color: grey;
+  transition: transform 0.2s ease-in-out;
 
-    button {
-      font-size: 1.6rem;
-      background-color: transparent;
-      border: 0;
-      border-radius: 0.3rem;
-      padding: 1rem;
-      cursor: pointer;
-      visibility: hidden;
-    }
-
-    &:hover {
-      border-bottom: 1px solid rgba($color: #000000, $alpha: 0.1);
-
-      button {
-        visibility: visible;
-      }
-
-      p {
-        font-weight: bold;
-      }
-    }
+  &[data-reversed='true'] {
+    transform: scale(2, -2) translateY(-1px);
   }
 }

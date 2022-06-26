@@ -1,67 +1,42 @@
 import { useState } from 'react'
-import { useDispatch } from 'react-redux'
 import { useStore } from '../../app/store'
-import {
-  addCategory,
-  removeCategory,
-} from '../../features/categories/categoriesSlice'
-import { Input } from '../Input/Input'
-import styles from './categoryManagement.module.scss'
+import styles from './CategoryManagement.module.scss'
+import ExpandIcon from '../../assets/icons/expand.svg'
+import { CategoryChip } from '../CategoryChip/CategoryChip'
+import { NewCategoryChip } from '../NewCategoryChip/NewCategoryChip'
 
 export function CategoryManagement() {
-  const { categories } = useStore().categoires
-  const dispatch = useDispatch()
+  const [opened, setOpened] = useState(true)
+  const { categories } = useStore()
 
-  const [newCategoryLabel, setNewCategoryLabel] = useState('')
-
-  const onRemoveCategory = (id: string) => {
-    dispatch(removeCategory(id))
-  }
-
-  const onCreateCategory = (
-    e: React.MouseEvent<HTMLFormElement, MouseEvent>
-  ) => {
-    e.preventDefault()
-    if (categories.some((category) => category.label === newCategoryLabel)) {
-      return
-    }
-
-    dispatch(
-      addCategory({
-        label: newCategoryLabel,
-        id: Date.now().toString(),
-      })
-    )
-    setNewCategoryLabel('')
+  const toggleCategoryManagement = () => {
+    setOpened(!opened)
   }
 
   return (
-    <div>
-      <h2>Category management</h2>
-      <div className={styles.card}>
-        <ul>
-          {categories.map(({ id, label }) => (
-            <li key={id}>
-              <p>{label}</p>
-              <button
-                onClick={() => onRemoveCategory(id)}
-                title="Remove category"
-              >
-                🗑️
-              </button>
-            </li>
-          ))}
-        </ul>
-        <form onSubmit={onCreateCategory}>
-          <Input
-            label="New category name"
-            id="new-category-label"
-            value={newCategoryLabel}
-            onChange={(e) => setNewCategoryLabel(e.target.value)}
+    <section className={styles.categoryManagement}>
+      <span className={styles.header}>
+        <h2 onClick={toggleCategoryManagement}>
+          Categories
+          <img
+            className={styles.icon}
+            src={ExpandIcon}
+            data-reversed={opened}
+            alt="toggle"
           />
-          <button>Add category</button>
-        </form>
-      </div>
-    </div>
+        </h2>
+      </span>
+
+      {opened && (
+        <div className={styles.card} data-opened={opened}>
+          <div className={styles.chips}>
+            {categories.map((category) => (
+              <CategoryChip key={category.id} {...category} />
+            ))}
+            <NewCategoryChip />
+          </div>
+        </div>
+      )}
+    </section>
   )
 }
