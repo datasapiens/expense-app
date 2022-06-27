@@ -1,5 +1,5 @@
-import { PieChart } from '../components/DistributionOfExpenses/DistributionOfExpenses'
-import { BalanceOverview } from '../components/BalanceOverview/BalanceOverview'
+import { ExpenseDistribuitonChart } from '../components/ExpenseDistributionChart/ExpenseDistribuitonChart'
+import { BalanceOverviewChart } from '../components/BalanceOverviewChart/BalanceOverviewChart'
 import { Helmet } from 'react-helmet-async'
 export function Charts() {
   return (
@@ -7,8 +7,8 @@ export function Charts() {
       <Helmet>
         <title>Charts - Expense App</title>
       </Helmet>
-      <PieChart />
-      <BalanceOverview />
+      <ExpenseDistribuitonChart />
+      <BalanceOverviewChart />
     </>
   )
 }

@@ -23,7 +23,7 @@ ChartJS.register(
   autocolors
 )
 
-export function BalanceOverview() {
+export function BalanceOverviewChart() {
   const { transactions, categories } = useStore()
 
   const data = {
@@ -68,6 +68,11 @@ export function BalanceOverview() {
       },
       y: {
         stacked: true,
+        ticks: {
+          callback: (value: string | number) => {
+            return value + ' €'
+          },
+        },
       },
     },
   }

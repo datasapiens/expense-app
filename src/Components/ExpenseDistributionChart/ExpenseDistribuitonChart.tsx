@@ -6,7 +6,7 @@ import autocolors from 'chartjs-plugin-autocolors'
 
 ChartJS.register(ArcElement, Tooltip, Legend, autocolors)
 
-export function PieChart() {
+export function ExpenseDistribuitonChart() {
   const { transactions, categories } = useStore()
 
   const categoryLabels = categories.map((category) => category.label)
