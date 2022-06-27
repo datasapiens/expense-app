@@ -1,0 +1,6 @@
+@use '../../styles/placeholders.module.scss';
+@use '../../styles/theme.module.scss';
+
+.transactions {
+  @extend %cardWithHeading;
+}

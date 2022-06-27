@@ -1,0 +1,98 @@
+@use './theme.module.scss';
+
+%card {
+  border-radius: 0.6rem;
+  border: 1px solid theme.$lightGrey;
+  padding: theme.$spacing;
+  background: white;
+}
+
+%chip {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border: 1px solid theme.$mediumGrey;
+  border-radius: 1000px;
+  padding: 0.3rem 1rem;
+  margin-right: 0.5 * theme.$spacing;
+  margin-bottom: 0.5 * theme.$spacing;
+  font-size: 1.3rem;
+  height: 3rem;
+
+  &:hover {
+    border-color: theme.$darkGrey;
+  }
+
+  button {
+    background: transparent;
+    border: 0;
+    transition: trasform 0.2s ease-in-out;
+
+    img {
+      cursor: pointer;
+      height: 1rem;
+      transform: scale(1.5);
+
+      &:hover {
+        transform: scale(1.8);
+      }
+
+      &:active {
+        transform: scale(1.7);
+      }
+    }
+  }
+}
+
+%inputField {
+  position: relative;
+
+  /* Remove number arrows */
+  input::-webkit-outer-spin-button,
+  input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+  }
+  input[type='number'] {
+    -moz-appearance: textfield;
+  }
+
+  label {
+    background: white;
+    font-size: 1.3rem;
+    left: 0.6 * theme.$spacing;
+    line-height: 0.6;
+    padding: 0 0.4 * theme.$spacing;
+    position: absolute;
+    top: -0.4rem;
+
+    &::after {
+      content: ':';
+    }
+  }
+
+  input,
+  select {
+    border: 1px solid gray;
+    border-radius: 0.5rem;
+    padding: 1.5rem;
+    width: 100%;
+    background-color: transparent;
+  }
+}
+
+%cardWithHeading {
+  h2 {
+    color: theme.$headingBlack;
+    padding-left: 0.5 * theme.$spacing;
+    font-size: 2rem;
+    margin-bottom: 0.6 * theme.$spacing;
+    font-weight: bold;
+  }
+
+  & > div,
+  & > form {
+    @extend %card;
+    margin-bottom: 1.5 * theme.$spacing;
+  }
+}

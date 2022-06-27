@@ -1,0 +1,15 @@
+@use '../../styles/theme.module.scss';
+@use '../../styles/placeholders.module.scss';
+
+.categoryChip {
+  @extend %chip;
+
+  p {
+    margin: 0;
+    margin-left: 0.1rem;
+  }
+
+  button {
+    margin-left: 1rem;
+  }
+}

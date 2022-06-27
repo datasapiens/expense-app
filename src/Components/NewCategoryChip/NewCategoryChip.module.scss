@@ -1,0 +1,21 @@
+@use '../../styles/theme.module.scss';
+@use '../../styles/placeholders.module.scss';
+
+.newCategoryChip {
+  @extend %chip;
+
+  &:focus-within {
+    outline: auto;
+  }
+
+  input {
+    font-size: inherit;
+    margin: 0;
+    margin-right: 1rem;
+    margin-left: 0.1rem;
+    padding: 0;
+    border: 0;
+    width: auto;
+    outline: none;
+  }
+}

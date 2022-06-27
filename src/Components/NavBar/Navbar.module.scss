@@ -1,0 +1,31 @@
+@use '../../styles/theme.module.scss';
+
+.navbar {
+  font-size: 2.5rem;
+  margin-bottom: theme.$spacing;
+  display: flex;
+  justify-content: center;
+
+  ul {
+    display: flex;
+    align-items: center;
+
+    li {
+      padding: theme.$spacing;
+      width: 12rem;
+      font-weight: bold;
+
+      a,
+      a:visited {
+        color: theme.$headingBlack;
+        text-decoration: none;
+        border-bottom: 4px solid transparent;
+
+        &.active {
+          border-color: theme.$headingBlack;
+          color: theme.$headingBlack;
+        }
+      }
+    }
+  }
+}

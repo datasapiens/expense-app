@@ -1,0 +1,34 @@
+@use '../../styles/placeholders.module.scss';
+@use '../../styles/theme.module.scss';
+
+.categoryManagement {
+  @extend %cardWithHeading;
+}
+
+.card {
+  padding-bottom: 0.5 * theme.$spacing;
+}
+
+.header {
+  cursor: pointer;
+  transition: 0.4s;
+}
+
+.chips {
+  display: flex;
+  align-items: flex-start;
+  flex-wrap: wrap;
+}
+
+.icon {
+  margin-left: theme.$spacing;
+  width: 1.5rem;
+  height: 1.5rem;
+  transform: scale(2) translateY(1px);
+  color: grey;
+  transition: transform 0.2s ease-in-out;
+
+  &[data-reversed='true'] {
+    transform: scale(2, -2) translateY(-1px);
+  }
+}
