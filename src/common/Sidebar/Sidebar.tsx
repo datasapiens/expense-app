@@ -8,6 +8,7 @@ export const Sidebar:React.FC<{}> = () => {
         <ul className='sidebar_content_header'>
             <li><Link to='/'>Category</Link></li>
             <li><Link to='/graph'>graph</Link></li>
+    
         </ul>
     </section>
   )

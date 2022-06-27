@@ -6,7 +6,7 @@ import  {Home} from '../Pages/Home';
 export const Routing:React.FC<{}> = () =>{
     return(
         <Routes>
-            <Route path="/*" element={<Home/>}></Route>
+            <Route path="*" element={<Home/>}></Route>
         </Routes>
     )
 }

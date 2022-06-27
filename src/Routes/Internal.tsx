@@ -6,6 +6,6 @@ import { Graph } from '../Pages/Graph'
 export const Internal = () => 
 
     <Routes>
-        <Route path={'/'} element={<Categories/>}></Route>
+        <Route index element={<Categories/>}></Route>
         <Route path={'/graph'} element={<Graph/>}></Route>
     </Routes>
