@@ -6,6 +6,11 @@ export function TransactionTable() {
   const { transactions, categoryDictionary } = useStore()
 
   const customStyles: TableStyles = {
+    table: {
+      style: {
+        fontSize: '1.5rem',
+      },
+    },
     rows: {
       style: {
         fontSize: '1.5rem',

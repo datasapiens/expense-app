@@ -21,19 +21,8 @@ export function PieChart() {
       .reduce((prev, curr) => prev + curr, 0)
   )
 
-  const categoryLabelsWithSums = categoryLabels.map(
-    (label, i) =>
-      `${label} (${new Intl.NumberFormat('cs-CZ', {
-        localeMatcher: 'best fit',
-        style: 'currency',
-        currency: 'EUR',
-        currencyDisplay: 'narrowSymbol',
-        signDisplay: 'exceptZero',
-      }).format(categoryValues[i])})`
-  )
-
   const data = {
-    labels: categoryLabelsWithSums,
+    labels: categoryLabels,
     datasets: [
       {
         data: categoryValues,

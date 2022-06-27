@@ -42,50 +42,7 @@ const initialState: ExpenseTrackerState = {
     ['commute']: 'Commuting',
     [DEFAULT_CATEGORY.id]: DEFAULT_CATEGORY.label,
   },
-  transactions: [
-    {
-      id: '1',
-      label: 'Salary!',
-      date: '2022-06-02',
-      amount: 200,
-      category: 'salary',
-    },
-    {
-      id: '2',
-      label: 'Lunch',
-      date: '2022-06-02',
-      amount: -10,
-      category: 'food',
-    },
-    {
-      id: '3',
-      label: 'Bus',
-      date: '2022-06-03',
-      amount: -1,
-      category: 'commute',
-    },
-    {
-      id: '4',
-      label: 'Taxi',
-      date: '2022-06-03',
-      amount: -12,
-      category: 'commute',
-    },
-    {
-      id: '5',
-      label: 'Movie',
-      date: '2022-06-03',
-      amount: -10,
-      category: 'going-out',
-    },
-    {
-      id: '6',
-      label: 'Concert',
-      date: '2022-06-03',
-      amount: -10,
-      category: 'going-out',
-    },
-  ],
+  transactions: [],
 }
 
 export const categoriesSlice = createSlice({
