@@ -8,5 +8,5 @@ export interface transactionState {
     label:string,
     date:string | any,
     amount:number,
-    category:string | number
+    category:string 
 }

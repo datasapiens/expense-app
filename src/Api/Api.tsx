@@ -44,7 +44,7 @@ export const transactionList: transactionState[] = [
         id: 'transact_2', 
         label:'Gifts from Uncle', 
         date: new Date(),
-        amount:350,
+        amount:750,
         category: 'gift'
     },
     {
@@ -61,5 +61,15 @@ export const transactionList: transactionState[] = [
         date: new Date(),
         amount:-230,
         category:'travel'
-    }
+    },
 ]
+
+// interface newarray {
+//     category:string,
+//     amount: number
+// }
+
+
+
+   
+
