@@ -7,7 +7,7 @@ import { NavBar } from './components/NavBar/NavBar'
 function App() {
   return (
     <div className={styles.layout}>
-      <BrowserRouter>
+      <BrowserRouter basename="/expense-app">
         <NavBar />
         <Routes>
           <Route path="/home" element={<Home />} />
