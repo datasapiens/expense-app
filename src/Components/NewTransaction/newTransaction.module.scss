@@ -9,4 +9,13 @@
   gap: theme.$spacing;
   display: grid;
   grid-template-columns: 4fr 3fr 1fr 2fr 1fr;
+
+  @media only screen and (max-width: 65rem) {
+    grid-template-columns: 1fr 1fr;
+
+    button {
+      grid-column: 1 / span 2;
+      align-self: stretch;
+    }
+  }
 }
