@@ -6,6 +6,7 @@ Simple app that let you track incomes/expense via transactions and assign them o
 
 - Vite
 - React
+- Redux toolkit
 - Typescript
 - SCSS modules
 - Chart.js
