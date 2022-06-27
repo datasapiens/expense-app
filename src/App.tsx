@@ -10,8 +10,8 @@ function App() {
       <BrowserRouter>
         <NavBar />
         <Routes>
-          <Route path="home" element={<Home />} />
-          <Route path="charts" element={<Charts />} />
+          <Route path="/home" element={<Home />} />
+          <Route path="/charts" element={<Charts />} />
           <Route path="/" element={<Navigate to="/home" replace={true} />} />
         </Routes>
       </BrowserRouter>
