@@ -27,14 +27,10 @@ export function NewTransaction() {
     const amountNumber = Number(amount)
 
     if (!Number.isNaN(amountNumber)) {
-      const positiveSignManuallyInserted = amount.startsWith('+')
-
       dispatch(
         addTransaction({
           id: Date.now().toString(),
-          amount: positiveSignManuallyInserted
-            ? amountNumber
-            : -Math.abs(amountNumber),
+          amount: amountNumber,
           category,
           label: transactionLabel,
           date,
@@ -63,7 +59,7 @@ export function NewTransaction() {
           label="Amount"
           name="amount"
           type="number"
-          placeholder="Add plus sign for income"
+          placeholder="€"
           required
           onChange={(e) => setAmount(e.target.value)}
           value={amount}
