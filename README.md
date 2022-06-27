@@ -14,10 +14,10 @@ Simple app that let you track incomes/expense via transactions and assign them o
 
 ## Getting started
 
-`npm i`
-`npm start` for local development
-`npm build` for build (obviously)
-`preview`: for build + serve on localhost
+- `npm i`
+- `npm start` for local development
+- `npm build` for build (obviously)
+- `preview`: for build + serve on localhost
 
 ## Note
 
