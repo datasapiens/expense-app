@@ -1,0 +1,36 @@
+@import '../Abstract//variables';
+@import '../Abstract/functions';
+@import '../Abstract/mixins';
+
+
+.category__table{
+    width:100%;
+    & thead{
+        & th{
+            background-color: $tbl_bg;
+            border-bottom: 1px solid $stroke;
+            padding: 30px 10px;
+            font-weight: 400;
+        }
+    }
+    & tr{
+        text-align: left;
+        &:hover{
+            background-color: $tbl_bg;
+        }
+        & td{
+            border-bottom: 1px solid $stroke;
+            padding: 30px 10px;
+            cursor: pointer;
+        }
+    }
+}
+
+.title{
+    &_text_red{
+        color: $red_color;
+    }
+    &_text_green{
+        color: $green_color;
+    }
+}

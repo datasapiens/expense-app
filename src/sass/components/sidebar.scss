@@ -1,0 +1,23 @@
+@import '../Abstract/variables';
+@import '../Abstract/mixins';
+@import '../Abstract/functions';
+
+
+.sidebar__container{
+    height:100%;
+    @include flex_width(3);
+    background-color: $nav_color;
+}
+
+.sidebar_content_header{
+    padding-top: 300px;
+    text-align: center;
+    padding-bottom: 100px;
+
+    & li{
+        color: $grey_color;
+        margin-bottom: 20px;
+        font-size: .95rem;
+        font-weight: 500;
+    }
+}

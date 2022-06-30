@@ -1,0 +1,27 @@
+@mixin  fullwidth_height {
+    height: 100%;
+    width: 100%;
+}
+
+@mixin w_h_param($w,$h){
+    width: $w;
+    height: $h;
+}
+
+@mixin flex{
+    display: flex;
+}
+@mixin flexDirection($dir){
+    flex-direction: $dir;
+}
+
+@mixin flex_width($flexWidth){
+    flex: $flexWidth;
+}
+@mixin centralize{
+    margin: 0 auto;
+}
+@mixin bgcolor($color){
+    background-color: $color;
+
+}
