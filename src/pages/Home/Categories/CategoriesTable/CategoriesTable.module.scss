@@ -1,0 +1,30 @@
+@import '../../../../styles/variables.scss';
+
+.table {
+  border-collapse: collapse;
+  width: 100%;
+
+  thead {
+    th {
+      text-align: left;
+      border-bottom: 2px solid $black;
+      padding: $spacer * 0.5 $spacer * 0.5;
+      font-weight: 500;
+      &:last-child {
+        width: 1%;
+      }
+    }
+  }
+
+  tbody {
+    td {
+      padding: $spacer * 0.25 $spacer * 0.5;
+      border-bottom: 1px solid $gray-400;
+      height: 2.5rem;
+      vertical-align: middle;
+      &:last-child {
+        width: 1%;
+      }
+    }
+  }
+}

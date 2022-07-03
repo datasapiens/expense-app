@@ -12,5 +12,13 @@ module.exports = {
     '^.+\\.(css|less|scss)$': 'babel-jest'
   },
   collectCoverageFrom: ['<rootDir>/src/**/*.{ts,tsx}'],
-  coveragePathIgnorePatterns: ['<rootDir>/node_modules', 'index.ts', 'App.tsx']
+  coveragePathIgnorePatterns: [
+    '<rootDir>/node_modules',
+    '<rootDir>/src/store',
+    '<rootDir>/src/types',
+    '<rootDir>/src/constants.ts',
+    '<rootDir>/src/index.ts',
+    '<rootDir>/src/App.tsx',
+    '<rootDir>/src/data.ts'
+  ]
 };

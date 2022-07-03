@@ -1,9 +1,9 @@
 import { render, screen } from '@testing-library/react';
 import { Provider } from 'react-redux';
-import { store } from '../../store';
-import Home from './Home';
+import { store } from '../../../store';
+import Categories from './Categories';
 
-jest.mock('../../data', () => ({
+jest.mock('../../../data', () => ({
   // eslint-disable-next-line @typescript-eslint/naming-convention
   __esModule: true,
   CATEGORIES: [
@@ -22,9 +22,8 @@ jest.mock('../../data', () => ({
 it('should render', () => {
   render(
     <Provider store={store}>
-      <Home />
+      <Categories />
     </Provider>
   );
-  expect(screen.getByText('Transactions')).toBeInTheDocument();
   expect(screen.getByText('Categories')).toBeInTheDocument();
 });

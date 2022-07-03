@@ -1,0 +1,28 @@
+@import '../../styles/variables.scss';
+
+.button {
+  padding: $spacer * 0.5 $spacer;
+  color: #fff;
+  background: $primary;
+  border: 1px solid $primary;
+  text-decoration: none;
+  cursor: pointer;
+  font-size: 1rem;
+
+  &.secondary {
+    padding: $spacer * 0.25 $spacer * 0.5;
+    font-size: 0.75rem;
+    background: $gray-500;
+    border: 1px solid $gray-500;
+    transition: all 0.25s;
+    &:hover {
+      background: $gray-400;
+      border-color: $gray-400;
+    }
+  }
+
+  &.small {
+    padding: $spacer * 0.25 $spacer * 0.5;
+    font-size: 0.75rem;
+  }
+}
