@@ -13,7 +13,7 @@ const App = (): JSX.Element => {
         <Nav />
         <Routes>
           <Route path="/" element={<Home />} />
-          <Route path="graphs" element={<Graphs />} />
+          <Route path="/graphs" element={<Graphs />} />
         </Routes>
       </Container>
     </Provider>

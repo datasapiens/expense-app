@@ -5,8 +5,10 @@ import {
   BarElement,
   PointElement,
   LineElement,
+  LineController,
   Legend,
-  Tooltip
+  Tooltip,
+  BarController
 } from 'chart.js';
 import { Chart } from 'react-chartjs-2';
 import { useSelector } from 'react-redux';
@@ -21,8 +23,10 @@ ChartJS.register(
   BarElement,
   PointElement,
   LineElement,
+  LineController,
   Legend,
-  Tooltip
+  Tooltip,
+  BarController
 );
 
 const MultitypeChart = () => {
