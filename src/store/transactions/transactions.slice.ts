@@ -29,8 +29,25 @@ const transactionslice = createSlice({
       if (categoryId !== defaultCategoryId) {
         // delete category with categoryId
         categoriesAdapter.removeOne(state.categories, categoryId);
+
+        // find affected transactions
+        const transactions = transactionsAdapter
+          .getSelectors()
+          .selectAll(state)
+          .filter(x => x.categoryId === categoryId);
+
+        // update categoryId to default categoryId for all affected transactions
+        const updates = transactions.map(item => ({
+          id: item.id,
+          changes: {
+            categoryId: defaultCategoryId
+          }
+        }));
+        transactionsAdapter.updateMany(state, updates);
       }
     },
+    addTransaction: transactionsAdapter.addOne,
+    addTransactions: transactionsAdapter.addMany
   }
 });
 

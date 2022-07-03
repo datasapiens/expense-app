@@ -7,8 +7,6 @@ import CategoriesTable from './CategoriesTable';
 window.confirm = jest.fn(() => true);
 
 jest.mock('../../../../data', () => ({
-  // eslint-disable-next-line @typescript-eslint/naming-convention
-  __esModule: true,
   CATEGORIES: [
     {
       id: 'CAT_1',

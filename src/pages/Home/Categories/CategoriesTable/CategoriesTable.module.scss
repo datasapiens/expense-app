@@ -7,9 +7,14 @@
   thead {
     th {
       text-align: left;
-      border-bottom: 2px solid $black;
+      border-bottom: 1px solid $gray-400;
       padding: $spacer * 0.5 $spacer * 0.5;
       font-weight: 500;
+      font-size: 1rem;
+      vertical-align: middle;
+      padding-left: $spacer;
+      padding-right: $spacer;
+      height: 3rem;
       &:last-child {
         width: 1%;
       }
@@ -22,6 +27,10 @@
       border-bottom: 1px solid $gray-400;
       height: 2.5rem;
       vertical-align: middle;
+      font-size: 1rem;
+      padding-left: $spacer;
+      padding-right: $spacer;
+      height: 3rem;
       &:last-child {
         width: 1%;
       }

@@ -1,7 +1,7 @@
 @import '../../styles/variables.scss';
 
 .formControl {
-  margin-bottom: $spacer * 0.5;
+  margin-bottom: $spacer;
 
   &.hasError {
     label {

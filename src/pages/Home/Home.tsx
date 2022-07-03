@@ -1,12 +1,14 @@
-import Card from '../../components/Card/Card';
+import AddSampleTransactions from './AddSampleTransactions/AddSampleTransactions';
 import Categories from './Categories/Categories';
 import styles from './Home.module.scss';
+import Transactions from './Transactions/Transactions';
 
 const Home = (): JSX.Element => {
   return (
     <div className={styles.flex}>
       <div className={styles.colLeft}>
-        <Card header="Transactions">---</Card>
+        <Transactions />
+        <AddSampleTransactions />
       </div>
       <div className={styles.colRight}>
         <Categories />

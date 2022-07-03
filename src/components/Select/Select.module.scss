@@ -1,6 +1,6 @@
 @import '../../styles/variables.scss';
 
-.input {
+.select {
   width: 100%;
   font-size: 1rem;
   line-height: 1;
@@ -8,8 +8,5 @@
   appearance: none;
   border-style: solid;
   border-radius: $border-radius;
-
-  &:not([type='color']) {
-    padding: 0 $spacer * 0.5;
-  }
+  padding: 0 $spacer * 0.5;
 }

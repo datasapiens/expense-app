@@ -48,6 +48,7 @@ module.exports = {
         peerDependencies: true
       }
     ],
+    'import/no-named-as-default': 0,
     'import/extensions': [
       'warn',
       'ignorePackages',

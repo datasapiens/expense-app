@@ -1,3 +1,4 @@
 import transactionsSlice from './transactions.slice';
 
-export const { addCategory, removeCategory } = transactionsSlice.actions;
+export const { addCategory, removeCategory, addTransaction, addTransactions } =
+  transactionsSlice.actions;

@@ -3,8 +3,6 @@ import CategoryForm from './CategoryForm';
 
 const dispatchSpy = jest.fn();
 jest.mock('react-redux', () => ({
-  // eslint-disable-next-line @typescript-eslint/naming-convention
-  __esModule: true,
   useDispatch: () => dispatchSpy
 }));
 
