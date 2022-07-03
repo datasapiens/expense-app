@@ -1,14 +1,13 @@
 import { render, screen } from '@testing-library/react';
 import { Provider } from 'react-redux';
-import { store } from '../../store';
-import Graphs from './Graphs';
+import { store } from '../../../store';
+import PieChart from './PieChart';
 
 it('should render', () => {
   render(
     <Provider store={store}>
-      <Graphs />
+      <PieChart />
     </Provider>
   );
   expect(screen.getByText('Pie Chart')).toBeInTheDocument();
-  expect(screen.getByText('Multitype Chart')).toBeInTheDocument();
 });

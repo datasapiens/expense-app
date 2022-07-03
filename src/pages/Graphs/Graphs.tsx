@@ -1,14 +1,15 @@
-import Card from '../../components/Card/Card';
 import styles from './Graphs.module.scss';
+import MultitypeChart from './MultitypeChart/MultitypeChart';
+import PieChart from './PieChart/PieChart';
 
 const Graphs = (): JSX.Element => {
   return (
     <div className={styles.flex}>
       <div className={styles.colRight}>
-        <Card header="Pie Chart">---</Card>
+        <PieChart />
       </div>
       <div className={styles.colLeft}>
-        <Card header="Multitype Chart">---</Card>
+        <MultitypeChart />
       </div>
     </div>
   );
