@@ -1,5 +1,6 @@
 {
   "name": "expense-app",
+  "homepage": "https://github.com/tmichelogiannakis/expense-app",
   "version": "1.0.0",
   "description": "",
   "keywords": [],
@@ -13,10 +14,11 @@
     "test": "jest",
     "typecheck": "tsc",
     "prepare": "husky install",
-    "audit": "better-npm-audit audit -p"
+    "audit": "better-npm-audit audit -p",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build"
   },
   "dependencies": {
-    "@faker-js/faker": "7.3.0",
     "@hookform/resolvers": "2.9.3",
     "@reduxjs/toolkit": "1.8.3",
     "clsx": "1.2.0",
