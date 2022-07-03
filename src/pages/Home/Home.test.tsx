@@ -3,5 +3,6 @@ import Home from './Home';
 
 it('should render', () => {
   render(<Home />);
-  expect(screen.getByText('Home')).toBeInTheDocument();
+  expect(screen.getByText('Transactions')).toBeInTheDocument();
+  expect(screen.getByText('Categories')).toBeInTheDocument();
 });

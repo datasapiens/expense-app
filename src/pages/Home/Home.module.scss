@@ -1,0 +1,18 @@
+@import '../../styles/variables.scss';
+
+.flex {
+  display: flex;
+  margin: 0 -$spacer * 0.5;
+
+  .colLeft {
+    width: 75%;
+    flex: 1 0 75%;
+    padding: 0 $spacer * 0.5;
+  }
+
+  .colRight {
+    width: 25%;
+    flex: 1 0 25%;
+    padding: 0 $spacer * 0.5;
+  }
+}
