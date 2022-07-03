@@ -1,0 +1,10 @@
+@import '../../styles/variables.scss';
+
+.container {
+  width: 100%;
+  padding-right: ($spacer * 0.5);
+  padding-left: ($spacer * 0.5);
+  margin-right: auto;
+  margin-left: auto;
+  max-width: 1280px;
+}

@@ -8,9 +8,9 @@ module.exports = {
   setupFilesAfterEnv: ['<rootDir>/jestImports.ts'],
   modulePathIgnorePatterns: ['<rootDir>/dist/'],
   coverageProvider: 'v8',
+  moduleNameMapper: {
+    '^.+\\.(css|less|scss)$': 'babel-jest'
+  },
   collectCoverageFrom: ['<rootDir>/src/**/*.{ts,tsx}'],
-  coveragePathIgnorePatterns: [
-    '<rootDir>/node_modules',
-    'index.ts'
-  ]
+  coveragePathIgnorePatterns: ['<rootDir>/node_modules', 'index.ts', 'App.tsx']
 };
