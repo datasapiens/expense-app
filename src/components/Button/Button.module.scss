@@ -8,6 +8,7 @@
   text-decoration: none;
   cursor: pointer;
   font-size: 1rem;
+  border-radius: $border-radius;
 
   &.secondary {
     padding: $spacer * 0.25 $spacer * 0.5;

@@ -20,5 +20,7 @@ module.exports = {
     '<rootDir>/src/index.ts',
     '<rootDir>/src/App.tsx',
     '<rootDir>/src/data.ts'
-  ]
+  ],
+  // https://github.com/react-hook-form/resolvers/issues/396
+  resolver: '<rootDir>/.jest/resolver.js'
 };
