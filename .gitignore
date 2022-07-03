@@ -1,0 +1,15 @@
+# dependencies
+node_modules
+
+# testing
+coverage
+
+# dev
+dist
+
+# production
+build
+storybook-static
+
+# misc
+.env

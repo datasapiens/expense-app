@@ -1,0 +1,19 @@
+@import '../../../../styles/variables.scss';
+
+.wrapper {
+  padding: $spacer 0;
+
+  .title {
+    font-size: 1.25rem;
+    font-weight: 500;
+    margin-bottom: 1.5 * $spacer;
+  }
+}
+.form {
+  display: flex;
+  align-items: flex-end;
+  margin: $spacer * -0.5;
+  > div {
+    padding: 0 $spacer * 0.5;
+  }
+}

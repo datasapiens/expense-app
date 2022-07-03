@@ -1,0 +1,15 @@
+@import '../../styles/variables.scss';
+
+.formControl {
+  margin-bottom: $spacer;
+
+  &.hasError {
+    label {
+      color: $red;
+    }
+    input {
+      border-color: $red;
+      outline-color: $red;
+    }
+  }
+}

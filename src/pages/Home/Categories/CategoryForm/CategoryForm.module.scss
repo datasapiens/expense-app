@@ -1,0 +1,20 @@
+@import '../../../../styles/variables.scss';
+
+.wrapper {
+  padding: $spacer 0;
+
+  .title {
+    font-size: 1.25rem;
+    font-weight: 500;
+    margin-bottom: $spacer;
+  }
+}
+
+.form {
+  input {
+    width: 100%;
+  }
+  button {
+    width: 100%;
+  }
+}
