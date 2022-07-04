@@ -2,7 +2,6 @@ import { HashRouter, Route, Routes } from "react-router-dom";
 import { Navbar } from "components/Navbar/Navbar";
 import { Home } from "containers/Home/Home";
 import { Graphs } from "containers/Graphs/Graphs";
-import "./App.scss";
 
 export const App = () => (
   <HashRouter>

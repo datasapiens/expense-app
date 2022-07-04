@@ -4,9 +4,9 @@ import { Provider } from "react-redux";
 import { persistor, store } from "./app/store";
 import { App } from "./App";
 import reportWebVitals from "./reportWebVitals";
-import "./index.scss";
 import { HelmetProvider } from "react-helmet-async";
 import { PersistGate } from "redux-persist/integration/react";
+import "./index.scss";
 
 const container = document.getElementById("root")!;
 const root = createRoot(container);
