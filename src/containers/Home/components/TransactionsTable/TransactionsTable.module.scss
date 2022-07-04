@@ -1,0 +1,59 @@
+@use "../../../../styles/theme.module.scss";
+
+@mixin cell {
+  margin: 0;
+  padding: 0.5rem;
+  border-left: 1px solid theme.$black;
+  border-bottom: 1px solid theme.$black;
+}
+
+.transactionsTable {
+  table-layout: fixed;
+  width: 100%;
+  border-spacing: 0;
+
+  tr {
+    th:last-child,
+    td:last-child {
+      border-right: 1px solid theme.$black;
+    }
+
+    &:last-of-type td:first-of-type {
+      border-bottom-left-radius: 5px;
+    }
+    &:last-of-type td:last-of-type {
+      border-bottom-right-radius: 5px;
+    }
+  }
+
+  th {
+    @include cell;
+
+    background-color: theme.$primaryColor;
+    color: theme.$white;
+
+    &:first-of-type {
+      border-top-left-radius: 5px;
+    }
+
+    &:last-of-type {
+      border-top-right-radius: 5px;
+    }
+  }
+
+  td {
+    @include cell;
+  }
+}
+
+.cellAmount {
+  text-align: right;
+}
+
+.positive {
+  color: theme.$positiveColor;
+}
+
+.negative {
+  color: theme.$negativeColor;
+}

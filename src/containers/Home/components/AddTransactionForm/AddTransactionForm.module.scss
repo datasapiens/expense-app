@@ -1,0 +1,39 @@
+@use "../../../../styles/theme.module.scss";
+@import "../../../../styles/common.module.scss";
+
+.addTransactionForm {
+  margin: 0 auto;
+}
+
+.submit {
+  @include input;
+
+  background: theme.$primaryColor;
+  color: theme.$white;
+  text-transform: uppercase;
+  border: none;
+  margin-top: 40px;
+  padding: theme.$padding;
+  font-size: 16px;
+  font-weight: 100;
+  cursor: pointer;
+
+  &:hover {
+    background: lighten(theme.$primaryColor, 10%);
+  }
+}
+
+.amountPrefix {
+  margin-right: -10px;
+  position: absolute;
+}
+
+.select {
+  display: block;
+  box-sizing: border-box;
+  width: 100%;
+  border-radius: theme.$roundedBorder;
+  border: 1px solid theme.$primaryColor;
+  padding: 10px 15px;
+  margin-bottom: 30px;
+}
