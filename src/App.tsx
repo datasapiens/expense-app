@@ -1,15 +1,15 @@
-import { BrowserRouter, Route, Routes } from "react-router-dom";
+import { HashRouter, Route, Routes } from "react-router-dom";
 import { Navbar } from "components/Navbar/Navbar";
 import { Home } from "containers/Home/Home";
 import { Graphs } from "containers/Graphs/Graphs";
 import "./App.scss";
 
 export const App = () => (
-  <BrowserRouter>
+  <HashRouter>
     <Navbar />
     <Routes>
-      <Route path="/graphs" element={<Graphs />} />
       <Route path="/" element={<Home />} />
+      <Route path="/graphs" element={<Graphs />} />
     </Routes>
-  </BrowserRouter>
+  </HashRouter>
 );
