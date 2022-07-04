@@ -36,26 +36,24 @@ export interface Transaction {
 }
 
 export interface TranstactionsState {
-  items: Transaction[];
-  status: "idle" | "loading" | "failed";
+  transactions: Transaction[];
 }
 
 const initialState: TranstactionsState = {
-  items: DEFAULT_TRANSACTIONS,
-  status: "idle",
+  transactions: DEFAULT_TRANSACTIONS,
 };
 
 export const transactionsSlice = createSlice({
   name: "transactions",
   initialState,
   reducers: {
-    add: (state, action: PayloadAction<Transaction>) => {
-      state.items.push({ ...action.payload, id: uuidv4() });
+    addTransaction: (state, action: PayloadAction<Transaction>) => {
+      state.transactions.push({ ...action.payload, id: uuidv4() });
     },
   },
 });
 
-export const { add } = transactionsSlice.actions;
+export const { addTransaction } = transactionsSlice.actions;
 
 export const selectTransactions = (state: RootState) => state.transactions;
 

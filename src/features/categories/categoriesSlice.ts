@@ -31,29 +31,27 @@ export interface Category {
 }
 
 export interface CategoriesState {
-  items: Category[];
-  status: "idle" | "loading" | "failed";
+  categories: Category[];
 }
 
 const initialState: CategoriesState = {
-  items: DEFAULT_CATEGORIES,
-  status: "idle",
+  categories: DEFAULT_CATEGORIES,
 };
 
 export const categoriesSlice = createSlice({
   name: "categories",
   initialState,
   reducers: {
-    add: (state, action: PayloadAction<string>) => {
-      state.items.push({ label: action.payload, id: uuidv4() });
+    addCategory: (state, action: PayloadAction<string>) => {
+      state.categories.push({ label: action.payload, id: uuidv4() });
     },
-    remove: (state, action: PayloadAction<string>) => {
-      state.items = state.items.filter(({ id }) => id !== action.payload);
+    removeCategory: (state, action: PayloadAction<string>) => {
+      state.categories = state.categories.filter(({ id }) => id !== action.payload);
     },
   },
 });
 
-export const { add, remove } = categoriesSlice.actions;
+export const { addCategory, removeCategory } = categoriesSlice.actions;
 
 export const selectCategories = (state: RootState) => state.categories;
 

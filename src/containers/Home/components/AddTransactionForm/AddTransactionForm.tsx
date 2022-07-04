@@ -2,7 +2,7 @@ import { useAppDispatch, useAppSelector } from "app/hooks";
 import { FormInput } from "components/FormInput/FormInput";
 import { useForm } from "react-hook-form";
 import { selectCategories } from "features/categories/categoriesSlice";
-import { add, Transaction } from "features/transactions/transactionsSlice";
+import { addTransaction, Transaction } from "features/transactions/transactionsSlice";
 import styles from "./AddTransactionForm.module.scss";
 
 interface FieldValues extends Omit<Transaction, "amount"> {
@@ -16,7 +16,7 @@ const currentDate = new Date().toISOString().slice(0, 10);
 
 export const AddTransactionForm = () => {
   const dispatch = useAppDispatch();
-  const { items: categories } = useAppSelector(selectCategories);
+  const { categories } = useAppSelector(selectCategories);
 
   const {
     register,
@@ -27,7 +27,7 @@ export const AddTransactionForm = () => {
 
   const onSubmit = (data: FieldValues) => {
     dispatch(
-      add({
+      addTransaction({
         ...data,
         amount: parseFloat(data.amount),
       }),

@@ -7,8 +7,8 @@ const AMOUNT_LOCALE_OPTIONS = { style: "currency", currency: "EUR" };
 const NO_CATEGORY_LABEL = "No Category";
 
 export const TransactionsTable = () => {
-  const { items: transactions } = useAppSelector(selectTransactions);
-  const { items: categories } = useAppSelector(selectCategories);
+  const { transactions } = useAppSelector(selectTransactions);
+  const { categories } = useAppSelector(selectCategories);
 
   return (
     <table className={styles.transactionsTable}>

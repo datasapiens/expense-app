@@ -20,8 +20,8 @@ const options = {
 };
 
 export const SpendingsChart = () => {
-  const { items: transactions } = useAppSelector(selectTransactions);
-  const { items: categories } = useAppSelector(selectCategories);
+  const { transactions } = useAppSelector(selectTransactions);
+  const { categories } = useAppSelector(selectCategories);
 
   const labels = categories.map(({ label }) => label);
   const datasets = [

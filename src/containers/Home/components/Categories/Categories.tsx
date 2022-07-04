@@ -1,7 +1,7 @@
 import { useAppDispatch, useAppSelector } from "app/hooks";
 import { Card } from "components/Card/Card";
 import { Tag } from "components/Tag/Tag";
-import { add, remove, selectCategories } from "features/categories/categoriesSlice";
+import { addCategory, removeCategory, selectCategories } from "features/categories/categoriesSlice";
 import { AddCategory } from "../AddCategory/AddCategory";
 import styles from "./Categories.module.scss";
 
@@ -10,14 +10,14 @@ const getConfirmCloseMessage = (label: string) =>
 
 export const Categories = () => {
   const dispatch = useAppDispatch();
-  const { items } = useAppSelector(selectCategories);
+  const { categories } = useAppSelector(selectCategories);
 
   const onAdd = (value: string) => {
     const isNotEmpty = value !== "";
-    const isNotDuplicate = items.every(({ label }) => label !== value);
+    const isNotDuplicate = categories.every(({ label }) => label !== value);
 
     if (isNotEmpty && isNotDuplicate) {
-      dispatch(add(value));
+      dispatch(addCategory(value));
       return true;
     }
 
@@ -28,9 +28,9 @@ export const Categories = () => {
     <div className={styles.categoriesCard}>
       <Card title="Categories">
         <div className={styles.categoriesTagContainer}>
-          {items.map(({ id, label }) => {
+          {categories.map(({ id, label }) => {
             const onTagClose = () => {
-              window.confirm(getConfirmCloseMessage(label)) && dispatch(remove(id));
+              window.confirm(getConfirmCloseMessage(label)) && dispatch(removeCategory(id));
             };
 
             return <Tag key={id} label={label} onClose={onTagClose} />;

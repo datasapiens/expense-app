@@ -46,7 +46,7 @@ const options = {
 const QUARTERS = ["Q1", "Q2", "Q3", "Q4"];
 
 export const NetIncomeChart = ({ year }: NetIncomeChartProps) => {
-  const { items: transactions } = useAppSelector(selectTransactions);
+  const { transactions } = useAppSelector(selectTransactions);
 
   const datasets = [
     {
