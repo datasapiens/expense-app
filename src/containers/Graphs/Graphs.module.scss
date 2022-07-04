@@ -1,0 +1,9 @@
+@use "../../styles/theme.module.scss";
+
+.container {
+  padding: theme.$padding;
+  display: flex;
+  flex-wrap: wrap;
+  width: 100%;
+  box-sizing: border-box;
+}
