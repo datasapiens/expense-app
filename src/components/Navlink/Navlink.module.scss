@@ -1,0 +1,15 @@
+@use "../../styles/theme.module.scss";
+
+a {
+  color: rgba(255, 255, 255, 0.55);
+  text-decoration: none;
+  padding: 14px;
+
+  &:not(.active):hover {
+    color: rgba(255, 255, 255, 0.8);
+  }
+}
+
+.active {
+  color: theme.$white;
+}

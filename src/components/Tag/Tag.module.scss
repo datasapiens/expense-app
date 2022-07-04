@@ -1,0 +1,26 @@
+@use "../../styles/theme.module.scss";
+
+.tag {
+  display: inline-block;
+  padding: 0 15px;
+  height: 40px;
+  line-height: 40px;
+  border-radius: theme.$roundBorder;
+  background-color: theme.$primaryColor;
+  color: theme.$white;
+}
+
+.tagClose {
+  padding-left: 10px;
+  padding-right: 0;
+  color: theme.$gray;
+  font-size: 16px;
+  cursor: pointer;
+  outline: none;
+  background: transparent;
+  border: none;
+
+  &:hover {
+    color: theme.$white;
+  }
+}

@@ -1,0 +1,21 @@
+@use "../../styles/theme.module.scss";
+@import "../../styles/common.module.scss";
+
+.input {
+  @include input;
+}
+
+.invalidInput {
+  @include input;
+  border-color: theme.$negativeColor;
+
+  &:focus-visible {
+    outline: 1.5px solid theme.$negativeColor;
+  }
+}
+
+.validationError {
+  color: theme.$negativeColor;
+  position: relative;
+  top: -30px;
+}
