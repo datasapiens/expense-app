@@ -8,6 +8,7 @@ import autocolors from "chartjs-plugin-autocolors";
 ChartJS.register(ArcElement, Tooltip, Legend, autocolors);
 
 const options = {
+  aspectRatio: 1.5,
   responsive: true,
   plugins: {
     autocolors: {
