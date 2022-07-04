@@ -1,4 +1,10 @@
 .container {
   flex: 2;
-  min-width: 350px;
+}
+
+@media (min-width: 480px) {
+  .container {
+    flex: 2;
+    min-width: 450px;
+  }
 }
