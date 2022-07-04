@@ -1,15 +1,16 @@
-import { Navlink } from "../Navlink/Navlink";
+import { Navlink, NavlinkProps } from "../Navlink/Navlink";
 import styles from "./Navbar.module.scss";
 
-export const Navbar = () => (
+export interface NavbarProps {
+  links?: NavlinkProps[];
+}
+
+export const Navbar = ({ links }: NavbarProps) => (
   <nav className={styles.navbar}>
     <ul>
-      <li>
-        <Navlink to="/">Home</Navlink>
-      </li>
-      <li>
-        <Navlink to="/graphs">Graphs</Navlink>
-      </li>
+      {links?.map((linkProps) => (
+        <Navlink {...linkProps} />
+      ))}
     </ul>
   </nav>
 );
