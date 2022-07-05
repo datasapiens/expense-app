@@ -9,7 +9,7 @@ export const Navbar = ({ links }: NavbarProps) => (
   <nav className={styles.navbar}>
     <ul>
       {links?.map((linkProps) => (
-        <Navlink {...linkProps} />
+        <Navlink key={linkProps.to} {...linkProps} />
       ))}
     </ul>
   </nav>
