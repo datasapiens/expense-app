@@ -1,6 +1,9 @@
+import { useCallback, useMemo } from "react";
 import { useAppSelector } from "app/hooks";
-import { selectCategories } from "../../../../features/categories/categoriesSlice";
-import { selectTransactions } from "../../../../features/transactions/transactionsSlice";
+import { Table } from "components/Table/Table";
+import { selectCategories } from "features/categories/categoriesSlice";
+import { selectTransactions, Transaction } from "features/transactions/transactionsSlice";
+import { ColumnDef } from "@tanstack/react-table";
 import styles from "./TransactionsTable.module.scss";
 
 const AMOUNT_LOCALE_OPTIONS = { style: "currency", currency: "EUR" };
@@ -10,37 +13,54 @@ export const TransactionsTable = () => {
   const { transactions } = useAppSelector(selectTransactions);
   const { categories } = useAppSelector(selectCategories);
 
-  return (
-    <table className={styles.transactionsTable}>
-      <thead>
-        <tr>
-          <th>Label</th>
-          <th>Date</th>
-          <th>Amount</th>
-          <th>Category</th>
-        </tr>
-      </thead>
-      {transactions && (
-        <tbody>
-          {transactions.map((row) => {
-            const category = categories.find(({ id }) => id === row.category);
-            const categoryLabel = category?.label ?? NO_CATEGORY_LABEL;
-            const amountColor =
-              row.amount > 0 ? styles.positive : row.amount < 0 ? styles.negative : undefined;
-
-            return (
-              <tr key={row.id}>
-                <td>{row.label}</td>
-                <td>{new Date(row.date).toLocaleDateString()}</td>
-                <td className={`${styles.cellAmount} ${amountColor}`}>
-                  {row.amount.toLocaleString(undefined, AMOUNT_LOCALE_OPTIONS)}
-                </td>
-                <td>{categoryLabel}</td>
-              </tr>
-            );
-          })}
-        </tbody>
-      )}
-    </table>
+  const getCategoryLabel = useCallback(
+    (categoryId: string) => {
+      const category = categories.find(({ id }) => id === categoryId);
+      const categoryLabel = category?.label ?? NO_CATEGORY_LABEL;
+      return categoryLabel;
+    },
+    [categories],
   );
+
+  const getAmountCellStyle = (amount: number) =>
+    amount > 0 ? styles.positive : amount < 0 ? styles.negative : undefined;
+
+  const columns = useMemo<ColumnDef<Transaction>[]>(
+    () => [
+      {
+        accessorFn: ({ label }) => label,
+        id: "label",
+        header: "Label",
+      },
+      {
+        accessorFn: ({ date }) => date,
+        id: "date",
+        cell: ({ getValue }) => new Date(getValue()).toLocaleDateString(),
+        header: "Date",
+      },
+      {
+        accessorFn: ({ amount }) => amount,
+        id: "amount",
+        cell: ({ getValue }) => {
+          const value = getValue();
+
+          return (
+            <span className={`${styles.cellAmount} ${getAmountCellStyle(value)}`}>
+              {value.toLocaleString(undefined, AMOUNT_LOCALE_OPTIONS)}
+            </span>
+          );
+        },
+        header: "Amount",
+      },
+      {
+        accessorFn: ({ category }) => category,
+        id: "category",
+        cell: ({ getValue }) => getCategoryLabel(getValue()),
+        header: "Category",
+      },
+    ],
+    [getCategoryLabel],
+  );
+
+  return <Table columns={columns} data={transactions} />;
 };
