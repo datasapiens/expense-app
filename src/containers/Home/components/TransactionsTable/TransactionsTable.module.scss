@@ -1,0 +1,13 @@
+@use "../../../../styles/theme.module.scss";
+
+.cellAmount {
+  float: right;
+}
+
+.positive {
+  color: theme.$positiveColor;
+}
+
+.negative {
+  color: theme.$negativeColor;
+}

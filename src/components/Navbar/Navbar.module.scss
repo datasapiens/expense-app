@@ -1,0 +1,17 @@
+@use "../../styles/theme.module.scss";
+
+.navbar {
+  overflow: hidden;
+  background-color: theme.$primaryColor;
+  top: 0;
+  width: 100%;
+
+  ul {
+    margin: 0;
+    padding: theme.$padding;
+
+    li {
+      display: inline;
+    }
+  }
+}

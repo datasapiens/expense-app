@@ -1,0 +1,29 @@
+.input {
+  display: block;
+  box-sizing: border-box;
+  width: 100%;
+  border-radius: theme.$roundedBorder;
+  border: 1px solid theme.$primaryColor;
+  padding: 10px 15px;
+  margin-bottom: 30px;
+}
+
+.inputLabel {
+  display: block;
+  margin-bottom: 5px;
+}
+
+.button {
+  background: theme.$primaryColor;
+  color: theme.$white;
+  text-transform: uppercase;
+  border: none;
+  padding: 10px;
+  font-weight: bold;
+  cursor: pointer;
+  border-radius: theme.$roundedBorder;
+
+  &:hover {
+    background: lighten(theme.$primaryColor, 10%);
+  }
+}

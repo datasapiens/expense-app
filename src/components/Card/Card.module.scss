@@ -1,0 +1,12 @@
+@use "../../styles/theme.module.scss";
+
+.cardContainer {
+  background-color: theme.$white;
+  border-radius: theme.$roundedBorder;
+  padding: theme.$padding;
+  margin: 1.25rem;
+}
+
+.cardTitle {
+  margin-bottom: 40px;
+}
