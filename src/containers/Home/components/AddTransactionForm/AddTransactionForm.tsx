@@ -72,7 +72,11 @@ export const AddTransactionForm = () => {
         ))}
       </select>
 
-      <input type="submit" value="Submit" className={styles.submit} />
+      <input
+        type="submit"
+        value="Submit"
+        className={`${styles.input} ${styles.button} ${styles.submit}`}
+      />
     </form>
   );
 };

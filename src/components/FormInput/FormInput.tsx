@@ -19,7 +19,7 @@ export const FormInput = forwardRef<HTMLInputElement, FormInputProps>(
         name={name}
         ref={ref}
         aria-invalid={error ? "true" : "false"}
-        className={error ? styles.invalidInput : styles.input}
+        className={`${styles.input} ${error ? styles.invalidInput : undefined}`}
         {...props}
       />
       {error && <span className={styles.validationError}>{error}</span>}

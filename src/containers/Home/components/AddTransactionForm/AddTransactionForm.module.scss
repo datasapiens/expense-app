@@ -6,21 +6,10 @@
 }
 
 .submit {
-  @include input;
-
-  background: theme.$primaryColor;
-  color: theme.$white;
-  text-transform: uppercase;
-  border: none;
   margin-top: 40px;
   padding: theme.$padding;
   font-size: 16px;
   font-weight: 100;
-  cursor: pointer;
-
-  &:hover {
-    background: lighten(theme.$primaryColor, 10%);
-  }
 }
 
 .amountPrefix {

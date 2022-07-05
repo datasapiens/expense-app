@@ -1,12 +1,7 @@
 @use "../../styles/theme.module.scss";
 @import "../../styles/common.module.scss";
 
-.input {
-  @include input;
-}
-
 .invalidInput {
-  @include input;
   border-color: theme.$negativeColor;
 
   &:focus-visible {

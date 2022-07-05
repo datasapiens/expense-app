@@ -58,28 +58,28 @@ export const Table = <RowData extends {}>({
       <div className={styles.paginationContainer}>
         <div className={styles.paginationButtonsContainer}>
           <button
-            className={styles.tableButton}
+            className={styles.button}
             onClick={() => table.setPageIndex(0)}
             disabled={!table.getCanPreviousPage()}
           >
             {"<<"}
           </button>
           <button
-            className={styles.tableButton}
+            className={styles.button}
             onClick={() => table.previousPage()}
             disabled={!table.getCanPreviousPage()}
           >
             {"<"}
           </button>
           <button
-            className={styles.tableButton}
+            className={styles.button}
             onClick={() => table.nextPage()}
             disabled={!table.getCanNextPage()}
           >
             {">"}
           </button>
           <button
-            className={styles.tableButton}
+            className={styles.button}
             onClick={() => table.setPageIndex(table.getPageCount() - 1)}
             disabled={!table.getCanNextPage()}
           >
