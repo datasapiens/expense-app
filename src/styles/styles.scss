@@ -1,0 +1,51 @@
+.App {
+  padding: 50px;
+  justify-content: center;
+}
+
+.title{
+  padding-left: 50px;
+  justify-self: center;
+}
+
+
+.legend{
+  padding: 20px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.legend h3 {
+  margin-left: -60px;
+}
+
+.data-entry {
+  padding-top: 20px;
+  width: 100%;
+  display: flex;
+  justify-content: space-evenly;
+}
+
+.data-entry h2 {
+ margin-left: 175px;
+}
+.category {
+  width: 100%;
+}
+
+.transaction {
+  width: 100%;
+}
+
+.chart {
+  padding: 50px;
+}
+
+.chart-area {
+  width: 75%;
+  margin-left: 250px;
+}
+
+.chart-button {
+  margin-left: 250px;
+}
