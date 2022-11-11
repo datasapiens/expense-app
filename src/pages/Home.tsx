@@ -1,11 +1,9 @@
-import Sidebar from "../components/Sidebar";
+import "./Home.css";
 
 function Home() {
   return (
     <>
-      <Sidebar />
       <div className="home">
-        <div className="sidebar"></div>
         <div className="homepage">
           <h3>Homepage</h3>
         </div>
