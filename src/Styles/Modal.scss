@@ -1,0 +1,11 @@
+.modal {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin: 20px;
+}
+
+.modal > .icon {
+    cursor: pointer;
+    font-size: 24px;
+}

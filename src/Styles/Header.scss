@@ -1,0 +1,21 @@
+@import '../Variables/Variables.scss';
+
+.header {
+    width: 100%;
+    height: 80px;
+    display: flex;
+    align-items: center;
+    background-color: $bgHeader;
+}
+
+.headerLinks {
+    display: flex;
+    align-items: center;
+}
+
+.homepage> a,
+.graphPage > a,
+.header > a > h2 {
+    color: $textColor;
+    text-decoration: none;
+}
