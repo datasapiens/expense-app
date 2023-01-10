@@ -1,8 +1,10 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Header from "./components/Header";
-import Login from "./pages/Login";
 import Home from "./pages/Home";
+import Modal from "react-modal";
 import Graphs from "./pages/Graph";
+
+Modal.setAppElement("#root");
 
 function App() {
   return (
@@ -12,7 +14,6 @@ function App() {
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/graphs" element={<Graphs />} />
-          <Route path="/login" element={<Login />} />
         </Routes>
       </BrowserRouter>
     </>

@@ -1,7 +1,6 @@
 import { useState } from "react";
 import { GrAdd } from "react-icons/gr";
 import Modal from "react-modal";
-import "./Modal.css";
 
 export const ModalComponent: React.FC = () => {
   const [modelIsOpen, setModelIsOpen] = useState(false);

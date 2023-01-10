@@ -1,9 +1,11 @@
-import React from 'react'
+import { ModalComponent } from "./Modal";
 
 function Transaction() {
   return (
-    <div>Transaction</div>
-  )
+    <div>
+      <ModalComponent />
+    </div>
+  );
 }
 
 export default Transaction;

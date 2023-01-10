@@ -1,8 +1,7 @@
 import { Link } from "react-router-dom";
-import "./Header.css";
 import { AiOutlineHome } from "react-icons/ai";
 import { VscGraphLine } from "react-icons/vsc";
-import { VscAccount } from "react-icons/vsc";
+import "../Styles/Header.scss";
 
 function Header() {
   return (
@@ -20,11 +19,6 @@ function Header() {
         <div className="graphPage">
           <VscGraphLine className="icon" />
           <Link to="/graphs">Graphs</Link>
-        </div>
-
-        <div className="loginAccount">
-          <VscAccount className="icon" />
-          <Link to="/login">Login</Link>
         </div>
       </div>
     </div>

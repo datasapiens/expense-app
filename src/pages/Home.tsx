@@ -1,14 +1,12 @@
-import "./Home.css";
+import Categories from "../components/Categories";
+import Transaction from "../components/Transaction";
 
 function Home() {
   return (
-    <>
-      <div className="home">
-        <div className="homepage">
-          <h3>Homepage</h3>
-        </div>
-      </div>
-    </>
+    <div className="home">
+      <Categories />
+      <Transaction />
+    </div>
   );
 }
 
